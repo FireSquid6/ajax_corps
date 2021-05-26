@@ -1,0 +1,1 @@
+walkspd=6
