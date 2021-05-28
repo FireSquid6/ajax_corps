@@ -3,7 +3,7 @@ var key_up=keyboard_check(ord("W"))
 var key_down=keyboard_check(ord("S"))
 var key_left=keyboard_check(ord("A"))
 var key_right=keyboard_check(ord("D"))
-var key_dash=keyboard_check_pressed(vk_space)
+var key_dash=keyboard_check(vk_space)
 
 var movey=key_down-key_up
 var movex=key_right-key_left
@@ -12,9 +12,9 @@ var movex=key_right-key_left
 var spd=WALK_SPD
 
 //initiate dash
-if key_dash && dashCooldown<1 
+if key_dash && dashCooldown<1 && (movex!=0 || movey!=0)
 {
-	#macro MAX_DASH_COOLDOWN 10
+	#macro MAX_DASH_COOLDOWN 25
 	#macro DASH_FRAMES 10
 	dashTime=DASH_FRAMES
 	dashCooldown=MAX_DASH_COOLDOWN+DASH_FRAMES
@@ -27,7 +27,10 @@ if dashTime>0
 	#macro DASH_SPD 12
 	spd=DASH_SPD
 	dashTime-=1
+	image_blend=c_aqua
 }
+else image_blend=c_white
+dashCooldown--
 
 //COLLISIONS
 #macro colmap global.collisionTilemap
