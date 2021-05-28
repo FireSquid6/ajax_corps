@@ -7,10 +7,13 @@ key_right=keyboard_check(ord("D"))
 var movey=key_down-key_up
 var movex=key_right-key_left
 
+var xspd=WALK_SPD
+var yspd=WALK_SPD
+
 //collision check x
-if tile_meeting(x+(movex*walkspd),y,global.collisionTilemap)
+if tile_meeting(x+(movex*xspd),y,colmap)
 {
-	while !tile_meeting(x+movex,y,global.collisionTilemap)
+	while !tile_meeting(x+movex,y,colmap)
 	{
 		x+=movex
 	}
@@ -18,9 +21,9 @@ if tile_meeting(x+(movex*walkspd),y,global.collisionTilemap)
 }
 
 //collision check y
-if tile_meeting(x,y+(movey*walkspd),global.collisionTilemap)
+if tile_meeting(x,y+(movey*yspd),colmap)
 {
-	while !tile_meeting(x,y+movey,global.collisionTilemap)
+	while !tile_meeting(x,y+movey,colmap)
 	{
 		y+=movey
 	}
@@ -28,7 +31,7 @@ if tile_meeting(x,y+(movey*walkspd),global.collisionTilemap)
 }
 
 //move
-x+=movex*walkspd
-y+=movey*walkspd
+x+=movex*xspd
+y+=movey*yspd
 
 if keyboard_check_pressed(ord("R")) game_restart()

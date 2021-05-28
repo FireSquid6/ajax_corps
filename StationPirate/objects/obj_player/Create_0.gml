@@ -1,2 +1,2 @@
-walkspd=6
-global.collisionTilemap=layer_tilemap_get_id("collision")
+#macro colmap global.collisionTilemap
+#macro WALK_SPD 6

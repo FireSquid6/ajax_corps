@@ -4,8 +4,10 @@
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
     {"id":{"name":"spr_coltiles","path":"sprites/spr_coltiles/spr_coltiles.yy",},"order":0,},
     {"id":{"name":"ts_coltiles","path":"tilesets/ts_coltiles/ts_coltiles.yy",},"order":1,},
+    {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":1,},
     {"id":{"name":"tile_meeting","path":"scripts/tile_meeting/tile_meeting.yy",},"order":0,},
     {"id":{"name":"collision_line_tile","path":"scripts/collision_line_tile/collision_line_tile.yy",},"order":1,},
+    {"id":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},"order":0,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
   ],
   "Options": [
@@ -33,6 +35,7 @@
     {"folderPath":"folders/Data/Rooms.yy","order":2,"resourceVersion":"1.0","name":"Rooms","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Assets/Tilesets.yy","order":2,"resourceVersion":"1.0","name":"Tilesets","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Data/Scripts.yy","order":3,"resourceVersion":"1.0","name":"Scripts","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Data/Meta.yy","order":4,"resourceVersion":"1.0","name":"Meta","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

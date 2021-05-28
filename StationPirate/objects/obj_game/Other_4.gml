@@ -1,0 +1,1 @@
+global.collisionTilemap=layer_tilemap_get_id("collision")
