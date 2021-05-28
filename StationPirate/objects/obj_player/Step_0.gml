@@ -1,17 +1,38 @@
 //define keys
-key_up=keyboard_check(ord("W"))
-key_down=keyboard_check(ord("S"))
-key_left=keyboard_check(ord("A"))
-key_right=keyboard_check(ord("D"))
+var key_up=keyboard_check(ord("W"))
+var key_down=keyboard_check(ord("S"))
+var key_left=keyboard_check(ord("A"))
+var key_right=keyboard_check(ord("D"))
+var key_dash=keyboard_check_pressed(vk_space)
 
 var movey=key_down-key_up
 var movex=key_right-key_left
 
-var xspd=WALK_SPD
-var yspd=WALK_SPD
+#macro WALK_SPD 6
+var spd=WALK_SPD
 
+//initiate dash
+if key_dash && dashCooldown<1 
+{
+	#macro MAX_DASH_COOLDOWN 10
+	#macro DASH_FRAMES 10
+	dashTime=DASH_FRAMES
+	dashCooldown=MAX_DASH_COOLDOWN+DASH_FRAMES
+	
+}
+
+//during dash
+if dashTime>0
+{
+	#macro DASH_SPD 12
+	spd=DASH_SPD
+	dashTime-=1
+}
+
+//COLLISIONS
+#macro colmap global.collisionTilemap
 //collision check x
-if tile_meeting(x+(movex*xspd),y,colmap)
+if tile_meeting(x+(movex*spd),y,colmap)
 {
 	while !tile_meeting(x+movex,y,colmap)
 	{
@@ -21,7 +42,7 @@ if tile_meeting(x+(movex*xspd),y,colmap)
 }
 
 //collision check y
-if tile_meeting(x,y+(movey*yspd),colmap)
+if tile_meeting(x,y+(movey*spd),colmap)
 {
 	while !tile_meeting(x,y+movey,colmap)
 	{
@@ -31,7 +52,15 @@ if tile_meeting(x,y+(movey*yspd),colmap)
 }
 
 //move
-x+=movex*xspd
-y+=movey*yspd
+x+=movex*spd
+y+=movey*spd
 
 if keyboard_check_pressed(ord("R")) game_restart()
+
+//check if dead
+player_dead=function()
+{
+	instance_destroy(obj_player)
+	//instance_create(x,y,"lay_player",obj_playerDead)
+}
+if hp<1 player_dead()
