@@ -6,7 +6,7 @@
     "path": "folders/Data/Scripts/Weapon Data.yy",
   },
   "resourceVersion": "1.0",
-  "name": "find_dir",
+  "name": "projectiles",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Data/Scripts.yy",
+    "name": "Weapon Data",
+    "path": "folders/Data/Scripts/Weapon Data.yy",
   },
   "resourceVersion": "1.0",
   "name": "weapons",
