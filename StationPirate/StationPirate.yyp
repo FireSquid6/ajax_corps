@@ -5,6 +5,7 @@
     {"id":{"name":"spr_coltiles","path":"sprites/spr_coltiles/spr_coltiles.yy",},"order":0,},
     {"id":{"name":"ts_coltiles","path":"tilesets/ts_coltiles/ts_coltiles.yy",},"order":1,},
     {"id":{"name":"tile_meeting","path":"scripts/tile_meeting/tile_meeting.yy",},"order":0,},
+    {"id":{"name":"collision_line_tile","path":"scripts/collision_line_tile/collision_line_tile.yy",},"order":1,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
   ],
   "Options": [

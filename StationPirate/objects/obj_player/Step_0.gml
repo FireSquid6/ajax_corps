@@ -8,9 +8,9 @@ var movey=key_down-key_up
 var movex=key_right-key_left
 
 //collision check x
-if tile_meeting(x+(movex*walkspd),y,"collision")
+if tile_meeting(x+(movex*walkspd),y,global.collisionTilemap)
 {
-	while !tile_meeting(x+movex,y,"collision")
+	while !tile_meeting(x+movex,y,global.collisionTilemap)
 	{
 		x+=movex
 	}
@@ -18,15 +18,17 @@ if tile_meeting(x+(movex*walkspd),y,"collision")
 }
 
 //collision check y
-if tile_meeting(x,y+(movey*walkspd),"collision")
+if tile_meeting(x,y+(movey*walkspd),global.collisionTilemap)
 {
-	while !tile_meeting(x,y+movey,"collision")
+	while !tile_meeting(x,y+movey,global.collisionTilemap)
 	{
-		x+=movex
+		y+=movey
 	}
-	movex=0
+	movey=0
 }
 
 //move
 x+=movex*walkspd
 y+=movey*walkspd
+
+if keyboard_check_pressed(ord("R")) game_restart()
