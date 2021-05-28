@@ -1,6 +1,10 @@
 {
   "resources": [
+    {"id":{"name":"rm_testRoom","path":"rooms/rm_testRoom/rm_testRoom.yy",},"order":0,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
+    {"id":{"name":"spr_coltiles","path":"sprites/spr_coltiles/spr_coltiles.yy",},"order":0,},
+    {"id":{"name":"ts_coltiles","path":"tilesets/ts_coltiles/ts_coltiles.yy",},"order":1,},
+    {"id":{"name":"tile_meeting","path":"scripts/tile_meeting/tile_meeting.yy",},"order":0,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
   ],
   "Options": [
@@ -17,12 +21,17 @@
     "name": "Default",
     "children": [],
   },
-  "RoomOrderNodes": [],
+  "RoomOrderNodes": [
+    {"roomId":{"name":"rm_testRoom","path":"rooms/rm_testRoom/rm_testRoom.yy",},},
+  ],
   "Folders": [
     {"folderPath":"folders/Data.yy","order":2,"resourceVersion":"1.0","name":"Data","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Assets.yy","order":3,"resourceVersion":"1.0","name":"Assets","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Data/Player.yy","order":1,"resourceVersion":"1.0","name":"Player","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Assets/Player.yy","order":1,"resourceVersion":"1.0","name":"Player","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Data/Rooms.yy","order":2,"resourceVersion":"1.0","name":"Rooms","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Assets/Tilesets.yy","order":2,"resourceVersion":"1.0","name":"Tilesets","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Data/Scripts.yy","order":3,"resourceVersion":"1.0","name":"Scripts","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
