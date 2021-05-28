@@ -11,6 +11,7 @@
     {"id":{"name":"projectiles","path":"scripts/projectiles/projectiles.yy",},"order":0,},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":1,},
     {"id":{"name":"spr_none","path":"sprites/spr_none/spr_none.yy",},"order":0,},
+    {"id":{"name":"spr_test","path":"sprites/spr_test/spr_test.yy",},"order":0,},
     {"id":{"name":"tile_meeting","path":"scripts/tile_meeting/tile_meeting.yy",},"order":0,},
     {"id":{"name":"collision_line_tile","path":"scripts/collision_line_tile/collision_line_tile.yy",},"order":1,},
     {"id":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"order":2,},
@@ -48,6 +49,7 @@
     {"folderPath":"folders/Data/Enemy.yy","order":6,"resourceVersion":"1.0","name":"Enemy","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Assets/Meta.yy","order":3,"resourceVersion":"1.0","name":"Meta","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Data/Scripts/Weapon Data.yy","order":5,"resourceVersion":"1.0","name":"Weapon Data","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Assets/Bullets.yy","order":4,"resourceVersion":"1.0","name":"Bullets","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

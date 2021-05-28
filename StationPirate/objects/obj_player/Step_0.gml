@@ -7,6 +7,7 @@ var key_left=keyboard_check(ord("A"))
 var key_right=keyboard_check(ord("D"))
 var key_dash=keyboard_check_pressed(vk_space)
 
+//key_shoot=mouse_check_button(mb_left)
 key_shoot=mouse_check_button(mb_left)
 key_shoot_pressed=mouse_check_button_pressed(mb_left)
 
@@ -66,6 +67,9 @@ x+=movex*spd
 y+=movey*spd
 
 if keyboard_check_pressed(ord("R")) game_restart()
+
+//weapon
+weapon.step()
 
 //check if dead
 player_dead=function()
