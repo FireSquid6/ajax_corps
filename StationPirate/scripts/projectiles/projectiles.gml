@@ -11,6 +11,7 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 	assistFrames=_assistFrames
 	findDir=_findDir
 	dir=findDir()
+	inst.image_angle=dir-90
 	
 	step=function()
 	{

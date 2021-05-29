@@ -14,7 +14,7 @@ function weapon_pistol(_team,_obj) constructor
 	{
 		case weaponTeams.player:
 			target=par_enemy
-			assistFrames=5
+			assistFrames=3
 			findDir=player_find_dir
 			break
 		case weaponTeams.enemy:
@@ -25,7 +25,7 @@ function weapon_pistol(_team,_obj) constructor
 	}
 	
 	weapon_sprite=spr_none
-	bullet_sprite=spr_test
+	bullet_sprite=spr_lightBullet
 	
 	dmg=15
 	bulletSpd=18
@@ -38,7 +38,7 @@ function weapon_pistol(_team,_obj) constructor
 	switchTime=10
 	
 	inMag=magSize
-	inReserve=inMag*2
+	inReserve=inMag*5
 	cooldown=0
 	
 	step=function()
