@@ -13,3 +13,25 @@ part_type_color_mix(p,$ffff00,$ff8700)
 global.ptDashTrail=p
 
 #endregion
+
+#region arm positions
+
+global.arm_pos_walking=
+{
+	l: 140,
+	r: 40
+}
+
+global.arm_pos_handgun=
+{
+	l: 100,
+	r: 85
+}
+
+global.arm_pos_rifle=
+{
+	l: 65,
+	r: 345
+}
+
+#endregion
