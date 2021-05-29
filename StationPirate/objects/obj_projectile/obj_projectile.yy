@@ -4,7 +4,10 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "par_bullet",
+    "path": "objects/par_bullet/par_bullet.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -24,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Meta",
-    "path": "folders/Data/Meta.yy",
+    "name": "Bullets",
+    "path": "folders/Data/Bullets.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_projectile",

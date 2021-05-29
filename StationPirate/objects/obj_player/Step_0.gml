@@ -34,6 +34,8 @@ if dashTime>0
 {
 	#macro DASH_SPD 12
 	spd=DASH_SPD
+	
+	part_particles_create(global.partSystem,plr.x,plr.y,global.ptDashTrail,5)
 	dashTime-=1
 	image_blend=c_aqua
 }
@@ -69,6 +71,7 @@ y+=movey*spd
 if keyboard_check_pressed(vk_escape) game_restart()
 
 //weapon
+image_angle=point_direction(x,y,mouse_x,mouse_y)-90
 weapon.step()
 
 //check if dead
