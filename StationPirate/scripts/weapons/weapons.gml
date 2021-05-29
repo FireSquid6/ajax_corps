@@ -14,10 +14,12 @@ function weapon_pistol(_team,_obj) constructor
 	{
 		case weaponTeams.player:
 			target=par_enemy
+			assistFrames=5
 			findDir=player_find_dir
 			break
 		case weaponTeams.enemy:
 			target=obj_player
+			assistFrames=0
 			findDir=enemy_find_dir
 			break
 	}
@@ -26,31 +28,52 @@ function weapon_pistol(_team,_obj) constructor
 	bullet_sprite=spr_test
 	
 	dmg=15
-	bulletSpd=14
+	bulletSpd=18
 	lifespan=60
 	
-	maxCooldown=20
-	magSize=15
+	maxCooldown=15
+	reloadTime=45
+	magSize=7
 	reserveSize=95
+	switchTime=10
 	
-	inMag=infinity
-	inReserve=0
+	inMag=magSize
+	inReserve=inMag*2
 	cooldown=0
 	
 	step=function()
 	{
+		var shoot=obj_player.key_shoot
+		var reload=obj_player.key_reload
+		
 		//on shoot
-		if obj_player.key_shoot && cooldown<1 && inMag>0
+		if shoot && cooldown<1 && inMag>0
 		{
 			var bullet=instance_create_layer(inst.x,inst.y,"bullet",obj_projectile)
-			var dir=findDir()
-			bullet.struct=new projectile(bullet,target,bullet_sprite,dmg,bulletSpd,lifespan,dir)
+			bullet.struct=new projectile(bullet,target,bullet_sprite,dmg,bulletSpd,lifespan,assistFrames,findDir)
 			
 			cooldown=maxCooldown
 			inMag--
 		}
 		if cooldown>0 cooldown--
 		
+		//reload
+		if (reload || (inMag<1 && shoot)) && inReserve>0
+		{
+			cooldown=reloadTime
+			inReserve+=inMag
+			
+			if inReserve>=magSize
+			{
+				inMag=magSize
+				inReserve-=magSize
+			}
+			else
+			{
+				inMag=inReserve
+				inReserve=0
+			}
+		}
 	}
 	draw=function()
 	{

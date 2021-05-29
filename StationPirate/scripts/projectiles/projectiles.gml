@@ -1,4 +1,4 @@
-function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_dir) constructor
+function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir) constructor
 {
 	inst=_obj
 	target=_target
@@ -6,11 +6,21 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_dir) constructor
 	
 	dmg=_dmg
 	spd=_spd
-	dir=_dir
 	lifespan=_lifespan
+	
+	assistFrames=_assistFrames
+	findDir=_findDir
+	dir=findDir()
 	
 	step=function()
 	{
+		//assist
+		if assistFrames>0
+		{
+			dir=findDir()
+		}
+		if assistFrames>0 assistFrames--
+		
 		//move
 		inst.x+=lengthdir_x(spd,dir)
 		inst.y+=lengthdir_y(spd,dir)

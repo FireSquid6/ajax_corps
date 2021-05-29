@@ -1,9 +1,4 @@
 draw_self()
-draw_text(x,y-50,string(dashTime))
-draw_text(x,y-60,string(dashCooldown))
-
-var color
-var line=collision_line_tile(x,y,mouse_x,mouse_y,global.collisionTilemap,TILE_SIZE)
-if line color=c_red else color=c_white
-
-draw_line_width_color(x,y,mouse_x,mouse_y,3,color,color)
+draw_text(x,y-50,string(weapon.cooldown))
+draw_text(x,y-60,string(weapon.inMag))
+draw_text(x,y-70,string(weapon.inReserve))
