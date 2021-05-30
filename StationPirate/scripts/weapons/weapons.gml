@@ -5,6 +5,18 @@ enum weaponTeams
 	enemy
 }
 
+function get_weapon(str,team,obj)
+{
+	var w
+	switch str
+	{
+		case "pistol":
+			w=new weapon_pistol(team,obj)
+			break
+	}
+	return w
+}
+
 function weapon_pistol(_team,_obj) constructor
 {
 	team=_team

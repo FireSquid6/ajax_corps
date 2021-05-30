@@ -12,6 +12,8 @@ function human_init()
 	hp=100
 	flashTime=0
 	state=humanStates.patrolling
+	patrolSpd=5
+	attackSpd=8
 	
 	//get functions
 	if has_path patrol_ai=human_patrol_path else patrol_ai=human_patrol_standby
@@ -55,12 +57,17 @@ function human_patrol_path()
 
 function human_patrol_standby()
 {
-	
+	if collision_circle(x,y,512,obj_player,false,true)
+	{
+		human_switch_attack()
+	}
 }
 
 function human_switch_patrol()
 {
-	
+	state=humanStates.patrolling
+	spd=patrolSpd
+	if has_path path_start(path,patrolSpd,path_action_continue,false)
 }
 
 //ATTACK
@@ -86,5 +93,7 @@ function human_attack_longrange()
 
 function human_switch_attack()
 {
-	
+	backSpd=4
+	strafeSpd=attackSpd
+	state=humanStates.attacking
 }
