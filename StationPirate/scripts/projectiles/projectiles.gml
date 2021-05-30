@@ -1,4 +1,4 @@
-function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_particleId) constructor
+function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg) constructor
 {
 	inst=_obj
 	target=_target
@@ -7,6 +7,7 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 	dmg=_dmg
 	spd=_spd
 	lifespan=_lifespan
+	flashDmg=_flashDmg
 	
 	assistFrames=_assistFrames
 	findDir=_findDir
@@ -43,6 +44,7 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 			
 			//damage
 			col.hp-=dmg
+			col.flashTime=flashDmg
 			
 			//knockback
 			

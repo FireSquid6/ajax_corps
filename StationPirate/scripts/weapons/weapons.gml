@@ -35,6 +35,7 @@ function weapon_pistol(_team,_obj) constructor
 	reloadTime=45
 	magSize=7
 	switchTime=10
+	flashDmg=3
 	
 	inMag=magSize
 	inReserve=inMag*5
@@ -63,7 +64,7 @@ function weapon_pistol(_team,_obj) constructor
 		if shoot && cooldown<1 && inMag>0
 		{
 			var bullet=instance_create_layer(posX,posY,"bullet",obj_projectile)
-			bullet.struct=new projectile(bullet,target,bullet_sprite,dmg,bulletSpd,lifespan,assistFrames,findDir)
+			bullet.struct=new projectile(bullet,target,bullet_sprite,dmg,bulletSpd,lifespan,assistFrames,findDir,flashDmg)
 			
 			cooldown=maxCooldown
 			inMag--
