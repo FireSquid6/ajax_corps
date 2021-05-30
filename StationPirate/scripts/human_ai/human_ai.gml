@@ -10,12 +10,22 @@ function human_init()
 {
 	hp=100
 	flashTime=0
+	state=humanStates.patrolling
 }
 
 function human_step()
 {
 	if hp<1 instance_destroy()
 	if flashTime>0 flashTime--
+	switch state
+	{
+		case humanStates.patrolling:
+			patrol_ai()
+			break
+		case humanStates.attacking:
+			attack_ai()
+			break
+	}
 }
 
 //PATROL

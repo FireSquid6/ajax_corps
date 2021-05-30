@@ -72,7 +72,7 @@ function weapon_pistol(_team,_obj) constructor
 		if cooldown>0 cooldown--
 		
 		//reload
-		if (reload || (inMag<1 && shoot)) && inReserve>0
+		if (reload || (inMag<1 && shoot)) && (inReserve>0 && inMag!=magSize)
 		{
 			cooldown=reloadTime
 			inReserve+=inMag
