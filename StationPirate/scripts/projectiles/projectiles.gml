@@ -1,4 +1,4 @@
-function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir) constructor
+function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_particleId) constructor
 {
 	inst=_obj
 	target=_target
@@ -36,8 +36,19 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 		}
 		if col!=noone
 		{
-			instance_destroy(inst)
+			//particles
+			var p=global.ptBlood
+			part_type_direction(p,dir+160,dir+200,0,0)
+			part_particles_create(global.partSystem,col.x,col.y,p,8)
+			
+			//damage
 			col.hp-=dmg
+			
+			//knockback
+			
+			
+			//destroy
+			instance_destroy(inst)
 		}
 		
 		//hit wall
