@@ -1,3 +1,6 @@
+//weapon sprite
+weapon.draw()
+
 //right arm
 draw_sprite_ext(spr_playerArm,1,
 x+lengthdir_x(ARM_DIST,image_angle+rArmPos),

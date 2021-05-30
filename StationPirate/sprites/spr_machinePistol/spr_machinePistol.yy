@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"faac64ef-5e11-4408-a567-7a409801fd73","path":"sprites/spr_pistol/spr_pistol.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"faac64ef-5e11-4408-a567-7a409801fd73","path":"sprites/spr_pistol/spr_pistol.yy",},"LayerId":{"name":"6784ad25-71b0-40ce-b4eb-1405fff13896","path":"sprites/spr_pistol/spr_pistol.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_pistol","path":"sprites/spr_pistol/spr_pistol.yy",},"resourceVersion":"1.0","name":"faac64ef-5e11-4408-a567-7a409801fd73","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"faac64ef-5e11-4408-a567-7a409801fd73","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"faac64ef-5e11-4408-a567-7a409801fd73","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},"LayerId":{"name":"6784ad25-71b0-40ce-b4eb-1405fff13896","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_machinePistol","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},"resourceVersion":"1.0","name":"faac64ef-5e11-4408-a567-7a409801fd73","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_pistol","path":"sprites/spr_pistol/spr_pistol.yy",},
+    "spriteId": {"name":"spr_machinePistol","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"c331452b-a58d-4229-86d4-5577bca52d80","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"faac64ef-5e11-4408-a567-7a409801fd73","path":"sprites/spr_pistol/spr_pistol.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"56fa8a74-d3ee-452f-8661-4bf5ca755ad4","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"faac64ef-5e11-4408-a567-7a409801fd73","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 9,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_pistol","path":"sprites/spr_pistol/spr_pistol.yy",},
+    "parent": {"name":"spr_machinePistol","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_pistol",
+    "name": "spr_machinePistol",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Assets/Weapons.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_pistol",
+  "name": "spr_machinePistol",
   "tags": [],
   "resourceType": "GMSprite",
 }

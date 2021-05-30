@@ -4,6 +4,7 @@
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
     {"id":{"name":"weapons","path":"scripts/weapons/weapons.yy",},"order":1,},
     {"id":{"name":"spr_pistol","path":"sprites/spr_pistol/spr_pistol.yy",},"order":0,},
+    {"id":{"name":"spr_machinePistol","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},"order":1,},
     {"id":{"name":"spr_coltiles","path":"sprites/spr_coltiles/spr_coltiles.yy",},"order":0,},
     {"id":{"name":"spr_pixel","path":"sprites/spr_pixel/spr_pixel.yy",},"order":1,},
     {"id":{"name":"find_dir","path":"scripts/find_dir/find_dir.yy",},"order":2,},
