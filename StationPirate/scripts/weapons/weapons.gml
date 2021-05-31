@@ -62,8 +62,8 @@ function weapon_pistol(_team,_obj) constructor
 	
 	step=function()
 	{
-		var shoot=obj_player.key_shoot
-		var reload=obj_player.key_reload
+		var shoot=inst.key_shoot
+		var reload=inst.key_reload
 		
 		//get weapon pos
 		with inst

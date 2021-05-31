@@ -16,6 +16,8 @@ function human_init()
 	attackSpd=8
 	maxStrafeTime=60
 	key_shoot=false
+	rArmPos=0
+	weapon=get_weapon(weapon_string,weaponTeams.enemy,id)
 	
 	//get functions
 	if has_path patrol_ai=human_patrol_path else patrol_ai=human_patrol_standby
@@ -40,6 +42,7 @@ function human_step()
 {
 	if hp<1 instance_destroy()
 	if flashTime>0 flashTime--
+	key_reload=false
 	switch state
 	{
 		case humanStates.patrolling:
@@ -50,7 +53,7 @@ function human_step()
 			break
 	}
 	
-	weapon.step()
+	if instance_exists(plr) weapon.step()
 }
 
 //PATROL
@@ -87,21 +90,32 @@ function human_attack_shortrange()
 
 function human_attack_medrange()
 {
-	//shoot
-	key_shoot=true
-	
-	//strafe
-	strafeDir=point_direction(x,y,plr.x,plr.y)+(90*strafeSign)
-	x+=lengthdir_x(attackSpd,strafeDir)
-	y+=lengthdir_y(attackSpd,strafeDir)
-	
-	//move to player
-	var dist=point_distance(x,y,plr.x,plr.y)
-	if !between(dist,128,144)
+	if instance_exists(plr)
 	{
-		backDir=point_direction(x,y,plr.x,plr.y)
-		x+=lengthdir_x(backSpd,backDir)
-		y+=lengthdir_y(backSpd,backDir)
+		//shoot
+		key_shoot=true
+	
+		//strafe
+		strafeDir=point_direction(x,y,plr.x,plr.y)+(90*strafeSign)
+		x+=lengthdir_x(attackSpd,strafeDir)
+		y+=lengthdir_y(attackSpd,strafeDir)
+	
+		//move to player
+		var dist=point_distance(x,y,plr.x,plr.y)
+		if !between(dist,128,144)
+		{
+			backDir=point_direction(x,y,plr.x,plr.y)
+			x+=lengthdir_x(backSpd,backDir)
+			y+=lengthdir_y(backSpd,backDir)
+		}
+	
+		//time
+		strafeTime--
+		if strafeTime<1 
+		{
+			strafeSign*=-1
+			strafeTime=maxStrafeTime
+		}
 	}
 }
 
