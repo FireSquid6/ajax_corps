@@ -94,27 +94,36 @@ function human_attack_medrange()
 	{
 		//shoot
 		key_shoot=true
-	
-		//strafe
-		strafeDir=point_direction(x,y,plr.x,plr.y)+(90*strafeSign)
-		x+=lengthdir_x(attackSpd,strafeDir)
-		y+=lengthdir_y(attackSpd,strafeDir)
-	
-		//move to player
-		var dist=point_distance(x,y,plr.x,plr.y)
-		if !between(dist,128,144)
+		
+		if strafing
 		{
-			backDir=point_direction(x,y,plr.x,plr.y)
-			x+=lengthdir_x(backSpd,backDir)
-			y+=lengthdir_y(backSpd,backDir)
+			//strafe
+			strafeDir=point_direction(x,y,plr.x,plr.y)+(90*strafeSign)
+			x+=lengthdir_x(attackSpd,strafeDir)
+			y+=lengthdir_y(attackSpd,strafeDir)
+	
+			//move to player
+			var dist=point_distance(x,y,plr.x,plr.y)
+			if !between(dist,192,208)
+			{
+				backDir=point_direction(x,y,plr.x,plr.y)
+				if dist<128 backDir+=180
+				x+=lengthdir_x(backSpd,backDir)
+				y+=lengthdir_y(backSpd,backDir)
+			}
+		
+	
+			//time
+			strafeTime--
+			if strafeTime<1 
+			{
+				strafeSign*=-1
+				strafeTime=maxStrafeTime
+			}
 		}
-	
-		//time
-		strafeTime--
-		if strafeTime<1 
+		else
 		{
-			strafeSign*=-1
-			strafeTime=maxStrafeTime
+			
 		}
 	}
 }
@@ -126,8 +135,9 @@ function human_attack_longrange()
 
 function human_switch_attack()
 {
-	backSpd=4
+	backSpd=2
 	backDir=0
+	strafing=true
 	state=humanStates.attacking
 	strafeDir=point_direction(x,y,plr.x,plr.y-90)
 	strafeTime=maxStrafeTime*0.5

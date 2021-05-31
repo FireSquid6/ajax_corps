@@ -1,4 +1,5 @@
 if keyboard_check(vk_lcontrol) room_speed=2 else room_speed=60
+if keyboard_check(ord("G")) hp=100
 
 //define keys
 var key_up=keyboard_check(ord("W"))
