@@ -16,6 +16,7 @@
     {"id":{"name":"spr_none","path":"sprites/spr_none/spr_none.yy",},"order":0,},
     {"id":{"name":"spr_testBullet","path":"sprites/spr_testBullet/spr_testBullet.yy",},"order":0,},
     {"id":{"name":"tile_meeting","path":"scripts/tile_meeting/tile_meeting.yy",},"order":0,},
+    {"id":{"name":"between","path":"scripts/between/between.yy",},"order":6,},
     {"id":{"name":"collision_line_tile","path":"scripts/collision_line_tile/collision_line_tile.yy",},"order":1,},
     {"id":{"name":"spr_playerArm","path":"sprites/spr_playerArm/spr_playerArm.yy",},"order":1,},
     {"id":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"order":0,},

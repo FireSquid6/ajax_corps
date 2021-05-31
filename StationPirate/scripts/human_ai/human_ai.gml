@@ -14,6 +14,8 @@ function human_init()
 	state=humanStates.patrolling
 	patrolSpd=5
 	attackSpd=8
+	maxStrafeTime=60
+	key_shoot=false
 	
 	//get functions
 	if has_path patrol_ai=human_patrol_path else patrol_ai=human_patrol_standby
@@ -47,6 +49,8 @@ function human_step()
 			attack_ai()
 			break
 	}
+	
+	weapon.step()
 }
 
 //PATROL
@@ -83,7 +87,22 @@ function human_attack_shortrange()
 
 function human_attack_medrange()
 {
+	//shoot
+	key_shoot=true
 	
+	//strafe
+	strafeDir=point_direction(x,y,plr.x,plr.y)+(90*strafeSign)
+	x+=lengthdir_x(attackSpd,strafeDir)
+	y+=lengthdir_y(attackSpd,strafeDir)
+	
+	//move to player
+	var dist=point_distance(x,y,plr.x,plr.y)
+	if !between(dist,128,144)
+	{
+		backDir=point_direction(x,y,plr.x,plr.y)
+		x+=lengthdir_x(backSpd,backDir)
+		y+=lengthdir_y(backSpd,backDir)
+	}
 }
 
 function human_attack_longrange()
@@ -94,6 +113,9 @@ function human_attack_longrange()
 function human_switch_attack()
 {
 	backSpd=4
-	strafeSpd=attackSpd
+	backDir=0
 	state=humanStates.attacking
+	strafeDir=point_direction(x,y,plr.x,plr.y-90)
+	strafeTime=maxStrafeTime*0.5
+	strafeSign=1
 }
