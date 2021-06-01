@@ -53,6 +53,11 @@ function weapon_fist(_team,_obj) constructor
 	{
 		cooldown=maxCooldown
 	}
+	
+	step=function()
+	{
+		
+	}
 }
 
 function weapon_pistol(_team,_obj) constructor

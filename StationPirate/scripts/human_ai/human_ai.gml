@@ -108,6 +108,12 @@ function human_attack_medrange()
 				x+=lengthdir_x(attackSpd,strafeDir)
 				y+=lengthdir_y(attackSpd,strafeDir)
 			}
+			else
+			{
+				var d=point_direction(x,y,plr.x,plr.y)
+				x+=lengthdir_x(attackSpd,d)
+				y+=lengthdir_y(attackSpd,d)
+			}
 	
 			//move to player
 			var dist=point_distance(x,y,plr.x,plr.y)
@@ -140,8 +146,8 @@ function human_attack_medrange()
 			if !(tile_meeting(x+lengthdir_x(backSpd,dir),y,global.collisionTilemap) 
 			|| tile_meeting(x,y+lengthdir_y(backSpd,dir),global.collisionTilemap))
 			{
-				x+=lengthdir_x(backSpd,dir)
-				y+=lengthdir_y(backSpd,dir)
+				x+=lengthdir_x(attackSpd,dir)
+				y+=lengthdir_y(attackSpd,dir)
 			}
 		}
 	}
