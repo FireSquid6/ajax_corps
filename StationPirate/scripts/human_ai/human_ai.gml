@@ -97,10 +97,17 @@ function human_attack_medrange()
 		
 		if strafing
 		{
+			//check if strafing
+			if weapon.reloading || weapon.inMag<1 strafing=false
+			
 			//strafe
 			strafeDir=point_direction(x,y,plr.x,plr.y)+(90*strafeSign)
-			x+=lengthdir_x(attackSpd,strafeDir)
-			y+=lengthdir_y(attackSpd,strafeDir)
+			if !(tile_meeting(x+lengthdir_x(attackSpd,strafeDir),y,global.collisionTilemap) 
+			|| tile_meeting(x,y+lengthdir_y(attackSpd,strafeDir),global.collisionTilemap))
+			{
+				x+=lengthdir_x(attackSpd,strafeDir)
+				y+=lengthdir_y(attackSpd,strafeDir)
+			}
 	
 			//move to player
 			var dist=point_distance(x,y,plr.x,plr.y)
@@ -108,8 +115,13 @@ function human_attack_medrange()
 			{
 				backDir=point_direction(x,y,plr.x,plr.y)
 				if dist<128 backDir+=180
-				x+=lengthdir_x(backSpd,backDir)
-				y+=lengthdir_y(backSpd,backDir)
+				
+				if !(tile_meeting(x+lengthdir_x(backSpd,backDir),y,global.collisionTilemap) 
+				|| tile_meeting(x,y+lengthdir_y(backSpd,backDir),global.collisionTilemap))
+				{
+					x+=lengthdir_x(backSpd,backDir)
+					y+=lengthdir_y(backSpd,backDir)
+				}
 			}
 		
 	
@@ -123,7 +135,14 @@ function human_attack_medrange()
 		}
 		else
 		{
-			
+			if !(weapon.reloading || weapon.inMag<1) strafing=true
+			dir=point_direction(x,y,plr.x,plr.y)-180
+			if !(tile_meeting(x+lengthdir_x(backSpd,dir),y,global.collisionTilemap) 
+			|| tile_meeting(x,y+lengthdir_y(backSpd,dir),global.collisionTilemap))
+			{
+				x+=lengthdir_x(backSpd,dir)
+				y+=lengthdir_y(backSpd,dir)
+			}
 		}
 	}
 }

@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"rm_testRoom","path":"rooms/rm_testRoom/rm_testRoom.yy",},"order":0,},
+    {"id":{"name":"spr_melee","path":"sprites/spr_melee/spr_melee.yy",},"order":0,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
     {"id":{"name":"weapons","path":"scripts/weapons/weapons.yy",},"order":1,},
     {"id":{"name":"spr_pistol","path":"sprites/spr_pistol/spr_pistol.yy",},"order":0,},
@@ -66,6 +67,9 @@
     {"folderPath":"folders/Data/Shaders.yy","order":8,"resourceVersion":"1.0","name":"Shaders","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Data/Scripts/Enemy AI.yy","order":5,"resourceVersion":"1.0","name":"Enemy AI","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Data/Paths.yy","order":9,"resourceVersion":"1.0","name":"Paths","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/__Laboratory Raid.yy","order":4,"resourceVersion":"1.0","name":"__Laboratory Raid","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/__Laboratory Raid/Assets.yy","order":1,"resourceVersion":"1.0","name":"Assets","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/__Laboratory Raid/Assets/Bullets.yy","order":1,"resourceVersion":"1.0","name":"Bullets","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
