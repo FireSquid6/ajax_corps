@@ -13,7 +13,6 @@ function human_init()
 	flashTime=0
 	state=humanStates.patrolling
 	patrolSpd=5
-	attackSpd=8
 	maxStrafeTime=60
 	key_shoot=false
 	rArmPos=0
@@ -93,12 +92,17 @@ function human_attack_medrange()
 	if instance_exists(plr)
 	{
 		//shoot
-		key_shoot=true
+		key_shoot=false
 		
 		if strafing
 		{
 			//check if strafing
 			if weapon.reloading || weapon.inMag<1 strafing=false
+			if weapon.cooldown==0
+			{
+				strafing=false
+				shootDelay=reflex
+			}
 			
 			//strafe
 			strafeDir=point_direction(x,y,plr.x,plr.y)+(90*strafeSign)
@@ -141,14 +145,8 @@ function human_attack_medrange()
 		}
 		else
 		{
-			if !(weapon.reloading || weapon.inMag<1) strafing=true
-			dir=point_direction(x,y,plr.x,plr.y)-180
-			if !(tile_meeting(x+lengthdir_x(backSpd,dir),y,global.collisionTilemap) 
-			|| tile_meeting(x,y+lengthdir_y(backSpd,dir),global.collisionTilemap))
-			{
-				x+=lengthdir_x(attackSpd,dir)
-				y+=lengthdir_y(attackSpd,dir)
-			}
+			if shootDelay>0 shootDelay--
+			if shootDelay<1 key_shoot=true
 		}
 	}
 }
