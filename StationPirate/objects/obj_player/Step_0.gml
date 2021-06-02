@@ -1,5 +1,5 @@
 if keyboard_check(vk_lcontrol) room_speed=2 else room_speed=60
-if keyboard_check(ord("G")) hp=100
+if keyboard_check(ord("G")) global.godMode=true
 
 //define keys
 var key_up=keyboard_check(ord("W"))
@@ -81,4 +81,4 @@ player_dead=function()
 	instance_destroy(obj_player)
 	//instance_create(x,y,"lay_player",obj_playerDead)
 }
-if hp<1 player_dead()
+if hp<1 && !global.godMode player_dead()
