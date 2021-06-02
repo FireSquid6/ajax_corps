@@ -79,7 +79,7 @@ function human_switch_patrol()
 //ATTACK
 function human_attack_melee()
 {
-	
+	move_towards_point(plr.x,plr.y,attackSpd)
 }
 
 function human_attack_shortrange()
