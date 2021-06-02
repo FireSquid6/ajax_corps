@@ -18,9 +18,10 @@ function human_init()
 	key_shoot=false
 	rArmPos=0
 	weapon=get_weapon(weapon_string,weaponTeams.enemy,id)
+	range=weapon.weaponRange
 	
 	//get functions
-	if has_path patrol_ai=human_patrol_path else patrol_ai=human_patrol_standby
+	patrol_ai=human_patrol
 	switch range
 	{
 		case 0:
@@ -41,8 +42,29 @@ function human_init()
 function human_step()
 {
 	if hp<1 instance_destroy()
-	if flashTime>0 flashTime--
 	key_reload=false
+	
+	if weapon.inMag==0 
+	{
+		weapon=get_weapon("melee",weaponTeams.enemy,id)
+		range=weapon.weaponRange
+		switch range
+		{
+			case 0:
+				attack_ai=human_attack_melee
+				break
+			case 1:
+				attack_ai=human_attack_shortrange
+				break
+			case 2:
+				attack_ai=human_attack_medrange
+				break
+			case 3:
+				attack_ai=human_attack_longrange
+				break
+		}
+	}
+	
 	switch state
 	{
 		case humanStates.patrolling:
@@ -57,12 +79,7 @@ function human_step()
 }
 
 //PATROL
-function human_patrol_path()
-{
-	
-}
-
-function human_patrol_standby()
+function human_patrol()
 {
 	if collision_circle(x,y,512,obj_player,false,true)
 	{
@@ -80,7 +97,6 @@ function human_switch_patrol()
 //ATTACK
 function human_attack_melee()
 {
-	move_towards_point(plr.x,plr.y,attackSpd)
 	
 }
 
@@ -93,7 +109,10 @@ function human_attack_medrange()
 {
 	if instance_exists(plr)
 	{
-		//shoot
+		//check if not seeing player anymore
+		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
+		
+		//strafe
 		if strafing
 		{
 			//check if strafing
@@ -116,12 +135,6 @@ function human_attack_medrange()
 			{
 				x+=lengthdir_x(strafeSpd,strafeDir)
 				y+=lengthdir_y(strafeSpd,strafeDir)
-			}
-			else
-			{
-				var d=point_direction(x,y,plr.x,plr.y)
-				x+=lengthdir_x(strafeSpd,d)
-				y+=lengthdir_y(strafeSpd,d)
 			}
 	
 			//move to player

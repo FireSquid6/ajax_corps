@@ -2,6 +2,7 @@
 dashCooldown=0
 dashTime=0
 dashBuffered=false
+flashTime=0
 
 global.godMode=false
 

@@ -21,6 +21,12 @@ function get_weapon(str,team,obj)
 		case "none":
 			w=new weapon_fist(team,obj)
 			break
+		case "melee":
+			w=new weapon_fist(team,obj)
+			break
+		case "fist":
+			w=new weapon_fist(team,obj)
+			break
 		case "pistol":
 			w=new weapon_pistol(team,obj)
 			break

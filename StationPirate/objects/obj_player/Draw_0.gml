@@ -1,3 +1,10 @@
+//shaders
+if flashTime>0 
+{
+	shader_set(shd_white)
+	flashTime--
+}
+
 //weapon sprite
 weapon.draw()
 
@@ -15,6 +22,9 @@ y+lengthdir_y(ARM_DIST,image_angle+lArmPos),
 
 //self
 draw_self()
+
+//reset
+shader_reset()
 
 //debug
 draw_text(x,y-50,string(weapon.cooldown))
