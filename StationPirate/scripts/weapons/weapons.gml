@@ -5,11 +5,22 @@ enum weaponTeams
 	enemy
 }
 
+enum weaponRanges
+{
+	melee,
+	short,
+	medium,
+	long
+}
+
 function get_weapon(str,team,obj)
 {
 	var w
 	switch str
 	{
+		case "none":
+			w=new weapon_fist(team,obj)
+			break
 		case "pistol":
 			w=new weapon_pistol(team,obj)
 			break
@@ -37,6 +48,7 @@ function weapon_fist(_team,_obj) constructor
 	
 	weapon_sprite=spr_none
 	bullet_sprite=spr_none
+	weaponRange=weaponRanges.melee
 	
 	dmg=5
 	knockback=5
@@ -81,6 +93,7 @@ function weapon_pistol(_team,_obj) constructor
 	
 	weapon_sprite=spr_pistol
 	bullet_sprite=spr_lightBullet
+	weaponRange=weaponRanges.medium
 	
 	dmg=15
 	knockback=3

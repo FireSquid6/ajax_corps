@@ -13,7 +13,8 @@ function human_init()
 	flashTime=0
 	state=humanStates.patrolling
 	patrolSpd=5
-	maxStrafeTime=60
+	maxStrafeTime=maxStrafeSeconds*60
+	maxDelayTime=maxDelaySeconds*60
 	key_shoot=false
 	rArmPos=0
 	weapon=get_weapon(weapon_string,weaponTeams.enemy,id)
@@ -80,6 +81,7 @@ function human_switch_patrol()
 function human_attack_melee()
 {
 	move_towards_point(plr.x,plr.y,attackSpd)
+	
 }
 
 function human_attack_shortrange()
@@ -92,31 +94,34 @@ function human_attack_medrange()
 	if instance_exists(plr)
 	{
 		//shoot
-		key_shoot=false
-		
 		if strafing
 		{
 			//check if strafing
 			if weapon.reloading || weapon.inMag<1 strafing=false
-			if weapon.cooldown==0
+			if strafeTime<1
 			{
 				strafing=false
 				shootDelay=reflex
+				delayTime=maxDelayTime
 			}
+			else strafeTime--
+			
+			//set shoot
+			key_shoot=false
 			
 			//strafe
 			strafeDir=point_direction(x,y,plr.x,plr.y)+(90*strafeSign)
-			if !(tile_meeting(x+lengthdir_x(attackSpd,strafeDir),y,global.collisionTilemap) 
-			|| tile_meeting(x,y+lengthdir_y(attackSpd,strafeDir),global.collisionTilemap))
+			if !(tile_meeting(x+lengthdir_x(strafeSpd,strafeDir),y,global.collisionTilemap) 
+			|| tile_meeting(x,y+lengthdir_y(strafeSpd,strafeDir),global.collisionTilemap))
 			{
-				x+=lengthdir_x(attackSpd,strafeDir)
-				y+=lengthdir_y(attackSpd,strafeDir)
+				x+=lengthdir_x(strafeSpd,strafeDir)
+				y+=lengthdir_y(strafeSpd,strafeDir)
 			}
 			else
 			{
 				var d=point_direction(x,y,plr.x,plr.y)
-				x+=lengthdir_x(attackSpd,d)
-				y+=lengthdir_y(attackSpd,d)
+				x+=lengthdir_x(strafeSpd,d)
+				y+=lengthdir_y(strafeSpd,d)
 			}
 	
 			//move to player
@@ -133,20 +138,19 @@ function human_attack_medrange()
 					y+=lengthdir_y(backSpd,backDir)
 				}
 			}
-		
-	
-			//time
-			strafeTime--
-			if strafeTime<1 
-			{
-				strafeSign*=-1
-				strafeTime=maxStrafeTime
-			}
 		}
 		else
 		{
 			if shootDelay>0 shootDelay--
 			if shootDelay<1 key_shoot=true
+			
+			if delayTime>0 delayTime--
+			if delayTime<1 
+			{
+				strafing=true
+				strafeTime=maxStrafeTime
+				strafeSign*=-1
+			}
 		}
 	}
 }
@@ -160,9 +164,12 @@ function human_switch_attack()
 {
 	backSpd=2
 	backDir=0
+	delayTime=0
+	strafeTime=0
+	shootDelay=0
 	strafing=true
 	state=humanStates.attacking
 	strafeDir=point_direction(x,y,plr.x,plr.y-90)
 	strafeTime=maxStrafeTime*0.5
-	strafeSign=1
+	strafeSign=choose(1,-1)
 }

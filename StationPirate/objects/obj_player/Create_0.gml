@@ -3,6 +3,8 @@ dashCooldown=0
 dashTime=0
 dashBuffered=false
 
+global.godMode=false
+
 weapon=new weapon_pistol(weaponTeams.player,id)
 weapon.equip()
 

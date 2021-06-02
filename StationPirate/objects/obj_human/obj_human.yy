@@ -34,12 +34,14 @@
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
-    {"varType":2,"value":"pistol","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"weapon_string","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":2,"value":"none","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"weapon_string","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":5,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"path","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":3,"value":"False","rangeEnabled":true,"rangeMin":1.0,"rangeMax":3.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"has_path","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"2","rangeEnabled":true,"rangeMin":0.0,"rangeMax":3.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"range","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"4","rangeEnabled":true,"rangeMin":0.0,"rangeMax":12.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"attackSpd","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"5","rangeEnabled":true,"rangeMin":0.0,"rangeMax":12.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"strafeSpd","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"15","rangeEnabled":true,"rangeMin":0.0,"rangeMax":30.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"reflex","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":0,"value":"1","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"maxDelaySeconds","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":0,"value":"1.5","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"maxStrafeSeconds","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {
