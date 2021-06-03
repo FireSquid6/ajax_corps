@@ -18,6 +18,7 @@ function human_init()
 	key_shoot=false
 	rArmPos=0
 	weapon=get_weapon(weapon_string,weaponTeams.enemy,id)
+	weapon.equip()
 	range=weapon.weaponRange
 	
 	//get functions
@@ -47,6 +48,7 @@ function human_step()
 	if weapon.inMag==0 
 	{
 		weapon=get_weapon("melee",weaponTeams.enemy,id)
+		weapon.equip()
 		range=weapon.weaponRange
 		switch range
 		{
@@ -97,7 +99,27 @@ function human_switch_patrol()
 //ATTACK
 function human_attack_melee()
 {
+	if instance_exists(plr)
+	{
+
+		dir=point_direction(x,y,plr.x,plr.y)
+		image_angle=dir-90
 	
+		if collision_circle(x,y,48,plr,false,true)
+		{
+			key_shoot=true
+		}
+		else
+		{
+			key_shoot=false
+			if !(tile_meeting(x+lengthdir_x(strafeSpd,dir),y,global.collisionTilemap) 
+			|| tile_meeting(x,y+lengthdir_y(strafeSpd,dir),global.collisionTilemap))
+			{
+				x+=lengthdir_x(strafeSpd,dir)
+				y+=lengthdir_y(strafeSpd,dir)
+			}
+		}
+	}
 }
 
 function human_attack_shortrange()

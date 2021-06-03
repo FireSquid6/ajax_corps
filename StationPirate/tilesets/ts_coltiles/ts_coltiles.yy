@@ -1,5 +1,4 @@
 {
-  "name": "ts_coltiles",
   "spriteId": {
     "name": "spr_coltiles",
     "path": "sprites/spr_coltiles/spr_coltiles.yy",
@@ -35,10 +34,11 @@
     "TileSerialiseData": [],
   },
   "parent": {
-    "name": "Tilesets",
-    "path": "folders/Assets/Tilesets.yy",
+    "name": "Collision",
+    "path": "folders/Assets/Tilesets/Collision.yy",
   },
   "resourceVersion": "1.0",
+  "name": "ts_coltiles",
   "tags": [],
   "resourceType": "GMTileSet",
 }

@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Tilesets",
-    "path": "folders/Assets/Tilesets.yy",
+    "name": "Collision",
+    "path": "folders/Assets/Tilesets/Collision.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_coltiles",

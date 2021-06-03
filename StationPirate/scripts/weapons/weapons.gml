@@ -58,9 +58,9 @@ function weapon_fist(_team,_obj) constructor
 	
 	dmg=5
 	knockback=5
-	lifespan=18
+	lifespan=14
 	
-	maxCooldown=15
+	maxCooldown=20
 	flashDmg=3
 	reloading=false
 	inMag=infinity
