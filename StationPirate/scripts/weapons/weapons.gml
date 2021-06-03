@@ -53,28 +53,50 @@ function weapon_fist(_team,_obj) constructor
 	}
 	
 	weapon_sprite=spr_none
-	bullet_sprite=spr_none
+	bullet_sprite=spr_melee
 	weaponRange=weaponRanges.melee
 	
 	dmg=5
 	knockback=5
 	lifespan=18
 	
-	maxCooldown=10
+	maxCooldown=15
 	flashDmg=3
 	reloading=false
 	inMag=infinity
 	
-	dist=8
+	dist=24
 	
 	equip=function()
 	{
 		cooldown=maxCooldown
+		inst.lArmPos=global.arm_pos_walking.l
+		inst.rArmPos=global.arm_pos_walking.r
 	}
 	
 	step=function()
 	{
+		var shoot=inst.key_shoot
 		
+		if cooldown>0 cooldown--
+		if shoot && cooldown<1
+		{
+			//set cooldown
+			cooldown=maxCooldown
+			
+			//create bullet
+			var xx,yy,dir
+			dir=findDir()
+			xx=inst.x+lengthdir_x(dist,dir)
+			yy=inst.y+lengthdir_y(dist,dir)
+			var bullet=instance_create_layer(xx,yy,"bullet",obj_projectile)
+			bullet.struct=new melee(bullet,target,inst,bullet_sprite,dmg,lifespan,dir,dist,flashDmg)
+		}
+		
+		draw=function()
+		{
+			
+		}
 	}
 }
 
@@ -120,8 +142,8 @@ function weapon_pistol(_team,_obj) constructor
 	equip=function()
 	{
 		cooldown=switchTime
-		obj_player.lArmPos=global.arm_pos_handgun.l
-		obj_player.rArmPos=global.arm_pos_handgun.r
+		inst.lArmPos=global.arm_pos_handgun.l
+		inst.rArmPos=global.arm_pos_handgun.r
 	}
 	
 	step=function()

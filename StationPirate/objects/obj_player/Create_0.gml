@@ -6,7 +6,7 @@ flashTime=0
 
 global.godMode=false
 
-weapon=new weapon_pistol(weaponTeams.player,id)
+weapon=new weapon_fist(weaponTeams.player,id)
 weapon.equip()
 
 #macro MAX_HP 100

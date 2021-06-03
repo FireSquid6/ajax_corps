@@ -13,6 +13,7 @@
     {"id":{"name":"projectiles","path":"scripts/projectiles/projectiles.yy",},"order":0,},
     {"id":{"name":"shd_white","path":"shaders/shd_white/shd_white.yy",},"order":0,},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":1,},
+    {"id":{"name":"spr_melee","path":"sprites/spr_melee/spr_melee.yy",},"order":2,},
     {"id":{"name":"spr_none","path":"sprites/spr_none/spr_none.yy",},"order":0,},
     {"id":{"name":"spr_testBullet","path":"sprites/spr_testBullet/spr_testBullet.yy",},"order":0,},
     {"id":{"name":"tile_meeting","path":"scripts/tile_meeting/tile_meeting.yy",},"order":0,},
