@@ -27,4 +27,4 @@ draw_self()
 shader_reset()
 
 //debug
-draw_text(x,y-50,string(weapon.cooldown))
+draw_text(x,y-50,string(hp))

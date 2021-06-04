@@ -55,6 +55,10 @@ if tile_meeting(x+(movex*spd),y,colmap)
 	movex=0
 }
 
+//move x
+x+=movex*spd
+x=floor(x)
+
 //collision check y
 if tile_meeting(x,y+(movey*spd),colmap)
 {
@@ -65,9 +69,9 @@ if tile_meeting(x,y+(movey*spd),colmap)
 	movey=0
 }
 
-//move
-x+=movex*spd
+//move y
 y+=movey*spd
+y=floor(y)
 
 if keyboard_check_pressed(vk_escape) game_restart()
 
