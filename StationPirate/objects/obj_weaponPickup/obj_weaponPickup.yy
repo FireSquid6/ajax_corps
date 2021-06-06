@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_player",
-    "path": "sprites/spr_player/spr_player.yy",
+    "name": "spr_ammo",
+    "path": "sprites/spr_ammo/spr_ammo.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,19 +21,21 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":64,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [],
+  "properties": [
+    {"varType":2,"value":"pistol","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"weapon_string","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"32","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"inReserve","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Data",
-    "path": "folders/Data.yy",
+    "name": "Pickups",
+    "path": "folders/Data/Pickups.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_player",
+  "name": "obj_weaponPickup",
   "tags": [],
   "resourceType": "GMObject",
 }

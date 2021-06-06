@@ -3,6 +3,7 @@ dashCooldown=0
 dashTime=0
 dashBuffered=false
 flashTime=0
+interactableSelected=noone
 mask_index=spr_player
 
 global.godMode=false

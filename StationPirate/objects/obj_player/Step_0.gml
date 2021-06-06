@@ -79,7 +79,10 @@ if alive
 	y=floor(y)
 
 	if keyboard_check_pressed(vk_escape) game_restart()
-
+	
+	//interactables
+	
+	
 	//weapon
 	image_angle=point_direction(x,y,mouse_x,mouse_y)-90
 	if key_switch 
