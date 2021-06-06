@@ -20,6 +20,7 @@ function human_init()
 	weapon=get_weapon(weapon_string,weaponTeams.enemy,id)
 	weapon.equip()
 	range=weapon.weaponRange
+	path=path_add()
 	
 	//get functions
 	patrol_ai=human_patrol
@@ -76,6 +77,8 @@ function human_step()
 			attack_ai()
 			break
 	}
+	
+	mp_grid_path(global.motionGrid,path,x,y,plr.x,plr.y,true)
 	
 	if instance_exists(plr) weapon.step()
 }
