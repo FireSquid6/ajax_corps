@@ -11,6 +11,7 @@ function human_init()
 	//init vars
 	flashTime=0
 	state=humanStates.patrolling
+	hp=maxHealth
 	patrolSpd=5
 	maxStrafeTime=maxStrafeSeconds*60
 	maxDelayTime=maxDelaySeconds*60
@@ -40,6 +41,7 @@ function human_init()
 	}
 }
 
+//DEFAULT
 function human_step()
 {
 	if hp<1 instance_destroy()
@@ -81,6 +83,54 @@ function human_step()
 	if instance_exists(plr) weapon.step()
 }
 
+function human_draw()
+{
+	if flashTime>0 
+	{
+		shader_set(shd_white)
+		flashTime--
+	}
+
+	weapon.draw()
+	draw_self()
+
+	//right arm
+	draw_sprite_ext(spr_enemyArm,1,
+	x+lengthdir_x(ARM_DIST,image_angle+rArmPos),
+	y+lengthdir_y(ARM_DIST,image_angle+rArmPos),
+	1,1,image_angle,c_white,1)
+
+	//left arm
+	draw_sprite_ext(spr_enemyArm,1,
+	x+lengthdir_x(ARM_DIST,image_angle+lArmPos),
+	y+lengthdir_y(ARM_DIST,image_angle+lArmPos),
+	1,1,image_angle,c_white,1)
+
+	shader_reset()
+
+	//draw healthbar
+	var healthPercent=(hp/maxHealth)*100
+	var barWidth=sprite_get_width(spr_healthbar)
+	var barX=x-(barWidth*5)
+	var barY=y-40
+	repeat 10
+	{
+		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,c_dkgray,1)
+		barX+=barWidth
+	}
+	
+	barX=x-(barWidth*5)
+	while healthPercent>0
+	{
+		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,c_red,1)
+		barX+=barWidth
+		healthPercent-=10
+	}
+
+	//debug
+	if path_exists(path) && global.debugMode draw_path(path,x,y,true)
+}
+
 //PATROL
 function human_patrol()
 {
@@ -103,7 +153,7 @@ function human_attack_melee()
 {
 	if instance_exists(plr)
 	{
-		image_angle=point_direction(x,y,plr.x,plr.y)
+		image_angle=point_direction(x,y,plr.x,plr.y)-90
 		if collision_circle(x,y,48,plr,false,true)
 		{
 			key_shoot=true

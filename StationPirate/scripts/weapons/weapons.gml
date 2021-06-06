@@ -44,11 +44,13 @@ function weapon_fist(_team,_obj) constructor
 			target=par_enemy
 			assistFrames=3
 			findDir=player_find_dir
+			doBar=true
 			break
 		case weaponTeams.enemy:
 			target=obj_player
 			assistFrames=0
 			findDir=enemy_find_dir
+			doBar=false
 			break
 	}
 	
@@ -117,11 +119,13 @@ function weapon_pistol(_team,_obj) constructor
 			target=par_enemy
 			assistFrames=3
 			findDir=player_find_dir
+			doBar=true
 			break
 		case weaponTeams.enemy:
 			target=obj_player
 			assistFrames=0
 			findDir=enemy_find_dir
+			doBar=false
 			break
 	}
 	
@@ -202,10 +206,6 @@ function weapon_pistol(_team,_obj) constructor
 	draw=function()
 	{
 		draw_sprite_ext(weapon_sprite,1,posX,posY,1,1,inst.image_angle,c_white,1)
-		if reloading
-		{
-			draw_healthbar(inst.x-15,inst.y-24,inst.x+15,inst.y-30,(cooldown/reloadTime)*100,c_white,c_white,c_white,0,false,true)
-		}
 	}
 	draw_reload_bar=function()
 	{
