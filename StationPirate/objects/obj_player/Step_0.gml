@@ -80,8 +80,16 @@ if alive
 
 	if keyboard_check_pressed(vk_escape) game_restart()
 	
-	//interactables
+	//drop weapon
+	if key_drop
+	{
+		
+	}
 	
+	//interactables
+	var intList=ds_list_create()
+	collision_circle_list(x,y,pickupRange,par_interactable,false,true,intList,true)
+	interactableSelected=ds_list_find_value(intList,0)
 	
 	//weapon
 	image_angle=point_direction(x,y,mouse_x,mouse_y)-90

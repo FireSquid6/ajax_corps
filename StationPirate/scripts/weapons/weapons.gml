@@ -75,6 +75,7 @@ function weapon_fist(_team,_obj) constructor
 	
 	weapon_sprite=spr_none
 	bullet_sprite=spr_melee
+	pickup_sprite=spr_pistolPickup
 	weaponRange=weaponRanges.melee
 	
 	hitSound=snd_smallDamage
@@ -160,6 +161,7 @@ function weapon_pistol(_team,_obj) constructor
 	
 	weapon_sprite=spr_pistol
 	bullet_sprite=spr_lightBullet
+	pickup_sprite=spr_machinePistolPickup
 	weaponRange=weaponRanges.medium
 	
 	display_name="HANDGUN"

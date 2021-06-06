@@ -46,6 +46,7 @@
     {"varType":0,"value":"1.5","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"maxPushSeconds","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":0,"value":"1.5","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"maxStrafeSeconds","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"100","rangeEnabled":true,"rangeMin":25.0,"rangeMax":200.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"maxHealth","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":0,"value":"100","rangeEnabled":true,"rangeMin":0.0,"rangeMax":100.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"weaponChance","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

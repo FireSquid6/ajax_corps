@@ -1,4 +1,4 @@
-image_speed=0
-image_index=ammoType-1
 weapon=get_weapon(weapon_string,weaponTeams.player,obj_player)
+sprite_index=weapon.pickup_sprite
+
 weapon.inReserve=inReserve
