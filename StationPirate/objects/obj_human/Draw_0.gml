@@ -1,15 +1,23 @@
 if flashTime>0 
 {
-	gpu_set_fog(true,c_white,0,0)
-	weapon.draw()
-	draw_self()
-	gpu_set_fog(false,c_white,0,0)
+	shader_set(shd_white)
 	flashTime--
 }
-else
-{
-	weapon.draw()
-	draw_self()
-}
 
-if path_exists(path) draw_path(path,x,y,true)
+weapon.draw()
+draw_self()
+
+//right arm
+draw_sprite_ext(spr_enemyArm,1,
+x+lengthdir_x(ARM_DIST,image_angle+rArmPos),
+y+lengthdir_y(ARM_DIST,image_angle+rArmPos),
+1,1,image_angle,c_white,1)
+
+//left arm
+draw_sprite_ext(spr_enemyArm,1,
+x+lengthdir_x(ARM_DIST,image_angle+lArmPos),
+y+lengthdir_y(ARM_DIST,image_angle+lArmPos),
+1,1,image_angle,c_white,1)
+
+shader_reset()
+if path_exists(path) && global.debugMode draw_path(path,x,y,true)

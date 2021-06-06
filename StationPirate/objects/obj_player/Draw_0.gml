@@ -1,3 +1,6 @@
+//reload bar
+weapon.draw_reload_bar()
+
 //shaders
 if flashTime>0 
 {
@@ -25,6 +28,3 @@ draw_self()
 
 //reset
 shader_reset()
-
-//debug
-draw_text(x,y-50,string(hp))

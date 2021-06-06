@@ -45,6 +45,7 @@
     {"varType":1,"value":"15","rangeEnabled":true,"rangeMin":0.0,"rangeMax":30.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"reflex","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":0,"value":"1","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"maxDelaySeconds","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":0,"value":"1.5","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"maxStrafeSeconds","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"100","rangeEnabled":true,"rangeMin":25.0,"rangeMax":200.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"hp","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

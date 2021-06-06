@@ -47,3 +47,7 @@ global.arm_pos_rifle=
 }
 
 #endregion
+
+#region fonts
+
+#endregion

@@ -1,4 +1,10 @@
+//make collision layer invisible
+layer_set_visible("collision",global.debugMode)
+
+//get tilemap
 global.collisionTilemap=layer_tilemap_get_id("collision")
+
+//create particle system
 global.partSystem=part_system_create_layer("particles",false)
 
 //create motion grid

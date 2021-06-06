@@ -7,7 +7,9 @@ mask_index=spr_player
 
 global.godMode=false
 
-weapon=new weapon_pistol(weaponTeams.player,id)
+alive=true
+
+weapon=new weapon_machinePistol(weaponTeams.player,id)
 weapon.equip()
 
 #macro MAX_HP 100

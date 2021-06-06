@@ -9,7 +9,6 @@ enum humanStates
 function human_init()
 {
 	//init vars
-	hp=100
 	flashTime=0
 	state=humanStates.patrolling
 	patrolSpd=5
@@ -46,6 +45,7 @@ function human_step()
 	if hp<1 instance_destroy()
 	key_reload=false
 	
+	//check if out of ammo
 	if weapon.inMag==0 
 	{
 		weapon=get_weapon("melee",weaponTeams.enemy,id)
@@ -78,8 +78,6 @@ function human_step()
 			break
 	}
 	
-	mp_grid_path(global.motionGrid,path,x,y,plr.x,plr.y,true)
-	
 	if instance_exists(plr) weapon.step()
 }
 
@@ -97,6 +95,7 @@ function human_switch_patrol()
 	state=humanStates.patrolling
 	spd=patrolSpd
 	if has_path path_start(path,patrolSpd,path_action_continue,false)
+	image_angle=point_direction(xprevious,yprevious,x,y)
 }
 
 //ATTACK
@@ -104,10 +103,7 @@ function human_attack_melee()
 {
 	if instance_exists(plr)
 	{
-
-		dir=point_direction(x,y,plr.x,plr.y)
-		image_angle=dir-90
-	
+		image_angle=point_direction(x,y,plr.x,plr.y)
 		if collision_circle(x,y,48,plr,false,true)
 		{
 			key_shoot=true
@@ -115,11 +111,9 @@ function human_attack_melee()
 		else
 		{
 			key_shoot=false
-			if !(tile_meeting(x+lengthdir_x(strafeSpd,dir),y,global.collisionTilemap) 
-			|| tile_meeting(x,y+lengthdir_y(strafeSpd,dir),global.collisionTilemap))
+			if mp_grid_path(global.motionGrid,path,x,y,plr.x,plr.y,true)
 			{
-				x+=lengthdir_x(strafeSpd,dir)
-				y+=lengthdir_y(strafeSpd,dir)
+				path_start(path,strafeSpd,path_action_stop,true)
 			}
 		}
 	}
@@ -134,6 +128,7 @@ function human_attack_medrange()
 {
 	if instance_exists(plr)
 	{
+		image_angle=point_direction(x,y,plr.x,plr.y)-90
 		//check if not seeing player anymore
 		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
 		
@@ -164,21 +159,19 @@ function human_attack_medrange()
 	
 			//move to player
 			var dist=point_distance(x,y,plr.x,plr.y)
-			if !between(dist,192,208)
+			if !between(dist,192,208) && canStart<1
 			{
-				backDir=point_direction(x,y,plr.x,plr.y)
-				if dist<128 backDir+=180
-				
-				if !(tile_meeting(x+lengthdir_x(backSpd,backDir),y,global.collisionTilemap) 
-				|| tile_meeting(x,y+lengthdir_y(backSpd,backDir),global.collisionTilemap))
+				if mp_grid_path(global.motionGrid,path,x,y,plr.x,plr.y,true)
 				{
-					x+=lengthdir_x(backSpd,backDir)
-					y+=lengthdir_y(backSpd,backDir)
+					path_start(path,backSpd,path_action_stop,true)
 				}
+				canStart=30
 			}
+			if canStart>0 canStart--
 		}
 		else
 		{
+			path_end()
 			if shootDelay>0 shootDelay--
 			if shootDelay<1 key_shoot=true
 			
@@ -201,7 +194,7 @@ function human_attack_longrange()
 function human_switch_attack()
 {
 	backSpd=2
-	backDir=0
+	canStart=0
 	delayTime=0
 	strafeTime=0
 	shootDelay=0

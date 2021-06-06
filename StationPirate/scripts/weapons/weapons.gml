@@ -56,6 +56,8 @@ function weapon_fist(_team,_obj) constructor
 	bullet_sprite=spr_melee
 	weaponRange=weaponRanges.melee
 	
+	display_name="FISTS"
+	
 	dmg=5
 	knockback=5
 	lifespan=14
@@ -65,7 +67,7 @@ function weapon_fist(_team,_obj) constructor
 	reloading=false
 	inMag=infinity
 	
-	dist=24
+	dist=32
 	
 	equip=function()
 	{
@@ -97,6 +99,10 @@ function weapon_fist(_team,_obj) constructor
 		{
 			
 		}
+		draw_reload_bar=function()
+		{
+			
+		}
 	}
 }
 
@@ -123,7 +129,9 @@ function weapon_pistol(_team,_obj) constructor
 	bullet_sprite=spr_lightBullet
 	weaponRange=weaponRanges.medium
 	
-	dmg=15
+	display_name="HANDGUN"
+	
+	dmg=20
 	knockback=3
 	bulletSpd=18
 	lifespan=60
@@ -194,5 +202,31 @@ function weapon_pistol(_team,_obj) constructor
 	draw=function()
 	{
 		draw_sprite_ext(weapon_sprite,1,posX,posY,1,1,inst.image_angle,c_white,1)
+		if reloading
+		{
+			draw_healthbar(inst.x-15,inst.y-24,inst.x+15,inst.y-30,(cooldown/reloadTime)*100,c_white,c_white,c_white,0,false,true)
+		}
 	}
+	draw_reload_bar=function()
+	{
+		if reloading
+		{
+			draw_healthbar(inst.x-15,inst.y-24,inst.x+15,inst.y-30,(cooldown/reloadTime)*100,c_white,c_white,c_white,0,false,true)
+		}
+	}
+}
+
+function weapon_machinePistol(_team,_obj) : weapon_pistol(_team,_obj) constructor
+{
+	weapon_sprite=spr_machinePistol
+	bullet_sprite=spr_lightBullet
+	weaponRange=weaponRanges.medium
+	
+	display_name="MACHINE PISTOL"
+	
+	dmg=10
+	bulletSpd=18
+	magSize=18
+	
+	maxCooldown=7
 }
