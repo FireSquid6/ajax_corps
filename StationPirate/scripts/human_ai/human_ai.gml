@@ -122,19 +122,26 @@ function human_draw()
 	}
 
 	//debug
-	if path_exists(path) && global.debugMode draw_path(path,x,y,true)
+	if global.debugMode
+	{
+		draw_set_color(c_white)
+		draw_set_font(fnt_default)
+		if path_exists(attackPath) draw_path(attackPath,x,y,true)
+		draw_text(x,y-50,string(attackState))
+	}
 }
 
 //destroy
 function human_destroy()
 {
-	path_delete(path)
+	path_delete(attackPath)
 	if weapon.ammoType!=ammoTypes.none create_ammo(x,y,weapon.ammoType,weapon.inReserve)
 }
 
 //PATROL
 function human_patrol()
 {
+	if x!=xprevious || y!=yprevious image_angle=point_direction(xprevious,yprevious,x,y)
 	if collision_circle(x,y,512,obj_player,false,true)
 	{
 		human_switch_attack()
@@ -145,11 +152,17 @@ function human_switch_patrol()
 {
 	state=humanStates.patrolling
 	spd=patrolSpd
-	if has_path path_start(patrolPath,patrolSpd,path_action_continue,false)
-	image_angle=point_direction(xprevious,yprevious,x,y)
+	if patrolPath!=0 path_start(patrolPath,patrolSpd,path_action_continue,false)
 }
 
 //ATTACK
+enum attackStates
+{
+	strafing,
+	pushing,
+	shooting
+}
+
 function human_attack_melee()
 {
 	if instance_exists(plr)
@@ -162,9 +175,12 @@ function human_attack_melee()
 		else
 		{
 			key_shoot=false
-			if mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+			if path_exists(attackPath)
 			{
-				path_start(attackPath,strafeSpd,path_action_stop,true)
+				if mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+				{
+					path_start(attackPath,strafeSpd,path_action_stop,true)
+				}
 			}
 		}
 	}
@@ -172,14 +188,89 @@ function human_attack_melee()
 
 function human_attack_shortrange()
 {
-	
-}
-
-enum midrangeAttackStates
-{
-	strafing,
-	pushing,
-	shooting
+	if instance_exists(plr)
+	{
+		//set angle
+		image_angle=point_direction(x,y,plr.x,plr.y)-90
+		
+		//check if not seeing player anymore
+		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
+		
+		switch attackState
+		{
+			//strafing -> shooting -> pushing -> repeat
+			case attackStates.strafing:
+				key_shoot=false
+				
+				if strafeTime<1
+				{
+					//vars
+					key_shoot=false
+					attackState=attackStates.shooting
+					delayTime=reflex
+					shootTime=maxShootSeconds*60
+					
+					//path
+					path_end()
+				}
+				else strafeTime--
+				break
+			case attackStates.pushing:
+				path_end()
+				var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+				if path path_start(attackPath,pushSpd,path_action_stop,true)
+				key_shoot=true
+				
+				if pushTime<1
+				{
+					//vars
+					key_shoot=true
+					attackState=attackStates.strafing
+					strafeTime=maxStrafeSeconds*60
+					
+					//path
+					path_end()
+					var dist=256
+					var midpointX=((x+plr.x)*0.5)
+					var mpdir=point_direction(x,y,plr.x,plr.y)
+					var mpdist=point_distance(x,y,plr.x,plr.y)*0.25
+					midpointX+=lengthdir_x(mpdist,mpdir)
+					midpointY+=lengthdir_y(mpdist,mpdir)
+					var midpointY=((y+plr.y)*0.5)
+					var dir=point_direction(x,y,plr.x,plr.y)+(90*choose(-1,1))
+					
+					while !(mp_grid_path(global.motionGrid,attackPath,x,y,
+						midpointX+lengthdir_x(dist,dir),
+						midpointY+lengthdir_y(dist,dir),
+						true))
+					{
+						dist-=TILE_SIZE
+					}
+					
+					path_start(attackPath,strafeSpd,path_action_reverse,true)
+				}
+				else pushTime--
+				break
+			case attackStates.shooting:
+				path_end()
+				if delayTime<1 key_shoot=true else delayTime--
+				
+				if shootTime<1
+				{
+					//vars
+					key_shoot=false
+					attackState=attackStates.pushing
+					pushTime=maxPushSeconds*60
+					
+					//path
+					path_end()
+					var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+					if path path_start(attackPath,pushSpd,path_action_stop,true)
+				}
+				else shootTime--
+				break
+		}
+	}
 }
 
 function human_attack_medrange()
@@ -195,27 +286,70 @@ function human_attack_medrange()
 		switch attackState
 		{
 			//strafing -> shooting -> pushing -> repeat
-			case midrangeAttackStates.strafing:
+			case attackStates.strafing:
+				key_shoot=false
 				
 				if strafeTime<1
 				{
-					attackState=midrangeAttackStates.shooting
+					//vars
+					key_shoot=false
+					attackState=attackStates.shooting
+					delayTime=reflex
+					shootTime=maxShootSeconds*60
+					
+					//path
+					path_end()
 				}
+				else strafeTime--
 				break
-			case midrangeAttackStates.pushing:
+			case attackStates.pushing:
+				path_end()
+				var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+				if path path_start(attackPath,pushSpd,path_action_stop,true)
 				
 				if pushTime<1
 				{
-					attackState=midrangeAttackStates.strafing
+					//vars
+					key_shoot=true
+					attackState=attackStates.strafing
+					strafeTime=maxStrafeSeconds*60
+					
+					//path
+					path_end()
+					var dist=256
+					var midpointX=((x+plr.x)*0.5)
+					var midpointY=((y+plr.y)*0.5)
+					var dir=point_direction(x,y,plr.x,plr.y)+(90*choose(-1,1))
+					
+					while !(mp_grid_path(global.motionGrid,attackPath,x,y,
+						midpointX+lengthdir_x(dist,dir),
+						midpointY+lengthdir_y(dist,dir),
+						true))
+					{
+						dist-=TILE_SIZE
+					}
+					
+					path_start(attackPath,strafeSpd,path_action_reverse,true)
 				}
+				else pushTime--
 				break
-			case midrangeAttackStates.shooting:
+			case attackStates.shooting:
+				path_end()
+				if delayTime<1 key_shoot=true else delayTime--
 				
 				if shootTime<1
 				{
-					attackState=midrangeAttackStates.pushing
+					//vars
+					key_shoot=false
+					attackState=attackStates.pushing
+					pushTime=maxPushSeconds*60
 					
+					//path
+					path_end()
+					var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+					if path path_start(attackPath,pushSpd,path_action_stop,true)
 				}
+				else shootTime--
 				break
 		}
 	}
@@ -223,18 +357,101 @@ function human_attack_medrange()
 
 function human_attack_longrange()
 {
-	
+	if instance_exists(plr)
+	{
+		//set angle
+		image_angle=point_direction(x,y,plr.x,plr.y)-90
+		
+		//check if not seeing player anymore
+		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
+		
+		switch attackState
+		{
+			//strafing -> shooting -> pushing -> repeat
+			case attackStates.strafing:
+				key_shoot=false
+				
+				if strafeTime<1
+				{
+					//vars
+					key_shoot=false
+					attackState=attackStates.shooting
+					delayTime=reflex
+					shootTime=maxShootSeconds*60
+					
+					//path
+					path_end()
+				}
+				else strafeTime--
+				break
+			case attackStates.pushing:
+				path_end()
+				var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+				if path path_start(attackPath,pushSpd,path_action_stop,true)
+				
+				if pushTime<1
+				{
+					//vars
+					key_shoot=true
+					attackState=attackStates.strafing
+					strafeTime=maxStrafeSeconds*60
+					
+					//path
+					path_end()
+					var dist=256
+					var midpointX=((x+plr.x)*0.5)
+					var mpdir=point_direction(x,y,plr.x,plr.y)-180
+					var mpdist=point_distance(x,y,plr.x,plr.y)*0.25
+					midpointX+=lengthdir_x(mpdist,mpdir)
+					midpointY+=lengthdir_y(mpdist,mpdir)
+					var midpointY=((y+plr.y)*0.5)
+					var dir=point_direction(x,y,plr.x,plr.y)+(90*choose(-1,1))
+					
+					while !(mp_grid_path(global.motionGrid,attackPath,x,y,
+						midpointX+lengthdir_x(dist,dir),
+						midpointY+lengthdir_y(dist,dir),
+						true))
+					{
+						dist-=TILE_SIZE
+					}
+					
+					path_start(attackPath,strafeSpd,path_action_reverse,true)
+				}
+				else pushTime--
+				break
+			case attackStates.shooting:
+				path_end()
+				if delayTime<1 key_shoot=true else delayTime--
+				
+				if shootTime<1
+				{
+					//vars
+					key_shoot=false
+					attackState=attackStates.pushing
+					pushTime=maxPushSeconds*60
+					
+					//path
+					path_end()
+					var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+					if path path_start(attackPath,pushSpd,path_action_stop,true)
+				}
+				else shootTime--
+				break
+		}
+	}
 }
 
+//switch function
 function human_switch_attack()
 {
-	attackState=midrangeAttackStates.strafing
+	attackState=attackStates.shooting
+	path_end()
 	
 	//timers
 	strafeTime=0
 	pushTime=0
-	shootTime=0
-	delayTime=0
+	shootTime=maxShootSeconds*60
+	delayTime=reflex
 	
 	strafing=true
 	state=humanStates.attacking
