@@ -30,8 +30,8 @@ global.ptBlood=p
 
 global.arm_pos_walking=
 {
-	l: 140,
-	r: 40
+	l: 130,
+	r: 50
 }
 
 global.arm_pos_handgun=

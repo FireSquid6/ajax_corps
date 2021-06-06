@@ -40,13 +40,19 @@ function get_weapon(str,team,obj)
 		case "pistol":
 			w=new weapon_pistol(team,obj)
 			break
+		case "machinePistol":
+			w=new weapon_machinePistol(team,obj)
+			break
+		case "machine_pistol":
+			w=new weapon_machinePistol(team,obj)
+			break
 	}
 	return w
 }
 
 function weapon_fist(_team,_obj) constructor
 {
-	ammoType=0
+	ammoType=ammoTypes.none
 	team=_team
 	inst=_obj
 	switch team
@@ -110,7 +116,9 @@ function weapon_fist(_team,_obj) constructor
 		
 		draw=function()
 		{
-			
+			draw_set_color(c_white)
+			draw_set_font(fnt_default)
+			if global.debugMode draw_text(inst.x,inst.y-32,string(ammoType))
 		}
 		draw_reload_bar=function()
 		{
@@ -146,6 +154,7 @@ function weapon_pistol(_team,_obj) constructor
 	
 	display_name="HANDGUN"
 	
+	ammoType=ammoTypes.light
 	dmg=20
 	knockback=3
 	bulletSpd=18
@@ -159,6 +168,7 @@ function weapon_pistol(_team,_obj) constructor
 	reloading=false
 	
 	inMag=magSize
+	reserveSize=magSize*10
 	inReserve=inMag*5
 	cooldown=0
 	
@@ -213,10 +223,16 @@ function weapon_pistol(_team,_obj) constructor
 				inReserve=0
 			}
 		}
+		
+		//clamp reserve
+		inReserve=clamp(inReserve,0,reserveSize)
 	}
 	draw=function()
 	{
+		draw_set_color(c_white)
+		draw_set_font(fnt_default)
 		draw_sprite_ext(weapon_sprite,1,posX,posY,1,1,inst.image_angle,c_white,1)
+		if global.debugMode draw_text(inst.x,inst.y-32,string(ammoType))
 	}
 	draw_reload_bar=function()
 	{

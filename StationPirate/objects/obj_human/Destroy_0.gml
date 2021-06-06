@@ -1,1 +1,1 @@
-//path_delete(path)
+human_destroy()

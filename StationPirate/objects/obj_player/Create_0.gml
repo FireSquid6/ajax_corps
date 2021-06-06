@@ -9,11 +9,10 @@ global.godMode=false
 
 alive=true
 
-weaponSelcted=0
+weaponSelected=0
 primary=new weapon_machinePistol(weaponTeams.player,id)
 primary.equip()
 secondary=new weapon_fist(weaponTeams.player,id)
-secondary.equip()
 
 #macro MAX_HP 100
 hp=MAX_HP

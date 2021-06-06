@@ -1,11 +1,19 @@
 if place_meeting(x,y,plr)
 {
-	if plr.primary.ammoType==ammoType
+	if variable_struct_exists(plr.primary,"inReserve")
 	{
-		plr.primary.inReserve+=ammount
+		if plr.primary.ammoType==ammoType
+		{
+			plr.primary.inReserve+=ammount
+			instance_destroy()
+		}
 	}
-	else if plr.secondary.ammoType==ammoType
+	if variable_struct_exists(plr.secondary,"inReserve")
 	{
-		plr.secondary.inReserve+=ammount
+		if plr.secondary.ammoType==ammoType
+		{
+			plr.secondary.inReserve+=ammount
+			instance_destroy()
+		}
 	}
 }

@@ -1,2 +1,2 @@
 image_speed=0
-image_index=ammoType
+image_index=ammoType-1

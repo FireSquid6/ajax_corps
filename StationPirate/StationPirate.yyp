@@ -34,6 +34,7 @@
     {"id":{"name":"par_enemy","path":"objects/par_enemy/par_enemy.yy",},"order":1,},
     {"id":{"name":"create_ammo","path":"scripts/create_ammo/create_ammo.yy",},"order":8,},
     {"id":{"name":"spr_lightBullet","path":"sprites/spr_lightBullet/spr_lightBullet.yy",},"order":1,},
+    {"id":{"name":"fnt_default","path":"fonts/fnt_default/fnt_default.yy",},"order":2,},
     {"id":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},"order":0,},
     {"id":{"name":"spr_enemy","path":"sprites/spr_enemy/spr_enemy.yy",},"order":0,},
     {"id":{"name":"init","path":"scripts/init/init.yy",},"order":3,},

@@ -5,26 +5,9 @@ enum humanStates
 	attacking
 }
 
-//CONTROLLER
-function human_init()
+function human_get_attack_range(_range)
 {
-	//init vars
-	flashTime=0
-	state=humanStates.patrolling
-	hp=maxHealth
-	patrolSpd=5
-	maxStrafeTime=maxStrafeSeconds*60
-	maxDelayTime=maxDelaySeconds*60
-	key_shoot=false
-	rArmPos=0
-	weapon=get_weapon(weapon_string,weaponTeams.enemy,id)
-	weapon.equip()
-	range=weapon.weaponRange
-	path=path_add()
-	
-	//get functions
-	patrol_ai=human_patrol
-	switch range
+	switch _range
 	{
 		case 0:
 			attack_ai=human_attack_melee
@@ -41,7 +24,31 @@ function human_init()
 	}
 }
 
-//DEFAULT
+//CONTROLLER
+function human_init()
+{
+	//init vars
+	flashTime=0
+	state=humanStates.patrolling
+	hp=maxHealth
+	patrolSpd=5
+	key_shoot=false
+	rArmPos=0
+	
+	//weapon
+	weapon=get_weapon(weapon_string,weaponTeams.enemy,id)
+	weapon.equip()
+	range=weapon.weaponRange
+	
+	//path
+	attackPath=path_add()
+	
+	//get functions
+	patrol_ai=human_patrol
+	human_get_attack_range(range)
+}
+
+//step
 function human_step()
 {
 	if hp<1 instance_destroy()
@@ -53,21 +60,7 @@ function human_step()
 		weapon=get_weapon("melee",weaponTeams.enemy,id)
 		weapon.equip()
 		range=weapon.weaponRange
-		switch range
-		{
-			case 0:
-				attack_ai=human_attack_melee
-				break
-			case 1:
-				attack_ai=human_attack_shortrange
-				break
-			case 2:
-				attack_ai=human_attack_medrange
-				break
-			case 3:
-				attack_ai=human_attack_longrange
-				break
-		}
+		human_get_attack_range(range)
 	}
 	
 	switch state
@@ -83,6 +76,7 @@ function human_step()
 	if instance_exists(plr) weapon.step()
 }
 
+//draw
 function human_draw()
 {
 	if flashTime>0 
@@ -131,6 +125,13 @@ function human_draw()
 	if path_exists(path) && global.debugMode draw_path(path,x,y,true)
 }
 
+//destroy
+function human_destroy()
+{
+	path_delete(path)
+	if weapon.ammoType!=ammoTypes.none create_ammo(x,y,weapon.ammoType,weapon.inReserve)
+}
+
 //PATROL
 function human_patrol()
 {
@@ -144,7 +145,7 @@ function human_switch_patrol()
 {
 	state=humanStates.patrolling
 	spd=patrolSpd
-	if has_path path_start(path,patrolSpd,path_action_continue,false)
+	if has_path path_start(patrolPath,patrolSpd,path_action_continue,false)
 	image_angle=point_direction(xprevious,yprevious,x,y)
 }
 
@@ -161,9 +162,9 @@ function human_attack_melee()
 		else
 		{
 			key_shoot=false
-			if mp_grid_path(global.motionGrid,path,x,y,plr.x,plr.y,true)
+			if mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
 			{
-				path_start(path,strafeSpd,path_action_stop,true)
+				path_start(attackPath,strafeSpd,path_action_stop,true)
 			}
 		}
 	}
@@ -174,64 +175,48 @@ function human_attack_shortrange()
 	
 }
 
+enum midrangeAttackStates
+{
+	strafing,
+	pushing,
+	shooting
+}
+
 function human_attack_medrange()
 {
 	if instance_exists(plr)
 	{
+		//set angle
 		image_angle=point_direction(x,y,plr.x,plr.y)-90
+		
 		//check if not seeing player anymore
 		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
 		
-		//strafe
-		if strafing
+		switch attackState
 		{
-			//check if strafing
-			if weapon.reloading || weapon.inMag<1 strafing=false
-			if strafeTime<1
-			{
-				strafing=false
-				shootDelay=reflex
-				delayTime=maxDelayTime
-			}
-			else strafeTime--
-			
-			//set shoot
-			key_shoot=false
-			
-			//strafe
-			strafeDir=point_direction(x,y,plr.x,plr.y)+(90*strafeSign)
-			if !(tile_meeting(x+lengthdir_x(strafeSpd,strafeDir),y,global.collisionTilemap) 
-			|| tile_meeting(x,y+lengthdir_y(strafeSpd,strafeDir),global.collisionTilemap))
-			{
-				x+=lengthdir_x(strafeSpd,strafeDir)
-				y+=lengthdir_y(strafeSpd,strafeDir)
-			}
-	
-			//move to player
-			var dist=point_distance(x,y,plr.x,plr.y)
-			if !between(dist,192,208) && canStart<1
-			{
-				if mp_grid_path(global.motionGrid,path,x,y,plr.x,plr.y,true)
+			//strafing -> shooting -> pushing -> repeat
+			case midrangeAttackStates.strafing:
+				
+				if strafeTime<1
 				{
-					path_start(path,backSpd,path_action_stop,true)
+					attackState=midrangeAttackStates.shooting
 				}
-				canStart=30
-			}
-			if canStart>0 canStart--
-		}
-		else
-		{
-			path_end()
-			if shootDelay>0 shootDelay--
-			if shootDelay<1 key_shoot=true
-			
-			if delayTime>0 delayTime--
-			if delayTime<1 
-			{
-				strafing=true
-				strafeTime=maxStrafeTime
-				strafeSign*=-1
-			}
+				break
+			case midrangeAttackStates.pushing:
+				
+				if pushTime<1
+				{
+					attackState=midrangeAttackStates.strafing
+				}
+				break
+			case midrangeAttackStates.shooting:
+				
+				if shootTime<1
+				{
+					attackState=midrangeAttackStates.pushing
+					
+				}
+				break
 		}
 	}
 }
@@ -243,14 +228,14 @@ function human_attack_longrange()
 
 function human_switch_attack()
 {
-	backSpd=2
-	canStart=0
-	delayTime=0
+	attackState=midrangeAttackStates.strafing
+	
+	//timers
 	strafeTime=0
-	shootDelay=0
+	pushTime=0
+	shootTime=0
+	delayTime=0
+	
 	strafing=true
 	state=humanStates.attacking
-	strafeDir=point_direction(x,y,plr.x,plr.y-90)
-	strafeTime=maxStrafeTime*0.5
-	strafeSign=choose(1,-1)
 }
