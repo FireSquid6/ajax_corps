@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Player",
-    "path": "folders/Data/Player.yy",
+    "name": "StationPirate",
+    "path": "StationPirate.yyp",
   },
   "resourceVersion": "1.0",
   "name": "obj_player",

@@ -1,4 +1,6 @@
 #macro plr obj_player
+
+
 enum weaponTeams
 {
 	player,
@@ -75,6 +77,8 @@ function weapon_fist(_team,_obj) constructor
 	bullet_sprite=spr_melee
 	weaponRange=weaponRanges.melee
 	
+	hitSound=snd_smallDamage
+	shootSound=snd_fist
 	display_name="FISTS"
 	
 	dmg=5
@@ -111,7 +115,10 @@ function weapon_fist(_team,_obj) constructor
 			xx=inst.x+lengthdir_x(dist,dir)
 			yy=inst.y+lengthdir_y(dist,dir)
 			var bullet=instance_create_layer(xx,yy,"bullet",obj_projectile)
-			bullet.struct=new melee(bullet,target,inst,bullet_sprite,dmg,lifespan,dir,dist,flashDmg)
+			bullet.struct=new melee(bullet,target,inst,bullet_sprite,dmg,lifespan,dir,dist,flashDmg,hitSound)
+			
+			//sound
+			audio_play_sound(shootSound,shootPriority,false)
 		}
 		
 		draw=function()
@@ -147,6 +154,9 @@ function weapon_pistol(_team,_obj) constructor
 			doBar=false
 			break
 	}
+	
+	hitSound=snd_smallDamage
+	shootSound=snd_shootPistol
 	
 	weapon_sprite=spr_pistol
 	bullet_sprite=spr_lightBullet
@@ -198,7 +208,8 @@ function weapon_pistol(_team,_obj) constructor
 		if shoot && cooldown<1 && inMag>0
 		{
 			var bullet=instance_create_layer(posX,posY,"bullet",obj_projectile)
-			bullet.struct=new projectile(bullet,target,bullet_sprite,dmg,bulletSpd,lifespan,assistFrames,findDir,flashDmg)
+			bullet.struct=new projectile(bullet,target,bullet_sprite,dmg,bulletSpd,lifespan,assistFrames,findDir,flashDmg,hitSound)
+			audio_play_sound(shootSound,shootPriority,false)
 			
 			cooldown=maxCooldown
 			inMag--
@@ -208,6 +219,7 @@ function weapon_pistol(_team,_obj) constructor
 		//reload
 		if (reload || (inMag<1 && shoot)) && (inReserve>0 && inMag!=magSize)
 		{
+			if team==weaponTeams.player audio_play_sound(snd_reload,reloadPriority,false)
 			cooldown=reloadTime
 			inReserve+=inMag
 			reloading=true

@@ -51,3 +51,12 @@ global.arm_pos_rifle=
 #region fonts
 
 #endregion
+
+#region sound priority
+#macro shootPriority 10
+#macro reloadPriority 8
+#macro hitPriority 20
+#macro dashPriority 15
+#macro pickupPriority 0
+
+#endregion

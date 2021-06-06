@@ -13,6 +13,8 @@ if alive
 	key_shoot=mouse_check_button(mb_left)
 	key_shoot_pressed=mouse_check_button_pressed(mb_left)
 	key_reload=keyboard_check_pressed(ord("R"))
+	key_drop=keyboard_check_pressed(ord("Q"))
+	key_interact=keyboard_check_pressed(ord("E"))
 
 	//define locals
 	var movey=key_down-key_up
@@ -29,6 +31,7 @@ if alive
 		dashTime=DASH_FRAMES
 		dashCooldown=MAX_DASH_COOLDOWN+DASH_FRAMES
 		dashBuffered=false
+		audio_play_sound(snd_dash,dashPriority,false)
 	}
 	else if (key_dash) && dashCooldown<11 && (movex!=0 || movey!=0) dashBuffered=true
 

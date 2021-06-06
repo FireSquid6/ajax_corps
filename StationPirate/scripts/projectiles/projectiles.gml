@@ -1,4 +1,4 @@
-function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg) constructor
+function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_sound) constructor
 {
 	inst=_obj
 	target=_target
@@ -7,6 +7,7 @@ function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg) c
 	inst.image_angle=_dir-90
 	dir=_dir
 	dist=_dist
+	sound=_sound
 	
 	dmg=_dmg
 	lifespan=_lifespan
@@ -41,7 +42,9 @@ function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg) c
 			
 				//knockback
 			
-			
+				//sound
+				audio_play_sound(sound,hitPriority,false)
+				
 				//destroy
 				instance_destroy(inst)
 			}
@@ -68,7 +71,7 @@ function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg) c
 	}
 }
 
-function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg) constructor
+function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg,_sound) constructor
 {
 	inst=_obj
 	target=_target
@@ -78,6 +81,7 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 	spd=_spd
 	lifespan=_lifespan
 	flashDmg=_flashDmg
+	sound=_sound
 	
 	assistFrames=_assistFrames
 	findDir=_findDir
@@ -120,7 +124,9 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 			
 				//knockback
 			
-			
+				//sound
+				audio_play_sound(sound,hitPriority,false)
+				
 				//destroy
 				instance_destroy(inst)
 			}

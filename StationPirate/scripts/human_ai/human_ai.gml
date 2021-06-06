@@ -304,8 +304,11 @@ function human_attack_medrange()
 				break
 			case attackStates.pushing:
 				path_end()
-				var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
-				if path path_start(attackPath,pushSpd,path_action_stop,true)
+				if path_exists(attackPath)
+				{
+					var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+					if path path_start(attackPath,pushSpd,path_action_stop,true)
+				}
 				
 				if pushTime<1
 				{
