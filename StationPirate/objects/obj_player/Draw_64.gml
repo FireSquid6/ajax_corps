@@ -1,7 +1,7 @@
 var gui_height=display_get_gui_height()
 #macro PROF_SCALE 4
 
-//this is the worst gui code ever
+//this is the worst gui code ever, but it works
 //draw profile sprite
 var prof_x=0
 var prof_y=gui_height-(sprite_get_height(spr_profile)*PROF_SCALE)
@@ -9,12 +9,23 @@ draw_sprite_ext(spr_profile,1,prof_x,prof_y,PROF_SCALE,PROF_SCALE,0,c_white,1)
 
 //macro
 //ignore the stupidity
+//weeeeeeeeeeee magic numbers
 #macro PROF_LEFT_PADDING 110
 #macro PROF_TOP_PADDING 175
 #macro PROF_BOTTOM_PADDING 110
 #macro PROF_RIGHT_PADDING 290
 
 //draw name
+var weapon
+switch weaponSelected
+	{
+		case 0:
+			weapon=primary
+			break
+		case 1:
+			weapon=secondary
+			break
+	}
 draw_set_font(fnt_profile_name)
 draw_set_color(c_black)
 draw_text(prof_x+PROF_LEFT_PADDING,gui_height-PROF_TOP_PADDING,weapon.display_name)

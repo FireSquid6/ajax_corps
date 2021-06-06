@@ -8,7 +8,8 @@ if alive
 	var key_left=keyboard_check(ord("A"))
 	var key_right=keyboard_check(ord("D"))
 	var key_dash=keyboard_check_pressed(vk_space)
-
+	var key_switch=mouse_check_button(mb_middle)
+	
 	key_shoot=mouse_check_button(mb_left)
 	key_shoot_pressed=mouse_check_button_pressed(mb_left)
 	key_reload=keyboard_check_pressed(ord("R"))
@@ -78,7 +79,16 @@ if alive
 
 	//weapon
 	image_angle=point_direction(x,y,mouse_x,mouse_y)-90
-	weapon.step()
+	if key_switch weaponSelected=!weaponSelected
+	switch weaponSelected
+	{
+		case 0:
+			primary.step()
+			break
+		case 1:
+			secondary.step()
+			break
+	}
 
 	//check if dead
 	if hp<1 && !global.godMode alive=false

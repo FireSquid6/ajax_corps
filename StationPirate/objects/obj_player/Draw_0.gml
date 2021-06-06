@@ -1,5 +1,13 @@
 //reload bar
-weapon.draw_reload_bar()
+switch weaponSelected
+	{
+		case 0:
+			primary.draw_reload_bar()
+			break
+		case 1:
+			secondary.draw_reload_bar()
+			break
+	}
 
 //shaders
 if flashTime>0 
@@ -9,7 +17,15 @@ if flashTime>0
 }
 
 //weapon sprite
-weapon.draw()
+switch weaponSelected
+	{
+		case 0:
+			primary.draw()
+			break
+		case 1:
+			secondary.draw()
+			break
+	}
 
 //right arm
 draw_sprite_ext(spr_playerArm,1,

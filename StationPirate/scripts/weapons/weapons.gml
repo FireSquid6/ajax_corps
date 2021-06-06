@@ -12,6 +12,16 @@ enum weaponRanges
 	medium,
 	long
 }
+enum ammoTypes
+{
+	none=0,
+	light=1,
+	medium=2,
+	heavy=3,
+	shell=4,
+	battery=5,
+	superBattery=6
+}
 
 function get_weapon(str,team,obj)
 {
@@ -36,6 +46,7 @@ function get_weapon(str,team,obj)
 
 function weapon_fist(_team,_obj) constructor
 {
+	ammoType=0
 	team=_team
 	inst=_obj
 	switch team
