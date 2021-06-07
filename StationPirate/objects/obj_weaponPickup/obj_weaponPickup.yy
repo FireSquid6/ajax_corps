@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_ammo",
-    "path": "sprites/spr_ammo/spr_ammo.yy",
+    "name": "spr_weaponPlaceholder",
+    "path": "sprites/spr_weaponPlaceholder/spr_weaponPlaceholder.yy",
   },
   "solid": false,
   "visible": true,

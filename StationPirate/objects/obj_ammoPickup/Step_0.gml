@@ -4,7 +4,7 @@ if place_meeting(x,y,plr)
 	{
 		if plr.primary.ammoType==ammoType
 		{
-			plr.primary.inReserve+=ammount
+			plr.primary.inReserve+=amount
 			audio_play_sound(snd_ammoPickup,pickupPriority,false)
 			instance_destroy()
 		}
@@ -13,7 +13,7 @@ if place_meeting(x,y,plr)
 	{
 		if plr.secondary.ammoType==ammoType
 		{
-			plr.secondary.inReserve+=ammount
+			plr.secondary.inReserve+=amount
 			audio_play_sound(snd_ammoPickup,pickupPriority,false)
 			instance_destroy()
 		}

@@ -1,4 +1,4 @@
-#macro plr obj_player
+   #macro plr obj_player
 
 
 enum weaponTeams
@@ -174,7 +174,7 @@ function weapon_pistol(_team,_obj) constructor
 	
 	maxCooldown=15
 	reloadTime=45
-	magSize=7
+	magSize=8
 	switchTime=10
 	flashDmg=3
 	reloading=false
@@ -195,13 +195,6 @@ function weapon_pistol(_team,_obj) constructor
 	{
 		var shoot=inst.key_shoot
 		var reload=inst.key_reload
-		
-		//get weapon pos
-		with inst
-		{
-			other.posX=x+lengthdir_x(ARM_DIST,image_angle+rArmPos)
-			other.posY=y+lengthdir_y(ARM_DIST,image_angle+rArmPos)
-		}
 		
 		//check if not reloading
 		if cooldown<1 reloading=false
@@ -243,6 +236,13 @@ function weapon_pistol(_team,_obj) constructor
 	}
 	draw=function()
 	{
+		//get weapon pos
+		with inst
+		{
+			other.posX=x+lengthdir_x(ARM_DIST,image_angle+rArmPos)
+			other.posY=y+lengthdir_y(ARM_DIST,image_angle+rArmPos)
+		}
+		
 		draw_set_color(c_white)
 		draw_set_font(fnt_default)
 		draw_sprite_ext(weapon_sprite,1,posX,posY,1,1,inst.image_angle,c_white,1)

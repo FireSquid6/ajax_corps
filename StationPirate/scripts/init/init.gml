@@ -59,6 +59,8 @@ global.arm_pos_rifle=
 #macro hitPriority 20
 #macro dashPriority 15
 #macro pickupPriority 0
+#macro playerDeadPriority 100
+#macro enemyDeadPriority 50
 
 #endregion
 

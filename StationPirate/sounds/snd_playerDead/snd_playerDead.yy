@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sound41_explode9",
+  "soundFile": "snd_playerDead",
   "duration": 0.36051,
   "parent": {
-    "name": "SFX Pack 2",
-    "path": "folders/External Data (DO NOT INCLUDE IN FINAL RELEASE)/SFX Pack 2.yy",
+    "name": "Hit",
+    "path": "folders/Station Pirate/Assets/Sounds/Hit.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sound41_explode9",
+  "name": "snd_playerDead",
   "tags": [],
   "resourceType": "GMSound",
 }

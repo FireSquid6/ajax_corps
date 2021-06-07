@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sound46_explode4",
+  "soundFile": "snd_enemyDead",
   "duration": 0.622347,
   "parent": {
-    "name": "SFX Pack 2",
-    "path": "folders/External Data (DO NOT INCLUDE IN FINAL RELEASE)/SFX Pack 2.yy",
+    "name": "Hit",
+    "path": "folders/Station Pirate/Assets/Sounds/Hit.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sound46_explode4",
+  "name": "snd_enemyDead",
   "tags": [],
   "resourceType": "GMSound",
 }

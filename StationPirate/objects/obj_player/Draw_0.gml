@@ -1,43 +1,46 @@
-//reload bar
-switch weaponSelected
-	{
-		case 0:
-			primary.draw_reload_bar()
-			break
-		case 1:
-			secondary.draw_reload_bar()
-			break
-	}
-
-//shaders
-if flashTime>0 
+if alive
 {
-	shader_set(shd_white)
-	flashTime--
-}
+	//reload bar
+	switch weaponSelected
+		{
+			case 0:
+				primary.draw_reload_bar()
+				break
+			case 1:
+				secondary.draw_reload_bar()
+				break
+		}
 
-//weapon sprite
-switch weaponSelected
+	//shaders
+	if flashTime>0 
 	{
-		case 0:
-			primary.draw()
-			break
-		case 1:
-			secondary.draw()
-			break
+		shader_set(shd_white)
+		flashTime--
 	}
 
-//right arm
-draw_sprite_ext(spr_playerArm,1,
-x+lengthdir_x(ARM_DIST,image_angle+rArmPos),
-y+lengthdir_y(ARM_DIST,image_angle+rArmPos),
-1,1,image_angle,c_white,1)
+	//weapon sprite
+	switch weaponSelected
+		{
+			case 0:
+				primary.draw()
+				break
+			case 1:
+				secondary.draw()
+				break
+		}
 
-//left arm
-draw_sprite_ext(spr_playerArm,1,
-x+lengthdir_x(ARM_DIST,image_angle+lArmPos),
-y+lengthdir_y(ARM_DIST,image_angle+lArmPos),
-1,1,image_angle,c_white,1)
+	//right arm
+	draw_sprite_ext(spr_playerArm,1,
+	x+lengthdir_x(ARM_DIST,image_angle+rArmPos),
+	y+lengthdir_y(ARM_DIST,image_angle+rArmPos),
+	1,1,image_angle,c_white,1)
+
+	//left arm
+	draw_sprite_ext(spr_playerArm,1,
+	x+lengthdir_x(ARM_DIST,image_angle+lArmPos),
+	y+lengthdir_y(ARM_DIST,image_angle+lArmPos),
+	1,1,image_angle,c_white,1)
+}
 
 //self
 draw_self()

@@ -1,5 +1,3 @@
-if keyboard_check(vk_lcontrol) room_speed=2 else room_speed=60
-if keyboard_check(ord("G")) global.godMode=true
 if alive
 {
 	//define keys
@@ -50,6 +48,7 @@ if alive
 
 	//COLLISIONS
 	#macro colmap global.collisionTilemap
+	
 	//collision check x
 	if tile_meeting(x+(movex*spd),y,colmap)
 	{
@@ -77,23 +76,30 @@ if alive
 	//move y
 	y+=movey*spd
 	y=floor(y)
-
-	if keyboard_check_pressed(vk_escape) game_restart()
 	
 	//drop weapon
 	if key_drop
 	{
+		var weapon_create_dir=point_direction(x,y,mouse_x,mouse_y)
+		var weapon_x=x+lengthdir_x(24,weapon_create_dir)
+		var weapon_y=y+lengthdir_y(24,weapon_create_dir)
 		switch weaponSelected
 		{
 			case 0:
-				create_weapon(x,y,"",primary,primary.inReserve)
-				primary=new weapon_fist(weaponTeams.player,id)
-				primary.equip()
+				if primary.display_name!="FISTS"
+				{
+					create_weapon(weapon_x,weapon_y,"",primary,primary.inReserve)
+					primary=new weapon_fist(weaponTeams.player,id)
+					primary.equip()
+				}
 				break
 			case 1:
-				create_weapon(x,y,"",secondary,secondary.inReserve)
-				secondary=new weapon_fist(weaponTeams.player,id)
-				secondary.equip()
+				if secondary.display_name!="FISTS"
+				{
+					create_weapon(weapon_x,weapon_y,"",secondary,secondary.inReserve)
+					secondary=new weapon_fist(weaponTeams.player,id)
+					secondary.equip()
+				}
 				break
 		}
 	}
@@ -129,5 +135,13 @@ if alive
 	}
 
 	//check if dead
-	if hp<1 && !global.godMode alive=false
+	if hp<1 && !global.godMode 
+	{
+		alive=false
+		audio_play_sound(snd_playerDead,100,false)
+	}
+}
+else
+{
+	hp=0
 }

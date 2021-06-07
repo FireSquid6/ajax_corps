@@ -34,6 +34,8 @@ function human_init()
 	patrolSpd=5
 	key_shoot=false
 	rArmPos=0
+	startX=x
+	startY=y
 	
 	//weapon
 	weapon=get_weapon(weapon_string,weaponTeams.enemy,id)
@@ -69,11 +71,11 @@ function human_step()
 			patrol_ai()
 			break
 		case humanStates.attacking:
+			if instance_exists(plr) weapon.step()
+			if !plr.alive human_switch_patrol()
 			attack_ai()
 			break
 	}
-	
-	if instance_exists(plr) weapon.step()
 }
 
 //draw
@@ -126,8 +128,11 @@ function human_draw()
 	{
 		draw_set_color(c_white)
 		draw_set_font(fnt_default)
-		if path_exists(attackPath) draw_path(attackPath,x,y,true)
-		draw_text(x,y-50,string(attackState))
+		if state==humanStates.attacking
+		{
+			if path_exists(attackPath) draw_path(attackPath,x,y,true)
+			draw_text(x,y-50,string(attackState))
+		}
 	}
 }
 
@@ -136,20 +141,32 @@ function human_destroy()
 {
 	path_delete(attackPath)
 	if weapon.ammoType!=ammoTypes.none create_ammo(x,y,weapon.ammoType,weapon.inReserve)
+	audio_play_sound(snd_enemyDead,enemyDeadPriority,false)
 }
 
 //PATROL
 function human_patrol()
 {
-	if x!=xprevious || y!=yprevious image_angle=point_direction(xprevious,yprevious,x,y)
-	if collision_circle(x,y,512,obj_player,false,true)
+	if x!=xprevious || y!=yprevious image_angle=point_direction(xprevious,yprevious,x,y)-180
+	if plr.alive
 	{
-		human_switch_attack()
+		if collision_circle(x,y,512,obj_player,false,true) && plr.alive
+		{
+			human_switch_attack()
+		}
+	}
+	else
+	{
+		
+		path_end()
+		var canMove=mp_grid_path(global.motionGrid,patrolPath,x,y,startX,startY,true)
+		if canMove path_start(patrolPath,deadSpd,path_action_stop,true)
 	}
 }
 
 function human_switch_patrol()
 {
+	deadSpd=3
 	state=humanStates.patrolling
 	spd=patrolSpd
 	if patrolPath!=0 path_start(patrolPath,patrolSpd,path_action_continue,false)
@@ -448,6 +465,7 @@ function human_attack_longrange()
 function human_switch_attack()
 {
 	attackState=attackStates.shooting
+	patrolPath=0
 	path_end()
 	
 	//timers
