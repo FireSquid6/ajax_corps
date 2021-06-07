@@ -11,3 +11,5 @@ if plr.interactableSelected==id && plr.key_interact
 	}
 	instance_destroy()
 }
+
+//remember to make the weapon run it's equip function later!!!!

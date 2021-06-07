@@ -51,7 +51,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Enemy",
-    "path": "folders/__Station Pirate/Data/Enemy.yy",
+    "path": "folders/Station Pirate/Data/Enemy.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_human",

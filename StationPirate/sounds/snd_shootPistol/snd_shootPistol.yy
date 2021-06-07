@@ -14,7 +14,7 @@
   "duration": 0.252642,
   "parent": {
     "name": "Shoot",
-    "path": "folders/__Station Pirate/Assets/Sounds/Shoot.yy",
+    "path": "folders/Station Pirate/Assets/Sounds/Shoot.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_shootPistol",

@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Scribble",
-    "path": "folders/_Libraries/Scribble.yy",
+    "path": "folders/Libraries/Scribble.yy",
   },
   "resourceVersion": "1.0",
   "name": "scribble",

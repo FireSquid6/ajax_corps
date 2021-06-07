@@ -22,7 +22,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Bullets",
-    "path": "folders/__Station Pirate/Data/Bullets.yy",
+    "path": "folders/Station Pirate/Data/Bullets.yy",
   },
   "resourceVersion": "1.0",
   "name": "par_bullet",

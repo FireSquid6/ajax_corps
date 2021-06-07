@@ -149,7 +149,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Bullets",
-    "path": "folders/__Station Pirate/Assets/Bullets.yy",
+    "path": "folders/Station Pirate/Assets/Bullets.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_lightBullet",

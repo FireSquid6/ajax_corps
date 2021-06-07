@@ -83,7 +83,19 @@ if alive
 	//drop weapon
 	if key_drop
 	{
-		
+		switch weaponSelected
+		{
+			case 0:
+				create_weapon(x,y,"",primary,primary.inReserve)
+				primary=new weapon_fist(weaponTeams.player,id)
+				primary.equip()
+				break
+			case 1:
+				create_weapon(x,y,"",secondary,secondary.inReserve)
+				secondary=new weapon_fist(weaponTeams.player,id)
+				secondary.equip()
+				break
+		}
 	}
 	
 	//interactables

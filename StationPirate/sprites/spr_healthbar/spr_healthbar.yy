@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "GUI",
-    "path": "folders/__Station Pirate/Assets/GUI.yy",
+    "path": "folders/Station Pirate/Assets/GUI.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_healthbar",

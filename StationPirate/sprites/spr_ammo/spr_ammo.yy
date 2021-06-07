@@ -90,7 +90,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Ammo",
-    "path": "folders/__Station Pirate/Assets/Pickups/Ammo.yy",
+    "path": "folders/Station Pirate/Assets/Pickups/Ammo.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_ammo",

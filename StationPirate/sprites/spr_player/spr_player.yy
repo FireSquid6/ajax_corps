@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Player",
-    "path": "folders/__Station Pirate/Assets/Player.yy",
+    "path": "folders/Station Pirate/Assets/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_player",

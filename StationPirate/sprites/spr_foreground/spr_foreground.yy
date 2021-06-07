@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Foreground",
-    "path": "folders/__Station Pirate/Assets/Tilesets/Foreground.yy",
+    "path": "folders/Station Pirate/Assets/Tilesets/Foreground.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_foreground",

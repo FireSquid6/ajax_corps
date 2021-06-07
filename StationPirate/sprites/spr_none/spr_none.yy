@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Meta",
-    "path": "folders/__Station Pirate/Assets/Meta.yy",
+    "path": "folders/Station Pirate/Assets/Meta.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_none",

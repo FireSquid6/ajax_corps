@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Weapons",
-    "path": "folders/__Station Pirate/Assets/Weapons.yy",
+    "path": "folders/Station Pirate/Assets/Weapons.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_machinePistol",
