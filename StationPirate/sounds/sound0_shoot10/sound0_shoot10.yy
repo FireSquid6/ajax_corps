@@ -13,8 +13,8 @@
   "soundFile": "sound0_shoot10",
   "duration": 0.16178,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/External/Sounds.yy",
+    "name": "SFX Pack 2",
+    "path": "folders/Libraries/SFX Pack 2.yy",
   },
   "resourceVersion": "1.0",
   "name": "sound0_shoot10",

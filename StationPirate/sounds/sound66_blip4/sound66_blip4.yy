@@ -13,8 +13,8 @@
   "soundFile": "sound66_blip4",
   "duration": 0.048923,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/External/Sounds.yy",
+    "name": "SFX Pack 2",
+    "path": "folders/Libraries/SFX Pack 2.yy",
   },
   "resourceVersion": "1.0",
   "name": "sound66_blip4",

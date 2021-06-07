@@ -14,7 +14,7 @@
   "duration": 1.044388,
   "parent": {
     "name": "Hit",
-    "path": "folders/Assets/Sounds/Hit.yy",
+    "path": "folders/_Station Pirate/Assets/Sounds/Hit.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_explosion",

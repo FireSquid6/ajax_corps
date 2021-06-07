@@ -13,8 +13,8 @@
   "soundFile": "sound2_shoot8",
   "duration": 0.212415,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/External/Sounds.yy",
+    "name": "SFX Pack 2",
+    "path": "folders/Libraries/SFX Pack 2.yy",
   },
   "resourceVersion": "1.0",
   "name": "sound2_shoot8",

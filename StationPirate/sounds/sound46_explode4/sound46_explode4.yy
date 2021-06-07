@@ -13,8 +13,8 @@
   "soundFile": "sound46_explode4",
   "duration": 0.622347,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/External/Sounds.yy",
+    "name": "SFX Pack 2",
+    "path": "folders/Libraries/SFX Pack 2.yy",
   },
   "resourceVersion": "1.0",
   "name": "sound46_explode4",

@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "GUI",
-    "path": "folders/Assets/GUI.yy",
+    "path": "folders/_Station Pirate/Assets/GUI.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_profile",

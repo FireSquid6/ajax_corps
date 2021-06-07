@@ -13,8 +13,8 @@
   "soundFile": "sound19_pwr1",
   "duration": 0.441531,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/External/Sounds.yy",
+    "name": "SFX Pack 2",
+    "path": "folders/Libraries/SFX Pack 2.yy",
   },
   "resourceVersion": "1.0",
   "name": "sound19_pwr1",

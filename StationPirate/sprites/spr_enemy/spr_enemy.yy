@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Enemy",
-    "path": "folders/Assets/Enemy.yy",
+    "path": "folders/_Station Pirate/Assets/Enemy.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_enemy",

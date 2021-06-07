@@ -112,7 +112,7 @@
   },
   "parent": {
     "name": "Rooms",
-    "path": "folders/Data/Rooms.yy",
+    "path": "folders/_Station Pirate/Data/Rooms.yy",
   },
   "resourceVersion": "1.0",
   "name": "rm_testRoom",

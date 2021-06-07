@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Bullets",
-    "path": "folders/Data/Bullets.yy",
+    "path": "folders/_Station Pirate/Data/Bullets.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_projectile",

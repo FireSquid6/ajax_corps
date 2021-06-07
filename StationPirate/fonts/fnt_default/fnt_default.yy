@@ -200,7 +200,7 @@
   "maintainGms1Font": false,
   "parent": {
     "name": "Fonts",
-    "path": "folders/Assets/Fonts.yy",
+    "path": "folders/_Station Pirate/Assets/Fonts.yy",
   },
   "resourceVersion": "1.0",
   "name": "fnt_default",

@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Meta",
-    "path": "folders/Data/Meta.yy",
+    "path": "folders/_Station Pirate/Data/Meta.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_game",

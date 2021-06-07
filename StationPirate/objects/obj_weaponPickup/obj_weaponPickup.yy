@@ -35,7 +35,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Pickups",
-    "path": "folders/Data/Pickups.yy",
+    "path": "folders/_Station Pirate/Data/Pickups.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_weaponPickup",

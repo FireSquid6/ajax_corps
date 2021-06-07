@@ -13,8 +13,8 @@
   "soundFile": "snd_damage",
   "duration": 0.06339,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/External/Sounds.yy",
+    "name": "SFX Pack 2",
+    "path": "folders/Libraries/SFX Pack 2.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_damage",

@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Bullets",
-    "path": "folders/Assets/Bullets.yy",
+    "path": "folders/_Station Pirate/Assets/Bullets.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_testBullet",
