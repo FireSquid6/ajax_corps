@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Font Modification",
-    "path": "folders/Libraries/Scribble/Font Modification.yy",
+    "path": "folders/_Libraries/Scribble/Font Modification.yy",
   },
   "resourceVersion": "1.0",
   "name": "scribble_font_set_style_family",

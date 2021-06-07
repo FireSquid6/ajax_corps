@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Data",
-    "path": "folders/_Station Pirate/Data.yy",
+    "path": "folders/__Station Pirate/Data.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_player",

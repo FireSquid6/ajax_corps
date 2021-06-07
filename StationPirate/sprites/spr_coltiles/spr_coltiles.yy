@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Collision",
-    "path": "folders/_Station Pirate/Assets/Tilesets/Collision.yy",
+    "path": "folders/__Station Pirate/Assets/Tilesets/Collision.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_coltiles",

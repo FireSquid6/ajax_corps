@@ -14,7 +14,7 @@
   "duration": 0.111077,
   "parent": {
     "name": "SFX Pack 2",
-    "path": "folders/Libraries/SFX Pack 2.yy",
+    "path": "folders/External Data (DO NOT INCLUDE IN FINAL RELEASE)/SFX Pack 2.yy",
   },
   "resourceVersion": "1.0",
   "name": "sound67_blip3",

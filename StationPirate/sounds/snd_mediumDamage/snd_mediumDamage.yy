@@ -14,7 +14,7 @@
   "duration": 0.096293,
   "parent": {
     "name": "Hit",
-    "path": "folders/_Station Pirate/Assets/Sounds/Hit.yy",
+    "path": "folders/__Station Pirate/Assets/Sounds/Hit.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_mediumDamage",

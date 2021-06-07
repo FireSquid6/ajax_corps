@@ -393,7 +393,7 @@
   },
   "parent": {
     "name": "Foreground",
-    "path": "folders/_Station Pirate/Assets/Tilesets/Foreground.yy",
+    "path": "folders/__Station Pirate/Assets/Tilesets/Foreground.yy",
   },
   "resourceVersion": "1.0",
   "name": "ts_foreground",

@@ -32,7 +32,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Pickups",
-    "path": "folders/_Station Pirate/Data/Pickups.yy",
+    "path": "folders/__Station Pirate/Data/Pickups.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_ammoPickup",

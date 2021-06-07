@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Shapes",
-    "path": "folders/Libraries/Clean Shapes/Shapes.yy",
+    "path": "folders/_Libraries/Clean Shapes/Shapes.yy",
   },
   "resourceVersion": "1.0",
   "name": "CleanTriangle",

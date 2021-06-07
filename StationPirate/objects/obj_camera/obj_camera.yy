@@ -27,7 +27,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Meta",
-    "path": "folders/_Station Pirate/Data/Meta.yy",
+    "path": "folders/__Station Pirate/Data/Meta.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_camera",
