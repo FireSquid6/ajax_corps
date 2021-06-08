@@ -78,8 +78,8 @@ function weapon_parent(_team,_obj) constructor
 	
 	set_arms=function()
 	{
-		lArmPos=arms.l
-		rArmPos=arms.r
+		inst.lArmPos=arms.l
+		inst.rArmPos=arms.r
 	}
 	
 	draw=function()

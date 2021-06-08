@@ -8,6 +8,12 @@ if alive
 	var key_dash=keyboard_check_pressed(vk_space)
 	var key_switch=mouse_check_button_pressed(mb_middle)
 	
+	//get rid of keys if running into wall because my tile collision code sucks and this is a stupid solution
+	if tile_meeting(x,y-1,colmap) key_up=false
+	if tile_meeting(x,y+1,colmap) key_down=false
+	if tile_meeting(x-1,y,colmap) key_left=false
+	if tile_meeting(x+1,y,colmap) key_right=false
+	
 	key_shoot=mouse_check_button(mb_left)
 	key_shoot_pressed=mouse_check_button_pressed(mb_left)
 	key_reload=keyboard_check_pressed(ord("R"))

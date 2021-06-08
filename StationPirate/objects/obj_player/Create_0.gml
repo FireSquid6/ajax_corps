@@ -6,6 +6,9 @@ flashTime=0
 interactableSelected=noone
 mask_index=spr_player
 
+rArmPos=global.arm_pos_walking.r
+lArmPos=global.arm_pos_walking.l
+
 global.godMode=false
 
 alive=true

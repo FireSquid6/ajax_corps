@@ -33,7 +33,8 @@ function human_init()
 	hp=maxHealth
 	patrolSpd=5
 	key_shoot=false
-	rArmPos=0
+	rArmPos=global.arm_pos_walking.r
+	lArmPos=global.arm_pos_walking.l
 	startX=x
 	startY=y
 	
