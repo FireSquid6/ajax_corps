@@ -293,9 +293,9 @@
   ],
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles/fonts","resourceVersion":"1.0","name":"8bit.TTF","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/Included Files","resourceVersion":"1.0","name":"RetroSFXPack2.zip","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"RetroSFXPack2.zip","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"RetroSFXPack2.zip","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"inigo quilez 2d sdf license.txt","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/Included Files","resourceVersion":"1.0","name":"inigo quilez 2d sdf license.txt","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"inigo quilez 2d sdf license.txt","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
