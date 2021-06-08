@@ -148,7 +148,7 @@ if alive
 	if hp<1 && !global.godMode 
 	{
 		alive=false
-		audio_play_sound(snd_playerDead,100,false)
+		audio_play_sound(snd_playerDead,playerDeadPriority,false)
 	}
 }
 else

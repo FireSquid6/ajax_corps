@@ -74,3 +74,9 @@ global.arm_pos_rifle=
 #macro DASH_SPD 12
 
 #endregion
+
+#region scribble
+
+scribble_font_add_all()
+
+#endregion
