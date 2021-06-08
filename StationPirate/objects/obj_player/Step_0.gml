@@ -15,7 +15,6 @@ if alive
 	if tile_meeting(x+1,y,colmap) key_right=false
 	
 	key_shoot=mouse_check_button(mb_left)
-	key_shoot_pressed=mouse_check_button_pressed(mb_left)
 	key_reload=keyboard_check_pressed(ord("R"))
 	key_drop=keyboard_check_pressed(ord("Q"))
 	key_interact=keyboard_check_pressed(ord("E"))
