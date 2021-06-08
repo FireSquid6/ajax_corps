@@ -18,6 +18,10 @@ view_visible[0]=true
 camera_set_view_size(view_camera[0],cameraWidth,cameraHeight)
 
 //display
+if os_type==os_macosx
+{
+	window_set_fullscreen(true)
+}
 
 window_set_size(displayWidth,displayHeight)
 surface_resize(application_surface,displayWidth,displayHeight)
