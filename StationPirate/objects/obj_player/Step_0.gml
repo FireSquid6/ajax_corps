@@ -1,18 +1,12 @@
 if alive
 {
 	//define keys
-	var key_up=keyboard_check(ord("W"))
-	var key_down=keyboard_check(ord("S"))
-	var key_left=keyboard_check(ord("A"))
-	var key_right=keyboard_check(ord("D"))
+	key_up=keyboard_check(ord("W"))
+	key_down=keyboard_check(ord("S"))
+	key_left=keyboard_check(ord("A"))
+	key_right=keyboard_check(ord("D"))
 	var key_dash=keyboard_check_pressed(vk_space)
 	var key_switch=mouse_check_button_pressed(mb_middle)
-	
-	//get rid of keys if running into wall because my tile collision code sucks and this is a stupid solution
-	if tile_meeting(x,y-1,colmap) key_up=false
-	if tile_meeting(x,y+1,colmap) key_down=false
-	if tile_meeting(x-1,y,colmap) key_left=false
-	if tile_meeting(x+1,y,colmap) key_right=false
 	
 	key_shoot=mouse_check_button(mb_left)
 	key_reload=keyboard_check_pressed(ord("R"))
@@ -22,15 +16,12 @@ if alive
 	//define locals
 	var movey=key_down-key_up
 	var movex=key_right-key_left
-
-	#macro WALK_SPD 6
+	
 	var spd=WALK_SPD
 
 	//initiate dash
 	if (key_dash || dashBuffered) && dashCooldown<1 && (movex!=0 || movey!=0)
 	{
-		#macro MAX_DASH_COOLDOWN 25
-		#macro DASH_FRAMES 10
 		dashTime=DASH_FRAMES
 		dashCooldown=MAX_DASH_COOLDOWN+DASH_FRAMES
 		dashBuffered=false
@@ -41,7 +32,6 @@ if alive
 	//during dash
 	if dashTime>0
 	{
-		#macro DASH_SPD 12
 		spd=DASH_SPD
 	
 		part_particles_create(global.partSystem,plr.x,plr.y,global.ptDashTrail,5)
@@ -51,36 +41,51 @@ if alive
 	else image_blend=c_white
 	if dashCooldown>0 dashCooldown--
 
-	//COLLISIONS
+	//set spd
+	hsp=spd*movex
+	vsp=spd*movey
+
+	//collision setup
 	#macro colmap global.collisionTilemap
+	var bbox_side
 	
 	//collision check x
-	if tile_meeting(x+(movex*spd),y,colmap)
+	if(hsp>0) bbox_side=bbox_right else bbox_side=bbox_left
+	if (tilemap_get_at_pixel(colmap,bbox_side+hsp,bbox_top) !=0)
+	|| (tilemap_get_at_pixel(colmap,bbox_side+hsp,bbox_bottom) !=0)
 	{
-		while !tile_meeting(x+movex,y,colmap)
+		if (hsp>0)
 		{
-			x+=movex
+			x=x-(x mod 32) + (31) - (bbox_right-x)
 		}
-		movex=0
+		else
+		{
+			x=x-(x mod 32) - (bbox_left-x)
+		}
+		hsp=0
 	}
 
 	//move x
-	x+=movex*spd
-	x=floor(x)
+	x+=hsp
 
 	//collision check y
-	if tile_meeting(x,y+(movey*spd),colmap)
+	if (vsp>0) bbox_side=bbox_bottom else bbox_side=bbox_top
+	if (tilemap_get_at_pixel(colmap,bbox_left,bbox_side+vsp) !=0)
+	|| (tilemap_get_at_pixel(colmap,bbox_right,bbox_side+vsp) !=0)
 	{
-		while !tile_meeting(x,y+movey,colmap)
+		if (vsp>0)
 		{
-			y+=movey
+			y=y-(y mod 32) + (31) - (bbox_bottom-y)
 		}
-		movey=0
+		else
+		{
+			y=y-(y mod 32) - (bbox_top-y)
+		}
+		vsp=0
 	}
 
 	//move y
-	y+=movey*spd
-	y=floor(y)
+	y+=vsp
 	
 	//drop weapon
 	if key_drop

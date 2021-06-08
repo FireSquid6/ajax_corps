@@ -96,8 +96,9 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 			if assistFrames>0
 			{
 				dir=findDir()
+				inst.image_angle=dir-90
+				assistFrames--
 			}
-			if assistFrames>0 assistFrames--
 		
 			//move
 			inst.x+=lengthdir_x(spd,dir)

@@ -160,8 +160,11 @@ function human_patrol()
 	{
 		
 		path_end()
-		var canMove=mp_grid_path(global.motionGrid,patrolPath,x,y,startX,startY,true)
-		if canMove path_start(patrolPath,deadSpd,path_action_stop,true)
+		if path_exists(patrolPath)
+		{
+			var canMove=mp_grid_path(global.motionGrid,patrolPath,x,y,startX,startY,true)
+			if canMove path_start(patrolPath,deadSpd,path_action_stop,true)
+		}
 	}
 }
 
@@ -342,15 +345,18 @@ function human_attack_medrange()
 					var midpointY=((y+plr.y)*0.5)
 					var dir=point_direction(x,y,plr.x,plr.y)+(90*choose(-1,1))
 					
-					while !(mp_grid_path(global.motionGrid,attackPath,x,y,
-						midpointX+lengthdir_x(dist,dir),
-						midpointY+lengthdir_y(dist,dir),
-						true))
+					if path_exists(attackPath)
 					{
-						dist-=TILE_SIZE
-					}
+						while !(mp_grid_path(global.motionGrid,attackPath,x,y,
+							midpointX+lengthdir_x(dist,dir),
+							midpointY+lengthdir_y(dist,dir),
+							true))
+						{
+							dist-=TILE_SIZE
+						}
 					
-					path_start(attackPath,strafeSpd,path_action_reverse,true)
+						path_start(attackPath,strafeSpd,path_action_reverse,true)
+					}
 				}
 				else pushTime--
 				break

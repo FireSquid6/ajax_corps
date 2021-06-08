@@ -6,6 +6,9 @@ flashTime=0
 interactableSelected=noone
 mask_index=spr_player
 
+hsp=0
+vsp=0
+
 rArmPos=global.arm_pos_walking.r
 lArmPos=global.arm_pos_walking.l
 
