@@ -67,5 +67,6 @@ global.arm_pos_rifle=
 #region extra macros
 
 #macro pickupRange 64
+#macro plr obj_player
 
 #endregion
