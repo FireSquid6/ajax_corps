@@ -25,13 +25,14 @@ part_type_color_mix(p,$00007c,$1a1aff)
 global.ptBlood=p
 
 //kill particles
+#macro DEAD_PARTICLES_AMMOUNT 50
 p=part_type_create()
 part_type_shape(p,pt_shape_pixel)
-part_type_life(p,60,60)
-part_type_alpha2(p,0.3,0.7)
-part_type_size(p,3,4,-0.3,0)
+part_type_life(p,300,500)
+part_type_alpha2(p,1,1)
+part_type_size(p,8,10,-0.3,0)
 part_type_direction(p,0,360,0,5)
-part_type_speed(p,3,4,-0.33,false)
+part_type_speed(p,5,6,0,0)
 part_type_color_mix(p,$00007c,$1a1aff)
 
 global.ptDead=p

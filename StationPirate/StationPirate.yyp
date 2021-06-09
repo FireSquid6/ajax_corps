@@ -60,6 +60,7 @@
     {"id":{"name":"obj_weaponPickup","path":"objects/obj_weaponPickup/obj_weaponPickup.yy",},"order":1,},
     {"id":{"name":"snd_shoot1","path":"sounds/snd_shoot1/snd_shoot1.yy",},"order":69,},
     {"id":{"name":"__scribble_config_default_template","path":"scripts/__scribble_config_default_template/__scribble_config_default_template.yy",},"order":1,},
+    {"id":{"name":"spr_cross","path":"sprites/spr_cross/spr_cross.yy",},"order":4,},
     {"id":{"name":"ts_coltiles","path":"tilesets/ts_coltiles/ts_coltiles.yy",},"order":1,},
     {"id":{"name":"ts_foreground","path":"tilesets/ts_foreground/ts_foreground.yy",},"order":1,},
     {"id":{"name":"obj_human","path":"objects/obj_human/obj_human.yy",},"order":0,},

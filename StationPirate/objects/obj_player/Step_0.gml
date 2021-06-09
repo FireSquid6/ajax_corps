@@ -147,11 +147,14 @@ if alive
 	//check if dead
 	if hp<1 && !global.godMode 
 	{
+		part_particles_create(global.partSystem,x,y,global.ptDead,DEAD_PARTICLES_AMMOUNT)
 		alive=false
 		audio_play_sound(snd_playerDead,playerDeadPriority,false)
+		sprite_index=spr_cross
 	}
 }
 else
 {
+	//part_particles_create(global.partSystem,x,y,global.ptDead,DEAD_PARTICLES_AMMOUNT)
 	hp=0
 }

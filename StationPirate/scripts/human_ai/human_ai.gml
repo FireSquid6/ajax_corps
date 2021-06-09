@@ -54,32 +54,35 @@ function human_init()
 //step
 function human_step()
 {
-	if hp<1 
+	if instance_exists(id)
 	{
-		instance_destroy()
-		part_particles_create(global.partSystem,x,y,global.ptDead,15)
-	}
-	key_reload=false
+		if hp<1 
+		{
+			instance_destroy()
+			part_particles_create(global.partSystem,x,y,global.ptDead,DEAD_PARTICLES_AMMOUNT)
+		}
+		key_reload=false
 	
-	//check if out of ammo
-	if weapon.inMag==0 
-	{
-		weapon=get_weapon("melee",weaponTeams.enemy,id)
-		weapon.equip()
-		range=weapon.weaponRange
-		human_get_attack_range(range)
-	}
+		//check if out of ammo
+		if weapon.inMag==0 
+		{
+			weapon=get_weapon("melee",weaponTeams.enemy,id)
+			weapon.equip()
+			range=weapon.weaponRange
+			human_get_attack_range(range)
+		}
 	
-	switch state
-	{
-		case humanStates.patrolling:
-			patrol_ai()
-			break
-		case humanStates.attacking:
-			if instance_exists(plr) weapon.step()
-			if !plr.alive human_switch_patrol()
-			attack_ai()
-			break
+		switch state
+		{
+			case humanStates.patrolling:
+				patrol_ai()
+				break
+			case humanStates.attacking:
+				if instance_exists(plr) weapon.step()
+				if !plr.alive human_switch_patrol()
+				attack_ai()
+				break
+		}
 	}
 }
 
