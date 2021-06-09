@@ -48,10 +48,6 @@ global.arm_pos_rifle=
 
 #endregion
 
-#region fonts
-
-#endregion
-
 #region sound priority
 
 #macro shootPriority 10
@@ -72,11 +68,12 @@ global.arm_pos_rifle=
 #macro MAX_DASH_COOLDOWN 25
 #macro DASH_FRAMES 10
 #macro DASH_SPD 12
+#macro TILE_SIZE 32
 
 #endregion
 
 #region scribble
 
-scribble_font_add_all()
+//scribble_font_add_all()
 
 #endregion

@@ -1,22 +1,20 @@
-function collision_line_tile(x1,y1,x2,y2,tilemap,grid_size)
+function collision_line_tile(x1,y1,x2,y2,tile_size)
 {
-	#macro TILE_SIZE 32
-	var dir=point_direction(x1,y1,x2,y2)
-	var cX=x1
-	var cY=y1
-	var atPixel
+	var cx=x1
+	var cy=y1
+	tile_size*=0.5
 	
-	while (cX<=x2 && cY<=y2)
+	if point_distance(x1,y1,x2,y2)==0 exit
+	do
 	{
-		atPixel=tilemap_get_at_pixel(tilemap,cX,cY)
-		if atPixel
-		{
-			return true
-			break
+		if (abs(y2-y1)>abs(x2-x1))
+	    {
+			
 		}
-		cX+=lengthdir_x(grid_size,dir)
-		cY+=lengthdir_y(grid_size,dir)
+		else
+		{
+			
+		}
 	}
-	
-	return false
+	until cx>=x2 && cy>=y2
 }
