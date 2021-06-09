@@ -325,6 +325,11 @@ function weapon_machinePistol(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	magSize=18
 	
 	maxCooldown=7
+	
+	inMag=magSize
+	reserveSize=magSize*10
+	inReserve=inMag*5
+	cooldown=0
 }
 
 //function heavy_machine_gun(_team,_obj) : weapon_pistol(_team,_obj) constructor
@@ -354,6 +359,11 @@ function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	reloadTime=60
 	magSize=24
 	switchTime=30
+	
+	inMag=magSize
+	reserveSize=magSize*10
+	inReserve=inMag*5
+	cooldown=0
 }
 
 function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
@@ -364,12 +374,12 @@ function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 	weapon_sprite=spr_assaultRifle
 	bullet_sprite=spr_lightBullet
 	pickup_sprite=spr_machinePistolPickup
-	weaponRange=weaponRanges.medium
+	weaponRange=weaponRanges.short
 	
 	display_name="SHELL CANNON"
 	
 	ammoType=ammoTypes.shell
-	dmg=15
+	dmg=20
 	bulletSpd=28
 	spread=7
 	shots=7
@@ -380,6 +390,11 @@ function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 	reloadTime=50
 	magSize=4
 	switchTime=maxCooldown
+	
+	inMag=magSize
+	reserveSize=magSize*10
+	inReserve=inMag*5
+	cooldown=0
 	
 	get_struct=function(_bullet)
 	{
@@ -418,6 +433,10 @@ function weapon_auto_shotgun(_team,_obj) : weapon_pump_shotgun(_team,_obj) const
 	dmg=10
 	reloadTime=40
 	display_name="SHELL MACHINE GUN"
+	inMag=magSize
+	reserveSize=magSize*10
+	inReserve=inMag*5
+	cooldown=0
 }
 
 //function weapon_sniper(_team,_obj) : weapon_parent(_team,_obj) constructor

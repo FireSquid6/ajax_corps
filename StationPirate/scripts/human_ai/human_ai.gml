@@ -54,7 +54,11 @@ function human_init()
 //step
 function human_step()
 {
-	if hp<1 instance_destroy()
+	if hp<1 
+	{
+		instance_destroy()
+		part_particles_create(global.partSystem,x,y,global.ptDead,15)
+	}
 	key_reload=false
 	
 	//check if out of ammo
