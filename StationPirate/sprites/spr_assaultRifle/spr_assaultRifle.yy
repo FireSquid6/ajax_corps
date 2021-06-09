@@ -1,5 +1,5 @@
 {
-  "bboxMode": 2,
+  "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
   "origin": 9,
@@ -7,15 +7,15 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 0,
-  "bbox_right": 2,
-  "bbox_top": 0,
-  "bbox_bottom": 8,
+  "bbox_left": 11,
+  "bbox_right": 17,
+  "bbox_top": 2,
+  "bbox_bottom": 30,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 16,
-  "height": 16,
+  "width": 32,
+  "height": 32,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"faac64ef-5e11-4408-a567-7a409801fd73","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"faac64ef-5e11-4408-a567-7a409801fd73","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},"LayerId":{"name":"6784ad25-71b0-40ce-b4eb-1405fff13896","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_machinePistol","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},"resourceVersion":"1.0","name":"faac64ef-5e11-4408-a567-7a409801fd73","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"df8963bc-3bc7-4c66-9983-dc8bda0f6fe9","path":"sprites/spr_assaultRifle/spr_assaultRifle.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"df8963bc-3bc7-4c66-9983-dc8bda0f6fe9","path":"sprites/spr_assaultRifle/spr_assaultRifle.yy",},"LayerId":{"name":"13015151-c621-4a9e-8d89-8e73857ef4ff","path":"sprites/spr_assaultRifle/spr_assaultRifle.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_assaultRifle","path":"sprites/spr_assaultRifle/spr_assaultRifle.yy",},"resourceVersion":"1.0","name":"df8963bc-3bc7-4c66-9983-dc8bda0f6fe9","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_machinePistol","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},
+    "spriteId": {"name":"spr_assaultRifle","path":"sprites/spr_assaultRifle/spr_assaultRifle.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"4ae78a6a-8949-43df-aaee-6401c93dbff3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"faac64ef-5e11-4408-a567-7a409801fd73","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5c2e84b5-d094-450a-b046-50c8e3e525b8","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"df8963bc-3bc7-4c66-9983-dc8bda0f6fe9","path":"sprites/spr_assaultRifle/spr_assaultRifle.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -54,18 +54,18 @@
     "backdropHeight": 768,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 8,
-    "yorigin": 15,
+    "xorigin": 16,
+    "yorigin": 29,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_machinePistol","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},
+    "parent": {"name":"spr_assaultRifle","path":"sprites/spr_assaultRifle/spr_assaultRifle.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_machinePistol",
+    "name": "spr_assaultRifle",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"6784ad25-71b0-40ce-b4eb-1405fff13896","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"13015151-c621-4a9e-8d89-8e73857ef4ff","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
@@ -73,7 +73,7 @@
     "path": "folders/Station Pirate/Assets/Offensive/Weapons.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_machinePistol",
+  "name": "spr_assaultRifle",
   "tags": [],
   "resourceType": "GMSprite",
 }

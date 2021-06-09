@@ -134,7 +134,6 @@ function weapon_fist(_team,_obj) : weapon_parent(_team,_obj) constructor
 	arms=global.arm_pos_walking
 	
 	dmg=5
-	knockback=5
 	lifespan=14
 	
 	maxCooldown=20
@@ -203,7 +202,6 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 	
 	ammoType=ammoTypes.light
 	dmg=20
-	knockback=3
 	bulletSpd=18
 	lifespan=60
 	
@@ -240,10 +238,24 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 		}
 	}
 	
+	get_struct=function(_bullet)
+	{
+		var proj=new projectile(_bullet,target,bullet_sprite,dmg,bulletSpd,lifespan,assistFrames,findDir,flashDmg,hitSound)
+		return proj
+	}
+	
 	create_bullet=function()
 	{
-		var bullet=instance_create_layer(posX,posY,"bullet",obj_projectile)
-		bullet.struct=new projectile(bullet,target,bullet_sprite,dmg,bulletSpd,lifespan,assistFrames,findDir,flashDmg,hitSound)
+		var bulletPosX,bulletPosY,bulletArm
+		if arms==global.arm_pos_rifle bulletArm=inst.lArmPos else if arms==global.arm_pos_handgun bulletArm=inst.rArmPos
+		with inst
+		{
+			bulletPosX=x+lengthdir_x(ARM_DIST,image_angle+bulletArm)
+			bulletPosY=y+lengthdir_y(ARM_DIST,image_angle+bulletArm)
+		}
+		
+		var bullet=instance_create_layer(bulletPosX,bulletPosY,"bullet",obj_projectile)
+		bullet.struct=get_struct(bullet)
 		audio_play_sound(shootSound,shootPriority,false)
 			
 		cooldown=maxCooldown
@@ -285,7 +297,9 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 		}
 		draw_set_color(c_white)
 		draw_set_font(fnt_default)
-		draw_sprite_ext(weapon_sprite,1,posX,posY,1,1,inst.image_angle,c_white,1)
+		var offset=0
+		if arms=global.arm_pos_rifle offset=15
+		draw_sprite_ext(weapon_sprite,1,posX,posY,1,1,inst.image_angle+offset,c_white,1)
 		debug_draw()
 	}
 	
@@ -304,7 +318,7 @@ function weapon_machinePistol(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	bullet_sprite=spr_lightBullet
 	weaponRange=weaponRanges.medium
 	
-	display_name="Submachine Gun"
+	display_name="SPEED HANDGUN"
 	
 	dmg=10
 	bulletSpd=18
@@ -318,20 +332,93 @@ function weapon_machinePistol(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	
 //}
 
-//function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructor
-//{
+function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructor
+{	
+	hitSound=snd_smallDamage
+	shootSound=snd_shootPistol
 	
-//}
+	weapon_sprite=spr_assaultRifle
+	bullet_sprite=spr_lightBullet
+	pickup_sprite=spr_machinePistolPickup
+	weaponRange=weaponRanges.medium
+	
+	display_name="ASSUALT RIFLE"
+	
+	ammoType=ammoTypes.medium
+	dmg=25
+	bulletSpd=28
+	
+	arms=global.arm_pos_rifle
+	
+	maxCooldown=10
+	reloadTime=60
+	magSize=24
+	switchTime=30
+}
 
-//function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
-//{
+function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
+{
+	hitSound=snd_smallDamage
+	shootSound=snd_shootPistol
 	
-//}
+	weapon_sprite=spr_assaultRifle
+	bullet_sprite=spr_lightBullet
+	pickup_sprite=spr_machinePistolPickup
+	weaponRange=weaponRanges.medium
+	
+	display_name="SHELL CANNON"
+	
+	ammoType=ammoTypes.shell
+	dmg=15
+	bulletSpd=28
+	spread=7
+	shots=7
+	
+	arms=global.arm_pos_rifle
+	
+	maxCooldown=60
+	reloadTime=50
+	magSize=4
+	switchTime=maxCooldown
+	
+	get_struct=function(_bullet)
+	{
+		var proj=new fragment(_bullet,target,bullet_sprite,dmg,bulletSpd,lifespan,assistFrames,findDir,flashDmg,hitSound,spread)
+		return proj
+	}
+	
+	create_bullet=function()
+	{
+		var bulletPosX,bulletPosY,bulletArm
+		if arms==global.arm_pos_rifle bulletArm=inst.lArmPos else if arms==global.arm_pos_handgun bulletArm=inst.rArmPos
+		with inst
+		{
+			bulletPosX=x+lengthdir_x(ARM_DIST,image_angle+bulletArm)
+			bulletPosY=y+lengthdir_y(ARM_DIST,image_angle+bulletArm)
+		}
+		
+		var bullet
+		repeat shots
+		{
+			bullet=instance_create_layer(bulletPosX,bulletPosY,"bullet",obj_projectile)
+			bullet.struct=get_struct(bullet)
+		}
+		
+		audio_play_sound(shootSound,shootPriority,false)
+		cooldown=maxCooldown
+		inMag--
+	}
+}
 
-//function weapon_auto_shotgun(_team,_obj) : weapon_shotgun(_team,_obj) constructor
-//{
-	
-//}
+function weapon_auto_shotgun(_team,_obj) : weapon_pump_shotgun(_team,_obj) constructor
+{
+	magSize=12
+	maxCooldown=15
+	spread=12
+	dmg=10
+	reloadTime=40
+	display_name="SHELL MACHINE GUN"
+}
 
 //function weapon_sniper(_team,_obj) : weapon_parent(_team,_obj) constructor
 //{

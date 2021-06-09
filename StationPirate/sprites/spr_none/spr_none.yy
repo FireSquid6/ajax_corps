@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Meta",
-    "path": "folders/Station Pirate/Assets/Meta.yy",
+    "name": "Placeholder",
+    "path": "folders/Station Pirate/Assets/Meta/Placeholder.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_none",

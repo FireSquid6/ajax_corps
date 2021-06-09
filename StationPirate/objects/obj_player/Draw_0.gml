@@ -1,16 +1,5 @@
 if alive
 {
-	//test
-	if keyboard_check_pressed(ord("Y"))
-	{
-		var cock=27
-	}
-	var test=collision_line_tile(x,y,mouse_x,mouse_y,colmap,TILE_SIZE)
-	draw_set_color(c_white)
-	if test draw_set_color(c_red)
-	draw_line_width(x,y,mouse_x,mouse_y,1)
-	draw_set_color(c_white)
-	
 	//reload bar
 	switch weaponSelected
 	{

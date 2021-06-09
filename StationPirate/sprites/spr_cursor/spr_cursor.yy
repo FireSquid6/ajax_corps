@@ -81,8 +81,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Meta",
-    "path": "folders/Station Pirate/Assets/Meta.yy",
+    "name": "Controller",
+    "path": "folders/Station Pirate/Assets/Meta/Controller.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_cursor",
