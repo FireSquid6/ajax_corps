@@ -1,7 +1,0 @@
-Converting GML script: ${project_dir}\scripts\funcDsGridSetLine\funcDsGridSetLine.gml
-Converted description /// @description funcDsGridSetLine(id,x1,y1,x2,y2,value);/// @param id
-/// @param x1
-/// @param y1
-/// @param x2
-/// @param y2
-/// @param value
