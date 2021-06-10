@@ -7,7 +7,10 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "par_interactable",
+    "path": "objects/par_interactable/par_interactable.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -31,8 +34,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Data",
-    "path": "folders/Station Pirate/Data.yy",
+    "name": "Level Building",
+    "path": "folders/Station Pirate/Data/Level Building.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_teleporter",

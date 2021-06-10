@@ -39,11 +39,26 @@ function get_weapon(str,team,obj)
 		case "pistol":
 			w=new weapon_pistol(team,obj)
 			break
+		case "handgun":
+			w=new weapon_pistol(team,obj)
+			break
 		case "machinePistol":
 			w=new weapon_machinePistol(team,obj)
 			break
 		case "machine_pistol":
 			w=new weapon_machinePistol(team,obj)
+			break
+		case "pump shotgun":
+			w=new weapon_pump_shotgun(team,obj)
+			break
+		case "auto shotgun":
+			w=new weapon_auto_shotgun(team,obj)
+			break
+		case "pump_shotgun":
+			w=new weapon_pump_shotgun(team,obj)
+			break
+		case "auto_shotgun":
+			w=new weapon_auto_shotgun(team,obj)
 			break
 	}
 	return w
