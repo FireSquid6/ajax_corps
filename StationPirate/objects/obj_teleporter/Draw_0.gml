@@ -1,10 +1,3 @@
-draw_set_color(c_white)
-draw_set_font(fnt_default)
-if global.debugMode
-{
-	draw_text(x,y-32,weapon.display_name)
-}
-
 if plr.interactableSelected==id 
 {
 	shader_set(shd_white)
