@@ -56,11 +56,6 @@ function human_step()
 {
 	if instance_exists(id)
 	{
-		if hp<1 
-		{
-			instance_destroy()
-			part_particles_create(global.partSystem,x,y,global.ptDead,DEAD_PARTICLES_AMMOUNT)
-		}
 		key_reload=false
 	
 		//check if out of ammo
@@ -82,6 +77,13 @@ function human_step()
 				if !plr.alive human_switch_patrol()
 				attack_ai()
 				break
+		}
+		
+		//kill
+		if hp<1 
+		{
+			instance_destroy()
+			part_particles_create(global.partSystem,x,y,global.ptDead,DEAD_PARTICLES_AMMOUNT)
 		}
 	}
 }

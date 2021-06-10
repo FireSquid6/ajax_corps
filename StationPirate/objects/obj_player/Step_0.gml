@@ -1,18 +1,18 @@
+//define keys
+key_up=keyboard_check(ord("W"))
+key_down=keyboard_check(ord("S"))
+key_left=keyboard_check(ord("A"))
+key_right=keyboard_check(ord("D"))
+var key_dash=keyboard_check_pressed(vk_space)
+var key_switch=mouse_check_button_pressed(mb_middle)
+	
+key_shoot=mouse_check_button(mb_left)
+key_reload=keyboard_check_pressed(ord("R"))
+key_drop=keyboard_check_pressed(ord("Q"))
+key_interact=keyboard_check_pressed(ord("E"))
+
 if alive
 {
-	//define keys
-	key_up=keyboard_check(ord("W"))
-	key_down=keyboard_check(ord("S"))
-	key_left=keyboard_check(ord("A"))
-	key_right=keyboard_check(ord("D"))
-	var key_dash=keyboard_check_pressed(vk_space)
-	var key_switch=mouse_check_button_pressed(mb_middle)
-	
-	key_shoot=mouse_check_button(mb_left)
-	key_reload=keyboard_check_pressed(ord("R"))
-	key_drop=keyboard_check_pressed(ord("Q"))
-	key_interact=keyboard_check_pressed(ord("E"))
-
 	//define locals
 	var movey=key_down-key_up
 	var movex=key_right-key_left
@@ -157,4 +157,5 @@ else
 {
 	//part_particles_create(global.partSystem,x,y,global.ptDead,DEAD_PARTICLES_AMMOUNT)
 	hp=0
+	if key_reload room_restart()
 }

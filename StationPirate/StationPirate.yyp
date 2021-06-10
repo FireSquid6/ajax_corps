@@ -1,7 +1,8 @@
 {
   "resources": [
     {"id":{"name":"CleanTransformOriginGet","path":"scripts/CleanTransformOriginGet/CleanTransformOriginGet.yy",},"order":4,},
-    {"id":{"name":"rm_tutorial","path":"rooms/rm_tutorial/rm_tutorial.yy",},"order":0,},
+    {"id":{"name":"spr_teleporter","path":"sprites/spr_teleporter/spr_teleporter.yy",},"order":2,},
+    {"id":{"name":"rm_level_1_1","path":"rooms/rm_level_1_1/rm_level_1_1.yy",},"order":0,},
     {"id":{"name":"spr_rmmb","path":"sprites/spr_rmmb/spr_rmmb.yy",},"order":4,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
     {"id":{"name":"sound59_collect1","path":"sounds/sound59_collect1/sound59_collect1.yy",},"order":55,},
@@ -16,6 +17,7 @@
     {"id":{"name":"sound21_jump9","path":"sounds/sound21_jump9/sound21_jump9.yy",},"order":14,},
     {"id":{"name":"CleanBatchBegin","path":"scripts/CleanBatchBegin/CleanBatchBegin.yy",},"order":0,},
     {"id":{"name":"sound26_jump4","path":"sounds/sound26_jump4/sound26_jump4.yy",},"order":19,},
+    {"id":{"name":"rm_level_1_2","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},"order":1,},
     {"id":{"name":"sound25_jump5","path":"sounds/sound25_jump5/sound25_jump5.yy",},"order":18,},
     {"id":{"name":"snd_ammoPickup","path":"sounds/snd_ammoPickup/snd_ammoPickup.yy",},"order":0,},
     {"id":{"name":"spr_machinePistol","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},"order":1,},
@@ -58,6 +60,7 @@
     {"id":{"name":"__shdBulbSoftShadows","path":"shaders/__shdBulbSoftShadows/__shdBulbSoftShadows.yy",},"order":4,},
     {"id":{"name":"CleanBatchEndDraw","path":"scripts/CleanBatchEndDraw/CleanBatchEndDraw.yy",},"order":2,},
     {"id":{"name":"obj_weaponPickup","path":"objects/obj_weaponPickup/obj_weaponPickup.yy",},"order":1,},
+    {"id":{"name":"obj_teleporter","path":"objects/obj_teleporter/obj_teleporter.yy",},"order":9,},
     {"id":{"name":"snd_shoot1","path":"sounds/snd_shoot1/snd_shoot1.yy",},"order":69,},
     {"id":{"name":"__scribble_config_default_template","path":"scripts/__scribble_config_default_template/__scribble_config_default_template.yy",},"order":1,},
     {"id":{"name":"spr_cross","path":"sprites/spr_cross/spr_cross.yy",},"order":4,},
@@ -165,6 +168,7 @@
     {"id":{"name":"__scribble_class_line","path":"scripts/__scribble_class_line/__scribble_class_line.yy",},"order":2,},
     {"id":{"name":"BulbLight","path":"scripts/BulbLight/BulbLight.yy",},"order":4,},
     {"id":{"name":"sound61_blip9","path":"sounds/sound61_blip9/sound61_blip9.yy",},"order":58,},
+    {"id":{"name":"rm_template","path":"rooms/rm_template/rm_template.yy",},"order":1,},
     {"id":{"name":"__BulbConfig","path":"scripts/__BulbConfig/__BulbConfig.yy",},"order":2,},
     {"id":{"name":"sound12_pwr8","path":"sounds/sound12_pwr8/sound12_pwr8.yy",},"order":4,},
     {"id":{"name":"sound31_gethit9","path":"sounds/sound31_gethit9/sound31_gethit9.yy",},"order":25,},
@@ -175,6 +179,7 @@
     {"id":{"name":"scribble_font_add_all","path":"scripts/scribble_font_add_all/scribble_font_add_all.yy",},"order":1,},
     {"id":{"name":"create_ammo","path":"scripts/create_ammo/create_ammo.yy",},"order":8,},
     {"id":{"name":"sound23_jump7","path":"sounds/sound23_jump7/sound23_jump7.yy",},"order":16,},
+    {"id":{"name":"spr_dirt","path":"sprites/spr_dirt/spr_dirt.yy",},"order":0,},
     {"id":{"name":"spr_lightBullet","path":"sprites/spr_lightBullet/spr_lightBullet.yy",},"order":1,},
     {"id":{"name":"fnt_default","path":"fonts/fnt_default/fnt_default.yy",},"order":2,},
     {"id":{"name":"par_interactable","path":"objects/par_interactable/par_interactable.yy",},"order":2,},
@@ -231,7 +236,9 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_tutorial","path":"rooms/rm_tutorial/rm_tutorial.yy",},},
+    {"roomId":{"name":"rm_level_1_1","path":"rooms/rm_level_1_1/rm_level_1_1.yy",},},
+    {"roomId":{"name":"rm_template","path":"rooms/rm_template/rm_template.yy",},},
+    {"roomId":{"name":"rm_level_1_2","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Station Pirate/Data.yy","order":0,"resourceVersion":"1.0","name":"Data","tags":[],"resourceType":"GMFolder",},
@@ -290,6 +297,7 @@
     {"folderPath":"folders/Station Pirate/Assets/Level Building.yy","order":13,"resourceVersion":"1.0","name":"Level Building","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Station Pirate/Assets/Meta/Placeholder.yy","order":5,"resourceVersion":"1.0","name":"Placeholder","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Station Pirate/Assets/Meta/Controller.yy","order":6,"resourceVersion":"1.0","name":"Controller","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Station Pirate/Data/Rooms/Sector 1.yy","order":2,"resourceVersion":"1.0","name":"Sector 1","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
