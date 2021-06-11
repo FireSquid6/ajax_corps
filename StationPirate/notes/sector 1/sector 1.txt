@@ -1,44 +1,77 @@
 LEVEL 1 - TUTORIAL
 	Description
-
+		The entrance to the laboratory. A single guard who can be killed easily. Has
+		a tutorial spray-painted on the floor to show players how to move and interact.
 	Assets
+		Teleporter In
+		Tutorial sprays
+		Wooden Commons Table (3 variants)
+		Wooden Chair
 		
 	Enemies
-	
-	Weapons Introduced
+		Human
+	Weapons Used
+		Pistol
+		Machine Pistol
 	
 LEVEL 2 - OFFICE
 	Description
-	
+		An office evacuated by scientists now being patrolled by shielded guards. A
+		shotgun is given to the player and should be used to clear out the office.
 	Assets
-	
+		Computer desk (3 variants)
+		Glass tiles
+		Water tiles
+		Toilet Stall
+		Toilet Sinks
+		Bathroom Tile
+		Cafeteria Tables
 	Enemies
-	
-	Weapons Introduced
+		Human
+	Weapons Used
+		Pistol
+		Machine Pistol
+		Pump shotgun
+		Automatic shotgun
 	
 LEVEL 3 - STOREROOM
 	Description
-
+		A series of rooms guarded by drones containing chemicals and compounds of all
+		types. More stealthy gameplay.
 	Assets
-	
+		Various types of boxes
 	Enemies
-	
-	Weapons Introduced
-	
+		Human
+		Drone
+	Weapons Used
+		Assault Rifle
+		
 LEVEL 4 - TEST CHAMBERS
 	Description
-
+		A shooting gallery suspended over lava to test your reflexes and aim
 	Assets
-	
+		Weapon Deleter
+		Local teleporter
+		
 	Enemies
-	
-	Weapons Introduced
-
+		Drone
+		Human
+		
+	Weapons Used
+		Magnum
+		Sniper Rifle
+		Burst Rifle
+		
 LEVEL 5 - TRANSPORT HUB
 	Description
-	
+		A monorail station with an enemy captain.
+		
 	Assets
-	
+		monorail tracks
+		monorail
+		
 	Enemies
-	
-	Weapons Introduced
+		captain
+		
+	Weapons Used
+		Assault rifle
