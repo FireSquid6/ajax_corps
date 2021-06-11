@@ -93,25 +93,9 @@ if alive
 		var weapon_create_dir=point_direction(x,y,mouse_x,mouse_y)
 		var weapon_x=x+lengthdir_x(24,weapon_create_dir)
 		var weapon_y=y+lengthdir_y(24,weapon_create_dir)
-		switch weaponSelected
-		{
-			case 0:
-				if primary.display_name!="FISTS"
-				{
-					create_weapon(weapon_x,weapon_y,"",primary,primary.inReserve)
-					primary=new weapon_fist(weaponTeams.player,id)
-					primary.equip()
-				}
-				break
-			case 1:
-				if secondary.display_name!="FISTS"
-				{
-					create_weapon(weapon_x,weapon_y,"",secondary,secondary.inReserve)
-					secondary=new weapon_fist(weaponTeams.player,id)
-					secondary.equip()
-				}
-				break
-		}
+		create_weapon(weapon_x,weapon_y,"",weapon,weapon.inReserve)
+		weapon=new weapon_fist(weaponTeams.player,id)
+		weapon.equip()
 	}
 	
 	//interactables

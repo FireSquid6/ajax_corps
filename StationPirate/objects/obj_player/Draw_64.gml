@@ -19,16 +19,6 @@ if alive
 	#macro PROF_RIGHT_PADDING 290
 
 	//draw name
-	var weapon
-	switch weaponSelected
-		{
-			case 0:
-				weapon=primary
-				break
-			case 1:
-				weapon=secondary
-				break
-		}
 	draw_set_font(fnt_profile_name)
 	draw_set_color(c_black)
 	draw_text(prof_x+PROF_LEFT_PADDING,gui_height-PROF_TOP_PADDING,weapon.display_name)

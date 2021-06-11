@@ -1,15 +1,7 @@
 if alive
 {
 	//reload bar
-	switch weaponSelected
-	{
-		case 0:
-			primary.draw_reload_bar()
-			break
-		case 1:
-			secondary.draw_reload_bar()
-			break
-	}
+	weapon.draw_reload_bar()
 
 	//shaders
 	if flashTime>0 
@@ -19,15 +11,7 @@ if alive
 	}
 
 	//weapon sprite
-	switch weaponSelected
-		{
-			case 0:
-				primary.draw()
-				break
-			case 1:
-				secondary.draw()
-				break
-		}
+	weapon.draw()
 
 	//right arm
 	draw_sprite_ext(spr_playerArm,1,

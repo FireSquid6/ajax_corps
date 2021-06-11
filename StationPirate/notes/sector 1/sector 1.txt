@@ -10,6 +10,7 @@ LEVEL 1 - TUTORIAL
 		
 	Enemies
 		Human
+		
 	Weapons Used
 		Pistol
 		Machine Pistol
@@ -18,6 +19,7 @@ LEVEL 2 - OFFICE
 	Description
 		An office evacuated by scientists now being patrolled by shielded guards. A
 		shotgun is given to the player and should be used to clear out the office.
+		
 	Assets
 		Computer desk (3 variants)
 		Glass tiles
@@ -26,8 +28,10 @@ LEVEL 2 - OFFICE
 		Toilet Sinks
 		Bathroom Tile
 		Cafeteria Tables
+		
 	Enemies
 		Human
+		
 	Weapons Used
 		Pistol
 		Machine Pistol
@@ -38,11 +42,14 @@ LEVEL 3 - STOREROOM
 	Description
 		A series of rooms guarded by drones containing chemicals and compounds of all
 		types. More stealthy gameplay.
+		
 	Assets
 		Various types of boxes
+		
 	Enemies
 		Human
 		Drone
+		
 	Weapons Used
 		Assault Rifle
 		
