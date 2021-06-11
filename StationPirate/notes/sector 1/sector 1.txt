@@ -1,0 +1,44 @@
+LEVEL 1 - TUTORIAL
+	Description
+
+	Assets
+		
+	Enemies
+	
+	Weapons Introduced
+	
+LEVEL 2 - OFFICE
+	Description
+	
+	Assets
+	
+	Enemies
+	
+	Weapons Introduced
+	
+LEVEL 3 - STOREROOM
+	Description
+
+	Assets
+	
+	Enemies
+	
+	Weapons Introduced
+	
+LEVEL 4 - TEST CHAMBERS
+	Description
+
+	Assets
+	
+	Enemies
+	
+	Weapons Introduced
+
+LEVEL 5 - TRANSPORT HUB
+	Description
+	
+	Assets
+	
+	Enemies
+	
+	Weapons Introduced

@@ -121,29 +121,8 @@ if alive
 	
 	//weapon
 	image_angle=point_direction(x,y,mouse_x,mouse_y)-90
-	if key_switch 
-	{
-		weaponSelected=!weaponSelected
-		switch weaponSelected
-		{
-			case 0:
-				primary.equip()
-				break
-			case 1:
-				secondary.equip()
-				break
-		}
-	}
-	switch weaponSelected
-	{
-		case 0:
-			primary.step()
-			break
-		case 1:
-			secondary.step()
-			break
-	}
-
+	weapon.step()
+	
 	//check if dead
 	if hp<1 && !global.godMode 
 	{

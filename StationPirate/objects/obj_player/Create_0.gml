@@ -16,10 +16,8 @@ global.godMode=false
 
 alive=true
 
-weaponSelected=0
-primary=new weapon_fist(weaponTeams.player,id)
-primary.equip()
-secondary=new weapon_fist(weaponTeams.player,id)
+weapon=new weapon_fist(weaponTeams.player,id)
+weapon.equip()
 
 #macro MAX_HP 100
 hp=MAX_HP

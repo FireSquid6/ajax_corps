@@ -118,7 +118,7 @@
   },
   "parent": {
     "name": "Bullets",
-    "path": "folders/Station Pirate/Assets/Offensive/Bullets.yy",
+    "path": "folders/Station Pirate/Assets/Damage/Bullets.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_melee",

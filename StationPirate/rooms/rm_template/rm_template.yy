@@ -210,8 +210,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Rooms",
-    "path": "folders/Station Pirate/Data/Rooms.yy",
+    "name": "Levels",
+    "path": "folders/Station Pirate/Data/Levels.yy",
   },
   "resourceVersion": "1.0",
   "name": "rm_template",

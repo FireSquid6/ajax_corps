@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Ammo",
-    "path": "folders/Station Pirate/Assets/Offensive/Pickups/Ammo.yy",
+    "name": "Weapons",
+    "path": "folders/Station Pirate/Assets/Damage/Pickups/Weapons.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_machinePistolPickup",

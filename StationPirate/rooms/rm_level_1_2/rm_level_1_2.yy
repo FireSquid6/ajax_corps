@@ -388,7 +388,7 @@
   },
   "parent": {
     "name": "Sector 1",
-    "path": "folders/Station Pirate/Data/Rooms/Sector 1.yy",
+    "path": "folders/Station Pirate/Data/Levels/Sector 1.yy",
   },
   "resourceVersion": "1.0",
   "name": "rm_level_1_2",
