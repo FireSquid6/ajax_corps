@@ -64,6 +64,31 @@ function get_weapon(str,team,obj)
 	return w
 }
 
+function get_weapon_string(_id)
+{
+	var s
+	switch _id
+	{
+		case weapon_fist:
+			s="melee"
+			break
+		case weapon_pistol:
+			s="pistol"
+			break
+		case weapon_machinePistol:
+			s="machine_pistol"
+			break
+		case weapon_pump_shotgun:
+			s="pump_shotgun"
+			break
+		case weapon_auto_shotgun:
+			s="auto_shotgun"
+			break
+	}
+	return s
+	
+}
+
 function weapon_parent(_team,_obj) constructor
 {
 	team=_team

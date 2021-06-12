@@ -70,6 +70,7 @@
     {"id":{"name":"__shd_scribble","path":"shaders/__shd_scribble/__shd_scribble.yy",},"order":11,},
     {"id":{"name":"snd_reload","path":"sounds/snd_reload/snd_reload.yy",},"order":1,},
     {"id":{"name":"sound35_gethit5","path":"sounds/sound35_gethit5/sound35_gethit5.yy",},"order":29,},
+    {"id":{"name":"spr_healthpack","path":"sprites/spr_healthpack/spr_healthpack.yy",},"order":3,},
     {"id":{"name":"CleanTransformAddRotate","path":"scripts/CleanTransformAddRotate/CleanTransformAddRotate.yy",},"order":1,},
     {"id":{"name":"sound53_collect7","path":"sounds/sound53_collect7/sound53_collect7.yy",},"order":49,},
     {"id":{"name":"CleanCapsule","path":"scripts/CleanCapsule/CleanCapsule.yy",},"order":0,},
