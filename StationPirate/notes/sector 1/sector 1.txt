@@ -21,8 +21,6 @@ LEVEL 2 - OFFICE
 		shotgun is given to the player and should be used to clear out the office.
 		
 	Assets
-		Computer desk (3 variants)
-		Glass tiles
 		Water tiles
 		Toilet Stall
 		Toilet Sinks
