@@ -168,6 +168,7 @@
     {"id":{"name":"rm_template","path":"rooms/rm_template/rm_template.yy",},"order":1,},
     {"id":{"name":"sound12_pwr8","path":"sounds/sound12_pwr8/sound12_pwr8.yy",},"order":4,},
     {"id":{"name":"sound31_gethit9","path":"sounds/sound31_gethit9/sound31_gethit9.yy",},"order":25,},
+    {"id":{"name":"obj_healthPickup","path":"objects/obj_healthPickup/obj_healthPickup.yy",},"order":2,},
     {"id":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"order":0,},
     {"id":{"name":"__scribble_class_null_element","path":"scripts/__scribble_class_null_element/__scribble_class_null_element.yy",},"order":4,},
     {"id":{"name":"spr_cursor","path":"sprites/spr_cursor/spr_cursor.yy",},"order":0,},
