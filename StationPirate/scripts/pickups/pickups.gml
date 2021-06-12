@@ -1,6 +1,8 @@
-function create_pickup()
+function create_pickup(_x,_y,_struct)
 {
-	
+	var pickup=instance_create_layer(_x,_y,"pickups",obj_pickup)
+	pickup.struct=_struct
+	pickup.struct.create()
 }
 
 function pickup_check_interacted(_id)
@@ -95,15 +97,19 @@ function pickup_health(_obj,_amount) : pickup_parent(_obj) constructor
 		inst.image_speed=0
 		if amount>=100
 		{
-			
+			inst.image_index=0
 		}
 		else if amount>=50
 		{
-			
+			inst.image_index=1
 		}
 		else
 		{
-			
+			inst.image_index=2
 		}
+	}
+	action=function()
+	{
+		obj_player.hp+=amount
 	}
 }
