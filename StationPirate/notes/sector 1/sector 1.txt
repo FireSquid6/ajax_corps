@@ -28,6 +28,7 @@ LEVEL 2 - OFFICE
 		Toilet Sinks
 		Bathroom Tile
 		Cafeteria Tables
+		Ping pong tables
 		
 	Enemies
 		Human

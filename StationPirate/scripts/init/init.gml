@@ -76,7 +76,7 @@ global.arm_pos_rifle=
 #region extra macros
 
 #macro pickupRange 64
-#macro plr obj_player
+#macro plr  obj_player
 #macro WALK_SPD 6
 #macro MAX_DASH_COOLDOWN 25
 #macro DASH_FRAMES 10
