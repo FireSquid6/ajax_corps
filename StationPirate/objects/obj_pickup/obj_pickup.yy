@@ -4,7 +4,10 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "par_interactable",
+    "path": "objects/par_interactable/par_interactable.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -21,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Pickups",
-    "path": "folders/Station Pirate/Data/Level Building/Pickups.yy",
+    "name": "Meta",
+    "path": "folders/Station Pirate/Data/Meta.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_pickup",
