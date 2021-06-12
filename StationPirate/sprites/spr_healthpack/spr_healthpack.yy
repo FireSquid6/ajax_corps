@@ -77,8 +77,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Healthpacks",
-    "path": "folders/Station Pirate/Assets/Level Building/Pickups/Healthpacks.yy",
+    "name": "Pickups",
+    "path": "folders/Station Pirate/Assets/Level Building/Pickups.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_healthpack",

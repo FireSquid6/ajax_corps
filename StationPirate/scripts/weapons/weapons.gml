@@ -22,7 +22,7 @@ enum ammoTypes
 	superBattery=6
 }
 
-function get_weapon(str,team,obj)
+function get_weapon_struct(str,team,obj)
 {
 	var w
 	switch str

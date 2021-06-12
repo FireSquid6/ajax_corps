@@ -39,7 +39,7 @@ function human_init()
 	startY=y
 	
 	//weapon
-	weapon=get_weapon(weapon_string,weaponTeams.enemy,id)
+	weapon=get_weapon_struct(weapon_string,weaponTeams.enemy,id)
 	weapon.equip()
 	range=weapon.weaponRange
 	
@@ -61,7 +61,7 @@ function human_step()
 		//check if out of ammo
 		if weapon.inMag==0 
 		{
-			weapon=get_weapon("melee",weaponTeams.enemy,id)
+			weapon=get_weapon_struct("melee",weaponTeams.enemy,id)
 			weapon.equip()
 			range=weapon.weaponRange
 			human_get_attack_range(range)
@@ -150,7 +150,10 @@ function human_draw()
 function human_destroy()
 {
 	path_delete(attackPath)
-	if weapon.ammoType!=ammoTypes.none create_ammo(x,y,weapon.ammoType,weapon.inReserve)
+	if weapon.ammoType!=ammoTypes.none 
+	{
+		create_pickup_ammo(x,y)
+	}
 	audio_play_sound(snd_enemyDead,enemyDeadPriority,false)
 }
 

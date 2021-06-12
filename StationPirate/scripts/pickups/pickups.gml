@@ -1,7 +1,21 @@
-function create_pickup(_x,_y,_struct)
+function create_pickup_weapon(_x,_y,_weaponstring,_inReserve)
 {
 	var pickup=instance_create_layer(_x,_y,"pickups",obj_pickup)
-	pickup.struct=_struct
+	pickup.struct=new pickup_weapon(pickup,_weaponstring,_inReserve)
+	pickup.struct.create()
+}
+
+function create_pickup_healthpack(_x,_y,_amount)
+{
+	var pickup=instance_create_layer(_x,_y,"pickups",obj_pickup)
+	pickup.struct=new pickup_healthpack(pickup,_amount)
+	pickup.struct.create()
+}
+
+function create_pickup_ammo(_x,_y)
+{
+	var pickup=instance_create_layer(_x,_y,"pickups",obj_pickup)
+	pickup.struct=new pickup_ammo(pickup)
 	pickup.struct.create()
 }
 
@@ -56,7 +70,7 @@ function pickup_parent(_obj) constructor
 
 function pickup_weapon(_obj,_weapon_string,_inReserve) : pickup_parent(_obj) constructor
 {
-	weapon=get_weapon(_weapon_string,weaponTeams.player,obj_player)
+	weapon=get_weapon_struct(_weapon_string,weaponTeams.player,obj_player)
 	weapon.inReserve=_inReserve
 	
 	create=function()
@@ -88,7 +102,7 @@ function pickup_ammo(_obj) : pickup_parent(_obj) constructor
 	}
 }
 
-function pickup_health(_obj,_amount) : pickup_parent(_obj) constructor
+function pickup_healthpack(_obj,_amount) : pickup_parent(_obj) constructor
 {
 	amount=_amount
 	create=function()

@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Ammo",
-    "path": "folders/Station Pirate/Assets/Level Building/Pickups/Ammo.yy",
+    "name": "Pickups",
+    "path": "folders/Station Pirate/Assets/Level Building/Pickups.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_ammo",

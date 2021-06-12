@@ -93,7 +93,7 @@ if alive
 		var weapon_create_dir=point_direction(x,y,mouse_x,mouse_y)
 		var weapon_x=x+lengthdir_x(24,weapon_create_dir)
 		var weapon_y=y+lengthdir_y(24,weapon_create_dir)
-		create_weapon(weapon_x,weapon_y,"",weapon,weapon.inReserve)
+		create_pickup_weapon(weapon_x,weapon_y,get_weapon_string(weapon),weapon.inReserve)
 		weapon=new weapon_fist(weaponTeams.player,id)
 		weapon.equip()
 	}

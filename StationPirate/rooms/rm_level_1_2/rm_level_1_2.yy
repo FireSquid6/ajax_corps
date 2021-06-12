@@ -240,12 +240,7 @@
       ],"visible":true,"depth":400,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"entities","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"bullet","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[],"visible":true,"depth":600,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"particles","tags":[],"resourceType":"GMRInstanceLayer",},
-    {"instances":[
-        {"properties":[
-            {"propertyId":{"name":"weapon_string","path":"objects/obj_weaponPickup/obj_weaponPickup.yy",},"objectId":{"name":"obj_weaponPickup","path":"objects/obj_weaponPickup/obj_weaponPickup.yy",},"value":"pump_shotgun","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-            {"propertyId":{"name":"inReserve","path":"objects/obj_weaponPickup/obj_weaponPickup.yy",},"objectId":{"name":"obj_weaponPickup","path":"objects/obj_weaponPickup/obj_weaponPickup.yy",},"value":"12","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-          ],"isDnd":false,"objectId":{"name":"obj_weaponPickup","path":"objects/obj_weaponPickup/obj_weaponPickup.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1616.0,"y":1488.0,"resourceVersion":"1.0","name":"inst_3FEE6F7B","tags":[],"resourceType":"GMRInstance",},
-      ],"visible":true,"depth":700,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"pickups","tags":[],"resourceType":"GMRInstanceLayer",},
+    {"instances":[],"visible":true,"depth":700,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"pickups","tags":[],"resourceType":"GMRInstanceLayer",},
     {"assets":[
         {"spriteId":{"name":"spr_shift","path":"sprites/spr_shift/spr_shift.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1728.0,"y":1504.0,"resourceVersion":"1.0","name":"graphic_55ED55CB","tags":[],"resourceType":"GMRSpriteGraphic",},
         {"spriteId":{"name":"spr_cdesk_cup","path":"sprites/spr_cdesk_cup/spr_cdesk_cup.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2240.0,"y":1392.0,"resourceVersion":"1.0","name":"graphic_7ACC1AA0","tags":[],"resourceType":"GMRSpriteGraphic",},
@@ -392,7 +387,6 @@
     {"name":"inst_7A7A6C07","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
     {"name":"inst_5CF0F27","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
     {"name":"inst_2258F6BE","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
-    {"name":"inst_3FEE6F7B","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
     {"name":"inst_1A189FC7","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
     {"name":"inst_34FE9CE1","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
     {"name":"inst_32FCEA94","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
