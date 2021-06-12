@@ -34,7 +34,7 @@ if alive
 	{
 		spd=DASH_SPD
 	
-		part_particles_create(global.partSystem,plr.x,plr.y,global.ptDashTrail,5)
+		part_particles_create(global.partSystem,obj_player.x,obj_player.y,global.ptDashTrail,5)
 		dashTime-=1
 		image_blend=c_aqua
 	}

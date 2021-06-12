@@ -1,6 +1,6 @@
 //this object makes me want to die
-if plr.interactableSelected==id && plr.key_interact 
+if obj_player.interactableSelected==id && obj_player.key_interact 
 {
-	plr.weapon=weapon
-	plr.weapon.equip()
+	obj_player.weapon=weapon
+	obj_player.weapon.equip()
 }

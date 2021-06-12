@@ -1,4 +1,4 @@
-if place_meeting(x,y,plr)
+if place_meeting(x,y,obj_player)
 {
-	plr.weapon.inReserve+=plr.weapon.magSize
+	obj_player.weapon.inReserve+=obj_player.weapon.magSize
 }

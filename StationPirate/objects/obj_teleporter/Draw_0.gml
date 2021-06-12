@@ -1,4 +1,4 @@
-if plr.interactableSelected==id 
+if obj_player.interactableSelected==id 
 {
 	shader_set(shd_white)
 	image_blend=c_yellow

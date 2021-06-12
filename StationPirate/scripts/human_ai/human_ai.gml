@@ -73,8 +73,8 @@ function human_step()
 				patrol_ai()
 				break
 			case humanStates.attacking:
-				if instance_exists(plr) weapon.step()
-				if !plr.alive human_switch_patrol()
+				if instance_exists(obj_player) weapon.step()
+				if !obj_player.alive human_switch_patrol()
 				attack_ai()
 				break
 		}
@@ -158,9 +158,9 @@ function human_destroy()
 function human_patrol()
 {
 	if x!=xprevious || y!=yprevious image_angle=point_direction(xprevious,yprevious,x,y)-180
-	if plr.alive
+	if obj_player.alive
 	{
-		if collision_circle(x,y,512,obj_player,false,true) && plr.alive
+		if collision_circle(x,y,512,obj_player,false,true) && obj_player.alive
 		{
 			human_switch_attack()
 		}
@@ -195,10 +195,10 @@ enum attackStates
 
 function human_attack_melee()
 {
-	if instance_exists(plr)
+	if instance_exists(obj_player)
 	{
-		image_angle=point_direction(x,y,plr.x,plr.y)-90
-		if collision_circle(x,y,48,plr,false,true)
+		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90
+		if collision_circle(x,y,48,obj_player,false,true)
 		{
 			key_shoot=true
 		}
@@ -207,7 +207,7 @@ function human_attack_melee()
 			key_shoot=false
 			if path_exists(attackPath)
 			{
-				if mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+				if mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true)
 				{
 					path_start(attackPath,strafeSpd,path_action_stop,true)
 				}
@@ -218,10 +218,10 @@ function human_attack_melee()
 
 function human_attack_shortrange()
 {
-	if instance_exists(plr)
+	if instance_exists(obj_player)
 	{
 		//set angle
-		image_angle=point_direction(x,y,plr.x,plr.y)-90
+		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90
 		
 		//check if not seeing player anymore
 		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
@@ -247,7 +247,7 @@ function human_attack_shortrange()
 				break
 			case attackStates.pushing:
 				path_end()
-				var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+				var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true)
 				if path path_start(attackPath,pushSpd,path_action_stop,true)
 				key_shoot=true
 				
@@ -261,13 +261,13 @@ function human_attack_shortrange()
 					//path
 					path_end()
 					var dist=256
-					var midpointX=((x+plr.x)*0.5)
-					var mpdir=point_direction(x,y,plr.x,plr.y)
-					var mpdist=point_distance(x,y,plr.x,plr.y)*0.25
+					var midpointX=((x+obj_player.x)*0.5)
+					var mpdir=point_direction(x,y,obj_player.x,obj_player.y)
+					var mpdist=point_distance(x,y,obj_player.x,obj_player.y)*0.25
 					midpointX+=lengthdir_x(mpdist,mpdir)
 					midpointY+=lengthdir_y(mpdist,mpdir)
-					var midpointY=((y+plr.y)*0.5)
-					var dir=point_direction(x,y,plr.x,plr.y)+(90*choose(-1,1))
+					var midpointY=((y+obj_player.y)*0.5)
+					var dir=point_direction(x,y,obj_player.x,obj_player.y)+(90*choose(-1,1))
 					
 					while !(mp_grid_path(global.motionGrid,attackPath,x,y,
 						midpointX+lengthdir_x(dist,dir),
@@ -294,7 +294,7 @@ function human_attack_shortrange()
 					
 					//path
 					path_end()
-					var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+					var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true)
 					if path path_start(attackPath,pushSpd,path_action_stop,true)
 				}
 				else shootTime--
@@ -305,10 +305,10 @@ function human_attack_shortrange()
 
 function human_attack_medrange()
 {
-	if instance_exists(plr)
+	if instance_exists(obj_player)
 	{
 		//set angle
-		image_angle=point_direction(x,y,plr.x,plr.y)-90
+		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90
 		
 		//check if not seeing player anymore
 		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
@@ -336,7 +336,7 @@ function human_attack_medrange()
 				path_end()
 				if path_exists(attackPath)
 				{
-					var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+					var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true)
 					if path path_start(attackPath,pushSpd,path_action_stop,true)
 				}
 				
@@ -350,9 +350,9 @@ function human_attack_medrange()
 					//path
 					path_end()
 					var dist=256
-					var midpointX=((x+plr.x)*0.5)
-					var midpointY=((y+plr.y)*0.5)
-					var dir=point_direction(x,y,plr.x,plr.y)+(90*choose(-1,1))
+					var midpointX=((x+obj_player.x)*0.5)
+					var midpointY=((y+obj_player.y)*0.5)
+					var dir=point_direction(x,y,obj_player.x,obj_player.y)+(90*choose(-1,1))
 					
 					if path_exists(attackPath)
 					{
@@ -382,7 +382,7 @@ function human_attack_medrange()
 					
 					//path
 					path_end()
-					var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+					var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true)
 					if path path_start(attackPath,pushSpd,path_action_stop,true)
 				}
 				else shootTime--
@@ -393,10 +393,10 @@ function human_attack_medrange()
 
 function human_attack_longrange()
 {
-	if instance_exists(plr)
+	if instance_exists(obj_player)
 	{
 		//set angle
-		image_angle=point_direction(x,y,plr.x,plr.y)-90
+		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90
 		
 		//check if not seeing player anymore
 		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
@@ -422,7 +422,7 @@ function human_attack_longrange()
 				break
 			case attackStates.pushing:
 				path_end()
-				var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+				var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true)
 				if path path_start(attackPath,pushSpd,path_action_stop,true)
 				
 				if pushTime<1
@@ -435,13 +435,13 @@ function human_attack_longrange()
 					//path
 					path_end()
 					var dist=256
-					var midpointX=((x+plr.x)*0.5)
-					var mpdir=point_direction(x,y,plr.x,plr.y)-180
-					var mpdist=point_distance(x,y,plr.x,plr.y)*0.25
+					var midpointX=((x+obj_player.x)*0.5)
+					var mpdir=point_direction(x,y,obj_player.x,obj_player.y)-180
+					var mpdist=point_distance(x,y,obj_player.x,obj_player.y)*0.25
 					midpointX+=lengthdir_x(mpdist,mpdir)
 					midpointY+=lengthdir_y(mpdist,mpdir)
-					var midpointY=((y+plr.y)*0.5)
-					var dir=point_direction(x,y,plr.x,plr.y)+(90*choose(-1,1))
+					var midpointY=((y+obj_player.y)*0.5)
+					var dir=point_direction(x,y,obj_player.x,obj_player.y)+(90*choose(-1,1))
 					
 					while !(mp_grid_path(global.motionGrid,attackPath,x,y,
 						midpointX+lengthdir_x(dist,dir),
@@ -468,7 +468,7 @@ function human_attack_longrange()
 					
 					//path
 					path_end()
-					var path=mp_grid_path(global.motionGrid,attackPath,x,y,plr.x,plr.y,true)
+					var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true)
 					if path path_start(attackPath,pushSpd,path_action_stop,true)
 				}
 				else shootTime--
