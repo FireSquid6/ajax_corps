@@ -202,7 +202,7 @@ function human_patrol()
 	{
 		
 		path_end()
-		if path_exists(patrolPath)
+		if path_exists(patrolPath) && variable_instance_exists(id,"deadSpd")
 		{
 			var canMove=mp_grid_path(global.motionGrid,patrolPath,x,y,startX,startY,true)
 			if canMove path_start(patrolPath,deadSpd,path_action_stop,true)
@@ -295,6 +295,7 @@ function human_attack_shortrange()
 					path_end()
 					var dist=256
 					var midpointX=((x+obj_player.x)*0.5)
+					var midpointY=((y+obj_player.y)*0.5)
 					var mpdir=point_direction(x,y,obj_player.x,obj_player.y)
 					var mpdist=point_distance(x,y,obj_player.x,obj_player.y)*0.25
 					midpointX+=lengthdir_x(mpdist,mpdir)

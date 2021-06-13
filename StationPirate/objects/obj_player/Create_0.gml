@@ -24,3 +24,6 @@ weapon.equip()
 hp=MAX_HP
 
 #macro ARM_DIST 14
+
+//create game
+instance_create_layer(0,0,"meta",obj_game)

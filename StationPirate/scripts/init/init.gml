@@ -90,3 +90,9 @@ global.arm_pos_rifle=
 //scribble_font_add_all()
 
 #endregion
+
+#region random vars
+
+global.debugMode=false
+
+#endregion
