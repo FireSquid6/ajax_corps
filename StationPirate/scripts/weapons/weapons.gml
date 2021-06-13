@@ -24,7 +24,7 @@ enum ammoTypes
 
 function get_weapon_struct(str,team,obj)
 {
-	var w
+	var w=0
 	switch str
 	{
 		case "none":
@@ -61,12 +61,12 @@ function get_weapon_struct(str,team,obj)
 			w=new weapon_auto_shotgun(team,obj)
 			break
 	}
-	return w
+	if w!=0 return w else return -1
 }
 
 function get_weapon_string(_id)
 {
-	var s
+	var s=0
 	switch _id
 	{
 		case weapon_fist:
@@ -85,8 +85,7 @@ function get_weapon_string(_id)
 			s="auto_shotgun"
 			break
 	}
-	return s
-	
+	if s!=0 return s else return -1
 }
 
 function weapon_parent(_team,_obj) constructor

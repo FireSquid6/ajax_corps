@@ -71,6 +71,7 @@ function pickup_parent(_obj) constructor
 function pickup_weapon(_obj,_weapon_string,_inReserve) : pickup_parent(_obj) constructor
 {
 	weapon=get_weapon_struct(_weapon_string,weaponTeams.player,obj_player)
+	if weapon==-1 show_error("get_weapon_struct() returned -1",true)
 	weapon.inReserve=_inReserve
 	
 	create=function()
@@ -125,5 +126,6 @@ function pickup_healthpack(_obj,_amount) : pickup_parent(_obj) constructor
 	action=function()
 	{
 		obj_player.hp+=amount
+		obj_player.hp=clamp(obj_player.hp,0,MAX_HP)
 	}
 }
