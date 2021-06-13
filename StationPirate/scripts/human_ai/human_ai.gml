@@ -115,20 +115,50 @@ function human_draw()
 	shader_reset()
 
 	//draw healthbar
+	var backColor,barColor
 	var healthPercent=(hp/maxHealth)*100
 	var barWidth=sprite_get_width(spr_healthbar)
 	var barX=x-(barWidth*5)
 	var barY=y-40
+	
+	//cry about it
+	if hp<=100
+	{
+		barColor=c_red
+		backColor=c_dkgray
+	}
+	else if hp<=200
+	{
+		barColor=c_blue
+		backColor=c_red	
+	}
+	else if hp<=300
+	{
+		barColor=c_green
+		backColor=c_blue
+	}
+	else if hp<=400
+	{
+		barColor=c_aqua
+		backColor=c_green
+	}
+	else
+	{
+		barColor=c_fuchsia
+		backColor=c_aqua
+	}
+	
+	//draw back bars
 	repeat 10
 	{
-		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,c_dkgray,1)
+		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,backColor,1)
 		barX+=barWidth
 	}
 	
 	barX=x-(barWidth*5)
 	while healthPercent>0
 	{
-		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,c_red,1)
+		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,barColor,1)
 		barX+=barWidth
 		healthPercent-=10
 	}

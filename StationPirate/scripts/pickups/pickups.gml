@@ -34,8 +34,12 @@ function pickup_parent(_obj) constructor
 	}
 	check=function()
 	{
-		var used=(pickup_check_interacted(inst))
-		return used
+		if variable_instance_exists(obj_player,"key_interact")
+		{
+			var used=(pickup_check_interacted(inst))
+			return used
+		}
+		return false
 	}
 	action=function()
 	{
@@ -72,7 +76,7 @@ function pickup_weapon(_obj,_weapon_string,_inReserve) : pickup_parent(_obj) con
 {
 	weapon=get_weapon_struct(_weapon_string,weaponTeams.player,obj_player)
 	if weapon==-1 show_error("get_weapon_struct() returned -1",true)
-	weapon.inReserve=_inReserve
+	if _inReserve!=-1 weapon.inReserve=_inReserve
 	
 	create=function()
 	{

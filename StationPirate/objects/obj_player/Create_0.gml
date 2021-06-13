@@ -5,6 +5,7 @@ dashBuffered=false
 flashTime=0
 interactableSelected=noone
 mask_index=spr_player
+key_interact=false
 
 hsp=0
 vsp=0
