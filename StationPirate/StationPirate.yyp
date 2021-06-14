@@ -114,6 +114,7 @@
     {"id":{"name":"sound2_shoot8","path":"sounds/sound2_shoot8/sound2_shoot8.yy",},"order":12,},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":1,},
     {"id":{"name":"fnt_profile_name","path":"fonts/fnt_profile_name/fnt_profile_name.yy",},"order":0,},
+    {"id":{"name":"obj_pause","path":"objects/obj_pause/obj_pause.yy",},"order":4,},
     {"id":{"name":"spr_weaponPlaceholder","path":"sprites/spr_weaponPlaceholder/spr_weaponPlaceholder.yy",},"order":0,},
     {"id":{"name":"spr_assaultRifle","path":"sprites/spr_assaultRifle/spr_assaultRifle.yy",},"order":2,},
     {"id":{"name":"spr_profile","path":"sprites/spr_profile/spr_profile.yy",},"order":2,},

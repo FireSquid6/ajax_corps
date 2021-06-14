@@ -6,7 +6,7 @@ if keyboard_check_pressed(vk_enter)
 }
 if global.debugMode
 {
-	if keyboard_check_pressed(vk_escape) game_restart()
+	if keyboard_check_pressed(vk_tab) game_restart()
 	if keyboard_check(ord("G")) global.godMode=true
 	
 	switch keyboard_key
@@ -21,5 +21,23 @@ if global.debugMode
 }
 else
 {
-	if keyboard_check_pressed(vk_escape) game_end()
+	if keyboard_check_pressed(vk_tab) game_end()
+}
+
+//pause
+key_pause=keyboard_check_pressed(vk_escape)
+
+if key_pause
+{
+	paused=!paused
+	if paused
+	{
+		instance_deactivate_all(true)
+		instance_create_layer(x,y,"meta",obj_pause)
+	}
+	else
+	{
+		instance_activate_all()
+		instance_destroy(obj_pause)
+	}
 }
