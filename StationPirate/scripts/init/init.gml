@@ -104,7 +104,6 @@ enum gameModes
 	challenging,
 	expert
 }
-global.gameModes=gameModes.challenging
-
+game_set_mode(gameModes.challenging)
 
 #endregion

@@ -14,12 +14,12 @@ function drop_loot(_startx,_starty,_dist,_gunChance,_weaponstring,_reserve)
 	}
 	
 	//drop healthpack
-	if obj_player.hp<ceil(MAX_HP*0.4)
+	if obj_player.hp<ceil(global.player_max_health*global.healthpack_drop_percent)
 	{
 		dir=random(360)
 		xx=_startx+lengthdir_x(_dist,dir)
 		yy=_starty+lengthdir_y(_dist,dir)
-		create_pickup_healthpack(xx,yy,MAX_HP*global.healthpack_drop_percent)
+		create_pickup_healthpack(xx,yy,(global.player_max_health-obj_player.hp)*0.75)
 	}
 	
 	//drop ammo

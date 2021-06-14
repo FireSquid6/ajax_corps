@@ -85,6 +85,10 @@ function pickup_weapon(_obj,_weapon_string,_inReserve) : pickup_parent(_obj) con
 	
 	action=function()
 	{
+		if obj_player.weapon.id!=weaponIds.fist
+		{
+			create_pickup_weapon(inst.x,inst.y,get_weapon_string(obj_player.weapon),obj_player.weapon.inReserve)
+		}
 		obj_player.weapon=weapon
 		obj_player.weapon.equip()
 	}
@@ -130,6 +134,6 @@ function pickup_healthpack(_obj,_amount) : pickup_parent(_obj) constructor
 	action=function()
 	{
 		obj_player.hp+=amount
-		obj_player.hp=clamp(obj_player.hp,0,MAX_HP)
+		obj_player.hp=clamp(obj_player.hp,0,global.player_max_health)
 	}
 }

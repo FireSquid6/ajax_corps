@@ -61,13 +61,13 @@ function get_weapon_struct(str,team,obj)
 			w=new weapon_pump_shotgun(team,obj)
 			break
 		case "auto shotgun":
-			w=new weapon_auto_shotgun(team,obj)
+			w=new weapon_pump_shotgun(team,obj)
 			break
 		case "pump_shotgun":
 			w=new weapon_pump_shotgun(team,obj)
 			break
 		case "auto_shotgun":
-			w=new weapon_auto_shotgun(team,obj)
+			w=new weapon_pump_shotgun(team,obj)
 			break
 	}
 	if w!=0 return w else return -1
@@ -246,7 +246,7 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 	
 	weapon_sprite=spr_pistol
 	bullet_sprite=spr_lightBullet
-	pickup_sprite=spr_machinePistolPickup
+	pickup_sprite=spr_pistolPickup
 	weaponRange=weaponRanges.medium
 	
 	display_name="HANDGUN"
@@ -368,6 +368,7 @@ function weapon_machinePistol(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	id=weaponIds.machinePistol
 	weapon_sprite=spr_machinePistol
 	bullet_sprite=spr_lightBullet
+	pickup_sprite=spr_machinePistolPickup
 	weaponRange=weaponRanges.medium
 	
 	display_name="SPEED HANDGUN"
@@ -425,15 +426,15 @@ function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 	hitSound=snd_smallDamage
 	shootSound=snd_shootPistol
 	
-	weapon_sprite=spr_assaultRifle
+	weapon_sprite=spr_shotgun
 	bullet_sprite=spr_lightBullet
-	pickup_sprite=spr_machinePistolPickup
+	pickup_sprite=spr_shotgunPickup
 	weaponRange=weaponRanges.short
 	
 	display_name="SHELL CANNON"
 	
 	ammoType=ammoTypes.shell
-	dmg=20
+	dmg=15
 	bulletSpd=28
 	spread=7
 	shots=7
@@ -485,7 +486,7 @@ function weapon_auto_shotgun(_team,_obj) : weapon_pump_shotgun(_team,_obj) const
 	magSize=12
 	maxCooldown=15
 	spread=12
-	dmg=10
+	dmg=5
 	reloadTime=40
 	display_name="SHELL MACHINE GUN"
 	inMag=magSize

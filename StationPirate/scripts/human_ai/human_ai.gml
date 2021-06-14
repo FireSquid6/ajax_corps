@@ -200,7 +200,7 @@ function human_draw()
 //destroy
 function human_destroy()
 {
-	drop_loot(x,y,24,weaponChance,get_weapon_string(weapon),weapon.inReserve)
+	if weapon.id!=weaponIds.fist drop_loot(x,y,24,weaponChance,get_weapon_string(weapon),weapon.inReserve)
 	path_delete(attackPath)
 	audio_play_sound(snd_enemyDead,enemyDeadPriority,false)
 }
@@ -277,10 +277,11 @@ function human_attack_shortrange()
 		switch attackState
 		{
 			//strafing -> shooting -> pushing -> repeat
+			//remember to make it so that enemies push if they don't see the player
 			case attackStates.strafing:
 				key_shoot=false
 				
-				if strafeTime<1
+				if strafeTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
 				{
 					//vars
 					key_shoot=false
@@ -334,7 +335,7 @@ function human_attack_shortrange()
 				path_end()
 				if delayTime<1 key_shoot=true else delayTime--
 				
-				if shootTime<1
+				if shootTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
 				{
 					//vars
 					key_shoot=false
@@ -365,7 +366,7 @@ function human_attack_medrange()
 			case attackStates.strafing:
 				key_shoot=false
 				
-				if strafeTime<1
+				if strafeTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
 				{
 					//vars
 					key_shoot=false
@@ -419,7 +420,7 @@ function human_attack_medrange()
 				path_end()
 				if delayTime<1 key_shoot=true else delayTime--
 				
-				if shootTime<1
+				if shootTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
 				{
 					//vars
 					key_shoot=false
@@ -468,7 +469,7 @@ function human_attack_longrange()
 				var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true)
 				if path path_start(attackPath,pushSpd,path_action_stop,true)
 				
-				if pushTime<1
+				if pushTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8) //add a collision circle to the player check here
 				{
 					//vars
 					key_shoot=true
@@ -502,7 +503,7 @@ function human_attack_longrange()
 				path_end()
 				if delayTime<1 key_shoot=true else delayTime--
 				
-				if shootTime<1
+				if shootTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
 				{
 					//vars
 					key_shoot=false
