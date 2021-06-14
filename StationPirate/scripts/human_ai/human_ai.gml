@@ -200,11 +200,8 @@ function human_draw()
 //destroy
 function human_destroy()
 {
+	drop_loot(x,y,24,weaponChance,get_weapon_string(weapon),weapon.inReserve)
 	path_delete(attackPath)
-	if weapon.ammoType!=ammoTypes.none 
-	{
-		create_pickup_ammo(x,y)
-	}
 	audio_play_sound(snd_enemyDead,enemyDeadPriority,false)
 }
 

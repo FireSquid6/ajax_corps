@@ -200,6 +200,7 @@
     {"id":{"name":"spr_healthPickup","path":"sprites/spr_healthPickup/spr_healthPickup.yy",},"order":1,},
     {"id":{"name":"Methods_Quick_Reference","path":"notes/Methods_Quick_Reference/Methods_Quick_Reference.yy",},"order":6,},
     {"id":{"name":"sound62_blip8","path":"sounds/sound62_blip8/sound62_blip8.yy",},"order":59,},
+    {"id":{"name":"drop_loot","path":"scripts/drop_loot/drop_loot.yy",},"order":11,},
     {"id":{"name":"CleanRectangle","path":"scripts/CleanRectangle/CleanRectangle.yy",},"order":8,},
     {"id":{"name":"scribble_font_bake_shader","path":"scripts/scribble_font_bake_shader/scribble_font_bake_shader.yy",},"order":1,},
     {"id":{"name":"CleanTransformReset","path":"scripts/CleanTransformReset/CleanTransformReset.yy",},"order":6,},
