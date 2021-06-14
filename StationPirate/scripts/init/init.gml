@@ -92,7 +92,19 @@ global.arm_pos_rifle=
 #endregion
 
 #region random vars
-
+//debug mode
 global.debugMode=false
+
+#endregion
+
+#region game mode
+enum gameModes
+{
+	accessible,
+	challenging,
+	expert
+}
+global.gameModes=gameModes.challenging
+
 
 #endregion

@@ -79,19 +79,19 @@ function get_weapon_string(_struct)
 	var weaponId=_struct.id
 	switch weaponId
 	{
-		case weapon_fist:
+		case weaponIds.fist:
 			s="melee"
 			break
-		case weapon_pistol:
+		case weaponIds.pistol:
 			s="pistol"
 			break
-		case weapon_machinePistol:
+		case weaponIds.machinePistol:
 			s="machine_pistol"
 			break
-		case weapon_pump_shotgun:
+		case weaponIds.pumpShotgun:
 			s="pump_shotgun"
 			break
-		case weapon_auto_shotgun:
+		case weaponIds.autoShotgun:
 			s="auto_shotgun"
 			break
 	}

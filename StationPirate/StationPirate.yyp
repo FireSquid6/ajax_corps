@@ -89,6 +89,7 @@
     {"id":{"name":"__shd_scribble_msdf","path":"shaders/__shd_scribble_msdf/__shd_scribble_msdf.yy",},"order":13,},
     {"id":{"name":"__scribble_generate_model","path":"scripts/__scribble_generate_model/__scribble_generate_model.yy",},"order":9,},
     {"id":{"name":"sound47_explode3","path":"sounds/sound47_explode3/sound47_explode3.yy",},"order":42,},
+    {"id":{"name":"game_modes","path":"scripts/game_modes/game_modes.yy",},"order":12,},
     {"id":{"name":"snd_bigDamage","path":"sounds/snd_bigDamage/snd_bigDamage.yy",},"order":1,},
     {"id":{"name":"sound58_collect2","path":"sounds/sound58_collect2/sound58_collect2.yy",},"order":54,},
     {"id":{"name":"sound45_explode5","path":"sounds/sound45_explode5/sound45_explode5.yy",},"order":40,},
