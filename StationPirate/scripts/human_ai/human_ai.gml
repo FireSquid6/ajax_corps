@@ -73,9 +73,20 @@ function human_step()
 				patrol_ai()
 				break
 			case humanStates.attacking:
+				//check if alive
 				if instance_exists(obj_player) weapon.step()
 				if !obj_player.alive human_switch_patrol()
+				
+				//attack
 				attack_ai()
+				
+				//check if switch to patrol
+				var checkPath=path_add()
+				mp_grid_path(global.motionGrid,checkPath,x,y,obj_player.x,obj_player.y,true)
+				var checkLength=path_get_length(checkPath)
+				if checkLength>750 human_switch_attack()
+				path_delete(checkPath)
+				
 				break
 		}
 		
@@ -166,13 +177,23 @@ function human_draw()
 	//debug
 	if global.debugMode
 	{
+		//reset
 		draw_set_color(c_white)
 		draw_set_font(fnt_default)
+		
+		//attack state
 		if state==humanStates.attacking
 		{
 			if path_exists(attackPath) draw_path(attackPath,x,y,true)
-			draw_text(x,y-50,string(attackState))
+			draw_text(x,y-60,string(attackState))
 		}
+		
+		//path length
+		var checkPath=path_add()
+		mp_grid_path(global.motionGrid,checkPath,x,y,obj_player.x,obj_player.y,true)
+		var checkLength=path_get_length(checkPath)
+		draw_text(x,y-70,checkLength)
+		path_delete(checkPath)
 	}
 }
 
@@ -193,7 +214,7 @@ function human_patrol()
 	if x!=xprevious || y!=yprevious image_angle=point_direction(xprevious,yprevious,x,y)-180
 	if obj_player.alive
 	{
-		if collision_circle(x,y,512,obj_player,false,true) && obj_player.alive
+		if !collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8) && obj_player.alive
 		{
 			human_switch_attack()
 		}
@@ -255,9 +276,6 @@ function human_attack_shortrange()
 	{
 		//set angle
 		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90
-		
-		//check if not seeing player anymore
-		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
 		
 		switch attackState
 		{
@@ -344,9 +362,6 @@ function human_attack_medrange()
 		//set angle
 		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90
 		
-		//check if not seeing player anymore
-		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
-		
 		switch attackState
 		{
 			//strafing -> shooting -> pushing -> repeat
@@ -431,9 +446,6 @@ function human_attack_longrange()
 	{
 		//set angle
 		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90
-		
-		//check if not seeing player anymore
-		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
 		
 		switch attackState
 		{
