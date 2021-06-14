@@ -21,6 +21,15 @@ enum ammoTypes
 	battery=5,
 	superBattery=6
 }
+enum weaponIds
+{
+	fist,
+	pistol,
+	machinePistol,
+	pumpShotgun,
+	autoShotgun,
+	assaultRifle
+}
 
 function get_weapon_struct(str,team,obj)
 {
@@ -64,10 +73,11 @@ function get_weapon_struct(str,team,obj)
 	if w!=0 return w else return -1
 }
 
-function get_weapon_string(_id)
+function get_weapon_string(_struct)
 {
 	var s=0
-	switch _id
+	var weaponId=_struct.id
+	switch weaponId
 	{
 		case weapon_fist:
 			s="melee"
@@ -144,6 +154,7 @@ function weapon_parent(_team,_obj) constructor
 
 function weapon_fist(_team,_obj) : weapon_parent(_team,_obj) constructor
 {
+	id=weaponIds.fist
 	ammoType=ammoTypes.none
 	switch team
 	{
@@ -213,6 +224,7 @@ function weapon_fist(_team,_obj) : weapon_parent(_team,_obj) constructor
 
 function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 {
+	id=weaponIds.pistol
 	switch team
 	{
 		case weaponTeams.player:
@@ -353,6 +365,7 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 
 function weapon_machinePistol(_team,_obj) : weapon_pistol(_team,_obj) constructor
 {
+	id=weaponIds.machinePistol
 	weapon_sprite=spr_machinePistol
 	bullet_sprite=spr_lightBullet
 	weaponRange=weaponRanges.medium
@@ -378,6 +391,7 @@ function weapon_machinePistol(_team,_obj) : weapon_pistol(_team,_obj) constructo
 
 function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructor
 {	
+	id=weaponIds.assaultRifle
 	hitSound=snd_smallDamage
 	shootSound=snd_shootPistol
 	
@@ -407,6 +421,7 @@ function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructo
 
 function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 {
+	id=weaponIds.pumpShotgun
 	hitSound=snd_smallDamage
 	shootSound=snd_shootPistol
 	
@@ -466,6 +481,7 @@ function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 
 function weapon_auto_shotgun(_team,_obj) : weapon_pump_shotgun(_team,_obj) constructor
 {
+	id=weaponIds.autoShotgun
 	magSize=12
 	maxCooldown=15
 	spread=12
