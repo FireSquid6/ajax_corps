@@ -1,3 +1,11 @@
+function is_invincible(_id)
+{
+	if variable_instance_exists(_id,"dashTime")
+	{
+		if _id.dashTime>0 return true else return false
+	}
+}
+
 function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_sound) constructor
 {
 	inst=_obj
@@ -28,6 +36,7 @@ function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_s
 			with inst
 			{
 				col=instance_place(x,y,targ)
+				if is_invincible(col) col=noone
 			}
 			if col!=noone
 			{
@@ -95,6 +104,7 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 		with inst
 		{
 			col=instance_place(x,y,targ)
+			if is_invincible(col) col=noone
 		}
 		if col!=noone
 		{

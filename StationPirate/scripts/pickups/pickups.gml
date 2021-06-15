@@ -133,7 +133,7 @@ function pickup_healthpack(_obj,_amount) : pickup_parent(_obj) constructor
 	}
 	action=function()
 	{
-		obj_player.hp+=amount
+		obj_player.hp+=round(amount)
 		obj_player.hp=clamp(obj_player.hp,0,global.player_max_health)
 	}
 }
