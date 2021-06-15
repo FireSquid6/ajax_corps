@@ -34,8 +34,12 @@ function pickup_parent(_obj) constructor
 	}
 	check=function()
 	{
-		var used=(pickup_check_interacted(inst))
-		return used
+		if variable_instance_exists(obj_player,"key_interact")
+		{
+			var used=(pickup_check_interacted(inst))
+			return used
+		}
+		return false
 	}
 	action=function()
 	{
@@ -71,7 +75,8 @@ function pickup_parent(_obj) constructor
 function pickup_weapon(_obj,_weapon_string,_inReserve) : pickup_parent(_obj) constructor
 {
 	weapon=get_weapon_struct(_weapon_string,weaponTeams.player,obj_player)
-	weapon.inReserve=_inReserve
+	if weapon==-1 show_error("get_weapon_struct() returned -1",true)
+	if _inReserve!=-1 weapon.inReserve=_inReserve
 	
 	create=function()
 	{
@@ -80,6 +85,10 @@ function pickup_weapon(_obj,_weapon_string,_inReserve) : pickup_parent(_obj) con
 	
 	action=function()
 	{
+		if obj_player.weapon.id!=weaponIds.fist
+		{
+			create_pickup_weapon(inst.x,inst.y,get_weapon_string(obj_player.weapon),obj_player.weapon.inReserve)
+		}
 		obj_player.weapon=weapon
 		obj_player.weapon.equip()
 	}
@@ -125,5 +134,6 @@ function pickup_healthpack(_obj,_amount) : pickup_parent(_obj) constructor
 	action=function()
 	{
 		obj_player.hp+=amount
+		obj_player.hp=clamp(obj_player.hp,0,global.player_max_health)
 	}
 }

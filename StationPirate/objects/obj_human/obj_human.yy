@@ -40,7 +40,7 @@
         "GMPath",
       ],"resourceVersion":"1.0","name":"patrolPath","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"6","rangeEnabled":true,"rangeMin":0.0,"rangeMax":12.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"strafeSpd","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"3","rangeEnabled":true,"rangeMin":0.0,"rangeMax":12.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"pushSpd","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"6","rangeEnabled":true,"rangeMin":0.0,"rangeMax":12.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"pushSpd","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"6","rangeEnabled":true,"rangeMin":0.0,"rangeMax":30.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"reflex","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":0,"value":"0.75","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"maxShootSeconds","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":0,"value":"1.5","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"maxPushSeconds","tags":[],"resourceType":"GMObjectProperty",},

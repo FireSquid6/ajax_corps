@@ -88,7 +88,7 @@ if alive
 	y+=vsp
 	
 	//drop weapon
-	if key_drop
+	if key_drop && weapon.display_name!="FISTS"
 	{
 		var weapon_create_dir=point_direction(x,y,mouse_x,mouse_y)
 		var weapon_x=x+lengthdir_x(24,weapon_create_dir)

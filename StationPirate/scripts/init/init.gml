@@ -90,3 +90,20 @@ global.arm_pos_rifle=
 //scribble_font_add_all()
 
 #endregion
+
+#region random vars
+//debug mode
+global.debugMode=false
+
+#endregion
+
+#region game mode
+enum gameModes
+{
+	accessible,
+	challenging,
+	expert
+}
+game_set_mode(gameModes.challenging)
+
+#endregion

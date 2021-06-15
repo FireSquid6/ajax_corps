@@ -73,9 +73,20 @@ function human_step()
 				patrol_ai()
 				break
 			case humanStates.attacking:
+				//check if alive
 				if instance_exists(obj_player) weapon.step()
 				if !obj_player.alive human_switch_patrol()
+				
+				//attack
 				attack_ai()
+				
+				//check if switch to patrol
+				var checkPath=path_add()
+				mp_grid_path(global.motionGrid,checkPath,x,y,obj_player.x,obj_player.y,true)
+				var checkLength=path_get_length(checkPath)
+				if checkLength>750 human_switch_attack()
+				path_delete(checkPath)
+				
 				break
 		}
 		
@@ -115,20 +126,50 @@ function human_draw()
 	shader_reset()
 
 	//draw healthbar
+	var backColor,barColor
 	var healthPercent=(hp/maxHealth)*100
 	var barWidth=sprite_get_width(spr_healthbar)
 	var barX=x-(barWidth*5)
 	var barY=y-40
+	
+	//cry about it
+	if hp<=100
+	{
+		barColor=c_red
+		backColor=c_dkgray
+	}
+	else if hp<=200
+	{
+		barColor=c_blue
+		backColor=c_red	
+	}
+	else if hp<=300
+	{
+		barColor=c_green
+		backColor=c_blue
+	}
+	else if hp<=400
+	{
+		barColor=c_aqua
+		backColor=c_green
+	}
+	else
+	{
+		barColor=c_fuchsia
+		backColor=c_aqua
+	}
+	
+	//draw back bars
 	repeat 10
 	{
-		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,c_dkgray,1)
+		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,backColor,1)
 		barX+=barWidth
 	}
 	
 	barX=x-(barWidth*5)
 	while healthPercent>0
 	{
-		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,c_red,1)
+		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,barColor,1)
 		barX+=barWidth
 		healthPercent-=10
 	}
@@ -136,24 +177,31 @@ function human_draw()
 	//debug
 	if global.debugMode
 	{
+		//reset
 		draw_set_color(c_white)
 		draw_set_font(fnt_default)
+		
+		//attack state
 		if state==humanStates.attacking
 		{
 			if path_exists(attackPath) draw_path(attackPath,x,y,true)
-			draw_text(x,y-50,string(attackState))
+			draw_text(x,y-60,string(attackState))
 		}
+		
+		//path length
+		var checkPath=path_add()
+		mp_grid_path(global.motionGrid,checkPath,x,y,obj_player.x,obj_player.y,true)
+		var checkLength=path_get_length(checkPath)
+		draw_text(x,y-70,checkLength)
+		path_delete(checkPath)
 	}
 }
 
 //destroy
 function human_destroy()
 {
+	if weapon.id!=weaponIds.fist drop_loot(x,y,24,weaponChance,get_weapon_string(weapon),weapon.inReserve)
 	path_delete(attackPath)
-	if weapon.ammoType!=ammoTypes.none 
-	{
-		create_pickup_ammo(x,y)
-	}
 	audio_play_sound(snd_enemyDead,enemyDeadPriority,false)
 }
 
@@ -163,7 +211,7 @@ function human_patrol()
 	if x!=xprevious || y!=yprevious image_angle=point_direction(xprevious,yprevious,x,y)-180
 	if obj_player.alive
 	{
-		if collision_circle(x,y,512,obj_player,false,true) && obj_player.alive
+		if !collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8) && obj_player.alive
 		{
 			human_switch_attack()
 		}
@@ -172,7 +220,7 @@ function human_patrol()
 	{
 		
 		path_end()
-		if path_exists(patrolPath)
+		if path_exists(patrolPath) && variable_instance_exists(id,"deadSpd")
 		{
 			var canMove=mp_grid_path(global.motionGrid,patrolPath,x,y,startX,startY,true)
 			if canMove path_start(patrolPath,deadSpd,path_action_stop,true)
@@ -226,16 +274,14 @@ function human_attack_shortrange()
 		//set angle
 		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90
 		
-		//check if not seeing player anymore
-		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
-		
 		switch attackState
 		{
 			//strafing -> shooting -> pushing -> repeat
+			//remember to make it so that enemies push if they don't see the player
 			case attackStates.strafing:
 				key_shoot=false
 				
-				if strafeTime<1
+				if strafeTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
 				{
 					//vars
 					key_shoot=false
@@ -265,6 +311,7 @@ function human_attack_shortrange()
 					path_end()
 					var dist=256
 					var midpointX=((x+obj_player.x)*0.5)
+					var midpointY=((y+obj_player.y)*0.5)
 					var mpdir=point_direction(x,y,obj_player.x,obj_player.y)
 					var mpdist=point_distance(x,y,obj_player.x,obj_player.y)*0.25
 					midpointX+=lengthdir_x(mpdist,mpdir)
@@ -288,7 +335,7 @@ function human_attack_shortrange()
 				path_end()
 				if delayTime<1 key_shoot=true else delayTime--
 				
-				if shootTime<1
+				if shootTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
 				{
 					//vars
 					key_shoot=false
@@ -313,16 +360,13 @@ function human_attack_medrange()
 		//set angle
 		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90
 		
-		//check if not seeing player anymore
-		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
-		
 		switch attackState
 		{
 			//strafing -> shooting -> pushing -> repeat
 			case attackStates.strafing:
 				key_shoot=false
 				
-				if strafeTime<1
+				if strafeTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
 				{
 					//vars
 					key_shoot=false
@@ -376,7 +420,7 @@ function human_attack_medrange()
 				path_end()
 				if delayTime<1 key_shoot=true else delayTime--
 				
-				if shootTime<1
+				if shootTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
 				{
 					//vars
 					key_shoot=false
@@ -400,9 +444,6 @@ function human_attack_longrange()
 	{
 		//set angle
 		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90
-		
-		//check if not seeing player anymore
-		if !collision_circle(x,y,512,obj_player,false,true) human_switch_patrol()
 		
 		switch attackState
 		{
@@ -428,7 +469,7 @@ function human_attack_longrange()
 				var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true)
 				if path path_start(attackPath,pushSpd,path_action_stop,true)
 				
-				if pushTime<1
+				if pushTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8) //add a collision circle to the player check here
 				{
 					//vars
 					key_shoot=true
@@ -462,7 +503,7 @@ function human_attack_longrange()
 				path_end()
 				if delayTime<1 key_shoot=true else delayTime--
 				
-				if shootTime<1
+				if shootTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
 				{
 					//vars
 					key_shoot=false

@@ -21,10 +21,19 @@ enum ammoTypes
 	battery=5,
 	superBattery=6
 }
+enum weaponIds
+{
+	fist,
+	pistol,
+	machinePistol,
+	pumpShotgun,
+	autoShotgun,
+	assaultRifle
+}
 
 function get_weapon_struct(str,team,obj)
 {
-	var w
+	var w=0
 	switch str
 	{
 		case "none":
@@ -52,41 +61,41 @@ function get_weapon_struct(str,team,obj)
 			w=new weapon_pump_shotgun(team,obj)
 			break
 		case "auto shotgun":
-			w=new weapon_auto_shotgun(team,obj)
+			w=new weapon_pump_shotgun(team,obj)
 			break
 		case "pump_shotgun":
 			w=new weapon_pump_shotgun(team,obj)
 			break
 		case "auto_shotgun":
-			w=new weapon_auto_shotgun(team,obj)
+			w=new weapon_pump_shotgun(team,obj)
 			break
 	}
-	return w
+	if w!=0 return w else return -1
 }
 
-function get_weapon_string(_id)
+function get_weapon_string(_struct)
 {
-	var s
-	switch _id
+	var s=0
+	var weaponId=_struct.id
+	switch weaponId
 	{
-		case weapon_fist:
+		case weaponIds.fist:
 			s="melee"
 			break
-		case weapon_pistol:
+		case weaponIds.pistol:
 			s="pistol"
 			break
-		case weapon_machinePistol:
+		case weaponIds.machinePistol:
 			s="machine_pistol"
 			break
-		case weapon_pump_shotgun:
+		case weaponIds.pumpShotgun:
 			s="pump_shotgun"
 			break
-		case weapon_auto_shotgun:
+		case weaponIds.autoShotgun:
 			s="auto_shotgun"
 			break
 	}
-	return s
-	
+	if s!=0 return s else return -1
 }
 
 function weapon_parent(_team,_obj) constructor
@@ -145,6 +154,7 @@ function weapon_parent(_team,_obj) constructor
 
 function weapon_fist(_team,_obj) : weapon_parent(_team,_obj) constructor
 {
+	id=weaponIds.fist
 	ammoType=ammoTypes.none
 	switch team
 	{
@@ -214,6 +224,7 @@ function weapon_fist(_team,_obj) : weapon_parent(_team,_obj) constructor
 
 function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 {
+	id=weaponIds.pistol
 	switch team
 	{
 		case weaponTeams.player:
@@ -235,7 +246,7 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 	
 	weapon_sprite=spr_pistol
 	bullet_sprite=spr_lightBullet
-	pickup_sprite=spr_machinePistolPickup
+	pickup_sprite=spr_pistolPickup
 	weaponRange=weaponRanges.medium
 	
 	display_name="HANDGUN"
@@ -354,8 +365,10 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 
 function weapon_machinePistol(_team,_obj) : weapon_pistol(_team,_obj) constructor
 {
+	id=weaponIds.machinePistol
 	weapon_sprite=spr_machinePistol
 	bullet_sprite=spr_lightBullet
+	pickup_sprite=spr_machinePistolPickup
 	weaponRange=weaponRanges.medium
 	
 	display_name="SPEED HANDGUN"
@@ -379,6 +392,7 @@ function weapon_machinePistol(_team,_obj) : weapon_pistol(_team,_obj) constructo
 
 function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructor
 {	
+	id=weaponIds.assaultRifle
 	hitSound=snd_smallDamage
 	shootSound=snd_shootPistol
 	
@@ -408,18 +422,19 @@ function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructo
 
 function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 {
+	id=weaponIds.pumpShotgun
 	hitSound=snd_smallDamage
 	shootSound=snd_shootPistol
 	
-	weapon_sprite=spr_assaultRifle
+	weapon_sprite=spr_shotgun
 	bullet_sprite=spr_lightBullet
-	pickup_sprite=spr_machinePistolPickup
+	pickup_sprite=spr_shotgunPickup
 	weaponRange=weaponRanges.short
 	
 	display_name="SHELL CANNON"
 	
 	ammoType=ammoTypes.shell
-	dmg=20
+	dmg=15
 	bulletSpd=28
 	spread=7
 	shots=7
@@ -467,10 +482,11 @@ function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 
 function weapon_auto_shotgun(_team,_obj) : weapon_pump_shotgun(_team,_obj) constructor
 {
+	id=weaponIds.autoShotgun
 	magSize=12
 	maxCooldown=15
 	spread=12
-	dmg=10
+	dmg=5
 	reloadTime=40
 	display_name="SHELL MACHINE GUN"
 	inMag=magSize
