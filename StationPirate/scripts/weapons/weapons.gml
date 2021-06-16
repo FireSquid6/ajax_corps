@@ -431,7 +431,7 @@ function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 	pickup_sprite=spr_shotgunPickup
 	weaponRange=weaponRanges.short
 	
-	display_name="SHELL CANNON"
+	display_name="FRAG CANNON"
 	
 	ammoType=ammoTypes.shell
 	dmg=15
