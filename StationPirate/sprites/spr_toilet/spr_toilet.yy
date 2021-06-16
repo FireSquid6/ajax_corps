@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Toilet",
-    "path": "folders/Station Pirate/Assets/Level Building/Decorations/Toilet.yy",
+    "name": "Bathroom",
+    "path": "folders/Station Pirate/Assets/Level Building/Decorations/Bathroom.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_toilet",

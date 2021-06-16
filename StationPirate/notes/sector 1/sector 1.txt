@@ -1,3 +1,7 @@
+LEVEL 0 - INFILTRATION
+	Description
+		A cutscene where your ship lands and you are the only surviving member of the Ajax Corps
+
 LEVEL 1 - TUTORIAL
 	Description
 		The entrance to the laboratory. A single guard who can be killed easily. Has
@@ -51,8 +55,12 @@ LEVEL 3 - STOREROOM
 		
 	Weapons Used
 		Assault Rifle
-		
-LEVEL 4 - TEST CHAMBERS
+
+LEVEL 4 - BIO LAB
+	Desciption
+		An area filled with different tanks containing all sorts of abominations of biology
+
+LEVEL 5 - TEST CHAMBERS
 	Description
 		A shooting gallery suspended over lava to test your reflexes and aim
 	Assets
@@ -67,17 +75,21 @@ LEVEL 4 - TEST CHAMBERS
 		Magnum
 		Sniper Rifle
 		Burst Rifle
-		
-LEVEL 5 - TRANSPORT HUB
+
+LEVEL 8 - SLEEPING QUARTERS
+	Description
+		A hotel-like living area for the scientists working in the lab
+
+LEVEL 7 - TRANSPORT HUB
 	Description
 		A monorail station with an enemy captain.
 		
 	Assets
-		monorail tracks
-		monorail
+		Monorail tracks
+		Monorail
 		
 	Enemies
-		captain
+		Captain
 		
 	Weapons Used
 		Assault rifle

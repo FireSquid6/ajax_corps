@@ -8,13 +8,13 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 31,
+  "bbox_right": 63,
   "bbox_top": 0,
   "bbox_bottom": 63,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 32,
+  "width": 64,
   "height": 64,
   "textureGroupId": {
     "name": "Default",
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"1a8fcba3-b3ed-40b0-9264-20d6328be3cb","path":"sprites/spr_taco_bell/spr_taco_bell.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"1a8fcba3-b3ed-40b0-9264-20d6328be3cb","path":"sprites/spr_taco_bell/spr_taco_bell.yy",},"LayerId":{"name":"e0d1e009-9521-48f3-a756-d5a5e3f346c3","path":"sprites/spr_taco_bell/spr_taco_bell.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_taco_bell","path":"sprites/spr_taco_bell/spr_taco_bell.yy",},"resourceVersion":"1.0","name":"1a8fcba3-b3ed-40b0-9264-20d6328be3cb","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"61f58b23-6473-440e-bd93-401ea664a744","path":"sprites/spr_roomTransition/spr_roomTransition.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"61f58b23-6473-440e-bd93-401ea664a744","path":"sprites/spr_roomTransition/spr_roomTransition.yy",},"LayerId":{"name":"88b590f9-6937-4263-a19c-2a1fce430ed2","path":"sprites/spr_roomTransition/spr_roomTransition.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_roomTransition","path":"sprites/spr_roomTransition/spr_roomTransition.yy",},"resourceVersion":"1.0","name":"61f58b23-6473-440e-bd93-401ea664a744","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_taco_bell","path":"sprites/spr_taco_bell/spr_taco_bell.yy",},
+    "spriteId": {"name":"spr_roomTransition","path":"sprites/spr_roomTransition/spr_roomTransition.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"4dcc7967-2cea-410b-8ff4-7485199a6c63","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1a8fcba3-b3ed-40b0-9264-20d6328be3cb","path":"sprites/spr_taco_bell/spr_taco_bell.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"95112151-f24d-4748-856f-9585d2f23631","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"61f58b23-6473-440e-bd93-401ea664a744","path":"sprites/spr_roomTransition/spr_roomTransition.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,22 +58,22 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_taco_bell","path":"sprites/spr_taco_bell/spr_taco_bell.yy",},
+    "parent": {"name":"spr_roomTransition","path":"sprites/spr_roomTransition/spr_roomTransition.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_taco_bell",
+    "name": "spr_roomTransition",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e0d1e009-9521-48f3-a756-d5a5e3f346c3","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"88b590f9-6937-4263-a19c-2a1fce430ed2","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Bathroom",
-    "path": "folders/Station Pirate/Assets/Level Building/Decorations/Bathroom.yy",
+    "name": "Controller",
+    "path": "folders/Station Pirate/Assets/Meta/Controller.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_taco_bell",
+  "name": "spr_roomTransition",
   "tags": [],
   "resourceType": "GMSprite",
 }
