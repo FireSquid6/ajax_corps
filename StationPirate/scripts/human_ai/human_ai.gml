@@ -217,6 +217,7 @@ enum patrolTypes
 	circle,
 	seek
 }
+
 function human_patrol()
 {
 	if obj_player.alive
@@ -225,10 +226,20 @@ function human_patrol()
 		{
 			human_switch_attack()
 		}
-		switch patrolTypes
+		switch patrolType
 		{
 			case patrolTypes.circle:
-				
+				if !(tile_meeting(x+lengthdir_x(patrolSpd,dir),y,global.collisionTilemap)
+				&& tile_meeting(x,y+lengthdir_y(patrolSpd,dir),global.collisionTilemap))
+				{
+					x+=lengthdir_x(patrolSpd,dir)
+					y+=lengthdir_y(patrolSpd,dir)
+				}
+				else 
+				{
+					dir+=90
+					image_angle+=90
+				}
 				break
 			case patrolTypes.seek:
 				//i don't wanna do this right now
@@ -260,7 +271,7 @@ function human_switch_patrol()
 			
 			break
 		case patrolTypes.circle:
-			
+			dir=image_angle+90
 			break
 		case patrolTypes.seek:
 			
