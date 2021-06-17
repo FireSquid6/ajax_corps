@@ -6,12 +6,12 @@ switch state
 			instance_deactivate_all(true)
 			state=transitionStates.transitioning
 			transition_x=display_get_gui_width()
-			transitionSpd=display_get_gui_width()/15
+			transitionSpd=display_get_gui_width() div TRANSITION_SPD
 		}
 		break
 	case transitionStates.transitioning:
-		transition_x+=transitionSpd
-		
+		if transition_x<0 room=next_room
+		transition_x-=transitionSpd
 		
 		break
 }

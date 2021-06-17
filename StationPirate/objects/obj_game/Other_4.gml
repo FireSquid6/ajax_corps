@@ -14,5 +14,8 @@ tilemap_to_mp_grid(global.collisionTilemap,global.motionGrid,room_width,room_hei
 //set mode
 game_set_mode(gameModes.challenging)
 
+//create transition
+instance_create_layer(0,0,"meta",obj_transition)
+
 //vars
 paused=false

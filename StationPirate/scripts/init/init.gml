@@ -81,7 +81,7 @@ global.arm_pos_rifle=
 #macro DASH_FRAMES 10
 #macro DASH_SPD 12
 #macro TILE_SIZE 32
-
+#macro TRANSITION_SPD 15 //lower = faster, higher = slower
 
 #endregion
 

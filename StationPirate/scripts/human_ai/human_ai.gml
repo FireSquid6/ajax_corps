@@ -28,6 +28,7 @@ function human_get_attack_range(_range)
 function human_init()
 {
 	//init vars
+	pathStarted=false
 	flashTime=0
 	state=humanStates.patrolling
 	hp=maxHealth
@@ -45,10 +46,14 @@ function human_init()
 	
 	//path
 	attackPath=path_add()
+	patrolPath=path_add()
 	
 	//get functions
 	patrol_ai=human_patrol
 	human_get_attack_range(range)
+	
+	//switch to patrol
+	human_switch_patrol()
 }
 
 //step
@@ -206,19 +211,32 @@ function human_destroy()
 }
 
 //PATROL
+enum patrolTypes
+{
+	still,
+	circle,
+	seek
+}
 function human_patrol()
 {
-	if x!=xprevious || y!=yprevious image_angle=point_direction(xprevious,yprevious,x,y)-180
 	if obj_player.alive
 	{
 		if !collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8) && obj_player.alive
 		{
 			human_switch_attack()
 		}
+		switch patrolTypes
+		{
+			case patrolTypes.circle:
+				
+				break
+			case patrolTypes.seek:
+				//i don't wanna do this right now
+				break
+		}
 	}
 	else
 	{
-		
 		path_end()
 		if path_exists(patrolPath) && variable_instance_exists(id,"deadSpd")
 		{
@@ -231,9 +249,23 @@ function human_patrol()
 function human_switch_patrol()
 {
 	deadSpd=3
+	pathStarted=false
 	state=humanStates.patrolling
 	spd=patrolSpd
 	if patrolPath!=0 path_start(patrolPath,patrolSpd,path_action_continue,false)
+	
+	switch patrolType
+	{
+		case patrolTypes.still:
+			
+			break
+		case patrolTypes.circle:
+			
+			break
+		case patrolTypes.seek:
+			
+			break
+	}
 }
 
 //ATTACK

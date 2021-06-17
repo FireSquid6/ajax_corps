@@ -26,3 +26,6 @@ hp=global.player_max_health
 
 //create game
 instance_create_layer(0,0,"meta",obj_game)
+
+//create camera
+instance_create_layer(x,y,"meta",obj_camera)

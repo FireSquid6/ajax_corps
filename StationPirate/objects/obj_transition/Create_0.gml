@@ -1,0 +1,2 @@
+transition_x=0
+transitionSpd=display_get_gui_width() div TRANSITION_SPD

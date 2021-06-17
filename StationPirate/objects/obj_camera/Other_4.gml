@@ -37,3 +37,7 @@ display_set_gui_size(displayWidth,displayHeight)
 
 //alarm 0 centers the window. This has to be done a frame after for some reason
 alarm[0]=1
+
+//move to the target instance
+cameraX=target.x-(cameraWidth*0.5)
+cameraY=target.y-(cameraHeight*0.5)
