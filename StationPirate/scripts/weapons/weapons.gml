@@ -434,10 +434,10 @@ function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 	display_name="FRAG CANNON"
 	
 	ammoType=ammoTypes.shell
-	dmg=15
+	dmg=200
 	bulletSpd=28
 	spread=7
-	shots=7
+	decay=1
 	
 	arms=global.arm_pos_rifle
 	
@@ -453,30 +453,8 @@ function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 	
 	get_struct=function(_bullet)
 	{
-		var proj=new fragment(_bullet,target,bullet_sprite,dmg,bulletSpd,lifespan,assistFrames,findDir,flashDmg,hitSound,spread)
+		var proj=new blast(_bullet,target,bullet_sprite,dmg,bulletSpd,lifespan,assistFrames,findDir,flashDmg,hitSound,decay)
 		return proj
-	}
-	
-	create_bullet=function()
-	{
-		var bulletPosX,bulletPosY,bulletArm
-		if arms==global.arm_pos_rifle bulletArm=inst.lArmPos else if arms==global.arm_pos_handgun bulletArm=inst.rArmPos
-		with inst
-		{
-			bulletPosX=x+lengthdir_x(ARM_DIST,image_angle+bulletArm)
-			bulletPosY=y+lengthdir_y(ARM_DIST,image_angle+bulletArm)
-		}
-		
-		var bullet
-		repeat shots
-		{
-			bullet=instance_create_layer(bulletPosX,bulletPosY,"bullet",obj_projectile)
-			bullet.struct=get_struct(bullet)
-		}
-		
-		audio_play_sound(shootSound,shootPriority,false)
-		cooldown=maxCooldown
-		inMag--
 	}
 }
 

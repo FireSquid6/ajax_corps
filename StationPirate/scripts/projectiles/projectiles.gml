@@ -189,6 +189,7 @@ function blast(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_
 	move=function()
 	{
 		spd-=decay
+		if spd<0 instance_destroy(inst)
 		inst.x+=lengthdir_x(spd,dir)
 		inst.y+=lengthdir_y(spd,dir)
 	}

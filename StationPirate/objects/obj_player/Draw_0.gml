@@ -28,10 +28,6 @@ if alive
 	//line
 	if global.debugMode
 	{
-		if keyboard_check(ord("Y"))
-		{
-			imposter="sus"
-		}
 		var lineColor
 		var line=collision_line_tile(x,y,mouse_x,mouse_y,global.collisionTilemap,8)
 		if line==true lineColor=c_red else lineColor=c_white
