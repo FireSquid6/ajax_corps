@@ -427,7 +427,7 @@ function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 	shootSound=snd_shootPistol
 	
 	weapon_sprite=spr_shotgun
-	bullet_sprite=spr_lightBullet
+	bullet_sprite=spr_shell
 	pickup_sprite=spr_shotgunPickup
 	weaponRange=weaponRanges.short
 	

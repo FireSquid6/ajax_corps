@@ -181,6 +181,19 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 	}
 }
 
+function blast(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg,_sound,_spdDecay)
+: projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg,_sound) constructor
+{
+	decay=_spdDecay
+	
+	move=function()
+	{
+		spd-=decay
+		inst.x+=lengthdir_x(spd,dir)
+		inst.y+=lengthdir_y(spd,dir)
+	}
+}
+
 function fragment(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg,_sound,_spread) 
 : projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg,_sound) constructor
 {

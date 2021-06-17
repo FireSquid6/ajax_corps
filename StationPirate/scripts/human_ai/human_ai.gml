@@ -178,14 +178,14 @@ function human_draw()
 		barX+=barWidth
 		healthPercent-=10
 	}
-
+	
+	//reset
+	draw_set_color(c_white)
+	draw_set_font(fnt_default)
+	
 	//debug
 	if global.debugMode
 	{
-		//reset
-		draw_set_color(c_white)
-		draw_set_font(fnt_default)
-		
 		//attack state
 		if state==humanStates.attacking
 		{
@@ -229,16 +229,18 @@ function human_patrol()
 		switch patrolType
 		{
 			case patrolTypes.circle:
-				if !(tile_meeting(x+lengthdir_x(patrolSpd,dir),y,global.collisionTilemap)
-				&& tile_meeting(x,y+lengthdir_y(patrolSpd,dir),global.collisionTilemap))
+				if !(tile_meeting(x+lengthdir_x(patrolSpd,patrolDir),y,global.collisionTilemap)
+				&& tile_meeting(x,y+lengthdir_y(patrolSpd,patrolDir),global.collisionTilemap))
 				{
-					x+=lengthdir_x(patrolSpd,dir)
-					y+=lengthdir_y(patrolSpd,dir)
+					x+=lengthdir_x(patrolSpd,patrolDir)
+					y+=lengthdir_y(patrolSpd,patrolDir)
 				}
 				else 
 				{
-					dir+=90
-					image_angle+=90
+					x-=lengthdir_x(patrolSpd,patrolDir)
+					y-=lengthdir_y(patrolSpd,patrolDir)
+					patrolDir-=90
+					image_angle-=90
 				}
 				break
 			case patrolTypes.seek:
@@ -271,7 +273,7 @@ function human_switch_patrol()
 			
 			break
 		case patrolTypes.circle:
-			dir=image_angle+90
+			patrolDir=image_angle+90
 			break
 		case patrolTypes.seek:
 			
