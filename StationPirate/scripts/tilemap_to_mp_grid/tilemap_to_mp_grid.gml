@@ -36,7 +36,7 @@ function tilemap_to_mp_grid(tilemap,grid,width,height,size)
 		yy=row*size
 		
 		//check tilemap
-		if tilemap_get_at_pixel(tilemap,xx,yy) 
+		if tilemap_get_at_pixel(tilemap,xx,yy)!=0
 		{
 			mp_grid_add_cell(grid,column,row) //if tile is found, mark cell as forbidden
 		}

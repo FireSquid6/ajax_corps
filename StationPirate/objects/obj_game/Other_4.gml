@@ -17,5 +17,13 @@ game_set_mode(gameModes.challenging)
 //create transition
 instance_create_layer(0,0,"meta",obj_transition)
 
+//get enemy count
+var count=0
+with par_enemy
+{
+	count++
+}
+global.enemyCount=count
+
 //vars
 paused=false

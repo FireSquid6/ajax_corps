@@ -8,6 +8,7 @@ if global.debugMode
 {
 	if keyboard_check_pressed(vk_tab) game_restart()
 	if keyboard_check(ord("G")) global.godMode=true
+	layer_set_visible("collision",true)
 	
 	switch keyboard_key
 	{
@@ -22,6 +23,7 @@ if global.debugMode
 else
 {
 	if keyboard_check_pressed(vk_tab) game_end()
+	layer_set_visible("collision",false)
 }
 
 //pause
