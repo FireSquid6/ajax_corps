@@ -23,7 +23,7 @@ function collision_line_tile(_x1,_y1,_x2,_y2,tilemap,precision)
 	while point_in_circle(xx,yy,_x1,_y1,radius) //yes there is probably a better way to do this but this is the first idea that came up in my head
 	{
 		//check if tilemap is at the point
-		if tilemap_get_at_pixel(tilemap,xx,yy)
+		if tilemap_get_at_pixel(tilemap,xx,yy)==1
 		{
 			return true
 		}

@@ -183,7 +183,7 @@ function weapon_fist(_team,_obj) : weapon_parent(_team,_obj) constructor
 	
 	arms=global.arm_pos_walking
 	
-	dmg=5
+	dmg=25
 	lifespan=14
 	
 	maxCooldown=20
