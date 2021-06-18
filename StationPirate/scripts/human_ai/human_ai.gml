@@ -133,6 +133,7 @@ function human_draw()
 	//draw healthbar
 	var backColor,barColor
 	var healthPercent=(hp/maxHealth)*100
+	healthPercent=floor(healthPercent)
 	var barWidth=sprite_get_width(spr_healthbar)
 	var barX=x-(barWidth*5)
 	var barY=y-40

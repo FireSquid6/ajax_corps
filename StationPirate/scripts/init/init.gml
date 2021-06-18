@@ -16,7 +16,7 @@ global.ptDashTrail=p
 p=part_type_create()
 part_type_shape(p,pt_shape_pixel)
 part_type_life(p,7,12)
-part_type_alpha2(0,1,0.5)
+part_type_alpha2(p,1,0.5)
 part_type_size(p,3,3,-0.2,0)
 part_type_direction(p,0,360,0,0)
 part_type_speed(p,4,5,0,0)

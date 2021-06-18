@@ -1,103 +1,3 @@
-enum weaponTeams
-{
-	player,
-	enemy
-}
-
-enum weaponRanges
-{
-	melee,
-	short,
-	medium,
-	long
-}
-enum ammoTypes
-{
-	none=0,
-	light=1,
-	medium=2,
-	heavy=3,
-	shell=4,
-	battery=5,
-	superBattery=6
-}
-enum weaponIds
-{
-	fist,
-	pistol,
-	machinePistol,
-	pumpShotgun,
-	autoShotgun,
-	assaultRifle
-}
-
-function get_weapon_struct(str,team,obj)
-{
-	var w=0
-	switch str
-	{
-		case "none":
-			w=new weapon_fist(team,obj)
-			break
-		case "melee":
-			w=new weapon_fist(team,obj)
-			break
-		case "fist":
-			w=new weapon_fist(team,obj)
-			break
-		case "pistol":
-			w=new weapon_pistol(team,obj)
-			break
-		case "handgun":
-			w=new weapon_pistol(team,obj)
-			break
-		case "machinePistol":
-			w=new weapon_machinePistol(team,obj)
-			break
-		case "machine_pistol":
-			w=new weapon_machinePistol(team,obj)
-			break
-		case "pump shotgun":
-			w=new weapon_pump_shotgun(team,obj)
-			break
-		case "auto shotgun":
-			w=new weapon_pump_shotgun(team,obj)
-			break
-		case "pump_shotgun":
-			w=new weapon_pump_shotgun(team,obj)
-			break
-		case "auto_shotgun":
-			w=new weapon_pump_shotgun(team,obj)
-			break
-	}
-	if w!=0 return w else return -1
-}
-
-function get_weapon_string(_struct)
-{
-	var s=0
-	var weaponId=_struct.id
-	switch weaponId
-	{
-		case weaponIds.fist:
-			s="melee"
-			break
-		case weaponIds.pistol:
-			s="pistol"
-			break
-		case weaponIds.machinePistol:
-			s="machine_pistol"
-			break
-		case weaponIds.pumpShotgun:
-			s="pump_shotgun"
-			break
-		case weaponIds.autoShotgun:
-			s="auto_shotgun"
-			break
-	}
-	if s!=0 return s else return -1
-}
-
 function weapon_parent(_team,_obj) constructor
 {
 	team=_team
@@ -397,15 +297,15 @@ function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	shootSound=snd_shootPistol
 	
 	weapon_sprite=spr_assaultRifle
-	bullet_sprite=spr_lightBullet
-	pickup_sprite=spr_machinePistolPickup
+	bullet_sprite=spr_mediumBullet
+	pickup_sprite=spr_assaultRiflePickup
 	weaponRange=weaponRanges.medium
 	
-	display_name="ASSUALT RIFLE"
+	display_name="PLAZMARIFLE 007"
 	
 	ammoType=ammoTypes.medium
 	dmg=25
-	bulletSpd=28
+	bulletSpd=35
 	
 	arms=global.arm_pos_rifle
 	
@@ -418,6 +318,14 @@ function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	reserveSize=magSize*10
 	inReserve=inMag*5
 	cooldown=0
+	
+	equip=function()
+	{
+		cooldown=switchTime
+		set_arms()
+		ext_equip()
+	}
+	
 }
 
 function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor

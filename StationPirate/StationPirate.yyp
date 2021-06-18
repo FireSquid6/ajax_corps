@@ -83,6 +83,7 @@
     {"id":{"name":"__shdCleanAntialias","path":"shaders/__shdCleanAntialias/__shdCleanAntialias.yy",},"order":1,},
     {"id":{"name":"spr_enemyArm","path":"sprites/spr_enemyArm/spr_enemyArm.yy",},"order":1,},
     {"id":{"name":"sound49_explode1","path":"sounds/sound49_explode1/sound49_explode1.yy",},"order":44,},
+    {"id":{"name":"spr_assaultRiflePickup","path":"sprites/spr_assaultRiflePickup/spr_assaultRiflePickup.yy",},"order":3,},
     {"id":{"name":"CleanTransformAddSkew","path":"scripts/CleanTransformAddSkew/CleanTransformAddSkew.yy",},"order":3,},
     {"id":{"name":"scribble_glyph_get","path":"scripts/scribble_glyph_get/scribble_glyph_get.yy",},"order":6,},
     {"id":{"name":"sound69_blip1","path":"sounds/sound69_blip1/sound69_blip1.yy",},"order":66,},
@@ -229,6 +230,7 @@
     {"id":{"name":"spr_lmb","path":"sprites/spr_lmb/spr_lmb.yy",},"order":3,},
     {"id":{"name":"obj_transition","path":"objects/obj_transition/obj_transition.yy",},"order":5,},
     {"id":{"name":"CleanConvex","path":"scripts/CleanConvex/CleanConvex.yy",},"order":3,},
+    {"id":{"name":"spr_mediumBullet","path":"sprites/spr_mediumBullet/spr_mediumBullet.yy",},"order":5,},
     {"id":{"name":"obj_pickup","path":"objects/obj_pickup/obj_pickup.yy",},"order":3,},
     {"id":{"name":"CleanBatchDrawVertexBuffer","path":"scripts/CleanBatchDrawVertexBuffer/CleanBatchDrawVertexBuffer.yy",},"order":1,},
     {"id":{"name":"CleanPolyline","path":"scripts/CleanPolyline/CleanPolyline.yy",},"order":7,},
@@ -239,6 +241,7 @@
     {"id":{"name":"sound6_shoot4","path":"sounds/sound6_shoot4/sound6_shoot4.yy",},"order":56,},
     {"id":{"name":"human_ai","path":"scripts/human_ai/human_ai.yy",},"order":2,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":6,},
+    {"id":{"name":"weapon_functions","path":"scripts/weapon_functions/weapon_functions.yy",},"order":3,},
   ],
   "Options": [
     {"name":"HTML5","path":"options/html5/options_html5.yy",},
@@ -256,8 +259,8 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"rm_level_1_1","path":"rooms/rm_level_1_1/rm_level_1_1.yy",},},
-    {"roomId":{"name":"rm_template","path":"rooms/rm_template/rm_template.yy",},},
     {"roomId":{"name":"rm_level_1_2","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},},
+    {"roomId":{"name":"rm_template","path":"rooms/rm_template/rm_template.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Station Pirate/Data.yy","order":0,"resourceVersion":"1.0","name":"Data","tags":[],"resourceType":"GMFolder",},

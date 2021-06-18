@@ -50,6 +50,7 @@ function pickup_parent(_obj) constructor
 		if check()
 		{
 			action()
+			audio_play_sound(snd_ammoPickup,pickupPriority,false)
 			instance_destroy(inst)
 		}
 	}
