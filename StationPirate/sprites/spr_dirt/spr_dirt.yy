@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Backgrounds",
-    "path": "folders/Station Pirate/Assets/Backgrounds.yy",
+    "path": "folders/Ajax Corps/Assets/Backgrounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_dirt",

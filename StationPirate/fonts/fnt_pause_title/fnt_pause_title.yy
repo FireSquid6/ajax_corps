@@ -128,7 +128,7 @@
   "maintainGms1Font": false,
   "parent": {
     "name": "Pause",
-    "path": "folders/Station Pirate/Assets/Fonts/Pause.yy",
+    "path": "folders/Ajax Corps/Assets/Fonts/Pause.yy",
   },
   "resourceVersion": "1.0",
   "name": "fnt_pause_title",

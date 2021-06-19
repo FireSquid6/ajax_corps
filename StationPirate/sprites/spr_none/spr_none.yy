@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Placeholder",
-    "path": "folders/Station Pirate/Assets/Meta/Placeholder.yy",
+    "path": "folders/Ajax Corps/Assets/Meta/Placeholder.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_none",

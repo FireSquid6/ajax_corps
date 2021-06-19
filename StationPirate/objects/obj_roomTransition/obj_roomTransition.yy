@@ -35,7 +35,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Interactables",
-    "path": "folders/Station Pirate/Data/Level Building/Interactables.yy",
+    "path": "folders/Ajax Corps/Data/Level Building/Interactables.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_roomTransition",

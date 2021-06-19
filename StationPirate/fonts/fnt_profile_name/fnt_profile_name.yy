@@ -128,7 +128,7 @@
   "maintainGms1Font": false,
   "parent": {
     "name": "Profile",
-    "path": "folders/Station Pirate/Assets/Fonts/Profile.yy",
+    "path": "folders/Ajax Corps/Assets/Fonts/Profile.yy",
   },
   "resourceVersion": "1.0",
   "name": "fnt_profile_name",

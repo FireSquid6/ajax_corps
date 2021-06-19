@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Enemy",
-    "path": "folders/Station Pirate/Data/Enemy.yy",
+    "path": "folders/Ajax Corps/Data/Enemy.yy",
   },
   "resourceVersion": "1.0",
   "name": "human_ai",

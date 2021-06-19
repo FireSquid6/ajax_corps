@@ -10,7 +10,7 @@
   ],
   "parent": {
     "name": "Level 2",
-    "path": "folders/Station Pirate/Data/Level Building/Paths/Sector 1/Level 2.yy",
+    "path": "folders/Ajax Corps/Data/Level Building/Paths/Sector 1/Level 2.yy",
   },
   "resourceVersion": "1.0",
   "name": "pth_1_2_1",

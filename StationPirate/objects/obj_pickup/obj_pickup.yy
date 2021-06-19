@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Meta",
-    "path": "folders/Station Pirate/Data/Meta.yy",
+    "name": "Recreated",
+    "path": "folders/Ajax Corps/Data/Recreated.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_pickup",

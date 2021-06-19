@@ -14,7 +14,7 @@
   "duration": 0.18754,
   "parent": {
     "name": "Player",
-    "path": "folders/Station Pirate/Assets/Sounds/Player.yy",
+    "path": "folders/Ajax Corps/Assets/Sounds/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_dash",

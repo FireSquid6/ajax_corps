@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "GUI",
-    "path": "folders/Station Pirate/Assets/Meta/GUI.yy",
+    "path": "folders/Ajax Corps/Assets/Meta/GUI.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_profile",

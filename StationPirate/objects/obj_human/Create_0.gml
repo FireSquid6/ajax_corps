@@ -1,1 +1,1 @@
-human_init()
+human_init();

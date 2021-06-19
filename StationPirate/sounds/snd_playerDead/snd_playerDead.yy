@@ -14,7 +14,7 @@
   "duration": 0.36051,
   "parent": {
     "name": "Hit",
-    "path": "folders/Station Pirate/Assets/Sounds/Hit.yy",
+    "path": "folders/Ajax Corps/Assets/Sounds/Hit.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_playerDead",

@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Wooden Table",
-    "path": "folders/Station Pirate/Assets/Level Building/Decorations/Tables/Wooden Table.yy",
+    "path": "folders/Ajax Corps/Assets/Level Building/Decorations/Tables/Wooden Table.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_wooden_table_empty",

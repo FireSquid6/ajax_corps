@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Enemy",
-    "path": "folders/Station Pirate/Assets/Level Building/Enemy.yy",
+    "path": "folders/Ajax Corps/Assets/Level Building/Enemy.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_enemy",

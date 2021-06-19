@@ -14,7 +14,7 @@
   "duration": 0.3328,
   "parent": {
     "name": "Shoot",
-    "path": "folders/Station Pirate/Assets/Sounds/Shoot.yy",
+    "path": "folders/Ajax Corps/Assets/Sounds/Shoot.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_reload",

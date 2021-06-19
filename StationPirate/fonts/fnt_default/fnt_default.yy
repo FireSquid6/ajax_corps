@@ -200,7 +200,7 @@
   "maintainGms1Font": false,
   "parent": {
     "name": "Fonts",
-    "path": "folders/Station Pirate/Assets/Fonts.yy",
+    "path": "folders/Ajax Corps/Assets/Fonts.yy",
   },
   "resourceVersion": "1.0",
   "name": "fnt_default",

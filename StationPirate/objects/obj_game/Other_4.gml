@@ -24,6 +24,7 @@ with par_enemy
 	count++
 }
 global.enemyCount=count
+global.enemiesAlive=global.enemyCount
 
 //vars
 paused=false

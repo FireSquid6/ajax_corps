@@ -21,8 +21,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Bullets",
-    "path": "folders/Station Pirate/Data/Bullets.yy",
+    "name": "Recreated",
+    "path": "folders/Ajax Corps/Data/Recreated.yy",
   },
   "resourceVersion": "1.0",
   "name": "par_bullet",

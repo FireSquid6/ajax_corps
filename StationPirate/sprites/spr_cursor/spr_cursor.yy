@@ -82,7 +82,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Controller",
-    "path": "folders/Station Pirate/Assets/Meta/Controller.yy",
+    "path": "folders/Ajax Corps/Assets/Meta/Controller.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_cursor",

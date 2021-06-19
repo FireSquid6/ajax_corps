@@ -37,7 +37,7 @@
   },
   "parent": {
     "name": "Collision",
-    "path": "folders/Station Pirate/Assets/Level Building/Tilesets/Collision.yy",
+    "path": "folders/Ajax Corps/Assets/Level Building/Tilesets/Collision.yy",
   },
   "resourceVersion": "1.0",
   "name": "ts_coltiles",

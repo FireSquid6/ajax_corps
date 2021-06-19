@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Player",
-    "path": "folders/Station Pirate/Assets/Player.yy",
+    "path": "folders/Ajax Corps/Assets/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_cross",

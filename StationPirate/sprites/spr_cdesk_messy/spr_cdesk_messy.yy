@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Computer Desk",
-    "path": "folders/Station Pirate/Assets/Level Building/Decorations/Tables/Computer Desk.yy",
+    "path": "folders/Ajax Corps/Assets/Level Building/Decorations/Tables/Computer Desk.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_cdesk_messy",

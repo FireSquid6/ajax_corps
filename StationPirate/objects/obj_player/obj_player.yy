@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Data",
-    "path": "folders/Station Pirate/Data.yy",
+    "path": "folders/Ajax Corps/Data.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_player",

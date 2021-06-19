@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Tutorial",
-    "path": "folders/Station Pirate/Assets/Level Building/Decorations/Tutorial.yy",
+    "path": "folders/Ajax Corps/Assets/Level Building/Decorations/Tutorial.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_smiley",

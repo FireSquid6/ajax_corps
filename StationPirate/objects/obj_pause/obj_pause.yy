@@ -26,7 +26,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Meta",
-    "path": "folders/Station Pirate/Data/Meta.yy",
+    "path": "folders/Ajax Corps/Data/Meta.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_pause",

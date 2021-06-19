@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "PreRuntime",
-    "path": "folders/Station Pirate/Assets/Level Building/Pickups/PreRuntime.yy",
+    "path": "folders/Ajax Corps/Assets/Level Building/Pickups/PreRuntime.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_healthPickup",

@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Background",
-    "path": "folders/Station Pirate/Assets/Level Building/Tilesets/Background.yy",
+    "path": "folders/Ajax Corps/Assets/Level Building/Tilesets/Background.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_background",

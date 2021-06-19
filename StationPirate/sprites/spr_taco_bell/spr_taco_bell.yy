@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Bathroom",
-    "path": "folders/Station Pirate/Assets/Level Building/Decorations/Bathroom.yy",
+    "path": "folders/Ajax Corps/Assets/Level Building/Decorations/Bathroom.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_taco_bell",

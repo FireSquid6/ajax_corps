@@ -14,7 +14,7 @@
   "duration": 0.119535,
   "parent": {
     "name": "Pickup",
-    "path": "folders/Station Pirate/Assets/Sounds/Pickup.yy",
+    "path": "folders/Ajax Corps/Assets/Sounds/Pickup.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_weaponPickup",

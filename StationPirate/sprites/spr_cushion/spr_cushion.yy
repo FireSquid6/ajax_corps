@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Chairs",
-    "path": "folders/Station Pirate/Assets/Level Building/Decorations/Chairs.yy",
+    "path": "folders/Ajax Corps/Assets/Level Building/Decorations/Chairs.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_cushion",

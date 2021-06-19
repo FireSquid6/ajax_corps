@@ -1,1 +1,2 @@
-human_destroy()
+human_destroy();
+event_inherited();

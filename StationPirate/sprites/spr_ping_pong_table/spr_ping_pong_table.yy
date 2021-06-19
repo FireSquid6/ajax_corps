@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Ping Pong Tables",
-    "path": "folders/Station Pirate/Assets/Level Building/Decorations/Tables/Ping Pong Tables.yy",
+    "path": "folders/Ajax Corps/Assets/Level Building/Decorations/Tables/Ping Pong Tables.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_ping_pong_table",

@@ -49,7 +49,8 @@ function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_s
 				col.hp-=dmg
 				col.flashTime=flashDmg
 			
-				//knockback
+				//popup
+				create_popup(inst.x,inst.y,string(dmg),fnt_popup_damage,c_red,0.05,1.5,270)
 			
 				//sound
 				audio_play_sound(sound,hitPriority,false)
@@ -119,6 +120,9 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 			
 			//sound
 			audio_play_sound(sound,hitPriority,false)
+			
+			//popup
+			create_popup(inst.x,inst.y,string(dmg),fnt_popup_damage,c_black,0.05,1.5,270)
 				
 			//destroy
 			instance_destroy(inst)

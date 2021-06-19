@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Pickups",
-    "path": "folders/Station Pirate/Data/Level Building/Pickups.yy",
+    "path": "folders/Ajax Corps/Data/Level Building/Pickups.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_levelBuildHealthpack",

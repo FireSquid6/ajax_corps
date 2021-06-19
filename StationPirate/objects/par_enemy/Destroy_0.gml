@@ -1,0 +1,1 @@
+global.enemiesAlive-=1

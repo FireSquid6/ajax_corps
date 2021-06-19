@@ -82,7 +82,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Decorations",
-    "path": "folders/Station Pirate/Assets/Level Building/Decorations.yy",
+    "path": "folders/Ajax Corps/Assets/Level Building/Decorations.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_teleporter",

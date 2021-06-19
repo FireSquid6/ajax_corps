@@ -4,3 +4,4 @@ enum transitionStates
 	transitioning
 }
 state=transitionStates.waiting
+do_popup=true

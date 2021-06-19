@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Pickups",
-    "path": "folders/Station Pirate/Assets/Level Building/Pickups.yy",
+    "path": "folders/Ajax Corps/Assets/Level Building/Pickups.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_healthpack",

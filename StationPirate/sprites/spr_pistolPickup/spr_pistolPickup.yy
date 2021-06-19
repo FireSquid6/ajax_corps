@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Weapons",
-    "path": "folders/Station Pirate/Assets/Level Building/Pickups/Weapons.yy",
+    "path": "folders/Ajax Corps/Assets/Level Building/Pickups/Weapons.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_pistolPickup",
