@@ -32,7 +32,7 @@ function human_init()
 	flashTime=0;
 	state=humanStates.patrolling;
 	hp=maxHealth;
-	patrolSpd=5;
+	patrolSpd=4;
 	key_shoot=false;
 	rArmPos=global.arm_pos_walking.r;
 	lArmPos=global.arm_pos_walking.l;

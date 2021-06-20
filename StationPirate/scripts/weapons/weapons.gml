@@ -386,22 +386,7 @@ function weapon_auto_shotgun(_team,_obj) : weapon_pump_shotgun(_team,_obj) const
 	
 //}
 
-//function weapon_auto_sniper(_team,_obj) : weapon_sniper(_team,_obj) constructor
-//{
-	
-//}
-
-//function weapon_railgun(_team,_obj) : weapon_sniper(_team,_obj) constructor
-//{
-	
-//}
-
 //function weapon_charge_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructor
-//{
-	
-//}
-
-//function weapon_battery_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructor
 //{
 	
 //}
