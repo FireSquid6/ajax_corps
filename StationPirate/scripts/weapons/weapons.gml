@@ -8,8 +8,6 @@ function weapon_parent(_team,_obj) constructor
 	posX=0
 	posY=0
 	
-	lastShot=0
-	
 	step=function()
 	{
 		
@@ -17,6 +15,7 @@ function weapon_parent(_team,_obj) constructor
 	
 	equip=function()
 	{
+		lastShot=0
 		cooldown=switchTime
 		set_arms()
 		ext_equip()
@@ -290,6 +289,11 @@ function weapon_machinePistol(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	cooldown=0
 }
 
+//function heavy_machine_gun(_team,_obj) : weapon_pistol(_team,_obj) constructor
+//{
+	
+//}
+
 function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructor
 {	
 	id=weaponIds.assaultRifle
@@ -301,7 +305,7 @@ function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	pickup_sprite=spr_assaultRiflePickup
 	weaponRange=weaponRanges.medium
 	
-	display_name="PLAZMARIFLE M5"
+	display_name="PLAZMARIFLE 007"
 	
 	ammoType=ammoTypes.medium
 	dmg=25

@@ -1,5 +1,49 @@
 if alive
 {
+	//reload bar
+	if weapon.reloading
+	{
+		weapon.draw_reload_bar()
+	}
+	//health bar
+	else 
+	{
+		var backColor=c_grey
+		var barColor=c_aqua
+		var healthPercent=(hp/global.player_max_health)*100
+		healthPercent=floor(healthPercent)
+		var barWidth=sprite_get_width(spr_healthbar);
+		var barX=x-(barWidth*5);
+		var barY=y-40;
+		var a=1
+		
+		//get alpha
+		if lastHit>HEALTHBAR_FRAMES
+		{
+			var n=(lastHit-HEALTHBAR_FRAMES)
+			a=((n/50)*-1)+1
+		}
+		
+		//draw back bars
+		repeat 10
+		{
+			draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,backColor,a);
+			barX+=barWidth;
+		}
+		
+		barX=x-(barWidth*5);
+		
+		//draw full bars
+		while healthPercent>0
+		{
+			draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,barColor,a);
+			barX+=barWidth;
+			healthPercent-=10;
+		}
+		
+		draw_set_alpha(1)
+	}
+
 	//shaders
 	if flashTime>0 
 	{
