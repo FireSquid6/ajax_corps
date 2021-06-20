@@ -83,11 +83,13 @@ global.arm_pos_rifle=
 #macro TILE_SIZE 32
 #macro TRANSITION_SPD 15 //lower = faster, higher = slower
 
+#macro MAX_LAST_HIT 140
+#macro HEALTHBAR_FRAMES 90
+
+#macro MAX_LAST_SHOOT 110
+#macro DRAW_AMMO_FRAMES 60
+
 #endregion
-
-#region scribble
-
-//scribble_font_add_all()
 
 #endregion
 

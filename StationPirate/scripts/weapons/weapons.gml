@@ -217,7 +217,7 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 	
 	step=function()
 	{
-		if lastShot<111 lastShot++
+		if lastShot<80 lastShot++
 		
 		var k_shoot=inst.key_shoot
 		var k_reload=inst.key_reload

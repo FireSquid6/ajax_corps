@@ -248,6 +248,7 @@
     {"id":{"name":"weapon_functions","path":"scripts/weapon_functions/weapon_functions.yy",},"order":3,},
     {"id":{"name":"tilemap_set_at_rectangle","path":"scripts/tilemap_set_at_rectangle/tilemap_set_at_rectangle.yy",},"order":4,},
     {"id":{"name":"create_popup","path":"scripts/create_popup/create_popup.yy",},"order":2,},
+    {"id":{"name":"draw_text_outline","path":"scripts/draw_text_outline/draw_text_outline.yy",},"order":5,},
   ],
   "Options": [
     {"name":"HTML5","path":"options/html5/options_html5.yy",},
@@ -347,8 +348,8 @@
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles/Included Files","resourceVersion":"1.0","name":"RetroSFXPack2.zip","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/Included Files","resourceVersion":"1.0","name":"inigo quilez 2d sdf license.txt","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles/Included Files/fonts","resourceVersion":"1.0","name":"8bit.TTF","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":".DS_Store","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"eightbit.TTF","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.2.560",

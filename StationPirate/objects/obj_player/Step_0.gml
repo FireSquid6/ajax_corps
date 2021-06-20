@@ -103,6 +103,13 @@ if alive
 	collision_circle_list(x,y,pickupRange,par_interactable,false,true,intList,true)
 	interactableSelected=ds_list_find_value(intList,0)
 	
+	//ammo alpha
+	if weapon.id!=weaponIds.fist
+	{
+		if weapon.lastShot>60 ammoAlpha-=0.05 else ammoAlpha=1
+		ammoAlpha=clamp(ammoAlpha,0,1)
+	}
+	
 	//weapon
 	image_angle=point_direction(x,y,mouse_x,mouse_y)-90
 	weapon.step()
@@ -115,6 +122,9 @@ if alive
 		audio_play_sound(snd_playerDead,playerDeadPriority,false)
 		sprite_index=spr_cross
 	}
+	
+	lastHit++
+	lastHit=clamp(lastHit,0,MAX_LAST_HIT)
 }
 else
 {

@@ -9,8 +9,9 @@ key_interact=false
 
 hsp=0
 vsp=0
+ammoAlpha=0
 
-lastHit=0
+lastHit=MAX_LAST_HIT
 
 rArmPos=global.arm_pos_walking.r
 lArmPos=global.arm_pos_walking.l

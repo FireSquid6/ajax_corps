@@ -4,4 +4,4 @@ draw_set_font(fnt)
 draw_set_color(clr)
 draw_set_alpha(image_alpha)
 
-draw_text(x,y,text)
+draw_text_outline(x,y,text,clr,c_black,1)

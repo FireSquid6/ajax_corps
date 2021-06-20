@@ -1,3 +1,8 @@
+function projectile_create_popup()
+{
+	create_popup(inst.x,inst.y,string(dmg),fnt_popup_damage,get_popup_color(dmg),0.01,0.5,270)
+}
+
 function is_invincible(_id)
 {
 	if variable_instance_exists(_id,"dashTime")
@@ -40,6 +45,8 @@ function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_s
 			}
 			if col!=noone
 			{
+				col.lastHit=0
+				
 				//particles
 				var p=global.ptBlood
 				part_type_direction(p,dir+160,dir+200,0,0)
@@ -50,7 +57,7 @@ function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_s
 				col.flashTime=flashDmg
 			
 				//popup
-				create_popup(inst.x,inst.y,string(dmg),fnt_popup_damage,c_red,0.05,1.5,270)
+				projectile_create_popup()
 			
 				//sound
 				audio_play_sound(sound,hitPriority,false)
@@ -109,6 +116,7 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 		}
 		if col!=noone
 		{
+			col.lastHit=0
 			//particles
 			var p=global.ptBlood
 			part_type_direction(p,dir+160,dir+200,0,0)
@@ -122,7 +130,7 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 			audio_play_sound(sound,hitPriority,false)
 			
 			//popup
-			create_popup(inst.x,inst.y,string(dmg),fnt_popup_damage,c_black,0.05,1.5,270)
+			projectile_create_popup()
 				
 			//destroy
 			instance_destroy(inst)
