@@ -138,6 +138,7 @@ function human_draw()
 	var barX=x-(barWidth*5);
 	var barY=y-40;
 	
+	//remember to do the fancy draw stuff you did on the player healthbar here
 	//cry about it
 	if hp<=100
 	{
