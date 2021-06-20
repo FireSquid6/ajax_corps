@@ -131,7 +131,7 @@
     "path": "folders/Ajax Corps/Assets/Fonts/HUD.yy",
   },
   "resourceVersion": "1.0",
-  "name": "fnt_hud_ammo",
+  "name": "fnt_hud_health",
   "tags": [],
   "resourceType": "GMFont",
 }

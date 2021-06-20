@@ -7,6 +7,7 @@ function weapon_parent(_team,_obj) constructor
 	switchTime=0
 	posX=0
 	posY=0
+	lastShot=0
 	
 	step=function()
 	{
@@ -262,7 +263,7 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 	{
 		if reloading
 		{
-			draw_healthbar(inst.x-15,inst.y-24,inst.x+15,inst.y-30,(cooldown/reloadTime)*100,c_white,c_white,c_white,0,false,true)
+			draw_healthbar(mouse_x-15,mouse_y-18,mouse_x+15,mouse_y-26,(cooldown/reloadTime)*100,c_white,c_white,c_white,0,false,true)
 		}
 	}
 }
@@ -288,11 +289,6 @@ function weapon_machinePistol(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	inReserve=inMag*5
 	cooldown=0
 }
-
-//function heavy_machine_gun(_team,_obj) : weapon_pistol(_team,_obj) constructor
-//{
-	
-//}
 
 function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructor
 {	
