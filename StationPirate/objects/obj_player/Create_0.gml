@@ -10,6 +10,8 @@ key_interact=false
 hsp=0
 vsp=0
 
+lastHit=0
+
 rArmPos=global.arm_pos_walking.r
 lArmPos=global.arm_pos_walking.l
 

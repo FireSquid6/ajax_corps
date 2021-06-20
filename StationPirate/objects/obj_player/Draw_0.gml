@@ -1,7 +1,10 @@
 if alive
 {
 	//reload bar
-	weapon.draw_reload_bar()
+	if weapon.reloading
+	{
+		weapon.draw_reload_bar()
+	}
 
 	//shaders
 	if flashTime>0 
@@ -12,7 +15,24 @@ if alive
 
 	//weapon sprite
 	weapon.draw()
-
+	
+	//draw ammo
+	if weapon.id!=weaponIds.fist
+	{
+		draw_set_alpha(1)
+		draw_set_halign(fa_center)
+		draw_set_valign(fa_middle)
+		draw_set_font(fnt_hud_ammo)
+		draw_set_color(c_gray)
+		if weapon.lastShot>60
+		{
+			draw_set_alpha((weapon.lastShot-60)*0.05)
+		}
+		draw_text(x,y-38,string(weapon.inMag)+"/"+string(weapon.inReserve))
+	}
+	
+	draw_set_alpha(1)
+	
 	//right arm
 	draw_sprite_ext(spr_playerArm,1,
 	x+lengthdir_x(ARM_DIST,image_angle+rArmPos),

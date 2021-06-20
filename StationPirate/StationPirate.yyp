@@ -37,6 +37,7 @@
     {"id":{"name":"sound17_pwr3","path":"sounds/sound17_pwr3/sound17_pwr3.yy",},"order":9,},
     {"id":{"name":"Text_Formatting","path":"notes/Text_Formatting/Text_Formatting.yy",},"order":10,},
     {"id":{"name":"sound14_pwr6","path":"sounds/sound14_pwr6/sound14_pwr6.yy",},"order":6,},
+    {"id":{"name":"fnt_hud_ammo","path":"fonts/fnt_hud_ammo/fnt_hud_ammo.yy",},"order":0,},
     {"id":{"name":"__scribble_config_macros","path":"scripts/__scribble_config_macros/__scribble_config_macros.yy",},"order":2,},
     {"id":{"name":"spr_fragment","path":"sprites/spr_fragment/spr_fragment.yy",},"order":4,},
     {"id":{"name":"sound65_blip5","path":"sounds/sound65_blip5/sound65_blip5.yy",},"order":62,},
@@ -335,6 +336,7 @@
     {"folderPath":"folders/Ajax Corps/Assets/Fonts/Pause.yy","order":4,"resourceVersion":"1.0","name":"Pause","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Data/Recreated.yy","order":0,"resourceVersion":"1.0","name":"Recreated","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Assets/Fonts/Popups.yy","order":5,"resourceVersion":"1.0","name":"Popups","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Ajax Corps/Assets/Fonts/HUD.yy","order":6,"resourceVersion":"1.0","name":"HUD","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

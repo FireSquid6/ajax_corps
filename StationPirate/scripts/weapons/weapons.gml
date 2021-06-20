@@ -15,6 +15,7 @@ function weapon_parent(_team,_obj) constructor
 	
 	equip=function()
 	{
+		lastShot=0
 		cooldown=switchTime
 		set_arms()
 		ext_equip()
@@ -197,6 +198,7 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 	
 	create_bullet=function()
 	{
+		lastShot=0
 		var bulletPosX,bulletPosY,bulletArm
 		if arms==global.arm_pos_rifle bulletArm=inst.lArmPos else if arms==global.arm_pos_handgun bulletArm=inst.rArmPos
 		with inst
@@ -215,6 +217,8 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 	
 	step=function()
 	{
+		if lastShot<111 lastShot++
+		
 		var k_shoot=inst.key_shoot
 		var k_reload=inst.key_reload
 		
@@ -249,7 +253,7 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 		draw_set_color(c_white)
 		draw_set_font(fnt_default)
 		var offset=0
-		if arms=global.arm_pos_rifle offset=15
+		if arms==global.arm_pos_rifle offset=15
 		draw_sprite_ext(weapon_sprite,1,posX,posY,1,1,inst.image_angle+offset,c_white,1)
 		debug_draw()
 	}
