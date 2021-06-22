@@ -155,7 +155,7 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 	
 	ammoType=ammoTypes.light
 	dmg=20
-	bulletSpd=18
+	bulletSpd=12
 	lifespan=60
 	
 	arms=global.arm_pos_handgun
@@ -279,7 +279,7 @@ function weapon_machinePistol(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	display_name="SPEED HANDGUN"
 	
 	dmg=10
-	bulletSpd=18
+	bulletSpd=12
 	magSize=18
 	
 	maxCooldown=7
@@ -305,7 +305,7 @@ function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	
 	ammoType=ammoTypes.medium
 	dmg=25
-	bulletSpd=35
+	bulletSpd=15
 	
 	arms=global.arm_pos_rifle
 	

@@ -11,10 +11,15 @@ function is_invincible(_id)
 	}
 }
 
-function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_sound) constructor
+function bullet_parent(_obj,_target) constructor
 {
 	inst=_obj
 	target=_target
+}
+
+function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_sound) constructor
+{
+	
 	link=_link
 	inst.sprite_index=_sprite
 	inst.image_angle=_dir-90

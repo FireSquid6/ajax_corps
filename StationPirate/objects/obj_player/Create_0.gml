@@ -20,7 +20,9 @@ global.godMode=false
 
 alive=true
 
-weapon=new weapon_fist(weaponTeams.player,id)
+weapon=get_weapon_struct(starting_weapon,weaponTeams.player,id)
+if starting_ammo!=-1 && weapon.id!=weaponIds.fist weapon.inReserve=starting_ammo
+
 weapon.equip()
 
 hp=global.player_max_health
