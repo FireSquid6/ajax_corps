@@ -342,7 +342,7 @@ function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 	display_name="FRAG CANNON"
 	
 	ammoType=ammoTypes.shell
-	dmg=200
+	dmg=50
 	bulletSpd=28
 	spread=7
 	decay=1

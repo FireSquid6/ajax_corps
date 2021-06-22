@@ -190,8 +190,8 @@
   "creationCodeFile": "",
   "inheritCode": false,
   "instanceCreationOrder": [
-    {"name":"inst_7A7A6C07","path":"rooms/rm_template/rm_template.yy",},
-    {"name":"inst_5CF0F27","path":"rooms/rm_template/rm_template.yy",},
+    {"name":"inst_7A7A6C07","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
+    {"name":"inst_5CF0F27","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
@@ -215,11 +215,11 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Levels",
-    "path": "folders/Ajax Corps/Data/Levels.yy",
+    "name": "Sector 1 - Offices",
+    "path": "folders/Ajax Corps/Data/Levels/Sector 1 - Offices.yy",
   },
   "resourceVersion": "1.0",
-  "name": "rm_template",
+  "name": "rm_level_1_2",
   "tags": [],
   "resourceType": "GMRoom",
 }

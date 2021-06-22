@@ -16,15 +16,19 @@ function game_set_mode(_mode)
 			global.enemy_health_modifier=1
 			global.enemies_lead_shots=false 
 			global.enemy_follow_range=600 
-			global.player_max_health=100
+			global.enemy_damage_modifier=1
+			global.player_max_health=200
+			global.player_damage_modifier=1
 			break
 		case gameModes.challenging:
 			global.healthpack_drop_percent=0.5
 			global.enemy_skill_modifier=0 
 			global.enemy_health_modifier=1
+			global.enemy_damage_modifier=1
 			global.enemies_lead_shots=false 
 			global.enemy_follow_range=800 
-			global.player_max_health=100 
+			global.player_max_health=200 
+			global.player_damage_modifier=1
 			break
 		case gameModes.expert:
 			global.healthpack_drop_percent=0.25
@@ -32,7 +36,9 @@ function game_set_mode(_mode)
 			global.enemy_health_modifier=1
 			global.enemies_lead_shots=true
 			global.enemy_follow_range=1000 
+			global.enemy_damage_modifier=1.2
 			global.player_max_health=100 
+			global.player_damage_modifier=0.8
 			
 			if global.bloodbathMode=true
 			{

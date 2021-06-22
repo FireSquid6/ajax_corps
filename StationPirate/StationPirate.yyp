@@ -217,6 +217,7 @@
     {"id":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},"order":0,},
     {"id":{"name":"sound44_explode6","path":"sounds/sound44_explode6/sound44_explode6.yy",},"order":39,},
     {"id":{"name":"spr_enemy","path":"sprites/spr_enemy/spr_enemy.yy",},"order":0,},
+    {"id":{"name":"rm_level_1_2","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},"order":3,},
     {"id":{"name":"sound34_gethit6","path":"sounds/sound34_gethit6/sound34_gethit6.yy",},"order":28,},
     {"id":{"name":"sound51_collect9","path":"sounds/sound51_collect9/sound51_collect9.yy",},"order":47,},
     {"id":{"name":"spr_cdesk_cup","path":"sprites/spr_cdesk_cup/spr_cdesk_cup.yy",},"order":3,},
@@ -253,6 +254,7 @@
     {"id":{"name":"create_popup","path":"scripts/create_popup/create_popup.yy",},"order":2,},
     {"id":{"name":"draw_text_outline","path":"scripts/draw_text_outline/draw_text_outline.yy",},"order":5,},
     {"id":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"order":2,},
+    {"id":{"name":"deal_damage","path":"scripts/deal_damage/deal_damage.yy",},"order":6,},
   ],
   "Options": [
     {"name":"HTML5","path":"options/html5/options_html5.yy",},
@@ -272,6 +274,7 @@
     {"roomId":{"name":"rm_level_1_1","path":"rooms/rm_level_1_1/rm_level_1_1.yy",},},
     {"roomId":{"name":"rm_level_1_3","path":"rooms/rm_level_1_3/rm_level_1_3.yy",},},
     {"roomId":{"name":"rm_template","path":"rooms/rm_template/rm_template.yy",},},
+    {"roomId":{"name":"rm_level_1_2","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Ajax Corps/Data.yy","order":0,"resourceVersion":"1.0","name":"Data","tags":[],"resourceType":"GMFolder",},
@@ -325,7 +328,7 @@
     {"folderPath":"folders/Ajax Corps/Assets/Level Building.yy","order":13,"resourceVersion":"1.0","name":"Level Building","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Assets/Meta/Placeholder.yy","order":1,"resourceVersion":"1.0","name":"Placeholder","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Assets/Meta/Controller.yy","order":2,"resourceVersion":"1.0","name":"Controller","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Ajax Corps/Data/Levels/Sector 1.yy","order":2,"resourceVersion":"1.0","name":"Sector 1","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Ajax Corps/Data/Levels/Sector 1 - Offices.yy","order":2,"resourceVersion":"1.0","name":"Sector 1 - Offices","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Data/Level Building.yy","order":9,"resourceVersion":"1.0","name":"Level Building","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Assets/Level Building/Decorations/Tables/Computer Desk.yy","order":0,"resourceVersion":"1.0","name":"Computer Desk","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Assets/Level Building/Pickups/PreRuntime.yy","order":5,"resourceVersion":"1.0","name":"PreRuntime","tags":[],"resourceType":"GMFolder",},

@@ -497,8 +497,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Sector 1",
-    "path": "folders/Ajax Corps/Data/Levels/Sector 1.yy",
+    "name": "Sector 1 - Offices",
+    "path": "folders/Ajax Corps/Data/Levels/Sector 1 - Offices.yy",
   },
   "resourceVersion": "1.0",
   "name": "rm_level_1_1",
