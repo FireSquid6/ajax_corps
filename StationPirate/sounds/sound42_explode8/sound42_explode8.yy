@@ -14,7 +14,7 @@
   "duration": 0.724705,
   "parent": {
     "name": "SFX Pack 2",
-    "path": "folders/External Data (DO NOT INCLUDE IN FINAL RELEASE)/SFX Pack 2.yy",
+    "path": "folders/Libraries/External Data (DO NOT INCLUDE IN FINAL RELEASE)/SFX Pack 2.yy",
   },
   "resourceVersion": "1.0",
   "name": "sound42_explode8",

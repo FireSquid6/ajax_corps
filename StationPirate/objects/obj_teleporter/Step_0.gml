@@ -1,4 +1,4 @@
-if obj_player.interactableSelected==id && obj_player.key_interact
+if interacted
 {
 	room=next_room
 }

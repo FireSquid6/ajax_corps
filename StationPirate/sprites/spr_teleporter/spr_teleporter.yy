@@ -81,8 +81,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Decorations",
-    "path": "folders/Ajax Corps/Assets/Level Building/Decorations.yy",
+    "name": "Interactables",
+    "path": "folders/Ajax Corps/Assets/Level Building/Interactables.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_teleporter",

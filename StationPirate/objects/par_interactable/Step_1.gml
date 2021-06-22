@@ -1,0 +1,1 @@
+interacted=(obj_player.interactableSelected==id && obj_player.key_interact)
