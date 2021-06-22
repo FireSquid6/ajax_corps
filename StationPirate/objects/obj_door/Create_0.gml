@@ -1,10 +1,10 @@
 image_speed=0
 set_tiles=function(on)
 {
+    if on mp_grid_add_rectangle(global.motionGrid,bbox_left,bbox_top,bbox_right,bbox_bottom)
     //finish this later
-    tilemap_set_at_pixel(global.collisionTilemap,data,x,y)
-    if on mp_grid_add_rectangle(global.motionGrid,x,y,x+32,y)
-    tilemap_set_at_pixel(global.collisionTilemap,data,x+32,y+lengthdir_x(TILE_SIZE,image_angle+90))
+    tilemap_set_at_pixel(global.collisionTilemap,on,bbox_left,bbox_top)
+    tilemap_set_at_pixel(global.collisionTilemap,on,bbox_right,bbox_bottom)
     
 }
 

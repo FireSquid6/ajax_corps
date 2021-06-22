@@ -22,8 +22,10 @@ switch state
             if damageTimer<1
             {
                 obj_player.hp-=10
+                damageTimer=30
                 create_popup(x,y,string(10),fnt_popup_damage,get_popup_color(10),0.01,0.5,270)
             }
+            damageTimer--
         }
         
         //switch to opening
