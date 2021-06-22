@@ -21,7 +21,7 @@
     {"id":{"name":"sound21_jump9","path":"sounds/sound21_jump9/sound21_jump9.yy",},"order":14,},
     {"id":{"name":"CleanBatchBegin","path":"scripts/CleanBatchBegin/CleanBatchBegin.yy",},"order":0,},
     {"id":{"name":"sound26_jump4","path":"sounds/sound26_jump4/sound26_jump4.yy",},"order":19,},
-    {"id":{"name":"rm_level_1_2","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},"order":1,},
+    {"id":{"name":"rm_level_1_3","path":"rooms/rm_level_1_3/rm_level_1_3.yy",},"order":1,},
     {"id":{"name":"sound25_jump5","path":"sounds/sound25_jump5/sound25_jump5.yy",},"order":18,},
     {"id":{"name":"snd_ammoPickup","path":"sounds/snd_ammoPickup/snd_ammoPickup.yy",},"order":0,},
     {"id":{"name":"spr_machinePistol","path":"sprites/spr_machinePistol/spr_machinePistol.yy",},"order":1,},
@@ -270,7 +270,7 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"rm_level_1_1","path":"rooms/rm_level_1_1/rm_level_1_1.yy",},},
-    {"roomId":{"name":"rm_level_1_2","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},},
+    {"roomId":{"name":"rm_level_1_3","path":"rooms/rm_level_1_3/rm_level_1_3.yy",},},
     {"roomId":{"name":"rm_template","path":"rooms/rm_template/rm_template.yy",},},
   ],
   "Folders": [

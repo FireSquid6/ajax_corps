@@ -2,7 +2,9 @@
 enum humanStates
 {
 	patrolling,
-	attacking
+	attacking,
+	searching,
+	fortifying
 }
 
 function human_get_attack_range(_range)
