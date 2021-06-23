@@ -17,7 +17,7 @@ function bullet_parent(_obj,_target) constructor
 	target=_target
 }
 
-function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_sound) constructor
+function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_sound) : bullet_parent(_obj,_target) constructor
 {
 	
 	link=_link
@@ -93,7 +93,7 @@ function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_s
 	}
 }
 
-function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg,_sound) constructor
+function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg,_sound) : bullet_parent(_obj,_target) constructor
 {
 	inst=_obj
 	target=_target

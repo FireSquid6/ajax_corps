@@ -1,5 +1,7 @@
 if alive
 {
+	if !instance_exists(obj_game) draw_text(x,y-32,"SOMETHING IS BROKEN AAAAAA")
+	
 	//shaders
 	if flashTime>0 
 	{

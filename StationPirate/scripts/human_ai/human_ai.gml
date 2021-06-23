@@ -458,6 +458,19 @@ function human_attack_medrange()
 							true))
 						{
 							dist-=TILE_SIZE;
+							if dist<0 
+							{
+								//vars
+								key_shoot=false;
+								attackState=attackStates.pushing;
+								pushTime=maxPushSeconds*60;
+					
+								//path
+								path_end();
+								var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
+								if path path_start(attackPath,pushSpd,path_action_stop,true);
+								break
+							}
 						}
 					
 						path_start(attackPath,strafeSpd,path_action_reverse,true);
