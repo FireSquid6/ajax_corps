@@ -33,7 +33,18 @@ if alive
 	if dashTime>0
 	{
 		spd=DASH_SPD
-	
+		
+		var list=ds_list_create()
+		var targ
+		
+		collision_circle_list(x,y,DASH_SHIELD_RADIUS,par_bullet,false,true,list,false)
+		while ds_list_size(list)>0
+		{
+			targ=ds_list_find_value(list,0)
+			instance_destroy(targ)
+			ds_list_delete(list,0)
+		}
+		
 		part_particles_create(global.partSystem,obj_player.x,obj_player.y,global.ptDashTrail,5)
 		dashTime-=1
 		image_blend=c_aqua

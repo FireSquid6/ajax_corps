@@ -1,0 +1,28 @@
+///////////////////////////////////////////
+	  AJAX CORPS CHANGELOG - v0.3.0
+///////////////////////////////////////////
+
+= Player Dash
+	- Player dash time and dash cooldown increased
+	- Player dash now blocks bullets in a certain shield
+= Better Enemy AI
+	- Added third "searching" state
+= Level Gadgets
+	- Door
+		+ Can be open and closed with an interaction
+		+ No animation implemented yet
+= Changed max player HP to 200
+= Added level 1_2
+= Made level 1_3 easier
+= Various bug fixes and backend optimizations
+
+///////////////////////////////////////////
+ TILE COLLISION LIBRARY CHANGELOG - v1.2.0
+///////////////////////////////////////////
+
+= tilemap_set_at_rectangle()
+	- Sets every tile within a rectangle to a given tile
+	- Not fully funcitonal yet
+= collision_line_tile()
+	- Casts a ray that checks for a tile
+	- Fairly expensive and slow

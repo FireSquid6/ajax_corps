@@ -77,11 +77,13 @@ global.arm_pos_rifle=
 
 #macro pickupRange 64
 #macro WALK_SPD 6
-#macro MAX_DASH_COOLDOWN 25
-#macro DASH_FRAMES 10
+#macro MAX_DASH_COOLDOWN 20
+#macro DASH_FRAMES 20
 #macro DASH_SPD 12
 #macro TILE_SIZE 32
 #macro TRANSITION_SPD 15 //lower = faster, higher = slower
+#macro DASH_SHIELD_RADIUS 32
+#macro DASH_DRAW_CIRCLES 5
 
 #macro MAX_LAST_HIT 140
 #macro HEALTHBAR_FRAMES 90

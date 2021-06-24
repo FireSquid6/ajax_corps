@@ -3,18 +3,93 @@ function projectile_create_popup()
 	create_popup(inst.x,inst.y,string(dmg),fnt_popup_damage,get_popup_color(dmg),0.01,0.5,270)
 }
 
-function is_invincible(_id)
-{
-	if variable_instance_exists(_id,"dashTime")
-	{
-		if _id.dashTime>0 return true else return false
-	}
-}
-
 function bullet_parent(_obj,_target) constructor
 {
 	inst=_obj
 	target=_target
+	
+	check_alive=function()
+	{
+		if instance_exists(inst) return true else return false
+	}
+	
+	step=function()
+	{
+		if check_alive()
+		{
+			//assist
+			assist()
+		
+			//move
+			move()
+		
+			//check col
+			check_collision()
+		
+			//hit wall
+			check_wall()
+		
+			//lifespan
+			change_lifespan()
+		}
+	}
+	
+	move=function()
+	{
+		
+	}
+	
+	assist=function()
+	{
+		
+	}
+	
+	draw=function()
+	{
+		if check_alive()
+		{
+			with inst
+			{
+				draw_self()
+			}
+		}
+	}
+	
+	check_collision=function()
+	{
+		var col=noone
+		var targ=target
+		with inst
+		{
+			if place_meeting(x,y,targ) col=instance_place(x,y,targ)
+		}
+		if col!=noone
+		{ 
+			deal_damage(dmg,col)
+			
+			//particles
+			var p=global.ptBlood
+			part_type_direction(p,dir+160,dir+200,0,0)
+			part_particles_create(global.partSystem,col.x,col.y,p,8)
+			
+			instance_destroy(inst)
+		}
+		
+	}
+	
+	check_wall=function()
+	{
+		with inst
+		{
+			if tile_meeting(x,y,global.collisionTilemap) instance_destroy()
+		}
+	}
+	
+	change_lifespan=function()
+	{
+		lifespan--
+		if lifespan==0 instance_destroy(inst)
+	}
 }
 
 function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_sound) : bullet_parent(_obj,_target) constructor
@@ -31,65 +106,15 @@ function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_s
 	lifespan=_lifespan
 	flashDmg=_flashDmg
 	
-	step=function()
+	check_alive=function()
 	{
-		if instance_exists(link)
-		{
-			var col=noone
-			var targ=target
-		
-			//move
-			inst.x=link.x+lengthdir_x(dist,dir)
-			inst.y=link.y+lengthdir_y(dist,dir)
-		
-			//check col
-			with inst
-			{
-				col=instance_place(x,y,targ)
-				if is_invincible(col) col=noone
-			}
-			if col!=noone
-			{
-				col.lastHit=0
-				
-				//particles
-				var p=global.ptBlood
-				part_type_direction(p,dir+160,dir+200,0,0)
-				part_particles_create(global.partSystem,col.x,col.y,p,8)
-			
-				//damage
-				col.hp-=dmg
-				col.flashTime=flashDmg
-			
-				//popup
-				projectile_create_popup()
-			
-				//sound
-				audio_play_sound(sound,hitPriority,false)
-				
-				//destroy
-				instance_destroy(inst)
-			}
-		
-			//hit wall
-			with inst
-			{
-				if tile_meeting(x,y,global.collisionTilemap) instance_destroy()
-			}
-		
-			//lifespan
-			lifespan--
-			if lifespan==0 instance_destroy(inst)
-		}
-		else instance_destroy(inst)
+		if instance_exists(inst) && instance_exists(link) return true else return false
 	}
 	
-	draw=function()
+	move=function()
 	{
-		with inst
-		{
-			draw_self()
-		}
+		inst.x=link.x+lengthdir_x(dist,dir)
+		inst.y=link.y+lengthdir_y(dist,dir)
 	}
 }
 
@@ -110,46 +135,6 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 	dir=findDir()
 	inst.image_angle=dir-90
 	
-	check_collision=function()
-	{
-		var col=noone
-		var targ=target
-		with inst
-		{
-			col=instance_place(x,y,targ)
-			if is_invincible(col) col=noone
-		}
-		if col!=noone
-		{
-			col.lastHit=0
-			//particles
-			var p=global.ptBlood
-			part_type_direction(p,dir+160,dir+200,0,0)
-			part_particles_create(global.partSystem,col.x,col.y,p,8)
-			
-			//damage
-			col.hp-=dmg
-			col.flashTime=flashDmg
-			
-			//sound
-			audio_play_sound(sound,hitPriority,false)
-			
-			//popup
-			projectile_create_popup()
-				
-			//destroy
-			instance_destroy(inst)
-		}
-	}
-	
-	check_wall=function()
-	{
-		with inst
-		{
-			if tile_meeting(x,y,global.collisionTilemap) instance_destroy()
-		}
-	}
-	
 	assist=function()
 	{
 		//assist
@@ -165,36 +150,6 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 	{
 		inst.x+=lengthdir_x(spd,dir)
 		inst.y+=lengthdir_y(spd,dir)
-	}
-	
-	step=function()
-	{
-		if instance_exists(inst)
-		{
-			//assist
-			assist()
-		
-			//move
-			move()
-		
-			//check col
-			check_collision()
-		
-			//hit wall
-			check_wall()
-		
-			//lifespan
-			lifespan--
-			if lifespan==0 instance_destroy(inst)
-		}
-	}
-	
-	draw=function()
-	{
-		with inst
-		{
-			draw_self()
-		}
 	}
 }
 

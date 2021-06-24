@@ -1,5 +1,17 @@
 if alive
 {
+	draw_set_color(c_aqua)
+	if dashTime>0
+	{
+		var circle=0
+		repeat DASH_DRAW_CIRCLES*4
+		{
+			draw_circle(x,y,DASH_SHIELD_RADIUS-circle,true)
+			circle+=0.25
+		}
+	}
+	
+	draw_set_color(c_white)
 	if !instance_exists(obj_game) draw_text(x,y-32,"SOMETHING IS BROKEN AAAAAA")
 	
 	//shaders
