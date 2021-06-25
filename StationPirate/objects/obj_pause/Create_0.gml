@@ -14,5 +14,5 @@ enum pauseStates
     settings,
     accessibilitySettings,
 }
-selected=pauseSelected.resume
-state=pauseStates.home
+selected=pauseSelected.resume;
+state=pauseStates.home;
