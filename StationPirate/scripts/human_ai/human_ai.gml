@@ -203,9 +203,9 @@ function human_patrol()
 {
 	if obj_player.alive
 	{
-		if !collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8) && obj_player.alive
+		if human_line_of_sight(x,y)
 		{
-			human_switch_attack();
+			human_switch_attack(attackStates.shooting);
 		}
 		switch patrolType
 		{
@@ -278,6 +278,7 @@ function human_attack()
 		//set angle
 		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90;
 		
+		//execute code
 		switch attackState
 		{
 			case attackStates.strafing:
@@ -290,23 +291,27 @@ function human_attack()
 				human_attack_shoot()
 				break;
 		}
+		
+		//check if seeing player
+		if !human_line_of_sight(x,y) human_switch_search()
 	}
 }
 
 //switch attack
-function human_switch_attack()
+function human_switch_attack(_substate)
 {
-	attackState=attackStates.shooting;
 	patrolPath=0;
 	path_end();
 	
-	//timers
-	strafeTime=0;
-	pushTime=0;
-	shootTime=maxShootSeconds*60;
+	//substate
+	switch _substate
+	{
+		case attackStates.pushing: human_attack_switch_push(); break;
+		case attackStates.strafing: human_attack_switch_strafe(); break;
+		case attackStates.shooting: human_attack_switch_shoot(); break;
+	}
 	delayTime=reflex;
 	
-	strafing=true;
 	state=humanStates.attacking;
 }
 
@@ -404,7 +409,7 @@ function human_attack_push()
 	else pushTime--;
 }
 
-function human_switch_push()
+function human_attack_switch_push()
 {
 	//vars
 	key_shoot=false;
@@ -421,12 +426,22 @@ function human_switch_push()
 //search
 function human_search()
 {
+	if floor(x)=floor(searchX) && floor(y)==floor(searchY)
+	{
+		human_switch_patrol()
+		path_end()
+	}
 	
+	if human_line_of_sight(x,y) human_switch_attack(attackStates.pushing)
 }
 
 function human_switch_search()
 {
-	searchPath=path_add()
+	path_end()
+	
+	searchX=obj_player.x
+	searchY=obj_player.y
+	
 	mp_grid_path(global.motionGrid,searchPath,x,y,obj_player.x,obj_player.y,true)
 	path_start(searchPath,searchSpd,path_action_stop,true)
 }
@@ -441,5 +456,5 @@ function human_line_of_sight(_x,_y)
 //alerted
 function human_alerted()
 {
-	
+	if collision_circle(x,y,32,par_bullet,false,true) return true else return false
 }
