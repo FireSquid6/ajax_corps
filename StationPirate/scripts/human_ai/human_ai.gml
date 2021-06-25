@@ -316,7 +316,7 @@ function human_attack_shoot()
 	path_end();
 	if delayTime<1 key_shoot=true else delayTime--;
 				
-	if shootTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap)
+	if shootTime<1 || human_line_of_sight(x,y)
 	{
 		human_attack_switch_push()
 	}
@@ -340,7 +340,7 @@ function human_attack_strafe()
 {
 	key_shoot=false;
 				
-	if strafeTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap)
+	if strafeTime<1 || human_line_of_sight(x,y)
 	{
 		human_attack_switch_shoot()
 	}
@@ -383,8 +383,8 @@ function human_attack_switch_strafe()
 				break
 			}
 		}
-					
 		path_start(attackPath,strafeSpd,path_action_reverse,true);
+	}
 }
 
 //push
@@ -434,7 +434,8 @@ function human_switch_search()
 //line of sight
 function human_line_of_sight(_x,_y)
 {
-	
+	var ret=collision_line_tile(_x,_y,obj_player.x,obj_player.y,global.collisionTilemap)
+	return ret
 }
 
 //alerted

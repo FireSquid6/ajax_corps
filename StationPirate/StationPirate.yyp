@@ -123,6 +123,7 @@
     {"id":{"name":"sound37_gethit3","path":"sounds/sound37_gethit3/sound37_gethit3.yy",},"order":31,},
     {"id":{"name":"sector 1","path":"notes/sector 1/sector 1.yy",},"order":2,},
     {"id":{"name":"shd_white","path":"shaders/shd_white/shd_white.yy",},"order":0,},
+    {"id":{"name":"saving","path":"scripts/saving/saving.yy",},"order":13,},
     {"id":{"name":"spr_sink","path":"sprites/spr_sink/spr_sink.yy",},"order":2,},
     {"id":{"name":"sound29_jump1","path":"sounds/sound29_jump1/sound29_jump1.yy",},"order":22,},
     {"id":{"name":"sound2_shoot8","path":"sounds/sound2_shoot8/sound2_shoot8.yy",},"order":12,},
