@@ -1,1 +1,1 @@
-struct.step()
+if !inShield struct.step()

@@ -7,6 +7,8 @@ interactableSelected=noone
 mask_index=spr_player
 key_interact=false
 
+shieldCooldown=MAX_SHIELD_COOLDOWN
+
 hsp=0
 vsp=0
 ammoAlpha=0

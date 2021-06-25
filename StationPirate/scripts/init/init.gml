@@ -91,7 +91,12 @@ global.arm_pos_rifle=
 #macro MAX_LAST_SHOOT 110
 #macro DRAW_AMMO_FRAMES 60
 
-#endregion
+#macro SHIELD_ALIVE_FRAMES 60
+#macro MAX_SHIELD_COOLDOWN 15
+#macro MAX_SHIELD_RADIUS 48
+#macro SHIELD_RADIUS_GROWTH 8
+#macro SHIELD_ALPHA_LOSS 1/60
+#macro SHIELD_LIFESPAN 120
 
 #endregion
 

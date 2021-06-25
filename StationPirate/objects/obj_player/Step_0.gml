@@ -4,9 +4,9 @@ key_down=keyboard_check(ord("S"))
 key_left=keyboard_check(ord("A"))
 key_right=keyboard_check(ord("D"))
 var key_dash=keyboard_check_pressed(vk_space)
-var key_switch=mouse_check_button_pressed(mb_middle)
-	
-key_shoot=mouse_check_button(mb_left)
+
+key_shield=mouse_check_button_pressed(mb_right) || keyboard_check_pressed(ord("V"))
+key_shoot=(mouse_check_button(mb_left))
 key_reload=keyboard_check_pressed(ord("R"))
 key_drop=keyboard_check_pressed(ord("Q"))
 key_interact=keyboard_check_pressed(ord("E"))
@@ -136,6 +136,14 @@ if alive
 	
 	lastHit++
 	lastHit=clamp(lastHit,0,MAX_LAST_HIT)
+	
+	//create shield
+	if key_shield && shieldCooldown<1 && !instance_exists(obj_shield)
+	{
+		instance_create_layer(mouse_x,mouse_y,"entities",obj_shield)
+	}
+	shieldCooldown--
+	shieldCooldown=clamp(shieldCooldown,0,MAX_SHIELD_COOLDOWN)
 }
 else
 {
