@@ -25,7 +25,7 @@
     "path": "folders/Ajax Corps/Data/Meta/Parents.yy",
   },
   "resourceVersion": "1.0",
-  "name": "par_bullet",
+  "name": "par_entity",
   "tags": [],
   "resourceType": "GMObject",
 }

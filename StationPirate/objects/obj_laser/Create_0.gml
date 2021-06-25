@@ -1,0 +1,1 @@
+mp_grid_add_rectangle(global.motionGrid,bbox_left,bbox_top,bbox_right,bbox_bottom)

@@ -1,5 +1,17 @@
 function deal_damage(_dmg,_id) 
 {
+	//check if object is dashing
+	if variable_instance_exists(_id,"dashTime")
+	{
+		if _id.dashTime>0 exit
+	}
+	
+	//check if object is alive
+	if variable_instance_exists(_id,"alive")
+	{
+		if _id.alive==false exit
+	}
+	
     //get defense
     var def=0
     if variable_instance_exists(_id,"defense")
@@ -15,7 +27,7 @@ function deal_damage(_dmg,_id)
             //deal damage to shields
             if _id.shields>0
             {
-                _id.shields-=dmg_equation(_dmg,modifier,def)
+                _id.shields-=dmg_equation(_dmg,1,def)
             }
         }
         else
@@ -28,7 +40,7 @@ function deal_damage(_dmg,_id)
         audio_play_sound(snd_damage,hitPriority,false)
         
         //create popup
-        create_popup(_id.x,_id.y,string(dmg),fnt_popup_damage,get_popup_color(_dmg),0.01,0.5,270)
+        create_popup(_id.x,_id.y,string(_dmg),fnt_popup_damage,get_popup_color(_dmg),0.01,0.5,270)
         
         //set last hit
         _id.lastHit=0

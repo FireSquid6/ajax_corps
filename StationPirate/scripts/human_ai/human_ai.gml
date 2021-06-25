@@ -173,6 +173,7 @@ function human_draw()
 			if path_exists(attackPath) draw_path(attackPath,x,y,true);
 			draw_text(x,y-60,string(attackState));
 		}
+		draw_text(x,y-70,string(state))
 		
 		//path length
 		var checkPath=path_add();
@@ -321,7 +322,7 @@ function human_attack_shoot()
 	path_end();
 	if delayTime<1 key_shoot=true else delayTime--;
 				
-	if shootTime<1 || human_line_of_sight(x,y)
+	if shootTime<1
 	{
 		human_attack_switch_push()
 	}
@@ -345,7 +346,7 @@ function human_attack_strafe()
 {
 	key_shoot=false;
 				
-	if strafeTime<1 || human_line_of_sight(x,y)
+	if strafeTime<1
 	{
 		human_attack_switch_shoot()
 	}
@@ -401,7 +402,8 @@ function human_attack_push()
 		var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
 		if path path_start(attackPath,pushSpd,path_action_stop,true);
 	}
-				
+	
+	pushTime--
 	if pushTime<1
 	{
 		human_attack_switch_strafe()

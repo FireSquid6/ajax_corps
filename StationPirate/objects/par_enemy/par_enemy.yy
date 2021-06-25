@@ -4,7 +4,10 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "par_entity",
+    "path": "objects/par_entity/par_entity.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -23,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Enemy",
-    "path": "folders/Ajax Corps/Data/Enemy.yy",
+    "name": "Parents",
+    "path": "folders/Ajax Corps/Data/Meta/Parents.yy",
   },
   "resourceVersion": "1.0",
   "name": "par_enemy",
