@@ -36,7 +36,7 @@ if alive
 	y+lengthdir_y(ARM_DIST,image_angle+lArmPos),
 	1,1,image_angle,c_white,1)
 	
-	//line
+	//debug
 	if global.debugMode
 	{
 		draw_set_font(fnt_default)
@@ -46,6 +46,10 @@ if alive
 		var percent=(global.player_max_health*0.5)
 		draw_text(x,y-70,"LAST HIT: "+string(lastHit))
 		draw_text(x,y-80,"HP"+string(hp))
+		
+		//stupid collision line thing
+		if collision_line_tile(x,y,mouse_x,mouse_y,global.collisionTilemap) draw_set_color(c_red)
+		draw_line(x,y,mouse_x,mouse_y)
 	}
 }
 

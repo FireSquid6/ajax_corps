@@ -171,16 +171,11 @@ function human_draw()
 		if state==humanStates.attacking
 		{
 			if path_exists(attackPath) draw_path(attackPath,x,y,true);
-			draw_text(x,y-60,string(attackState));
+			draw_text(x,y-90,"attackState"+string(attackState));
 		}
-		draw_text(x,y-70,string(state))
+		draw_text(x,y-105,"state"+string(state))
 		
-		//path length
-		var checkPath=path_add();
-		mp_grid_path(global.motionGrid,checkPath,x,y,obj_player.x,obj_player.y,true);
-		var checkLength=path_get_length(checkPath);
-		draw_text(x,y-70,string(checkLength));
-		path_delete(checkPath);
+		if human_line_of_sight(x,y) draw_line_color(x,y,obj_player.x,obj_player.y,c_red,c_red) else draw_line_color(x,y,obj_player.x,obj_player.y,c_white,c_white)
 	}
 }
 
@@ -439,6 +434,7 @@ function human_search()
 
 function human_switch_search()
 {
+	state=humanStates.searching
 	path_end()
 	
 	searchX=obj_player.x
@@ -452,7 +448,7 @@ function human_switch_search()
 function human_line_of_sight(_x,_y)
 {
 	var ret=collision_line_tile(_x,_y,obj_player.x,obj_player.y,global.collisionTilemap)
-	return ret
+	return !ret
 }
 
 //alerted
