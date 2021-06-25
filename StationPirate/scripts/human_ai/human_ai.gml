@@ -3,27 +3,7 @@ enum humanStates
 {
 	patrolling,
 	attacking,
-	searching,
-	fortifying
-}
-
-function human_get_attack_range(_range)
-{
-	switch _range
-	{
-		case 0:
-			attack_ai=human_attack_melee;
-			break
-		case 1:
-			attack_ai=human_attack_shortrange;
-			break
-		case 2:
-			attack_ai=human_attack_medrange;
-			break
-		case 3:
-			attack_ai=human_attack_longrange;
-			break
-	}
+	searching
 }
 
 //CONTROLLER
@@ -49,10 +29,7 @@ function human_init()
 	//path
 	attackPath=path_add();
 	patrolPath=path_add();
-	
-	//get functions
-	patrol_ai=human_patrol;
-	human_get_attack_range(range);
+	searchPath=path_add();
 	
 	//switch to patrol
 	human_switch_patrol();
@@ -70,14 +47,12 @@ function human_step()
 		{
 			weapon=get_weapon_struct("melee",weaponTeams.enemy,id);
 			weapon.equip();
-			range=weapon.weaponRange;
-			human_get_attack_range(range);
 		}
 	
 		switch state
 		{
 			case humanStates.patrolling:
-				patrol_ai();
+				human_patrol()
 				break;
 			case humanStates.attacking:
 				//check if alive
@@ -85,7 +60,7 @@ function human_step()
 				if !obj_player.alive human_switch_patrol();
 				
 				//attack
-				attack_ai();
+				human_attack();
 				
 				//check if switch to patrol
 				var checkPath=path_add();
@@ -93,7 +68,9 @@ function human_step()
 				var checkLength=path_get_length(checkPath);
 				if checkLength>750 human_switch_attack();
 				path_delete(checkPath);
-				
+				break;
+			case humanStates.searching:
+				human_search();
 				break;
 		}
 		
@@ -293,30 +270,8 @@ enum attackStates
 	shooting
 }
 
-function human_attack_melee()
-{
-	if instance_exists(obj_player)
-	{
-		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90;
-		if collision_circle(x,y,48,obj_player,false,true)
-		{
-			key_shoot=true;
-		}
-		else
-		{
-			key_shoot=false;
-			if path_exists(attackPath)
-			{
-				if mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true)
-				{
-					path_start(attackPath,strafeSpd,path_action_stop,true);
-				}
-			}
-		}
-	}
-}
-
-function human_attack_shortrange()
+//attack function
+function human_attack()
 {
 	if instance_exists(obj_player)
 	{
@@ -325,265 +280,20 @@ function human_attack_shortrange()
 		
 		switch attackState
 		{
-			//strafing -> shooting -> pushing -> repeat
-			//remember to make it so that enemies push if they don't see the player
 			case attackStates.strafing:
-				key_shoot=false;
-				
-				if strafeTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
-				{
-					//vars
-					key_shoot=false;
-					attackState=attackStates.shooting;
-					delayTime=reflex;
-					shootTime=maxShootSeconds*60;
-					
-					//path
-					path_end();
-				}
-				else strafeTime--;
+				human_attack_strafe()
 				break;
 			case attackStates.pushing:
-				path_end();
-				var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
-				if path path_start(attackPath,pushSpd,path_action_stop,true);
-				key_shoot=true;
-				
-				if pushTime<1
-				{
-					//vars
-					key_shoot=true;
-					attackState=attackStates.strafing;
-					strafeTime=maxStrafeSeconds*60;
-					
-					//path
-					path_end();
-					var dist=256;
-					var midpointX=((x+obj_player.x)*0.5);
-					var midpointY=((y+obj_player.y)*0.5);
-					var mpdir=point_direction(x,y,obj_player.x,obj_player.y);
-					var mpdist=point_distance(x,y,obj_player.x,obj_player.y)*0.25;
-					midpointX+=lengthdir_x(mpdist,mpdir);
-					midpointY+=lengthdir_y(mpdist,mpdir);
-					var midpointY=((y+obj_player.y)*0.5);
-					var dir=point_direction(x,y,obj_player.x,obj_player.y)+(90*choose(-1,1));
-					
-					while !(mp_grid_path(global.motionGrid,attackPath,x,y,
-						midpointX+lengthdir_x(dist,dir),
-						midpointY+lengthdir_y(dist,dir),
-						true))
-					{
-						dist-=TILE_SIZE;
-					}
-					
-					path_start(attackPath,strafeSpd,path_action_reverse,true);
-				}
-				else pushTime--;
+				human_attack_push()
 				break;
 			case attackStates.shooting:
-				path_end();
-				if delayTime<1 key_shoot=true else delayTime--;
-				
-				if shootTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
-				{
-					//vars
-					key_shoot=false;
-					attackState=attackStates.pushing;
-					pushTime=maxPushSeconds*60;
-					
-					//path
-					path_end();
-					var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
-					if path path_start(attackPath,pushSpd,path_action_stop,true);
-				}
-				else shootTime--;
+				human_attack_shoot()
 				break;
 		}
 	}
 }
 
-function human_attack_medrange()
-{
-	if instance_exists(obj_player)
-	{
-		//set angle
-		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90;
-		
-		switch attackState
-		{
-			//strafing -> shooting -> pushing -> repeat
-			case attackStates.strafing:
-				key_shoot=false;
-				
-				if strafeTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
-				{
-					//vars
-					key_shoot=false;
-					attackState=attackStates.shooting;
-					delayTime=reflex;
-					shootTime=maxShootSeconds*60;
-					
-					//path
-					path_end();
-				}
-				else strafeTime--;
-				break;
-			case attackStates.pushing:
-				path_end();
-				if path_exists(attackPath)
-				{
-					var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
-					if path path_start(attackPath,pushSpd,path_action_stop,true);
-				}
-				
-				if pushTime<1
-				{
-					//vars
-					key_shoot=true;
-					attackState=attackStates.strafing;
-					strafeTime=maxStrafeSeconds*60;
-					
-					//path
-					path_end();
-					var dist=256;
-					var midpointX=((x+obj_player.x)*0.5);
-					var midpointY=((y+obj_player.y)*0.5);
-					var dir=point_direction(x,y,obj_player.x,obj_player.y)+(90*choose(-1,1));
-					
-					if path_exists(attackPath)
-					{
-						while !(mp_grid_path(global.motionGrid,attackPath,x,y,
-							midpointX+lengthdir_x(dist,dir),
-							midpointY+lengthdir_y(dist,dir),
-							true))
-						{
-							dist-=TILE_SIZE;
-							if dist<0 
-							{
-								//vars
-								key_shoot=false;
-								attackState=attackStates.pushing;
-								pushTime=maxPushSeconds*60;
-					
-								//path
-								path_end();
-								var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
-								if path path_start(attackPath,pushSpd,path_action_stop,true);
-								break
-							}
-						}
-					
-						path_start(attackPath,strafeSpd,path_action_reverse,true);
-					}
-				}
-				else pushTime--;
-				break;
-			case attackStates.shooting:
-				path_end();
-				if delayTime<1 key_shoot=true else delayTime--;
-				
-				if shootTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
-				{
-					//vars
-					key_shoot=false;
-					attackState=attackStates.pushing;
-					pushTime=maxPushSeconds*60;
-					
-					//path
-					path_end();
-					var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
-					if path path_start(attackPath,pushSpd,path_action_stop,true);
-				}
-				else shootTime--;
-				break;
-		}
-	}
-}
-
-function human_attack_longrange()
-{
-	if instance_exists(obj_player)
-	{
-		//set angle
-		image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90;
-		
-		switch attackState
-		{
-			//strafing -> shooting -> pushing -> repeat
-			case attackStates.strafing:
-				key_shoot=false;
-				
-				if strafeTime<1
-				{
-					//vars
-					key_shoot=false;
-					attackState=attackStates.shooting;
-					delayTime=reflex;
-					shootTime=maxShootSeconds*60;
-					
-					//path
-					path_end();
-				}
-				else strafeTime--;
-				break;
-			case attackStates.pushing:
-				path_end();
-				var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
-				if path path_start(attackPath,pushSpd,path_action_stop,true);
-				
-				if pushTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8) //add a collision circle to the player check here
-				{
-					//vars
-					key_shoot=true;
-					attackState=attackStates.strafing;
-					strafeTime=maxStrafeSeconds*60;
-					
-					//path
-					path_end();
-					var dist=256;
-					var midpointX=((x+obj_player.x)*0.5);
-					var mpdir=point_direction(x,y,obj_player.x,obj_player.y)-180;
-					var mpdist=point_distance(x,y,obj_player.x,obj_player.y)*0.25;
-					midpointX+=lengthdir_x(mpdist,mpdir);
-					midpointY+=lengthdir_y(mpdist,mpdir);
-					var midpointY=((y+obj_player.y)*0.5);
-					var dir=point_direction(x,y,obj_player.x,obj_player.y)+(90*choose(-1,1));
-					
-					while !(mp_grid_path(global.motionGrid,attackPath,x,y,
-						midpointX+lengthdir_x(dist,dir),
-						midpointY+lengthdir_y(dist,dir),
-						true))
-					{
-						dist-=TILE_SIZE;
-					}
-					
-					path_start(attackPath,strafeSpd,path_action_reverse,true);
-				}
-				else pushTime--;
-				break;
-			case attackStates.shooting:
-				path_end();
-				if delayTime<1 key_shoot=true; else delayTime--
-				
-				if shootTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap,8)
-				{
-					//vars
-					key_shoot=false;
-					attackState=attackStates.pushing;
-					pushTime=maxPushSeconds*60;
-					
-					//path
-					path_end();
-					var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
-					if path path_start(attackPath,pushSpd,path_action_stop,true);
-				}
-				else shootTime--;
-				break;
-		}
-	}
-}
-
-//switch function
+//switch attack
 function human_switch_attack()
 {
 	attackState=attackStates.shooting;
@@ -598,4 +308,137 @@ function human_switch_attack()
 	
 	strafing=true;
 	state=humanStates.attacking;
+}
+
+//shooting
+function human_attack_shoot()
+{
+	path_end();
+	if delayTime<1 key_shoot=true else delayTime--;
+				
+	if shootTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap)
+	{
+		human_attack_switch_push()
+	}
+	else shootTime--;
+}
+
+function human_attack_switch_shoot()
+{
+	//vars
+	key_shoot=false;
+	attackState=attackStates.shooting;
+	delayTime=reflex;
+	shootTime=maxShootSeconds*60;
+					
+	//path
+	path_end();
+}
+
+//strafe
+function human_attack_strafe()
+{
+	key_shoot=false;
+				
+	if strafeTime<1 || collision_line_tile(x,y,obj_player.x,obj_player.y,global.collisionTilemap)
+	{
+		human_attack_switch_shoot()
+	}
+	else strafeTime--;
+}
+
+function human_attack_switch_strafe()
+{
+	//vars
+	key_shoot=true;
+	attackState=attackStates.strafing;
+	strafeTime=maxStrafeSeconds*60;
+					
+	//path
+	path_end();
+	var dist=256;
+	var midpointX=((x+obj_player.x)*0.5);
+	var midpointY=((y+obj_player.y)*0.5);
+	var dir=point_direction(x,y,obj_player.x,obj_player.y)+(90*choose(-1,1));
+					
+	if path_exists(attackPath)
+	{
+		while !(mp_grid_path(global.motionGrid,attackPath,x,y,
+			midpointX+lengthdir_x(dist,dir),
+			midpointY+lengthdir_y(dist,dir),
+			true))
+		{
+			dist-=TILE_SIZE;
+			if dist<0 
+			{
+				//vars
+				key_shoot=false;
+				attackState=attackStates.pushing;
+				pushTime=maxPushSeconds*60;
+					
+				//path
+				path_end();
+				var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
+				if path path_start(attackPath,pushSpd,path_action_stop,true);
+				break
+			}
+		}
+					
+		path_start(attackPath,strafeSpd,path_action_reverse,true);
+}
+
+//push
+function human_attack_push()
+{
+	path_end();
+	if path_exists(attackPath)
+	{
+		var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
+		if path path_start(attackPath,pushSpd,path_action_stop,true);
+	}
+				
+	if pushTime<1
+	{
+		human_attack_switch_strafe()
+	}
+	else pushTime--;
+}
+
+function human_switch_push()
+{
+	//vars
+	key_shoot=false;
+	attackState=attackStates.pushing;
+	pushTime=maxPushSeconds*60;
+					
+	//path
+	path_end();
+	var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
+	if path path_start(attackPath,pushSpd,path_action_stop,true);
+}
+
+
+//search
+function human_search()
+{
+	
+}
+
+function human_switch_search()
+{
+	searchPath=path_add()
+	mp_grid_path(global.motionGrid,searchPath,x,y,obj_player.x,obj_player.y,true)
+	path_start(searchPath,searchSpd,path_action_stop,true)
+}
+
+//line of sight
+function human_line_of_sight(_x,_y)
+{
+	
+}
+
+//alerted
+function human_alerted()
+{
+	
 }

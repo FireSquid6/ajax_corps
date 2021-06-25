@@ -1,38 +1,72 @@
-function collision_line_tile(_x1,_y1,_x2,_y2,tilemap,precision)
-{
-	//This function checks if a given line collides with any tile on a tilemap
-	//x1 - starting x position
-	//x2 - starting y position
-	//note - it's faster to put x1 and y1 as the position most likely to hit a tile first
-	//x2 - ending x position
-	//y2 - ending y position
-	//tilemap - tilemap id returned from layer_tilemap_get_id()
-	//precision - how many pixels the raycast moves per loop
+//SCRIPT CREDIT GOES TO @Zen00 ON THE GM SERVER
+
+///@func tile_collision_line(x1, y1, x2, y2, tile_layer_id)
+///@desc Returns true if there is a tile collision between the 1 and 2 points (of any tile type that is not id 0), must be integer line points
+///@param {int} x1
+///@param {int} y1
+///@param {int} x2
+///@param {int} y2
+///@param {int} tile_layer_id
+function collision_line_tile(x1, y1, x2, y2, _id) {
+	var dx = abs(x2 - x1); //Line length in the x
+	var sx = (x1 < x2) ? 1 : -1; //How much to step in the x/y direction for the next check
+	var dy = -abs(y2 - y1);
+	var sy = (y1 < y2) ? 1 : -1;
+	var err = dx + dy; //Total line length
 	
-	//set the x and y variables that will be manipulated
-	var xx=_x1
-	var yy=_y1
-	
-	//get the radius of the circle because im stupid and am using point_in_circle()
-	var radius=point_distance(_x1,_y1,_x2,_y2)
-	
-	//get the direction for lengthdir function
-	var dir=point_direction(_x1,_y1,_x2,_y2)
-	
-	//start the loop
-	while point_in_circle(xx,yy,_x1,_y1,radius) //yes there is probably a better way to do this but this is the first idea that came up in my head
-	{
-		//check if tilemap is at the point
-		if tilemap_get_at_pixel(tilemap,xx,yy)==1
-		{
-			return true
+	while(true) {
+		var err2 = 2 * err; //Sort of a accuracy multiplier
+		if(err2 >= dy) {
+			err += dy;
+			x1 += sx;
+		}
+		if(err2 <= dx) {
+			err += dx;
+			y1 += sy;
 		}
 		
-		//move xx and yy
-		xx+=lengthdir_x(precision,dir)
-		yy+=lengthdir_y(precision,dir)
+		//Could throw in a "tile id" variable for testing for specific tile type collisions
+		var _tile = tile_get_index(tilemap_get_at_pixel(_id, x1, y1));
+		if(_tile != 0) { return true; }
+		if((x1 == x2) && (y1 == y2)) { return false; } //Just make sure this happens one way or another otherwise you'll have a freeze, this is part of why it requires ints
+	}
+}
+
+///@func draw_tile_collision_line(x1, y1, x2, y2, tile_layer_id)
+///@desc Basically tile_collision_line but also draws a line between the points
+///@param {int} x1
+///@param {int} y1
+///@param {int} x2
+///@param {int} y2
+///@param {int} tile_layer_id
+function draw_tile_collision_line(x1, y1, x2, y2, _id) {
+	var xx = x1;
+	var yy = y1;
+	var dx = abs(x2 - x1); //Line length in the x
+	var sx = (x1 < x2) ? 1 : -1; //How much to step in the x/y direction for the next check
+	var dy = -abs(y2 - y1);
+	var sy = (y1 < y2) ? 1 : -1;
+	var err = dx + dy; //Total line length
+	var _return = false;
+	
+	while(true) {
+		var err2 = 2 * err; //Sort of a accuracy multiplier
+		if(err2 >= dy) {
+			err += dy;
+			x1 += sx;
+		}
+		if(err2 <= dx) {
+			err += dx;
+			y1 += sy;
+		}
+		
+		//Could throw in a "tile id" variable for testing for specific tile type collisions
+		var _tile = tile_get_index(tilemap_get_at_pixel(_id, x1, y1));
+		if(_tile != 0) { _return = true; break; }
+		if((x1 == x2) && (y1 == y2)) { break; } //Just make sure this happens one way or another otherwise you'll have a freeze, this is part of why it requires ints
 	}
 	
-	//if nothing was found, return false
-	return false
+	if(_return) { draw_line(xx, yy, x1 - sx, y1 - sy); }
+	else { draw_line(xx, yy, x1, y1); }
+	return _return;
 }

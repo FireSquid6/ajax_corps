@@ -38,7 +38,7 @@
     {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"patrolType","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":2,"value":"none","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"weapon_string","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"6","rangeEnabled":true,"rangeMin":0.0,"rangeMax":12.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"patrolSpd","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"4","rangeEnabled":true,"rangeMin":0.0,"rangeMax":12.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"searchSpd","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"6","rangeEnabled":true,"rangeMin":0.0,"rangeMax":12.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"searchSpd","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"6","rangeEnabled":true,"rangeMin":0.0,"rangeMax":12.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"strafeSpd","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"6","rangeEnabled":true,"rangeMin":0.0,"rangeMax":12.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"pushSpd","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"6","rangeEnabled":true,"rangeMin":0.0,"rangeMax":30.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"reflex","tags":[],"resourceType":"GMObjectProperty",},
