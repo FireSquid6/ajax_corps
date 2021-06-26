@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Tile Collision",
-    "path": "folders/Libraries/Scribble/Tile Collision.yy",
+    "name": "Engager",
+    "path": "folders/Ajax Corps/Data/Level Building/Enemy/Engager.yy",
   },
   "resourceVersion": "1.0",
-  "name": "collision_line_tile",
+  "name": "engager_ai",
   "tags": [],
   "resourceType": "GMScript",
 }

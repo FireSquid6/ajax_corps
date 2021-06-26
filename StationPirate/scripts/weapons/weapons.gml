@@ -294,7 +294,7 @@ function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructo
 {	
 	id=weaponIds.assaultRifle
 	hitSound=snd_smallDamage
-	shootSound=snd_shootPistol
+	shootSound=snd_shootRifle
 	
 	weapon_sprite=spr_assaultRifle
 	bullet_sprite=spr_mediumBullet

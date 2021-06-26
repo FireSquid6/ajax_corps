@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Tile Collision",
-    "path": "folders/Libraries/Scribble/Tile Collision.yy",
+    "name": "Turret",
+    "path": "folders/Ajax Corps/Data/Level Building/Enemy/Turret.yy",
   },
   "resourceVersion": "1.0",
-  "name": "collision_line_tile",
+  "name": "turret_ai",
   "tags": [],
   "resourceType": "GMScript",
 }

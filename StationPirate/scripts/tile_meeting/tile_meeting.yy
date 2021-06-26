@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Tile Collision",
-    "path": "folders/Libraries/Tile Collision.yy",
+    "path": "folders/Libraries/Scribble/Tile Collision.yy",
   },
   "resourceVersion": "1.0",
   "name": "tile_meeting",

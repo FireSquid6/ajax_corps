@@ -37,7 +37,7 @@ function deal_damage(_dmg,_id)
         }
         
         //play sound
-        audio_play_sound(snd_damage,hitPriority,false)
+        audio_play_sound(snd_smallDamage,hitPriority,false)
         
         //create popup
         create_popup(_id.x,_id.y,string(_dmg),fnt_popup_damage,get_popup_color(_dmg),0.01,0.5,270)

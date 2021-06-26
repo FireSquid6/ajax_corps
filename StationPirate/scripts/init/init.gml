@@ -100,6 +100,12 @@ global.arm_pos_rifle=
 
 #endregion
 
+#region audio
+//SHOOTING
+
+
+#endregion
+
 #region random vars
 //debug mode
 global.debugMode=false

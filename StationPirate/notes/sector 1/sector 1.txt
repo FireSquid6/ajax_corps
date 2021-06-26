@@ -13,7 +13,7 @@ LEVEL 1 - TUTORIAL
 		Wooden Chair
 		
 	Enemies
-		Human
+		engager
 		
 	Weapons Used
 		Pistol
@@ -33,7 +33,7 @@ LEVEL 2 - OFFICE
 		Ping pong tables
 		
 	Enemies
-		Human
+		engager
 		
 	Weapons Used
 		Pistol
@@ -50,7 +50,7 @@ LEVEL 3 - STOREROOM
 		Various types of boxes
 		
 	Enemies
-		Human
+		engager
 		Drone
 		
 	Weapons Used
@@ -69,7 +69,7 @@ LEVEL 5 - TEST CHAMBERS
 		
 	Enemies
 		Drone
-		Human
+		engager
 		
 	Weapons Used
 		Magnum
