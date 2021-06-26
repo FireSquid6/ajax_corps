@@ -10,8 +10,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snd_reload.wav",
-  "duration": 0.3328,
+  "soundFile": "snd_reload.mp3",
+  "duration": 1.57234693,
   "parent": {
     "name": "Shoot",
     "path": "folders/Ajax Corps/Assets/Sounds/Shoot.yy",

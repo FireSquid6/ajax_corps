@@ -61,13 +61,6 @@ function engager_step()
 				
 				//attack
 				engager_attack();
-				
-				//check if switch to patrol
-				var checkPath=path_add();
-				mp_grid_path(global.motionGrid,checkPath,x,y,obj_player.x,obj_player.y,true);
-				var checkLength=path_get_length(checkPath);
-				if checkLength>750 engager_switch_attack();
-				path_delete(checkPath);
 				break;
 			case engagerStates.searching:
 				engager_search();
@@ -80,6 +73,10 @@ function engager_step()
 			instance_destroy();
 			part_particles_create(global.partSystem,x,y,global.ptDead,DEAD_PARTICLES_AMMOUNT);
 		}
+		
+		//floor pos
+		x=floor(x)
+		y=floor(y)
 	}
 }
 
@@ -289,7 +286,7 @@ function engager_attack()
 		}
 		
 		//check if seeing player
-		if !engager_line_of_sight(x,y) engager_switch_search()
+		if engager_line_of_sight(x,y) engager_switch_search()
 	}
 }
 
@@ -448,7 +445,7 @@ function engager_switch_search()
 function engager_line_of_sight(_x,_y)
 {
 	var ret=collision_line_tile(_x,_y,obj_player.x,obj_player.y,global.collisionTilemap)
-	return !ret
+	return ret
 }
 
 //alerted
