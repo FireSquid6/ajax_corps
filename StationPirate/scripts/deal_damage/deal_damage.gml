@@ -21,6 +21,7 @@ function deal_damage(_dmg,_id)
     
     if variable_instance_exists(_id,"hp")
     {
+		
         //check shields
         if variable_instance_exists(_id,"shields")
         {

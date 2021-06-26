@@ -1,3 +1,7 @@
+scribble_font_add("arial")
+scribble_font_add("eightbit")
+scribble_font_add("pixeled")
+
 #region particles types
 
 //dash particle

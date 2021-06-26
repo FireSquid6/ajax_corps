@@ -62,7 +62,7 @@ function scribble_font_add()
     
     if (asset_get_type(_name) != asset_font)
     {
-        __scribble_error("Font \"", _name, "\" not found in the project.\nScribble font \"", _name, "\" will not be available");
+        __scribble_error("Font \"", _name, "\" not found in the project.\nScribble font \"", _name, "\" will not be available.");
         return undefined;
     }
     
