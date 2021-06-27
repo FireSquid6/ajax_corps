@@ -38,4 +38,4 @@ instance_create_layer(0,0,"meta",obj_game)
 instance_create_layer(x,y,"meta",obj_camera)
 
 //create lighting
-//instance_create_layer(x,y,"meta",obj_lighting)
+instance_create_layer(x,y,"meta",obj_lighting)
