@@ -114,45 +114,17 @@ function engager_draw()
 	var barX=x-(barWidth*5);
 	var barY=y-40;
 	
-	//remember to do the fancy draw stuff you did on the player healthbar here
-	//cry about it
-	if hp<=100
-	{
-		barColor=c_red;
-		backColor=c_dkgray;
-	}
-	else if hp<=200
-	{
-		barColor=c_blue;
-		backColor=c_red	;
-	}
-	else if hp<=300
-	{
-		barColor=c_green;
-		backColor=c_blue;
-	}
-	else if hp<=400
-	{
-		barColor=c_aqua;
-		backColor=c_green;
-	}
-	else
-	{
-		barColor=c_fuchsia;
-		backColor=c_aqua;
-	}
-	
 	//draw back bars
 	repeat 10
 	{
-		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,backColor,1);
+		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,c_gray,1);
 		barX+=barWidth;
 	}
 	
 	barX=x-(barWidth*5);
 	while healthPercent>0
 	{
-		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,barColor,1);
+		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,c_red,1);
 		barX+=barWidth;
 		healthPercent-=10;
 	}
@@ -172,7 +144,7 @@ function engager_draw()
 		}
 		draw_text(x,y-105,"state"+string(state))
 		
-		if engager_line_of_sight(x,y) draw_line_color(x,y,obj_player.x,obj_player.y,c_red,c_red) else draw_line_color(x,y,obj_player.x,obj_player.y,c_white,c_white)
+		if engager_line_of_sight(x,y) draw_line_color(x,y,obj_player.x,obj_player.y,c_white,c_white) else draw_line_color(x,y,obj_player.x,obj_player.y,c_red,c_red)
 	}
 }
 
@@ -196,7 +168,7 @@ function engager_patrol()
 {
 	if obj_player.alive
 	{
-		if engager_line_of_sight(x,y)
+		if !engager_line_of_sight(x,y)
 		{
 			engager_switch_attack(attackStates.shooting);
 		}
@@ -413,20 +385,22 @@ function engager_attack_switch_push()
 	//path
 	path_end();
 	var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
-	if path path_start(attackPath,pushSpd,path_action_stop,true);
+	if path path_start(attackPath,pushSpd,path_action_continue,true);
 }
 
 
 //search
 function engager_search()
 {
-	if floor(x)=floor(searchX) && floor(y)==floor(searchY)
+	//why is the enemy randomly stopping
+	//this is stupid
+	if path_position==1
 	{
 		engager_switch_patrol()
 		path_end()
 	}
 	
-	if engager_line_of_sight(x,y) engager_switch_attack(attackStates.pushing)
+	if !engager_line_of_sight(x,y) engager_switch_attack(attackStates.pushing)
 }
 
 function engager_switch_search()

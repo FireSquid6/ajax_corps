@@ -80,7 +80,7 @@ global.arm_pos_rifle=
 #region extra macros
 
 #macro pickupRange 64
-#macro WALK_SPD 10
+#macro WALK_SPD 6
 #macro MAX_DASH_COOLDOWN 20
 #macro DASH_FRAMES 20
 #macro DASH_SPD 12

@@ -1,3 +1,0 @@
-function turret_ai(){
-
-}

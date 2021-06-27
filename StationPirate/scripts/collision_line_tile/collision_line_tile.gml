@@ -7,7 +7,13 @@
 ///@param {int} x2
 ///@param {int} y2
 ///@param {int} tile_layer_id
-function collision_line_tile(x1, y1, x2, y2, _id) {
+function collision_line_tile(x1, y1, x2, y2, _id) 
+{
+	x1=floor(x1)
+	y1=floor(y1)
+	x2=floor(x2)
+	y2=floor(y2)
+
 	var dx = abs(x2 - x1); //Line length in the x
 	var sx = (x1 < x2) ? 1 : -1; //How much to step in the x/y direction for the next check
 	var dy = -abs(y2 - y1);

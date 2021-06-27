@@ -154,7 +154,7 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 	display_name="HANDGUN"
 	
 	ammoType=ammoTypes.light
-	dmg=20
+	dmg=15
 	bulletSpd=12
 	lifespan=60
 	
@@ -278,7 +278,7 @@ function weapon_machinePistol(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	
 	display_name="SPEED HANDGUN"
 	
-	dmg=10
+	dmg=12
 	bulletSpd=12
 	magSize=18
 	

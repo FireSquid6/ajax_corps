@@ -276,7 +276,7 @@
     {"folderPath":"folders/Libraries/Scribble/Font Modification.yy","order":2,"resourceVersion":"1.0","name":"Font Modification","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Libraries/Scribble/Font Setup.yy","order":3,"resourceVersion":"1.0","name":"Font Setup","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Libraries/Scribble/Miscellaneous.yy","order":4,"resourceVersion":"1.0","name":"Miscellaneous","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Libraries/Scribble/Tile Collision.yy","order":10,"resourceVersion":"1.0","name":"Tile Collision","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Libraries/Tile Collision.yy","order":4,"resourceVersion":"1.0","name":"Tile Collision","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Assets/Backgrounds.yy","order":10,"resourceVersion":"1.0","name":"Backgrounds","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Assets/Level Building/Decorations.yy","order":0,"resourceVersion":"1.0","name":"Decorations","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Assets/Level Building/Decorations/Tutorial.yy","order":1,"resourceVersion":"1.0","name":"Tutorial","tags":[],"resourceType":"GMFolder",},
