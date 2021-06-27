@@ -160,6 +160,7 @@
     {"id":{"name":"spr_cursor","path":"sprites/spr_cursor/spr_cursor.yy",},"order":0,},
     {"id":{"name":"par_enemy","path":"objects/par_enemy/par_enemy.yy",},"order":3,},
     {"id":{"name":"scribble_font_add_all","path":"scripts/scribble_font_add_all/scribble_font_add_all.yy",},"order":1,},
+    {"id":{"name":"obj_lighting","path":"objects/obj_lighting/obj_lighting.yy",},"order":0,},
     {"id":{"name":"spr_dirt","path":"sprites/spr_dirt/spr_dirt.yy",},"order":0,},
     {"id":{"name":"CleanSegment","path":"scripts/CleanSegment/CleanSegment.yy",},"order":11,},
     {"id":{"name":"spr_lightBullet","path":"sprites/spr_lightBullet/spr_lightBullet.yy",},"order":1,},
@@ -320,6 +321,7 @@
     {"folderPath":"folders/Libraries/Clean Shapes/Shapes.yy","order":3,"resourceVersion":"1.0","name":"Shapes","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Libraries/Clean Shapes/Transform.yy","order":4,"resourceVersion":"1.0","name":"Transform","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Assets/Fonts/Scribble.yy","order":8,"resourceVersion":"1.0","name":"Scribble","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Ajax Corps/Data/Lighting.yy","order":11,"resourceVersion":"1.0","name":"Lighting","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
