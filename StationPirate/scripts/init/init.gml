@@ -1,9 +1,9 @@
+//scribble
 scribble_font_add("arial")
 scribble_font_add("eightbit")
 scribble_font_add("pixeled")
 
-#region particles types
-
+//PARTICLES
 //dash particle
 var p=part_type_create()
 part_type_shape(p,pt_shape_pixel)
@@ -41,10 +41,7 @@ part_type_color_mix(p,$00007c,$1a1aff)
 
 global.ptDead=p
 
-#endregion
-
-#region arm positions
-
+//ARM POSITIONS
 global.arm_pos_walking=
 {
 	l: 130,
@@ -63,10 +60,6 @@ global.arm_pos_rifle=
 	r: 345
 }
 
-#endregion
-
-#region sound priority
-
 #macro shootPriority 10
 #macro reloadPriority 8
 #macro hitPriority 20
@@ -75,10 +68,6 @@ global.arm_pos_rifle=
 #macro playerDeadPriority 100
 #macro enemyDeadPriority 50
 
-#endregion
-
-#region extra macros
-
 #macro pickupRange 64
 #macro WALK_SPD 6
 #macro MAX_DASH_COOLDOWN 20
@@ -86,6 +75,7 @@ global.arm_pos_rifle=
 #macro DASH_SPD 12
 #macro TILE_SIZE 32
 #macro TRANSITION_SPD 15 //lower = faster, higher = slower
+
 #macro DASH_SHIELD_RADIUS 32
 #macro DASH_DRAW_CIRCLES 5
 
@@ -102,21 +92,15 @@ global.arm_pos_rifle=
 #macro SHIELD_ALPHA_LOSS 1/60
 #macro SHIELD_LIFESPAN 120
 
-#endregion
+#macro MAX_ENERGY 120
+#macro MAX_ENERGY_COOLDOWN 30
+#macro ENERGY_GAIN 1
+#macro ENERGY_LOSS 2
+#macro ENERGY_FIELD_SIZE 128
 
-#region audio
-//SHOOTING
-
-
-#endregion
-
-#region random vars
 //debug mode
 global.debugMode=false
 
-#endregion
-
-#region game mode
 enum gameModes
 {
 	accessible,
@@ -124,5 +108,3 @@ enum gameModes
 	expert
 }
 game_set_mode(gameModes.challenging)
-
-#endregion

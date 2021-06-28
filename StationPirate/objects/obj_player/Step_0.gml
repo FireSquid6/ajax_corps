@@ -5,7 +5,7 @@ key_left=keyboard_check(ord("A"))
 key_right=keyboard_check(ord("D"))
 var key_dash=keyboard_check_pressed(vk_space)
 
-key_shield=mouse_check_button_pressed(mb_right) || keyboard_check_pressed(ord("V"))
+key_shield=mouse_check_button(mb_right) || keyboard_check(ord("V"))
 key_shoot=(mouse_check_button(mb_left))
 key_reload=keyboard_check_pressed(ord("R"))
 key_drop=keyboard_check_pressed(ord("Q"))
@@ -137,13 +137,49 @@ if alive
 	lastHit++
 	lastHit=clamp(lastHit,0,MAX_LAST_HIT)
 	
-	//create shield
-	if key_shield && shieldCooldown<1 && !instance_exists(obj_shield)
+	//time slowdown
+	if energy>0 && energyCooldown<1
 	{
-		instance_create_layer(mouse_x,mouse_y,"entities",obj_shield)
+		//actvate
+		if key_shield
+		{
+			//set vars
+			canStop=true;
+			energy-=ENERGY_LOSS;
+			
+			with par_bullet
+			{
+				inSlowField=false;
+			}
+			
+			//set collided objs
+			var list=ds_list_create()
+			var radius=ENERGY_FIELD_SIZE
+			collision_circle_list(x,y,radius,par_bullet,false,true,list,false);
+		}
+		
+		//reset
+		if (canStop=true && !key_shield)|| energy<1
+		{
+			energyCooldown=MAX_ENERGY_COOLDOWN;
+			canStop=false;
+			
+			with par_bullet
+			{
+				inSlowField=false
+			}
+		}
 	}
-	shieldCooldown--
-	shieldCooldown=clamp(shieldCooldown,0,MAX_SHIELD_COOLDOWN)
+	
+	//regen
+	if !key_shield && energyCooldown<1
+	{
+		energy+=ENERGY_GAIN
+		energy=clamp(energy,0,MAX_ENERGY)
+	}
+	
+	energyCooldown--;
+	energyCooldown=clamp(energyCooldown,0,MAX_ENERGY_COOLDOWN);
 }
 else
 {

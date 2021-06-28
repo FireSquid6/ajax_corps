@@ -1,5 +1,19 @@
 if alive
 {
+	//energy field
+	if key_shield && energy>0 && energyCooldown<1
+	{
+		var radius=ENERGY_FIELD_SIZE
+		draw_set_alpha(0.3)
+		draw_circle_color(x,y,radius,c_yellow,c_yellow,false)
+		draw_set_alpha(1)
+	}
+	
+	//quick debug
+	draw_text(x,y-50,"energy "+string(energy))
+	draw_text(x,y-65,"cooldown "+string(energyCooldown))
+	
+	//dash circles
 	draw_set_color(c_aqua)
 	if dashTime>0
 	{
@@ -11,6 +25,7 @@ if alive
 		}
 	}
 	
+	//pain
 	draw_set_color(c_white)
 	if !instance_exists(obj_game) draw_text(x,y-32,"SOMETHING IS BROKEN AAAAAA")
 	

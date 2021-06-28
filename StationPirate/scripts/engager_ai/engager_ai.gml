@@ -23,7 +23,6 @@ function engager_init()
 	//weapon
 	weapon=get_weapon_struct(weapon_string,weaponTeams.enemy,id);
 	weapon.equip();
-	range=weapon.weaponRange;
 	
 	//path
 	attackPath=path_add();
@@ -150,7 +149,7 @@ function engager_draw()
 //destroy
 function engager_destroy()
 {
-	if weapon.id!=weaponIds.fist drop_loot(x,y,24,weaponChance,get_weapon_string(weapon),weapon.inReserve);
+	if weapon.id!=weaponIds.fist drop_loot(x,y,24,get_weapon_string(weapon),weapon.inReserve);
 	path_delete(attackPath);
 	audio_play_sound(snd_enemyDead,enemyDeadPriority,false);
 }
@@ -392,7 +391,7 @@ function engager_attack_switch_push()
 function engager_search()
 {
 	//check if there is a path
-	if path_exists(searchhPath)
+	if path_exists(searchPath)
 	
 	//check if path ended
 	if path_position==1

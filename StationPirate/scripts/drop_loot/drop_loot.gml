@@ -1,4 +1,4 @@
-function drop_loot(_startx,_starty,_dist,_gunChance,_weaponstring,_reserve)
+function drop_loot(_startx,_starty,_dist,_weaponstring,_reserve)
 {
 	var dir,xx,yy
 	

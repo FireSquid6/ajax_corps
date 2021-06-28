@@ -4,7 +4,7 @@ switch state
 		if place_meeting(x,y,obj_player)
 		{	if global.enemiesAlive<1
 			{	
-				instance_deactivate_all(true)
+				//instance_deactivate_all(true)
 				state=transitionStates.transitioning
 				transition_x=display_get_gui_width()
 				transitionSpd=display_get_gui_width() div TRANSITION_SPD

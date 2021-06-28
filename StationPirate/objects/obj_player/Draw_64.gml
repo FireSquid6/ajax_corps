@@ -3,6 +3,9 @@ var gui_width=display_get_gui_width()
 
 if alive
 {
+	
+	
+	//red border
 	var percent=(global.player_max_health*0.5)
 	if hp<=percent
 	{

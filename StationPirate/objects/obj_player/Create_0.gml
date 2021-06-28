@@ -22,6 +22,10 @@ global.godMode=false
 
 alive=true
 
+energy=MAX_ENERGY;
+energyCooldown=MAX_ENERGY_COOLDOWN;
+canStop=false
+
 weapon=get_weapon_struct(starting_weapon,weaponTeams.player,id)
 if starting_ammo!=-1 && weapon.id!=weaponIds.fist weapon.inReserve=starting_ammo
 
