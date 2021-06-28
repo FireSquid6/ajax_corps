@@ -14,7 +14,6 @@ function engager_init()
 	flashTime=0;
 	state=engagerStates.patrolling;
 	hp=maxHealth;
-	patrolSpd=4;
 	key_shoot=false;
 	rArmPos=global.arm_pos_walking.r;
 	lArmPos=global.arm_pos_walking.l;
@@ -392,8 +391,10 @@ function engager_attack_switch_push()
 //search
 function engager_search()
 {
-	//why is the enemy randomly stopping
-	//this is stupid
+	//check if there is a path
+	if path_exists(searchhPath)
+	
+	//check if path ended
 	if path_position==1
 	{
 		engager_switch_patrol()
@@ -407,9 +408,6 @@ function engager_switch_search()
 {
 	state=engagerStates.searching
 	path_end()
-	
-	searchX=obj_player.x
-	searchY=obj_player.y
 	
 	mp_grid_path(global.motionGrid,searchPath,x,y,obj_player.x,obj_player.y,true)
 	path_start(searchPath,searchSpd,path_action_stop,true)
@@ -425,5 +423,5 @@ function engager_line_of_sight(_x,_y)
 //alerted
 function engager_alerted()
 {
-	if collision_circle(x,y,32,par_bullet,false,true) return true else return false
+	if collision_circle(x,y,64,par_bullet,false,true) return true else return false
 }

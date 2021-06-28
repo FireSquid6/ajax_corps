@@ -1,1 +1,1 @@
-renderer.Free()
+global.renderer.Free()
