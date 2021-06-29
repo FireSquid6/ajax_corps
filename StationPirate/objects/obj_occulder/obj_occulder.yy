@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_ceilingLight",
-    "path": "sprites/spr_ceilingLight/spr_ceilingLight.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

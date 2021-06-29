@@ -187,3 +187,4 @@ else
 	hp=0
 	if key_reload room_restart()
 }
+

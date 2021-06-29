@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_ceilingLight",
-    "path": "sprites/spr_ceilingLight/spr_ceilingLight.yy",
+    "name": "spr_light",
+    "path": "sprites/spr_light/spr_light.yy",
   },
   "solid": false,
   "visible": true,
@@ -22,8 +22,10 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
+    {"varType":0,"value":"1","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"penumbra","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":0,"value":"1","rangeEnabled":true,"rangeMin":0.0,"rangeMax":1.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"alpha","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],

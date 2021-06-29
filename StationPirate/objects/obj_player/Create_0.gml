@@ -43,3 +43,4 @@ instance_create_layer(x,y,"meta",obj_camera)
 
 //create lighting
 instance_create_layer(x,y,"meta",obj_lighting)
+playerLight=new BulbLight(global.renderer,spr_circle,1,x,y)
