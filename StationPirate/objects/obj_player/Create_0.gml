@@ -42,5 +42,5 @@ instance_create_layer(0,0,"meta",obj_game)
 instance_create_layer(x,y,"meta",obj_camera)
 
 //create lighting
-instance_create_layer(x,y,"meta",obj_lighting)
-playerLight=new BulbLight(global.renderer,spr_circle,1,x,y)
+//instance_create_layer(x,y,"meta",obj_lighting)
+//playerLight=new BulbLight(global.renderer,spr_circle,1,x,y)

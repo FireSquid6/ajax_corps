@@ -137,7 +137,11 @@ if alive
 	lastHit++
 	lastHit=clamp(lastHit,0,MAX_LAST_HIT)
 	
-	//time slowdown
+	//TIME SLOWDOWN
+	//make all bullets fast
+	slowFieldEnabled=false
+	
+	//check if in shield
 	if energy>0 && energyCooldown<1
 	{
 		//actvate
@@ -147,15 +151,8 @@ if alive
 			canStop=true;
 			energy-=ENERGY_LOSS;
 			
-			with par_bullet
-			{
-				inSlowField=false;
-			}
-			
-			//set collided objs
-			var list=ds_list_create()
-			var radius=ENERGY_FIELD_SIZE
-			collision_circle_list(x,y,radius,par_bullet,false,true,list,false);
+			//set enabled
+			slowFieldEnabled=true
 		}
 		
 		//reset
@@ -163,11 +160,6 @@ if alive
 		{
 			energyCooldown=MAX_ENERGY_COOLDOWN;
 			canStop=false;
-			
-			with par_bullet
-			{
-				inSlowField=false
-			}
 		}
 	}
 	

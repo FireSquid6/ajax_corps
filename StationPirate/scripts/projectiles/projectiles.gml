@@ -119,7 +119,7 @@ function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_s
 }
 
 function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg,_sound) : bullet_parent(_obj,_target) constructor
-{
+{	
 	inst=_obj
 	target=_target
 	inst.sprite_index=_sprite
@@ -135,6 +135,19 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 	dir=findDir()
 	inst.image_angle=dir-90
 	
+	findSpd=function()
+	{
+		if obj_player.slowFieldEnabled
+		{
+			with obj_player
+			{
+				var col=collision_circle(x,y,ENERGY_FIELD_SIZE,other.inst,false,true)
+			}
+			if col!=noone return floor(spd*(0.2)) else return spd
+		}
+		else return spd
+	}
+	
 	assist=function()
 	{
 		//assist
@@ -148,8 +161,9 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 	
 	move=function()
 	{
-		inst.x+=lengthdir_x(spd,dir)
-		inst.y+=lengthdir_y(spd,dir)
+		var moveSpd=findSpd()
+		inst.x+=lengthdir_x(moveSpd,dir)
+		inst.y+=lengthdir_y(moveSpd,dir)
 	}
 }
 
@@ -162,8 +176,10 @@ function blast(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_
 	{
 		spd-=decay
 		if spd<0 instance_destroy(inst)
-		inst.x+=lengthdir_x(spd,dir)
-		inst.y+=lengthdir_y(spd,dir)
+		
+		var moveSpd=findSpd()
+		inst.x+=lengthdir_x(moveSpd,dir)
+		inst.y+=lengthdir_y(moveSpd,dir)
 	}
 }
 

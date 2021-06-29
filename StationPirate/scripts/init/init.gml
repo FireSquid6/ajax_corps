@@ -94,8 +94,8 @@ global.arm_pos_rifle=
 
 #macro MAX_ENERGY 120
 #macro MAX_ENERGY_COOLDOWN 30
-#macro ENERGY_GAIN 1
-#macro ENERGY_LOSS 2
+#macro ENERGY_GAIN 2
+#macro ENERGY_LOSS 1
 #macro ENERGY_FIELD_SIZE 128
 
 //debug mode
