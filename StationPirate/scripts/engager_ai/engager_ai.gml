@@ -408,7 +408,7 @@ function engager_switch_search()
 	state=engagerStates.searching
 	path_end()
 	
-	mp_grid_path(global.motionGrid,searchPath,x,y,obj_player.x,obj_player.y,true)
+	var canMove=mp_grid_path(global.motionGrid,searchPath,x,y,obj_player.x,obj_player.y,true)
 	path_start(searchPath,searchSpd,path_action_stop,true)
 }
 

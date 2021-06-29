@@ -233,10 +233,6 @@
                 {"propertyId":{"name":"starting_ammo","path":"objects/obj_player/obj_player.yy",},"objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"value":"48","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
               ],"isDnd":false,"objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":180.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1136.0,"y":704.0,"resourceVersion":"1.0","name":"inst_55EAD4B6","tags":[],"resourceType":"GMRInstance",},
             {"properties":[
-                {"propertyId":{"name":"patrolType","path":"objects/obj_engager/obj_engager.yy",},"objectId":{"name":"obj_engager","path":"objects/obj_engager/obj_engager.yy",},"value":"1","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-                {"propertyId":{"name":"weapon_string","path":"objects/obj_engager/obj_engager.yy",},"objectId":{"name":"obj_engager","path":"objects/obj_engager/obj_engager.yy",},"value":"assault_rifle","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-              ],"isDnd":false,"objectId":{"name":"obj_engager","path":"objects/obj_engager/obj_engager.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":270.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":832.0,"y":768.0,"resourceVersion":"1.0","name":"inst_6B8945DE","tags":[],"resourceType":"GMRInstance",},
-            {"properties":[
                 {"propertyId":{"name":"weapon_string","path":"objects/obj_engager/obj_engager.yy",},"objectId":{"name":"obj_engager","path":"objects/obj_engager/obj_engager.yy",},"value":"assault_rifle","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
               ],"isDnd":false,"objectId":{"name":"obj_engager","path":"objects/obj_engager/obj_engager.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":14515.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1648.0,"y":672.0,"resourceVersion":"1.0","name":"inst_650B26AB","tags":[],"resourceType":"GMRInstance",},
             {"properties":[
@@ -382,7 +378,6 @@
   "instanceCreationOrder": [
     {"name":"inst_55EAD4B6","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
     {"name":"inst_428E7E29","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
-    {"name":"inst_6B8945DE","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
     {"name":"inst_650B26AB","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
     {"name":"inst_22FA5A85","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
     {"name":"inst_167E0E6E","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},
