@@ -18,6 +18,9 @@ if global.debugMode
 		case ord("2"):
 			room=rm_level_1_2
 			break
+		case vk_home:
+			room=rm_testRoom
+			break
 	}
 }
 else

@@ -10,8 +10,8 @@ if alive
 	}
 	
 	//quick debug
-	draw_text(x,y-50,"energy "+string(energy))
-	draw_text(x,y-65,"cooldown "+string(energyCooldown))
+	//draw_text(x,y-50,"energy "+string(energy))
+	//draw_text(x,y-65,"cooldown "+string(energyCooldown))
 	
 	//dash circles
 	draw_set_color(c_aqua)
