@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_circle",
-    "path": "sprites/spr_circle/spr_circle.yy",
+    "name": "spr_square",
+    "path": "sprites/spr_square/spr_square.yy",
   },
   "solid": false,
   "visible": true,
@@ -22,12 +22,13 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
     "name": "Lighting",
-    "path": "folders/Ajax Corps/Assets/Lighting.yy",
+    "path": "folders/Ajax Corps/Data/Lighting.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_occluder",
