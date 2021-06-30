@@ -180,3 +180,7 @@ else
 	if key_reload room_restart()
 }
 
+//update light
+playerLight.x=x
+playerLight.y=y
+playerLight.angle=image_angle

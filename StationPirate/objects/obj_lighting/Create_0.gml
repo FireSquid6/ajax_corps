@@ -1,4 +1,4 @@
-global.naturalLightAmount=0.8
+global.naturalLightAmount=0.2
 
 //create renderer
 global.renderer=new BulbRenderer(make_color_rgb(0,0,0),BULB_MODE.SOFT_BM_ADD,true)
