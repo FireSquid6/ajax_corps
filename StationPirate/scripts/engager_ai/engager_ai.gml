@@ -141,8 +141,6 @@ function engager_draw()
 			draw_text(x,y-90,"attackState"+string(attackState));
 		}
 		draw_text(x,y-105,"state"+string(state))
-		
-		if engager_line_of_sight(x,y) draw_line_color(x,y,obj_player.x,obj_player.y,c_white,c_white) else draw_line_color(x,y,obj_player.x,obj_player.y,c_red,c_red)
 	}
 }
 
@@ -256,7 +254,7 @@ function engager_attack()
 		}
 		
 		//check if seeing player
-		if engager_line_of_sight(x,y) engager_switch_search()
+		if engager_line_of_sight(x,y) || engager_alerted() engager_switch_search()
 	}
 }
 
@@ -318,7 +316,7 @@ function engager_attack_strafe()
 function engager_attack_switch_strafe()
 {
 	//vars
-	key_shoot=true;
+	key_shoot=false;
 	attackState=attackStates.strafing;
 	strafeTime=maxStrafeSeconds*60;
 					
@@ -358,6 +356,8 @@ function engager_attack_switch_strafe()
 //push
 function engager_attack_push()
 {
+	key_shoot=true
+	
 	path_end();
 	if path_exists(attackPath)
 	{
@@ -422,5 +422,5 @@ function engager_line_of_sight(_x,_y)
 //alerted
 function engager_alerted()
 {
-	if collision_circle(x,y,64,par_bullet,false,true) return true else return false
+	if collision_circle(x,y,150,par_bullet,false,true) return true else return false
 }

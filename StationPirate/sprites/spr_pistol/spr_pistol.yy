@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Weapons",
-    "path": "folders/Ajax Corps/Assets/Damage/Weapons.yy",
+    "path": "folders/Ajax Corps/Assets/Weaponry/Weapons.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_pistol",

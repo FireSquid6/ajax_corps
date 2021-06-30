@@ -37,6 +37,12 @@ function deal_damage(_dmg,_id)
             _id.hp-=dmg_equation(_dmg,1,def)
         }
         
+		//flash time
+		if variable_instance_exists(_id,"flashTime")
+		{
+			_id.flashTime=3
+		}
+		
         //play sound
         audio_play_sound(snd_smallDamage,hitPriority,false)
         

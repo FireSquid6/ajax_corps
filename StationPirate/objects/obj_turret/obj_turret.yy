@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_sniperEnemy",
+    "path": "sprites/spr_sniperEnemy/spr_sniperEnemy.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

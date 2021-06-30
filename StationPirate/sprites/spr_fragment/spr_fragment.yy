@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Bullets",
-    "path": "folders/Ajax Corps/Assets/Damage/Bullets.yy",
+    "path": "folders/Ajax Corps/Assets/Weaponry/Bullets.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_fragment",

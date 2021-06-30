@@ -1,1 +1,0 @@
-global.renderer.Draw(obj_camera.cameraX,obj_camera.cameraY)
