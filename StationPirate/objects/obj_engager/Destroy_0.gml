@@ -1,2 +1,2 @@
-engager_destroy();
 event_inherited();
+engager_destroy();

@@ -21,6 +21,7 @@ lArmPos=global.arm_pos_walking.l
 global.godMode=false
 
 alive=true
+executing=false
 
 energy=MAX_ENERGY;
 energyCooldown=MAX_ENERGY_COOLDOWN;

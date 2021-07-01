@@ -8,10 +8,43 @@ var key_dash=keyboard_check_pressed(vk_space)
 key_shield=mouse_check_button(mb_right) || keyboard_check(ord("V"))
 key_shoot=(mouse_check_button(mb_left))
 key_reload=keyboard_check_pressed(ord("R"))
-key_drop=keyboard_check_pressed(ord("Q"))
+key_execute=keyboard_check_pressed(ord("Q"))
 key_interact=keyboard_check_pressed(ord("E"))
 
-if alive
+if executing
+{
+	//vars
+	lastHit=MAX_LAST_HIT
+	lastShot=MAX_LAST_SHOOT
+	
+	//particles
+	if image_angle>3
+	{
+		partAmount+=1
+		var p=global.ptBlood
+		var a=image_angle-270
+		part_type_direction(p,a+120,a+240,0,0)
+		var xx,yy
+		with executeTarget
+		{
+			xx=x+lengthdir_x(8,image_angle+90)
+			yy=y+lengthdir_y(8,image_angle+90)
+		}
+		part_particles_create(global.partSystem,xx,yy,p,partAmount)
+	}
+	
+	//change dir
+	image_angle=point_direction(x,y,executeTarget.x,executeTarget.y)-90
+	
+	//keep execute target in place
+	with executeTarget
+	{
+		path_end()
+		x=xprevious
+		y=yprevious
+	}
+}
+else if alive
 {
 	//define locals
 	var movey=key_down-key_up
@@ -98,15 +131,34 @@ if alive
 	//move y
 	y+=vsp
 	
-	//drop weapon
-	if key_drop && weapon.display_name!="FISTS"
+	//initialize execution
+	if key_execute
 	{
-		var weapon_create_dir=point_direction(x,y,mouse_x,mouse_y)
-		var weapon_x=x+lengthdir_x(24,weapon_create_dir)
-		var weapon_y=y+lengthdir_y(24,weapon_create_dir)
-		create_pickup_weapon(weapon_x,weapon_y,get_weapon_string(weapon),weapon.inReserve)
-		weapon=new weapon_none(weaponTeams.player,id)
-		weapon.equip()
+		//vars
+		lastHit=MAX_LAST_HIT
+		lastShot=MAX_LAST_SHOOT
+		partAmount=1
+		
+		//get target
+		var list=ds_list_create()
+		collision_circle_list(x,y,EXECUTE_RANGE,par_enemy,false,true,list,true)
+		executeTarget=ds_list_find_value(list,0)
+		
+		if ds_list_size(list)>0
+		{
+			//change state
+			executing=true
+			sprite_index=ani_playerExecute
+			image_index=1
+			
+			//snap to target
+			with executeTarget
+			{
+				executing=true
+				other.x=x+lengthdir_x(EXECUTE_DIST,image_angle+90)
+				other.y=y+lengthdir_y(EXECUTE_DIST,image_angle+90)
+			}
+		}
 	}
 	
 	//interactables

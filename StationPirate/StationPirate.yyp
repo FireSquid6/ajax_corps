@@ -187,6 +187,7 @@
     {"id":{"name":"scribble_font_bake_shader","path":"scripts/scribble_font_bake_shader/scribble_font_bake_shader.yy",},"order":1,},
     {"id":{"name":"fnt_dead","path":"fonts/fnt_dead/fnt_dead.yy",},"order":7,},
     {"id":{"name":"CleanBatchBegin","path":"scripts/CleanBatchBegin/CleanBatchBegin.yy",},"order":0,},
+    {"id":{"name":"ani_playerExecute","path":"sprites/ani_playerExecute/ani_playerExecute.yy",},"order":5,},
     {"id":{"name":"obj_turret","path":"objects/obj_turret/obj_turret.yy",},"order":1,},
     {"id":{"name":"scribble_font_add_msdf","path":"scripts/scribble_font_add_msdf/scribble_font_add_msdf.yy",},"order":3,},
     {"id":{"name":"obj_levelBuildHealthpack","path":"objects/obj_levelBuildHealthpack/obj_levelBuildHealthpack.yy",},"order":2,},

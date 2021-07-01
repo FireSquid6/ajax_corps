@@ -28,6 +28,17 @@ part_type_color_mix(p,$00007c,$1a1aff)
 
 global.ptBlood=p
 
+//execute particles
+#macro EXECUTE_PARTICLES_AMOUNT 6
+p=part_type_create()
+part_type_shape(p,pt_shape_pixel)
+part_type_life(p,12,15)
+part_type_size(p,3,4,-0.2,0)
+part_type_speed(p,4,5,0,0)
+part_type_color_mix(p,$00007c,$1a1aff)
+
+global.ptExecute=p
+
 //kill particles
 #macro DEAD_PARTICLES_AMMOUNT 50
 p=part_type_create()
@@ -67,6 +78,9 @@ global.arm_pos_rifle=
 #macro pickupPriority 0
 #macro playerDeadPriority 100
 #macro enemyDeadPriority 50
+
+#macro EXECUTE_RANGE 64
+#macro EXECUTE_DIST 40
 
 #macro pickupRange 64
 #macro WALK_SPD 6

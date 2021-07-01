@@ -81,54 +81,58 @@ function engager_step()
 //draw
 function engager_draw()
 {
-	if flashTime>0 
+	if !executing
 	{
-		shader_set(shd_white);
-		flashTime--;
-	}
+		if flashTime>0 
+		{
+			shader_set(shd_white);
+			flashTime--;
+		}
 
-	weapon.draw();
-	draw_self();
+		weapon.draw();
+		draw_self();
 
-	//right arm
-	draw_sprite_ext(spr_enemyArm,1,
-	x+lengthdir_x(ARM_DIST,image_angle+rArmPos),
-	y+lengthdir_y(ARM_DIST,image_angle+rArmPos),
-	1,1,image_angle,c_white,1);
+		//right arm
+		draw_sprite_ext(spr_enemyArm,1,
+		x+lengthdir_x(ARM_DIST,image_angle+rArmPos),
+		y+lengthdir_y(ARM_DIST,image_angle+rArmPos),
+		1,1,image_angle,c_white,1);
 
-	//left arm
-	draw_sprite_ext(spr_enemyArm,1,
-	x+lengthdir_x(ARM_DIST,image_angle+lArmPos),
-	y+lengthdir_y(ARM_DIST,image_angle+lArmPos),
-	1,1,image_angle,c_white,1);
+		//left arm
+		draw_sprite_ext(spr_enemyArm,1,
+		x+lengthdir_x(ARM_DIST,image_angle+lArmPos),
+		y+lengthdir_y(ARM_DIST,image_angle+lArmPos),
+		1,1,image_angle,c_white,1);
 
-	shader_reset();
+		shader_reset();
 
-	//draw healthbar
-	var healthPercent=(hp/maxHealth)*100;
-	healthPercent=floor(healthPercent);
-	var barWidth=sprite_get_width(spr_healthbar);
-	var barX=x-(barWidth*5);
-	var barY=y-40;
+		//draw healthbar
+		var healthPercent=(hp/maxHealth)*100;
+		healthPercent=floor(healthPercent);
+		var barWidth=sprite_get_width(spr_healthbar);
+		var barX=x-(barWidth*5);
+		var barY=y-40;
 	
-	//draw back bars
-	repeat 10
-	{
-		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,c_gray,1);
-		barX+=barWidth;
-	}
+		//draw back bars
+		repeat 10
+		{
+			draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,c_gray,1);
+			barX+=barWidth;
+		}
 	
-	barX=x-(barWidth*5);
-	while healthPercent>0
-	{
-		draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,c_red,1);
-		barX+=barWidth;
-		healthPercent-=10;
-	}
+		barX=x-(barWidth*5);
+		while healthPercent>0
+		{
+			draw_sprite_ext(spr_healthbar,1,barX,barY,1,1,0,c_red,1);
+			barX+=barWidth;
+			healthPercent-=10;
+		}
 	
-	//reset
-	draw_set_color(c_white);
-	draw_set_font(fnt_default);
+		//reset
+		draw_set_color(c_white);
+		draw_set_font(fnt_default);
+	}
+	else draw_self();
 	
 	//debug
 	if global.debugMode
@@ -146,9 +150,10 @@ function engager_draw()
 //destroy
 function engager_destroy()
 {
-	if weapon.id!=weaponIds.fist drop_loot(x,y,24,get_weapon_string(weapon),weapon.inReserve);
 	path_delete(attackPath);
 	audio_play_sound(snd_enemyDead,enemyDeadPriority,false);
+	
+	if executing && weapon.id!=weaponIds.none create_pickup_weapon(x,y,get_weapon_string(weapon),weapon.inReserve)
 }
 
 //PATROL

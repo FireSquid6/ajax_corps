@@ -1,4 +1,4 @@
-if alive
+if alive && !executing
 {
 	//energy field
 	if key_shield && energy>0 && energyCooldown<1
