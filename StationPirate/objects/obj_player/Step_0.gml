@@ -20,7 +20,6 @@ if executing
 	//particles
 	if image_angle>3
 	{
-		partAmount+=1
 		var p=global.ptBlood
 		var a=image_angle-270
 		part_type_direction(p,a+120,a+240,0,0)
@@ -30,7 +29,7 @@ if executing
 			xx=x+lengthdir_x(8,image_angle+90)
 			yy=y+lengthdir_y(8,image_angle+90)
 		}
-		part_particles_create(global.partSystem,xx,yy,p,partAmount)
+		part_particles_create(global.partSystem,xx,yy,p,1)
 	}
 	
 	//change dir
@@ -141,15 +140,27 @@ else if alive
 		
 		//get target
 		var list=ds_list_create()
+		var _id,pos
 		collision_circle_list(x,y,EXECUTE_RANGE,par_enemy,false,true,list,true)
-		executeTarget=ds_list_find_value(list,0)
+		
+		repeat ds_list_size(list)
+		{
+			_id=ds_list_find_value(list,0)
+			if _id.canExecute==false
+			{
+				pos=ds_list_find_index(list,_id)
+				ds_list_delete(list,pos)
+			}
+		}
 		
 		if ds_list_size(list)>0
-		{
+		{	
 			//change state
 			executing=true
 			sprite_index=ani_playerExecute
 			image_index=1
+			
+			executeTarget=ds_list_find_value(list,0)
 			
 			//snap to target
 			with executeTarget

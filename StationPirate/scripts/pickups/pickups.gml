@@ -78,7 +78,7 @@ function pickup_weapon(_obj,_weapon_string,_inReserve) : pickup_parent(_obj) con
 {
 	weapon=get_weapon_struct(_weapon_string,weaponTeams.player,obj_player)
 	if weapon==-1 show_error("get_weapon_struct() returned -1",true)
-	if _inReserve!=-1 weapon.inReserve=_inReserve
+	if _inReserve>0 weapon.inReserve=_inReserve else weapon.inReserve=weapon.inMag*abs(_inReserve)
 	
 	create=function()
 	{
@@ -87,12 +87,19 @@ function pickup_weapon(_obj,_weapon_string,_inReserve) : pickup_parent(_obj) con
 	
 	action=function()
 	{
-		if obj_player.weapon.id!=weaponIds.fist
+		if obj_player.weapon!=weapon
 		{
-			create_pickup_weapon(inst.x,inst.y,get_weapon_string(obj_player.weapon),obj_player.weapon.inReserve)
+			if obj_player.weapon.id!=weaponIds.none
+			{
+				create_pickup_weapon(inst.x,inst.y,get_weapon_string(obj_player.weapon),obj_player.weapon.inReserve)
+			}
+			obj_player.weapon=weapon
+			obj_player.weapon.equip()
 		}
-		obj_player.weapon=weapon
-		obj_player.weapon.equip()
+		else
+		{
+			obj_player.weapon+=inReserve
+		}
 	}
 }
 

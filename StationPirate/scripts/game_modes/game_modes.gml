@@ -19,6 +19,7 @@ function game_set_mode(_mode)
 			global.enemy_damage_modifier=1
 			global.player_max_health=200
 			global.player_damage_modifier=1
+			global.execute_factor=0.5
 			break
 		case gameModes.challenging:
 			global.healthpack_drop_percent=0.5
@@ -29,6 +30,7 @@ function game_set_mode(_mode)
 			global.enemy_follow_range=800 
 			global.player_max_health=200 
 			global.player_damage_modifier=1
+			global.execute_factor=0.45
 			break
 		case gameModes.expert:
 			global.healthpack_drop_percent=0.25
@@ -39,6 +41,7 @@ function game_set_mode(_mode)
 			global.enemy_damage_modifier=1.2
 			global.player_max_health=100 
 			global.player_damage_modifier=0.8
+			global.execute_factor=0.30
 			
 			if global.bloodbathMode=true
 			{

@@ -28,7 +28,7 @@ energyCooldown=MAX_ENERGY_COOLDOWN;
 canStop=false
 
 weapon=get_weapon_struct(starting_weapon,weaponTeams.player,id)
-if starting_ammo!=-1 && weapon.id!=weaponIds.fist weapon.inReserve=starting_ammo
+if starting_ammo>0 && weapon.id!=weaponIds.none weapon.inReserve=starting_ammo else weapon.inReserve=weapon.inMag*abs(starting_ammo)
 
 weapon.equip()
 

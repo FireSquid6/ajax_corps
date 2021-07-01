@@ -39,6 +39,9 @@ function engager_step()
 	if instance_exists(id)
 	{
 		key_reload=false;
+		
+		//check if can execute
+		if hp<=(maxHealth*global.execute_factor) canExecute=true else canExecute=false
 	
 		//check if out of ammo
 		if weapon.inMag==0 
@@ -81,14 +84,27 @@ function engager_step()
 //draw
 function engager_draw()
 {
+	draw_set_color(c_white)
+	draw_set_alpha(1)
 	if !executing
-	{
+	{	
+		//execute marker
+		if canExecute
+		{
+			var color=c_white
+			if point_distance(x,y,obj_player.x,obj_player.y)<=EXECUTE_RANGE color=c_red
+			draw_sprite_ext(spr_executeMarker,1,x,y,1,1,0,color,1)
+			draw_set_color(c_white)
+		}
+		
+		//flash
 		if flashTime>0 
 		{
 			shader_set(shd_white);
 			flashTime--;
 		}
-
+		
+		//self
 		weapon.draw();
 		draw_self();
 
