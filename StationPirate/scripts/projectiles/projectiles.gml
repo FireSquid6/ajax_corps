@@ -1,8 +1,3 @@
-function projectile_create_popup()
-{
-	create_popup(inst.x,inst.y,string(dmg),fnt_popup_damage,get_popup_color(dmg),0.01,0.5,270)
-}
-
 function bullet_parent(_obj,_target) constructor
 {
 	inst=_obj
@@ -92,48 +87,20 @@ function bullet_parent(_obj,_target) constructor
 	}
 }
 
-function melee(_obj,_target,_link,_sprite,_dmg,_lifespan,_dir,_dist,_flashDmg,_sound) : bullet_parent(_obj,_target) constructor
-{
-	
-	link=_link
-	inst.sprite_index=_sprite
-	inst.image_angle=_dir-90
-	dir=_dir
-	dist=_dist
-	sound=_sound
-	
-	dmg=_dmg
-	lifespan=_lifespan
-	flashDmg=_flashDmg
-	
-	check_alive=function()
-	{
-		if instance_exists(inst) && instance_exists(link) return true else return false
-	}
-	
-	move=function()
-	{
-		inst.x=link.x+lengthdir_x(dist,dir)
-		inst.y=link.y+lengthdir_y(dist,dir)
-	}
-}
-
-function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg,_sound) : bullet_parent(_obj,_target) constructor
+function projectile(_obj,_target) : bullet_parent(_obj,_target) constructor
 {	
 	inst=_obj
 	target=_target
-	inst.sprite_index=_sprite
-	
-	dmg=_dmg
-	spd=_spd
-	lifespan=_lifespan
-	flashDmg=_flashDmg
-	sound=_sound
-	
-	assistFrames=_assistFrames
-	findDir=_findDir
+	if target==obj_player findDir=enemy_find_dir else findDir=player_find_dir
 	dir=findDir()
 	inst.image_angle=dir-90
+	
+	//editable vars
+	inst.sprite_index=spr_lightBullet
+	dmg=0
+	spd=12
+	lifespan=60
+	assistFrames=0
 	
 	findSpd=function()
 	{
@@ -164,33 +131,5 @@ function projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_find
 		var moveSpd=findSpd()
 		inst.x+=lengthdir_x(moveSpd,dir)
 		inst.y+=lengthdir_y(moveSpd,dir)
-	}
-}
-
-function blast(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg,_sound,_spdDecay)
-: projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg,_sound) constructor
-{
-	decay=_spdDecay
-	
-	move=function()
-	{
-		spd-=decay
-		if spd<0 instance_destroy(inst)
-		
-		var moveSpd=findSpd()
-		inst.x+=lengthdir_x(moveSpd,dir)
-		inst.y+=lengthdir_y(moveSpd,dir)
-	}
-}
-
-function fragment(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg,_sound,_spread) 
-: projectile(_obj,_target,_sprite,_dmg,_spd,_lifespan,_assistFrames,_findDir,_flashDmg,_sound) constructor
-{
-	spread=_spread
-	dir+=(random_range((spread*-1),spread))
-	
-	assist=function()
-	{
-		assistFrames=0
 	}
 }

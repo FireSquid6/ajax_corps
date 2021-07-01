@@ -1,5 +1,6 @@
 function create_pickup_weapon(_x,_y,_weaponstring,_inReserve)
 {
+	if _weaponstring="none" exit
 	var pickup=instance_create_layer(_x,_y,"pickups",obj_pickup)
 	pickup.struct=new pickup_weapon(pickup,_weaponstring,_inReserve)
 	pickup.struct.create()

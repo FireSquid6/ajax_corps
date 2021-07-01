@@ -43,7 +43,7 @@ else if alive
 }
 
 //draw ammo
-if weapon.id!=weaponIds.fist && alive
+if weapon.id!=weaponIds.none && alive
 {
 	draw_set_alpha(1)
 	draw_set_halign(fa_center)

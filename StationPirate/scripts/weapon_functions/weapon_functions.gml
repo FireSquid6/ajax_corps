@@ -23,6 +23,7 @@ enum ammoTypes
 }
 enum weaponIds
 {
+	none,
 	fist,
 	pistol,
 	machinePistol,
@@ -37,13 +38,13 @@ function get_weapon_struct(str,team,obj)
 	switch str
 	{
 		case "none":
-			w=new weapon_fist(team,obj)
+			w=new weapon_none(team,obj)
 			break
 		case "melee":
-			w=new weapon_fist(team,obj)
+			w=new weapon_none(team,obj)
 			break
 		case "fist":
-			w=new weapon_fist(team,obj)
+			w=new weapon_none(team,obj)
 			break
 		case "pistol":
 			w=new weapon_pistol(team,obj)
@@ -82,8 +83,8 @@ function get_weapon_string(_struct)
 	var weaponId=_struct.id
 	switch weaponId
 	{
-		case weaponIds.fist:
-			s="melee"
+		case weaponIds.none:
+			s="none"
 			break
 		case weaponIds.pistol:
 			s="pistol"

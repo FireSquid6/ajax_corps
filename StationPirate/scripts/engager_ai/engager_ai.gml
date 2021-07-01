@@ -105,7 +105,6 @@ function engager_draw()
 	shader_reset();
 
 	//draw healthbar
-	var backColor,barColor;
 	var healthPercent=(hp/maxHealth)*100;
 	healthPercent=floor(healthPercent);
 	var barWidth=sprite_get_width(spr_healthbar);

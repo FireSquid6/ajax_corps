@@ -1,1 +1,0 @@
-occluder=BulbStaticOccluder(global.renderer)
