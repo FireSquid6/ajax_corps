@@ -79,7 +79,7 @@ global.arm_pos_rifle=
 #macro playerDeadPriority 100
 #macro enemyDeadPriority 50
 
-#macro EXECUTE_RANGE 64
+#macro EXECUTE_RANGE 96
 #macro EXECUTE_DIST 40
 
 #macro pickupRange 64

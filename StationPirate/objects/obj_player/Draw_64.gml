@@ -3,36 +3,16 @@ var gui_width=display_get_gui_width()
 
 if alive
 {
-	//red border
-	var percent=(global.player_max_health*0.5)
-	if hp<=percent
-	{
-		//set colors
-		draw_set_color(c_red)
-		var a=((hp/percent)*-1)+1
-		var aloss=0.05
-		var pos=0
-		
-		//draw rectangle
-		draw_set_alpha(a-0.2)
-		draw_rectangle_color(0,0,gui_width,gui_height,c_red,c_red,c_red,c_red,false)
-		
-		//draw border
-		while a>0
-		{
-			draw_set_alpha(a)
-			repeat 10
-			{
-				draw_rectangle(pos,pos,gui_width-pos,gui_height-pos,true)
-			}
-			
-			a-=aloss
-			pos++
-		}
-		//reset
-		draw_set_color(c_white)
-		draw_set_alpha(1)
-	}
+	//draw health
+	draw_set_halign(fa_left)
+	draw_set_valign(fa_bottom)
+	draw_set_font(fnt_pause_title)
+	draw_set_color(c_red)
+	draw_text(0,gui_height,"HEALTH: "+string(hp)+" / "+string(global.player_max_health))
+	
+	//reset
+	draw_set_color(c_white)
+	draw_set_alpha(1)
 }
 else
 {

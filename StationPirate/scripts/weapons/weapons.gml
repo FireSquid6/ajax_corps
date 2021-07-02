@@ -48,10 +48,6 @@ function weapon_parent(_team,_obj) constructor
 	{
 		draw_set_color(c_white)
 		draw_set_font(fnt_default)
-		if global.debugMode 
-		{
-			draw_text(inst.x,inst.y-32,string(ammoType))
-		}
 	}
 	
 	get_struct=function(_bullet,_targ)
@@ -112,8 +108,6 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 	weaponRange=weaponRanges.medium
 	
 	display_name="HANDGUN"
-	
-	ammoType=ammoTypes.light
 	dmg=15
 	bulletSpd=12
 	lifespan=60
