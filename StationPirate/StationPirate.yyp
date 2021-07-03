@@ -40,6 +40,7 @@
     {"id":{"name":"CleanTransformAddScale","path":"scripts/CleanTransformAddScale/CleanTransformAddScale.yy",},"order":2,},
     {"id":{"name":"spr_pixel","path":"sprites/spr_pixel/spr_pixel.yy",},"order":1,},
     {"id":{"name":"scribble_font_set_style_family","path":"scripts/scribble_font_set_style_family/scribble_font_set_style_family.yy",},"order":5,},
+    {"id":{"name":"rm_titleScreen","path":"rooms/rm_titleScreen/rm_titleScreen.yy",},"order":3,},
     {"id":{"name":"scribble_rgb_to_bgr","path":"scripts/scribble_rgb_to_bgr/scribble_rgb_to_bgr.yy",},"order":1,},
     {"id":{"name":"find_dir","path":"scripts/find_dir/find_dir.yy",},"order":2,},
     {"id":{"name":"CleanRectangle","path":"scripts/CleanRectangle/CleanRectangle.yy",},"order":8,},
@@ -237,6 +238,7 @@
     {"roomId":{"name":"rm_template","path":"rooms/rm_template/rm_template.yy",},},
     {"roomId":{"name":"rm_level_1_2","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},},
     {"roomId":{"name":"rm_testRoom","path":"rooms/rm_testRoom/rm_testRoom.yy",},},
+    {"roomId":{"name":"rm_titleScreen","path":"rooms/rm_titleScreen/rm_titleScreen.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Ajax Corps/Data.yy","order":0,"resourceVersion":"1.0","name":"Data","tags":[],"resourceType":"GMFolder",},
