@@ -5,6 +5,7 @@ key_left=keyboard_check(ord("A"))
 key_right=keyboard_check(ord("D"))
 var key_dash=keyboard_check_pressed(vk_space)
 
+key_lockOn=mouse_check_button_pressed(mb_middle)
 key_shield=false //mouse_check_button(mb_right) || keyboard_check(ord("V"))
 key_shoot=(mouse_check_button(mb_left))
 key_reload=keyboard_check_pressed(ord("R"))
@@ -185,7 +186,8 @@ else if alive
 	}
 	
 	//weapon
-	image_angle=point_direction(x,y,mouse_x,mouse_y)-90
+	dir=point_direction(x,y,obj_game.cursor_x,obj_game.cursor_y)
+	image_angle=dir-90
 	weapon.step()
 	
 	//check if dead
@@ -200,41 +202,51 @@ else if alive
 	lastHit++
 	lastHit=clamp(lastHit,0,MAX_LAST_HIT)
 	
+	//auto aim
+	if key_lockOn
+	{
+		lockedOn=!lockedOn
+		if lockedOn
+		{
+			locked_target=instance_nearest(mouse_x,mouse_y,par_enemy)
+		}
+	}
+	
 	//TIME SLOWDOWN
-	//make all bullets fast
-	slowFieldEnabled=false
+	////make all bullets fast
+	//slowFieldEnabled=false
 	
-	//check if in shield
-	if energy>0 && energyCooldown<1
-	{
-		//actvate
-		if key_shield
-		{
-			//set vars
-			canStop=true;
-			energy-=ENERGY_LOSS;
+	////check if in shield
+	//if energy>0 && energyCooldown<1
+	//{
+	//	//actvate
+	//	if key_shield
+	//	{
+	//		//set vars
+	//		canStop=true;
+	//		energy-=ENERGY_LOSS;
 			
-			//set enabled
-			slowFieldEnabled=true
-		}
+	//		//set enabled
+	//		slowFieldEnabled=true
+	//	}
 		
-		//reset
-		if (canStop=true && !key_shield)|| energy<1
-		{
-			energyCooldown=MAX_ENERGY_COOLDOWN;
-			canStop=false;
-		}
-	}
+	//	//reset
+	//	if (canStop=true && !key_shield)|| energy<1
+	//	{
+	//		energyCooldown=MAX_ENERGY_COOLDOWN;
+	//		canStop=false;
+	//	}
+	//}
 	
-	//regen
-	if !key_shield && energyCooldown<1
-	{
-		energy+=ENERGY_GAIN
-		energy=clamp(energy,0,MAX_ENERGY)
-	}
+	////regen
+	//if !key_shield && energyCooldown<1
+	//{
+	//	energy+=ENERGY_GAIN
+	//	energy=clamp(energy,0,MAX_ENERGY)
+	//}
 	
-	energyCooldown--;
-	energyCooldown=clamp(energyCooldown,0,MAX_ENERGY_COOLDOWN);
+	//energyCooldown--;
+	//energyCooldown=clamp(energyCooldown,0,MAX_ENERGY_COOLDOWN);
 }
 else
 {

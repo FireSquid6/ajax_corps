@@ -12,8 +12,8 @@ if instance_exists(target)
 	
 	//linear interpolate by variables set earlier
 	//I don't actually know what linear interpolation is, all I know is that it works
-	cameraX=lerp(target.x,mouse_x,lp)-(cameraWidth*0.5)
-	cameraY=lerp(target.y,mouse_y,lp)-(cameraHeight*0.5)
+	cameraX=lerp(target.x,obj_game.cursor_x,lp)-(cameraWidth*0.5)
+	cameraY=lerp(target.y,obj_game.cursor_y,lp)-(cameraHeight*0.5)
 	
 	//stop the camera from showing stuff outside of the room
 	cameraX=clamp(cameraX,0,room_width-cameraWidth)

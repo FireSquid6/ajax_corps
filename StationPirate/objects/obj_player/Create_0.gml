@@ -23,9 +23,14 @@ global.godMode=false
 alive=true
 executing=false
 
+lockedOn=false
+dir=point_direction(x,y,mouse_x,mouse_y)
+locked_target=noone
+
 energy=MAX_ENERGY;
 energyCooldown=MAX_ENERGY_COOLDOWN;
 canStop=false
+slowFieldEnabled=false
 
 weapon=get_weapon_struct(starting_weapon,weaponTeams.player,id)
 if starting_ammo>0 && weapon.id!=weaponIds.none weapon.inReserve=starting_ammo else weapon.inReserve=weapon.inMag*abs(starting_ammo)
