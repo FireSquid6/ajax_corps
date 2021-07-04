@@ -256,7 +256,7 @@ function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	
 	display_name="PLAZMARIFLE 007"
 	
-	dmg=25
+	dmg=20
 	bulletSpd=15
 	
 	arms=global.arm_pos_rifle
@@ -293,8 +293,7 @@ function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 	
 	display_name="FRAG CANNON"
 	
-	ammoType=ammoTypes.shell
-	dmg=50
+	dmg=35
 	bulletSpd=28
 	decay=1
 	

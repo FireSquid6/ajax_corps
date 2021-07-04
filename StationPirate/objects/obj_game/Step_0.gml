@@ -30,18 +30,6 @@ else
 	layer_set_visible("collision",false)
 }
 
-//cursor
-if obj_player.lockedOn
-{
-	cursor_x=obj_player.locked_target.x
-	cursor_y=obj_player.locked_target.y
-}
-else
-{
-	cursor_x=mouse_x
-	cursor_y=mouse_y
-}
-
 //pause
 key_pause=keyboard_check_pressed(vk_escape)
 

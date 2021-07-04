@@ -22,6 +22,7 @@ global.godMode=false
 
 alive=true
 executing=false
+ani_index=0
 
 lockedOn=false
 dir=point_direction(x,y,mouse_x,mouse_y)

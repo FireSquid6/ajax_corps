@@ -19,22 +19,32 @@ if executing
 	lastShot=MAX_LAST_SHOOT
 	
 	//particles
-	if image_angle>3
-	{
-		var p=global.ptBlood
-		var a=image_angle-270
-		part_type_direction(p,a+120,a+240,0,0)
-		var xx,yy
-		with executeTarget
-		{
-			xx=x+lengthdir_x(8,image_angle+90)
-			yy=y+lengthdir_y(8,image_angle+90)
-		}
-		part_particles_create(global.partSystem,xx,yy,p,1)
-	}
+	//if image_angle>3
+	//{
+	//	var p=global.ptBlood
+	//	var a=image_angle-270
+	//	part_type_direction(p,a+120,a+240,0,0)
+	//	var xx,yy
+	//	with executeTarget
+	//	{
+	//		xx=x+lengthdir_x(8,image_angle+90)
+	//		yy=y+lengthdir_y(8,image_angle+90)
+	//	}
+	//	part_particles_create(global.partSystem,xx,yy,p,1)
+	//}
 	
 	//change dir
 	image_angle=point_direction(x,y,executeTarget.x,executeTarget.y)-90
+	
+	//update frame
+	ani_index+=0.2
+	
+	//check if ended
+	if ani_index==sprite_get_number(ani_playerExecute)
+	{
+		executing=false
+		instance_destroy(executeTarget)
+	}
 	
 	//keep execute target in place
 	with executeTarget
@@ -46,6 +56,29 @@ if executing
 }
 else if alive
 {
+	//check health percentage
+	var hpPercent=hp/global.player_max_health
+	if hpPercent<=0.10
+	{
+		image_index=4
+	}
+	else if hpPercent<=0.25
+	{
+		image_index=3
+	}
+	else if hpPercent<=0.5
+	{
+		image_index=2
+	}
+	else if hpPercent<=0.75
+	{
+		image_index=1		
+	}
+	else
+	{
+		image_index=0
+	}
+	
 	//define locals
 	var movey=key_down-key_up
 	var movex=key_right-key_left
@@ -158,8 +191,7 @@ else if alive
 		{	
 			//change state
 			executing=true
-			sprite_index=ani_playerExecute
-			image_index=1
+			ani_index=0
 			
 			executeTarget=ds_list_find_value(list,0)
 			
@@ -195,20 +227,24 @@ else if alive
 	{
 		part_particles_create(global.partSystem,x,y,global.ptDead,DEAD_PARTICLES_AMMOUNT)
 		alive=false
+		restartTime=120
 		audio_play_sound(snd_playerDead,playerDeadPriority,false)
-		sprite_index=spr_cross
+		image_index=5
 	}
 	
 	lastHit++
 	lastHit=clamp(lastHit,0,MAX_LAST_HIT)
 	
-	//auto aim
-	if key_lockOn
+	//lock on
+	if global.allow_lock_on && global.enemiesAlive>0
 	{
-		lockedOn=!lockedOn
-		if lockedOn
+		if key_lockOn
 		{
-			locked_target=instance_nearest(mouse_x,mouse_y,par_enemy)
+			lockedOn=!lockedOn
+			if lockedOn
+			{
+				locked_target=instance_nearest(mouse_x,mouse_y,par_enemy)
+			}
 		}
 	}
 	
@@ -252,5 +288,6 @@ else
 {
 	//part_particles_create(global.partSystem,x,y,global.ptDead,DEAD_PARTICLES_AMMOUNT)
 	hp=0
-	if key_reload room_restart()
+	restartTime--
+	if key_reload || restartTime==0 room_restart()
 }

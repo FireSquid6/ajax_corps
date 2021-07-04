@@ -20,6 +20,8 @@ function game_set_mode(_mode)
 			global.player_max_health=200
 			global.player_damage_modifier=1
 			global.execute_factor=0.5
+			global.allow_lock_on=true
+			global.bullet_curve=true
 			break
 		case gameModes.challenging:
 			global.healthpack_drop_percent=0.5
@@ -31,6 +33,8 @@ function game_set_mode(_mode)
 			global.player_max_health=200 
 			global.player_damage_modifier=1
 			global.execute_factor=0.45
+			global.allow_lock_on=true
+			global.bullet_curve=false
 			break
 		case gameModes.expert:
 			global.healthpack_drop_percent=0.25
@@ -42,6 +46,8 @@ function game_set_mode(_mode)
 			global.player_max_health=100 
 			global.player_damage_modifier=0.8
 			global.execute_factor=0.30
+			global.allow_lock_on=false
+			global.bullet_curve=false
 			
 			if global.bloodbathMode=true
 			{

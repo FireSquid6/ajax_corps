@@ -16,16 +16,11 @@ if alive
 }
 else
 {
-	//draw rectangle
-	draw_set_color(c_red)
-	draw_set_alpha(0.65)
-	draw_rectangle(0,0,gui_width,gui_height,false)
-	
 	//draw hit reload
 	draw_set_color(c_black)
 	draw_set_font(fnt_dead)
 	draw_set_alpha(1)
 	draw_set_valign(fa_top)
 	draw_set_halign(fa_left)
-	draw_text_outline(0+10,0,"HIT RELOAD TO RESET LEVEL",c_black,c_white,2)
+	draw_text_outline(0+10,0,"MISSION FAILED - PRESS TO R RESTART",c_black,c_white,2)
 }

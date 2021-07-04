@@ -55,7 +55,7 @@ if alive && !executing
 		{
 			draw_set_alpha(ammoAlpha)
 		}
-		draw_text_outline(cursor_x,cursor_y+24,string(weapon.inMag)+"/"+string(weapon.inReserve),c_gray,c_black,2)
+		draw_text_outline(obj_game.cursor_x,obj_game.cursor_y+24,string(weapon.inMag)+"/"+string(weapon.inReserve),c_gray,c_black,2)
 	}
 }
 

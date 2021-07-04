@@ -71,5 +71,11 @@ if alive && !executing
 //self
 draw_self()
 
+//draw ani
+if executing
+{
+	draw_sprite_ext(ani_playerExecute,ani_index,x,y,1,1,image_angle,c_white,1)
+}
+
 //reset
 shader_reset()
