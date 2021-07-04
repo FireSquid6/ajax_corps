@@ -112,6 +112,12 @@ global.arm_pos_rifle=
 #macro ENERGY_LOSS 1
 #macro ENERGY_FIELD_SIZE 128
 
+//tips
+global.tips=ds_list_create()
+ds_list_add(global.tips,"Not enough firepower? Try executing an enemy to steal their weapon.")
+ds_list_add(global.tips,"You can manually reload by pressing R")
+ds_list_add(global.tips,"Sometimes locking on to enemies can be a crutch. Manual aiming puts you fully in control.")
+
 //debug mode
 global.debugMode=false
 

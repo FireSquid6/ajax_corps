@@ -19,6 +19,9 @@ if global.debugMode
 		case ord("2"):
 			room=rm_level_1_2
 			break
+		case ord("3"):
+			room=rm_level_1_3
+			break
 		case vk_home:
 			room=rm_testRoom
 			break

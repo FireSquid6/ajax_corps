@@ -111,7 +111,7 @@ function pickup_ammo(_obj) : pickup_parent(_obj) constructor
 	}
 	check=function()
 	{
-		var used=(pickup_check_interacted(inst) && obj_player.key_interact && variable_struct_exists(obj_player.weapon,"inReserve"))
+		var used=(pickup_check_interacted(inst) && obj_player.key_interact && obj_player.weapon.id!=weaponIds.none)
 		return used
 	}
 	action=function()

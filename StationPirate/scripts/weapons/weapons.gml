@@ -262,7 +262,7 @@ function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	arms=global.arm_pos_rifle
 	
 	maxCooldown=10
-	reloadTime=60
+	reloadTime=80
 	magSize=24
 	switchTime=30
 	
