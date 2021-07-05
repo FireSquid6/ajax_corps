@@ -1,18 +1,50 @@
 //METADATA
+enum patrolTypes
+{
+	still,
+	circle,
+	seek
+}
 enum engagerStates
 {
 	patrolling,
 	attacking,
 	searching
 }
+enum turretStates
+{
+	patrolling,
+	sniping,
+	repositioning
+}
+enum attackStates
+{
+	strafing,
+	pushing,
+	shooting
+}
 
-//CONTROLLER
-function engager_init()
+#region PARENT PROPERTIES
+
+//line of sight
+function enemy_line_of_sight(_x,_y)
+{
+	var ret=collision_line_tile(_x,_y,obj_player.x,obj_player.y,global.collisionTilemap)
+	return ret
+}
+
+//alerted
+function enemy_alerted()
+{
+	if collision_circle(x,y,150,par_bullet,false,true) return true else return false
+}
+
+//init
+function enemy_init()
 {
 	//init vars
-	pathStarted=false;
 	flashTime=0;
-	state=engagerStates.patrolling;
+	
 	hp=maxHealth;
 	key_shoot=false;
 	rArmPos=global.arm_pos_walking.r;
@@ -25,18 +57,16 @@ function engager_init()
 	weapon.equip();
 	
 	//path
-	attackPath=path_add();
 	patrolPath=path_add();
-	searchPath=path_add();
 	
 	//switch to patrol
-	engager_switch_patrol();
+	enemy_switch_patrol();
 	patrolType=patrolPresetType
 	patrolDir=image_angle+90;
 }
 
 //step
-function engager_step()
+function enemy_step()
 {
 	if instance_exists(id)
 	{
@@ -50,24 +80,6 @@ function engager_step()
 		{
 			weapon=get_weapon_struct("melee",weaponTeams.enemy,id);
 			weapon.equip();
-		}
-	
-		switch state
-		{
-			case engagerStates.patrolling:
-				engager_patrol()
-				break;
-			case engagerStates.attacking:
-				//check if alive
-				if instance_exists(obj_player) weapon.step();
-				if !obj_player.alive engager_switch_patrol();
-				
-				//attack
-				engager_attack();
-				break;
-			case engagerStates.searching:
-				engager_search();
-				break;
 		}
 		
 		//kill
@@ -84,7 +96,7 @@ function engager_step()
 }
 
 //draw
-function engager_draw()
+function enemy_draw()
 {
 	draw_set_color(c_white)
 	draw_set_alpha(1)
@@ -165,28 +177,25 @@ function engager_draw()
 	}
 }
 
-//destroy
-function engager_destroy()
+//DESTROY
+function enemy_destroy()
 {
-	path_delete(attackPath);
+	global.enemiesAlive-=1
+	if obj_player.locked_target==id obj_player.lockedOn=false
+	
+	path_delete(patrolPath);
+	
 	audio_play_sound(snd_enemyDead,enemyDeadPriority,false);
 	
 	if executing && weapon.id!=weaponIds.none create_pickup_weapon(x,y,get_weapon_string(weapon),weapon.inReserve)
 }
 
 //PATROL
-enum patrolTypes
-{
-	still,
-	circle,
-	seek
-}
-
-function engager_patrol()
+function enemy_patrol()
 {
 	if obj_player.alive
 	{
-		if !engager_line_of_sight(x,y)
+		if !enemy_line_of_sight(x,y)
 		{
 			engager_switch_attack(attackStates.shooting);
 		}
@@ -223,7 +232,7 @@ function engager_patrol()
 	}
 }
 
-function engager_switch_patrol()
+function enemy_switch_patrol()
 {
 	deadSpd=3;
 	patrolType=patrolTypes.still
@@ -246,12 +255,47 @@ function engager_switch_patrol()
 	}
 }
 
-//ATTACK
-enum attackStates
+#endregion
+
+////////////////////////////////////////////////////////////
+#region ENGAGER AI
+
+//INIT
+function engager_init()
 {
-	strafing,
-	pushing,
-	shooting
+	pathStarted=false;
+	state=engagerStates.patrolling;
+	attackPath=path_add();
+	searchPath=path_add();
+}
+
+//STEP
+function engager_step()
+{
+	switch state
+	{
+		case engagerStates.patrolling:
+			enemy_patrol()
+			break;
+		case engagerStates.attacking:
+			//check if alive
+			if instance_exists(obj_player) weapon.step();
+			if !obj_player.alive enemy_switch_patrol();
+				
+			//attack
+			engager_attack();
+			break;
+		case engagerStates.searching:
+			engager_search();
+			break;
+	}
+}
+
+//DESTROY
+function engager_destroy()
+{
+	path_delete(attackPath);
+	path_delete(searchPath);
 }
 
 //attack function
@@ -277,7 +321,7 @@ function engager_attack()
 		}
 		
 		//check if seeing player
-		if engager_line_of_sight(x,y) || engager_alerted() engager_switch_search()
+		if enemy_line_of_sight(x,y) || enemy_alerted() engager_switch_search()
 	}
 }
 
@@ -419,11 +463,11 @@ function engager_search()
 	//check if path ended
 	if path_position==1
 	{
-		engager_switch_patrol()
+		enemy_switch_patrol()
 		path_end()
 	}
 	
-	if !engager_line_of_sight(x,y) engager_switch_attack(attackStates.pushing)
+	if !enemy_line_of_sight(x,y) engager_switch_attack(attackStates.pushing)
 }
 
 function engager_switch_search()
@@ -431,19 +475,53 @@ function engager_switch_search()
 	state=engagerStates.searching
 	path_end()
 	
-	var canMove=mp_grid_path(global.motionGrid,searchPath,x,y,obj_player.x,obj_player.y,true)
 	path_start(searchPath,searchSpd,path_action_stop,true)
 }
 
-//line of sight
-function engager_line_of_sight(_x,_y)
+#endregion
+
+////////////////////////////////////////////////////////////
+#region TURRET AI
+
+function turret_init()
 {
-	var ret=collision_line_tile(_x,_y,obj_player.x,obj_player.y,global.collisionTilemap)
-	return ret
+	
 }
 
-//alerted
-function engager_alerted()
+function turret_step()
 {
-	if collision_circle(x,y,150,par_bullet,false,true) return true else return false
+	switch state
+	{
+		case turretStates.patrolling:
+			enemy_patrol()
+			break
+		case turretStates.sniping:
+			turret_snipe()
+			break
+		case turretStates.repositioning:
+			turret_reposition()
+			break
+	}
 }
+
+function turret_snipe()
+{
+	
+}
+
+function turret_switch_snipe()
+{
+	
+}
+
+function turret_reposition()
+{
+	
+}
+
+function turret_switch_reposition()
+{
+	
+}
+
+#endregion
