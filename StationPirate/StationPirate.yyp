@@ -330,10 +330,10 @@
   ],
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles/data/fonts/TTFs","resourceVersion":"1.0","name":"eightbit.TTF","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"eightbit.yy","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"arial.yy","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"pixeled.yy","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/data/fonts/TTFs","resourceVersion":"1.0","name":"pixeled.ttf","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"arial.yy","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"eightbit.yy","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"pixeled.yy","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.2.560",
