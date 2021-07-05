@@ -205,7 +205,7 @@
     {"id":{"name":"init","path":"scripts/init/init.yy",},"order":3,},
     {"id":{"name":"par_bullet","path":"objects/par_bullet/par_bullet.yy",},"order":2,},
     {"id":{"name":"spr_playerArm","path":"sprites/spr_playerArm/spr_playerArm.yy",},"order":3,},
-    {"id":{"name":"engager_ai","path":"scripts/engager_ai/engager_ai.yy",},"order":0,},
+    {"id":{"name":"enemy_ai","path":"scripts/enemy_ai/enemy_ai.yy",},"order":0,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
     {"id":{"name":"weapon_functions","path":"scripts/weapon_functions/weapon_functions.yy",},"order":3,},
     {"id":{"name":"tilemap_set_at_rectangle","path":"scripts/tilemap_set_at_rectangle/tilemap_set_at_rectangle.yy",},"order":4,},
