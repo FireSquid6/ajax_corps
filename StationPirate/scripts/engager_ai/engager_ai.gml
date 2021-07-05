@@ -31,6 +31,8 @@ function engager_init()
 	
 	//switch to patrol
 	engager_switch_patrol();
+	patrolType=patrolPresetType
+	patrolDir=image_angle+90;
 }
 
 //step
@@ -224,6 +226,7 @@ function engager_patrol()
 function engager_switch_patrol()
 {
 	deadSpd=3;
+	patrolType=patrolTypes.still
 	pathStarted=false;
 	state=engagerStates.patrolling;
 	spd=patrolSpd;
