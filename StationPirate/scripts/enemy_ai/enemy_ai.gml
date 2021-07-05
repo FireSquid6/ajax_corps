@@ -195,10 +195,6 @@ function enemy_patrol()
 {
 	if obj_player.alive
 	{
-		if !enemy_line_of_sight(x,y)
-		{
-			engager_switch_attack(attackStates.shooting);
-		}
 		switch patrolType
 		{
 			case patrolTypes.circle:
@@ -275,6 +271,10 @@ function engager_step()
 	switch state
 	{
 		case engagerStates.patrolling:
+			if !enemy_line_of_sight(x,y)
+			{
+				engager_switch_attack(attackStates.shooting);
+			}
 			enemy_patrol()
 			break;
 		case engagerStates.attacking:
@@ -493,6 +493,10 @@ function turret_step()
 	switch state
 	{
 		case turretStates.patrolling:
+			if !enemy_line_of_sight(x,y)
+			{
+				turret_switch_snipe();
+			}
 			enemy_patrol()
 			break
 		case turretStates.sniping:
