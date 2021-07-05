@@ -510,17 +510,30 @@ function turret_step()
 
 function turret_snipe()
 {
+	//check if ended
+	snipeTime--
+	if snipeTime<=1 engager_switch_reposition()
 	
+	//shoot
+	key_shoot=true
+	
+	//image angle
+	image_angle=point_direction(x,y,obj_player.x,obj_player.y)
 }
 
 function turret_switch_snipe()
 {
-	
+	state=turretStates.sniping
+	snipeTime=120
 }
 
 function turret_reposition()
 {
-	
+	var xx,yy
+	repeat 12
+	{
+		
+	}
 }
 
 function turret_switch_reposition()
