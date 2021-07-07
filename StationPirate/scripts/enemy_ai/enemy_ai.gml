@@ -482,7 +482,18 @@ function engager_switch_search()
 
 function turret_init()
 {
+	//make these room variables later
+	repositionSpd=4
+	maxSnipeTime=120
 	
+	//path
+	repositionPath=path_add()
+	
+}
+
+function turret_destroy()
+{
+	path_delete(repositionPath)
 }
 
 function turret_step()
@@ -509,7 +520,7 @@ function turret_snipe()
 {
 	//check if ended
 	snipeTime--
-	if snipeTime<=1 engager_switch_reposition()
+	if snipeTime<=1 turret_switch_reposition()
 	
 	//shoot
 	key_shoot=true
@@ -521,7 +532,7 @@ function turret_snipe()
 function turret_switch_snipe()
 {
 	state=turretStates.sniping
-	snipeTime=120
+	snipeTime=maxSnipeTime
 }
 
 function turret_reposition()
@@ -537,16 +548,16 @@ function turret_switch_reposition()
 	#macro REPOSITION_DIR_VARIABLE 60
 	#macro REPOSITION_REPS 24
 	var pdir=point_direction(x,y,obj_player.x,obj_player.y)
-	var dirMin=pdir-60
-	var dirMax=pdir+60 //i love u || I love you too
+	var dirMin=pdir-REPOSITION_DIR_VARIABLE
+	var dirMax=pdir+REPOSITION_DIR_VARIABLE //i love u || I love you too
 	var reposition_range,reposition_dir,canPath,path,xx,yy
 	repeat REPOSITION_REPS
 	{
-		reposition_range=irandom(REPOSITION_MIN,REPOSITION_MAX)
-		reposiition_dir=irandom(dirMin,dirMax)
+		reposition_range=irandom_range(REPOSITION_MIN,REPOSITION_MAX)
+		reposition_dir=irandom_range(dirMin,dirMax)
 		xx=x+lengthdir_x(reposition_range,reposition_dir)
 		yy=y+lengthdir_y(reposition_range,reposition_dir)
-		canPath=mp_grid_path(global.motionGrid,path,x,y,xx,yy)
+		canPath=mp_grid_path(global.motionGrid,repositionPath,x,y,xx,yy,true)
 		if canPath
 		{
 			path_start(path,repositionSpd,path_action_stop,true)
