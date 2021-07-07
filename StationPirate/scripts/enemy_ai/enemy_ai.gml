@@ -174,13 +174,18 @@ function enemy_draw()
 //DESTROY
 function enemy_destroy()
 {
+	//alive
 	global.enemiesAlive-=1
 	if obj_player.locked_target==id obj_player.lockedOn=false
-	
+
+	//path
 	if path_exists(patrolPath) path_delete(patrolPath);
 	
+	//effect
 	audio_play_sound(snd_enemyDead,enemyDeadPriority,false);
+	part_particles_create(global.partSystem,x,y,global.ptDead,50)
 	
+	//drop
 	if executing && weapon.id!=weaponIds.none create_pickup_weapon(x,y,get_weapon_string(weapon),weapon.inReserve)
 }
 
@@ -443,6 +448,7 @@ function engager_attack_switch_push()
 					
 	//path
 	path_end();
+	if !path_exists(attackPath) attackPath=path_add()
 	var path=mp_grid_path(global.motionGrid,attackPath,x,y,obj_player.x,obj_player.y,true);
 	if path path_start(attackPath,pushSpd,path_action_continue,true);
 }
