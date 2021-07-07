@@ -183,7 +183,7 @@ function enemy_destroy()
 	global.enemiesAlive-=1
 	if obj_player.locked_target==id obj_player.lockedOn=false
 	
-	path_delete(patrolPath);
+	if path_exists(patrolPath) path_delete(patrolPath);
 	
 	audio_play_sound(snd_enemyDead,enemyDeadPriority,false);
 	
@@ -456,10 +456,7 @@ function engager_attack_switch_push()
 
 //search
 function engager_search()
-{
-	//check if there is a path
-	if path_exists(searchPath)
-	
+{	
 	//check if path ended
 	if path_position==1
 	{
@@ -529,16 +526,18 @@ function turret_switch_snipe()
 
 function turret_reposition()
 {
-	var xx,yy
-	repeat 12
-	{
-		
-	}
+	
 }
 
 function turret_switch_reposition()
 {
-	
+	var xx,yy
+	#macro REPOSITION_MIN 160
+	#macro REPOSITION_MAX 256
+	repeat 12
+	{
+		
+	}
 }
 
 #endregion
