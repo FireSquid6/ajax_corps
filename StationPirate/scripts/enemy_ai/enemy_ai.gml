@@ -167,12 +167,6 @@ function enemy_draw()
 	//debug
 	if global.debugMode
 	{
-		//attack state
-		if state==engagerStates.attacking
-		{
-			if path_exists(attackPath) draw_path(attackPath,x,y,true);
-			draw_text(x,y-90,"attackState"+string(attackState));
-		}
 		draw_text(x,y-105,"state"+string(state))
 	}
 }
@@ -532,6 +526,7 @@ function turret_switch_snipe()
 {
 	state=turretStates.sniping
 	snipeTime=maxSnipeTime
+	path_end()
 }
 
 function turret_reposition()
@@ -547,6 +542,7 @@ function turret_reposition()
 
 function turret_switch_reposition()
 {
+	state=turretStates.repositioning
 	var xx,yy
 	#macro REPOSITION_MIN 160
 	#macro REPOSITION_MAX 256
@@ -555,7 +551,7 @@ function turret_switch_reposition()
 	var pdir=point_direction(x,y,obj_player.x,obj_player.y)
 	var dirMin=pdir-REPOSITION_DIR_VARIABLE
 	var dirMax=pdir+REPOSITION_DIR_VARIABLE //i love u || I love you too
-	var reposition_range,reposition_dir,canPath,path,xx,yy
+	var reposition_range,reposition_dir,canPath,xx,yy
 	repeat REPOSITION_REPS
 	{
 		reposition_range=irandom_range(REPOSITION_MIN,REPOSITION_MAX)
@@ -565,7 +561,7 @@ function turret_switch_reposition()
 		canPath=mp_grid_path(global.motionGrid,repositionPath,x,y,xx,yy,true)
 		if canPath
 		{
-			path_start(path,repositionSpd,path_action_stop,true)
+			path_start(repositionPath,repositionSpd,path_action_stop,true)
 			break
 		}
 		
