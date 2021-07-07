@@ -472,6 +472,8 @@ function engager_switch_search()
 	state=engagerStates.searching
 	path_end()
 	
+	if !path_exists(searchPath) searchPath=path_add()
+	mp_grid_path(global.motionGrid,searchPath,x,y,obj_player.x,obj_player.y,true)
 	path_start(searchPath,searchSpd,path_action_stop,true)
 }
 
@@ -525,7 +527,7 @@ function turret_snipe()
 	key_shoot=true
 	
 	//image angle
-	image_angle=point_direction(x,y,obj_player.x,obj_player.y)
+	image_angle=point_direction(x,y,obj_player.x,obj_player.y)-90
 }
 
 function turret_switch_snipe()
@@ -544,6 +546,8 @@ function turret_reposition()
 		path_end()
 		turret_switch_snipe()
 	}
+	
+	image_angle=point_direction(xprevious,yprevious,x,y)-90
 }
 
 function turret_switch_reposition()
@@ -554,14 +558,16 @@ function turret_switch_reposition()
 	#macro REPOSITION_MAX 256
 	#macro REPOSITION_DIR_VARIABLE 60
 	#macro REPOSITION_REPS 24
-	var pdir=point_direction(x,y,obj_player.x,obj_player.y)
+	var pdir=point_direction(x,y,obj_player.x,obj_player.y)-180
 	var dirMin=pdir-REPOSITION_DIR_VARIABLE
 	var dirMax=pdir+REPOSITION_DIR_VARIABLE //i love u || I love you too
 	var reposition_range,reposition_dir,canPath,xx,yy
+	var reps=0
 	repeat REPOSITION_REPS
 	{
 		reposition_range=irandom_range(REPOSITION_MIN,REPOSITION_MAX)
 		reposition_dir=irandom_range(dirMin,dirMax)
+		if reps>12 reposition_dir+=180
 		xx=x+lengthdir_x(reposition_range,reposition_dir)
 		yy=y+lengthdir_y(reposition_range,reposition_dir)
 		canPath=mp_grid_path(global.motionGrid,repositionPath,x,y,xx,yy,true)
@@ -570,9 +576,8 @@ function turret_switch_reposition()
 			path_start(repositionPath,repositionSpd,path_action_stop,true)
 			break
 		}
-		
+		reps++
 	}
-	if !canPath show_debug_message("I am crying aaaaaaaaaaaaaaaaaaaaaaaaaa")
 }
 
 #endregion
