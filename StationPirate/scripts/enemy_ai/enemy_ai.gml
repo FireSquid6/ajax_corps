@@ -534,10 +534,27 @@ function turret_switch_reposition()
 	var xx,yy
 	#macro REPOSITION_MIN 160
 	#macro REPOSITION_MAX 256
-	repeat 12
+	#macro REPOSITION_DIR_VARIABLE 60
+	#macro REPOSITION_REPS 24
+	var pdir=point_direction(x,y,obj_player.x,obj_player.y)
+	var dirMin=pdir-60
+	var dirMax=pdir+60 //i love u || I love you too
+	var reposition_range,reposition_dir,canPath,path,xx,yy
+	repeat REPOSITION_REPS
 	{
+		reposition_range=irandom(REPOSITION_MIN,REPOSITION_MAX)
+		reposiition_dir=irandom(dirMin,dirMax)
+		xx=x+lengthdir_x(reposition_range,reposition_dir)
+		yy=y+lengthdir_y(reposition_range,reposition_dir)
+		canPath=mp_grid_path(global.motionGrid,path,x,y,xx,yy)
+		if canPath
+		{
+			path_start(path,repositionSpd,path_action_stop,true)
+			break
+		}
 		
 	}
+	if !canPath show_debug_message("I am crying aaaaaaaaaaaaaaaaaaaaaaaaaa")
 }
 
 #endregion
