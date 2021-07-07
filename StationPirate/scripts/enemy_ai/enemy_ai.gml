@@ -487,8 +487,7 @@ function turret_init()
 	maxSnipeTime=120
 	
 	//path
-	repositionPath=path_add()
-	
+	repositionPath=path_add()	
 }
 
 function turret_destroy()
@@ -537,7 +536,13 @@ function turret_switch_snipe()
 
 function turret_reposition()
 {
+	if path_position==0 path_start(repositionPath,repositionSpd,path_action_stop,true)
 	
+	if path_position==1
+	{
+		path_end()
+		turret_switch_snipe()
+	}
 }
 
 function turret_switch_reposition()
