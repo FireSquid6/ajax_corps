@@ -1,3 +1,6 @@
+//room mapping
+room_structure_init()
+
 //scribble
 scribble_font_add("arial")
 scribble_font_add("eightbit")

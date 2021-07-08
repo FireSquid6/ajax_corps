@@ -11,6 +11,14 @@ if global.debugMode
 	if keyboard_check(ord("G")) global.godMode=true
 	layer_set_visible("collision",true)
 	
+	if room==rm_testRoom
+	{
+		with obj_player.weapon
+		{
+			inReserve=infinity
+		}
+	}
+	
 	switch keyboard_key
 	{
 		case ord("1"):

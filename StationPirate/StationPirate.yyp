@@ -127,6 +127,7 @@
     {"id":{"name":"spr_roomTransition","path":"sprites/spr_roomTransition/spr_roomTransition.yy",},"order":2,},
     {"id":{"name":"fnt_hud_health","path":"fonts/fnt_hud_health/fnt_hud_health.yy",},"order":1,},
     {"id":{"name":"MSDF_Guide","path":"notes/MSDF_Guide/MSDF_Guide.yy",},"order":6,},
+    {"id":{"name":"rooms","path":"scripts/rooms/rooms.yy",},"order":8,},
     {"id":{"name":"spr_testBullet","path":"sprites/spr_testBullet/spr_testBullet.yy",},"order":0,},
     {"id":{"name":"CleanAntialiasSet","path":"scripts/CleanAntialiasSet/CleanAntialiasSet.yy",},"order":7,},
     {"id":{"name":"scribble_typewriter_add_event","path":"scripts/scribble_typewriter_add_event/scribble_typewriter_add_event.yy",},"order":3,},

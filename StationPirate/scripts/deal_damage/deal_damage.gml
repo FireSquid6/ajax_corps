@@ -46,8 +46,10 @@ function deal_damage(_dmg,_id)
         //play sound
         audio_play_sound(snd_smallDamage,hitPriority,false)
         
+		var clr=c_white
+		if _id==obj_player.id clr=c_red
         //create popup
-        create_popup(_id.x,_id.y,string(_dmg),fnt_popup_damage,get_popup_color(_dmg),0.01,0.5,270)
+        create_popup(_id.x,_id.y,string(_dmg),fnt_popup_damage,clr,0.01,0.5,270)
         
         //set last hit
         _id.lastHit=0

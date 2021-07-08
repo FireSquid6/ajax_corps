@@ -27,7 +27,7 @@ enum attackStates
 #region PARENT PROPERTIES
 
 //line of sight
-function enemy_line_of_sight(_x,_y)
+function line_of_sight_is_blocked(_x,_y)
 {
 	var ret=collision_line_tile(_x,_y,obj_player.x,obj_player.y,global.collisionTilemap)
 	return ret
@@ -123,13 +123,13 @@ function enemy_draw()
 		draw_self();
 
 		//right arm
-		draw_sprite_ext(spr_enemyArm,1,
+		draw_sprite_ext(armSprite,1,
 		x+lengthdir_x(ARM_DIST,image_angle+rArmPos),
 		y+lengthdir_y(ARM_DIST,image_angle+rArmPos),
 		1,1,image_angle,c_white,1);
 
 		//left arm
-		draw_sprite_ext(spr_enemyArm,1,
+		draw_sprite_ext(armSprite,1,
 		x+lengthdir_x(ARM_DIST,image_angle+lArmPos),
 		y+lengthdir_y(ARM_DIST,image_angle+lArmPos),
 		1,1,image_angle,c_white,1);
@@ -167,7 +167,11 @@ function enemy_draw()
 	//debug
 	if global.debugMode
 	{
-		draw_text(x,y-105,"state"+string(state))
+		var ammo="null"
+		if variable_struct_exists(weapon,"inMag") ammo=weapon.inMag
+		draw_text(x,y-105,"state "+string(state))
+		draw_text(x,y-115,"ammo "+string(ammo))
+		draw_text(x,y-125,"shoot "+string(key_shoot))
 	}
 }
 
@@ -194,6 +198,7 @@ function enemy_patrol()
 {
 	if obj_player.alive
 	{
+		key_shoot=false
 		switch patrolType
 		{
 			case patrolTypes.circle:
@@ -262,6 +267,7 @@ function engager_init()
 	state=engagerStates.patrolling;
 	attackPath=path_add();
 	searchPath=path_add();
+	armSprite=spr_enemyArm
 }
 
 //STEP
@@ -270,7 +276,7 @@ function engager_step()
 	switch state
 	{
 		case engagerStates.patrolling:
-			if !enemy_line_of_sight(x,y)
+			if !line_of_sight_is_blocked(x,y)
 			{
 				engager_switch_attack(attackStates.shooting);
 			}
@@ -320,7 +326,7 @@ function engager_attack()
 		}
 		
 		//check if seeing player
-		if enemy_line_of_sight(x,y) || enemy_alerted() engager_switch_search()
+		if line_of_sight_is_blocked(x,y) || enemy_alerted() engager_switch_search()
 	}
 }
 
@@ -464,7 +470,7 @@ function engager_search()
 		path_end()
 	}
 	
-	if !enemy_line_of_sight(x,y) engager_switch_attack(attackStates.pushing)
+	if !line_of_sight_is_blocked(x,y) engager_switch_attack(attackStates.pushing)
 }
 
 function engager_switch_search()
@@ -489,7 +495,10 @@ function turret_init()
 	maxSnipeTime=120
 	
 	//path
-	repositionPath=path_add()	
+	repositionPath=path_add()
+	
+	//vars
+	armSprite=spr_sniperEnemyArm
 }
 
 function turret_destroy()
@@ -502,13 +511,14 @@ function turret_step()
 	switch state
 	{
 		case turretStates.patrolling:
-			if !enemy_line_of_sight(x,y)
+			if !line_of_sight_is_blocked(x,y)
 			{
 				turret_switch_snipe();
 			}
 			enemy_patrol()
 			break
 		case turretStates.sniping:
+			if instance_exists(obj_player) weapon.step() else enemy_switch_patrol()
 			turret_snipe()
 			break
 		case turretStates.repositioning:
@@ -539,6 +549,7 @@ function turret_switch_snipe()
 
 function turret_reposition()
 {
+	key_shoot=false
 	if path_position==0 path_start(repositionPath,repositionSpd,path_action_stop,true)
 	
 	if path_position==1
@@ -557,7 +568,7 @@ function turret_switch_reposition()
 	#macro REPOSITION_MIN 160
 	#macro REPOSITION_MAX 256
 	#macro REPOSITION_DIR_VARIABLE 60
-	#macro REPOSITION_REPS 24
+	#macro REPOSITION_REPS 48
 	var pdir=point_direction(x,y,obj_player.x,obj_player.y)-180
 	var dirMin=pdir-REPOSITION_DIR_VARIABLE
 	var dirMax=pdir+REPOSITION_DIR_VARIABLE //i love u || I love you too
@@ -567,16 +578,21 @@ function turret_switch_reposition()
 	{
 		reposition_range=irandom_range(REPOSITION_MIN,REPOSITION_MAX)
 		reposition_dir=irandom_range(dirMin,dirMax)
-		if reps>12 reposition_dir+=180
+		if reps>REPOSITION_REPS*0.5 reposition_dir+=180
 		xx=x+lengthdir_x(reposition_range,reposition_dir)
 		yy=y+lengthdir_y(reposition_range,reposition_dir)
 		canPath=mp_grid_path(global.motionGrid,repositionPath,x,y,xx,yy,true)
-		if canPath
+		if canPath && !line_of_sight_is_blocked(xx,yy)
 		{
 			path_start(repositionPath,repositionSpd,path_action_stop,true)
 			break
 		}
 		reps++
+	}
+	
+	if reps==REPOSITION_REPS
+	{
+		show_debug_message("Turret instance ("+string(id)+") unable to find reposition path.")
 	}
 }
 
