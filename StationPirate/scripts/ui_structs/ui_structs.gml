@@ -134,7 +134,7 @@ function clickable_sprite(_x,_y,_sprite,_subimg) constructor
 	
 	hoverFunction=function()
 	{
-		//feel free to put your own code here or set this method to something when the struct is created for animations, sprite swaps, etc
+		//feel free to put your own code here or set this method to something when the struct is created for animations, sprite switches, etc
 	}
 	
 	draw=function()

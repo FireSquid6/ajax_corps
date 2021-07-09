@@ -124,6 +124,7 @@
     {"id":{"name":"CleanTransformOriginSet","path":"scripts/CleanTransformOriginSet/CleanTransformOriginSet.yy",},"order":5,},
     {"id":{"name":"spr_space","path":"sprites/spr_space/spr_space.yy",},"order":1,},
     {"id":{"name":"scribble_font_set_default","path":"scripts/scribble_font_set_default/scribble_font_set_default.yy",},"order":4,},
+    {"id":{"name":"Sprite70","path":"sprites/Sprite70/Sprite70.yy",},"order":0,},
     {"id":{"name":"spr_none","path":"sprites/spr_none/spr_none.yy",},"order":1,},
     {"id":{"name":"spr_roomTransition","path":"sprites/spr_roomTransition/spr_roomTransition.yy",},"order":2,},
     {"id":{"name":"fnt_hud_health","path":"fonts/fnt_hud_health/fnt_hud_health.yy",},"order":1,},
@@ -328,6 +329,7 @@
     {"folderPath":"folders/Ajax Corps/Data/Scripts/Gameplay/Weapons.yy","order":7,"resourceVersion":"1.0","name":"Weapons","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Libraries/FSLIB/Math.yy","order":3,"resourceVersion":"1.0","name":"Math","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Libraries/FSLIB/Drawing.yy","order":4,"resourceVersion":"1.0","name":"Drawing","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Ajax Corps/Assets/UI.yy","order":16,"resourceVersion":"1.0","name":"UI","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
