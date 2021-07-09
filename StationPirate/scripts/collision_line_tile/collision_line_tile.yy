@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Tile Collision",
-    "path": "folders/Libraries/Tile Collision.yy",
+    "path": "folders/Libraries/Quick Scripts/Tile Collision.yy",
   },
   "resourceVersion": "1.0",
   "name": "collision_line_tile",
