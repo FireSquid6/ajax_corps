@@ -29,14 +29,15 @@
   "properties": [
     {"varType":1,"value":"100","rangeEnabled":false,"rangeMin":0.0,"rangeMax":300.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"maxHealth","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":2,"value":"none","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"weapon_string","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"-1","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"inReserve","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"4","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"patrolSpd","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"patrolPresetType","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"reflex","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Parents",
-    "path": "folders/Ajax Corps/Data/Meta/Parents.yy",
+    "name": "Enemy",
+    "path": "folders/Ajax Corps/Data/Level Building/Enemy.yy",
   },
   "resourceVersion": "1.0",
   "name": "par_enemy",

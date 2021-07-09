@@ -263,7 +263,7 @@ function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructo
 	
 	maxCooldown=10
 	reloadTime=80
-	magSize=24
+	magSize=12
 	switchTime=30
 	
 	inMag=magSize

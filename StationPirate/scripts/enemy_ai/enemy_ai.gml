@@ -56,6 +56,8 @@ function enemy_init()
 	weapon=get_weapon_struct(weapon_string,weaponTeams.enemy,id);
 	weapon.equip();
 	
+	if inReserve>=0 weapon.inReserve=inReserve else weapon.inReserve=(weapon.magSize*(abs(inReserve)))
+	
 	//path
 	patrolPath=path_add();
 	
@@ -75,11 +77,11 @@ function enemy_step()
 		//check if can execute
 		if hp<=(maxHealth*global.execute_factor) canExecute=true else canExecute=false
 	
-		//check if out of ammo
-		if weapon.inMag==0 
+		//check if weapon empty
+		if weapon.inReserve==0 && weapon.inMag==0
 		{
-			weapon=get_weapon_struct("melee",weaponTeams.enemy,id);
-			weapon.equip();
+			weapon=new weapon_none(weaponTeams.enemy,id)
+			weapon.equip()
 		}
 		
 		//kill
@@ -492,7 +494,6 @@ function turret_init()
 {
 	//make these room variables later
 	repositionSpd=4
-	maxSnipeTime=120
 	
 	//path
 	repositionPath=path_add()
@@ -530,8 +531,7 @@ function turret_step()
 function turret_snipe()
 {
 	//check if ended
-	snipeTime--
-	if snipeTime<=1 turret_switch_reposition()
+	if weapon.reloading turret_switch_reposition()
 	
 	//shoot
 	key_shoot=true
@@ -543,7 +543,6 @@ function turret_snipe()
 function turret_switch_snipe()
 {
 	state=turretStates.sniping
-	snipeTime=maxSnipeTime
 	path_end()
 }
 
