@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Weapon Data",
-    "path": "folders/Ajax Corps/Data/Scripts/Weapon Data.yy",
+    "name": "Weapons",
+    "path": "folders/Ajax Corps/Data/Scripts/Gameplay/Weapons.yy",
   },
   "resourceVersion": "1.0",
   "name": "weapons",
