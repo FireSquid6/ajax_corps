@@ -1,1 +1,1 @@
-part_system_destroy(global.partSystem)
+if part_system_exists(global.partSystem) part_system_destroy(global.partSystem)

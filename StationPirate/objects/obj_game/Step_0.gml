@@ -42,19 +42,22 @@ else
 }
 
 //pause
-key_pause=keyboard_check_pressed(vk_escape)
-
-if key_pause
+if room!=rm_titleScreen
 {
-	paused=!paused
-	if paused
+	key_pause=keyboard_check_pressed(vk_escape)
+
+	if key_pause
 	{
-		instance_deactivate_all(true)
-		instance_create_layer(x,y,"meta",obj_pause)
-	}
-	else
-	{
-		instance_activate_all()
-		instance_destroy(obj_pause)
+		paused=!paused
+		if paused
+		{
+			instance_deactivate_all(true)
+			instance_create_layer(x,y,"meta",obj_pause)
+		}
+		else
+		{
+			instance_activate_all()
+			instance_destroy(obj_pause)
+		}
 	}
 }

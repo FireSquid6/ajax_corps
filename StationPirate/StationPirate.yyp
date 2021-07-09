@@ -31,6 +31,7 @@
     {"id":{"name":"snd_mediumDamage","path":"sounds/snd_mediumDamage/snd_mediumDamage.yy",},"order":2,},
     {"id":{"name":"spr_laserBase","path":"sprites/spr_laserBase/spr_laserBase.yy",},"order":0,},
     {"id":{"name":"spr_sniperEnemyArm","path":"sprites/spr_sniperEnemyArm/spr_sniperEnemyArm.yy",},"order":4,},
+    {"id":{"name":"setup_camera","path":"scripts/setup_camera/setup_camera.yy",},"order":10,},
     {"id":{"name":"spr_qe","path":"sprites/spr_qe/spr_qe.yy",},"order":2,},
     {"id":{"name":"spr_coltiles","path":"sprites/spr_coltiles/spr_coltiles.yy",},"order":0,},
     {"id":{"name":"snd_weaponPickup","path":"sounds/snd_weaponPickup/snd_weaponPickup.yy",},"order":1,},

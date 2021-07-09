@@ -1,8 +1,7 @@
 draw_set_alpha(1)
 
 //cursor
-
-if paused
+if paused || !instance_exists(obj_player)
 {
 	draw_sprite(spr_cursor,0,mouse_x,mouse_y)
 }
