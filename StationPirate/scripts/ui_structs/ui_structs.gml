@@ -1,6 +1,7 @@
-function __ui_check_hover()
+//SYSTEM FUNCTIONS
+function __ui_check_hover(_x1,_y1,_x2,_y2)
 {
-	if point_in_rectangle(mouse_x,mouse_y,shape.__left,shape.__top,shape.__right,shape.__bottom) return true
+	if point_in_rectangle(mouse_x,mouse_y,_x1,_y1,_x2,_y2) return true
 	return false
 }
 
@@ -10,122 +11,146 @@ function __ui_check_clicked(_hover)
 	return false
 }
 
-function clickable_box(_x1,_y1,_x2,_y2,_text) constructor
+function clickable_sprite(_x,_y,_sprite,_subimg) constructor
 {
-	//init structs
-	shape=new CleanRectangle(_x1,_y1,_x2,_y2)
-	text=new scribble(_text)
-	
 	#region MODIFYING FUNCTIONS
-	//SHAPE BLEND
-	addBlend=function(_blend,_hoverblend)
+	//change format
+	changeFormat=function(_defaultsubimg,_defaultblend,_defaultalpha)
 	{
-		ChangeBlend=true
-		doBlend=true
-		OriginalBlendColor=_blend
-		ChangeBlendColor=_hoverblend
-	}
-	removeBlend=function()
-	{
-		doBlend=false
-		ChangeBlend=false
+		blend=_defaultblend
+		subimage=_defaultsubimg
+		alpha=_defaultalpha
 	}
 	
-	//BORDER BLEND
-	addBorder=function(_thickness,_hover_thickness,_blend,_hover_blend)
+	//overlay
+	addOverlayChange=function(_color,_alpha) //ONLY WORKS IF ORIGIN IS IN THE CENTER OF THE SPRITE
 	{
-		ChangeBorder=true
-		doBorder=true
-		OriginalBorderThickness=_thickness
-		ChangeBorderThickness=_hover_thickness
-		OriginalBorderColor=_blend
-		ChangeBorderColor=_hover_blend
+		doOverlayChange=true
+		overlayChangeColor=_color
+		overlayChangeAlpha=_alpha
 	}
-	removeBorder=function()
+	removeOverlayChange=function()
 	{
-		ChangeBorder=false
-		doBorder=false
+		doOverlayChange=false
 	}
 	
-	//TEXT
-	formatText=function(_font,_color,_scale,_padding)
+	//subimg
+	addSubimgChange=function(_othersubimg)
 	{
-		text.starting_format(_font,_color)
-		text.transform(_scale,_scale,0)
-		text.padding=_padding
+		doSubimgChange=true
+		subimgChangeSubimg=_othersubimg
+	}
+	removeSubimgChange=function()
+	{
+		doSubimgChange=false
+	}
+	
+	//blend
+	addBlendChange=function(_color,_alpha)
+	{
+		doBlendChange=true
+		blendChangeColor=_color
+		blendChangeAlpha=_alpha
+	}
+	removeBlendChange=function()
+	{
+		doBlendChange=false
 	}
 	
 	#endregion
 	
-	#region DEFAULT VARIABLES
-	//////////////////////////////
-	//shape
-	//format
-	doBlend=true
-	doBorder=true
-	shape.Rounding(16)
+	#region DEFAULT VARS
+	//sprite format
+	x=_x
+	y=_y
+	sprite_index=_sprite
 	
-	//border
-	shape.ChangeBorder=false
-	shape.ChangeBorderColor=c_white
-	shape.ChangeBorderThickness=16
-	shape.OriginalBorderColor=c_white
-	shape.OriginalBorderThickness=16
+	image_index=_subimg
+	image_xscale=1
+	image_yscale=1
+	image_blend=c_white
+	image_angle=0
+	image_alpha=1
+	subimg=_subimg
+	blend=c_white
+	alpha=1
+	width=sprite_get_width(sprite_index)*image_xscale
+	height=sprite_get_height(sprite_index)*image_yscale
 	
-	shape.Border(shape.OriginalBorderThickness,shape.OriginalBorderColor,1)
+	isSelected=false
 	
-	//blend
-	shape.ChangeBlend=false
-	shape.OriginalBlendColor=c_white
-	shape.ChangeBlendColor=c_white
+	//subimage change
+	doSubimgChange=false
+	subimgChangeSubimg=1
 	
-	text.Blend(OriginalBlendColor,1)
+	//overlay change
+	doOverlayChange=false
+	overlayChangeColor=c_white
+	overlayChangeAlpha=1
 	
-	//////////////////////////////
-	//text
-	//format	
-	text.starting_format(arial,c_white)
-	text.transform(1,1,0)
-	
-	//positioning
-	text.padding=8
-	text.origin((_x1+((_x1-_x2)*0.5)),(_y1+((_y1-_y2)*0.5)))
-	text.wrap((_x1-_x2)-text.padding*2,(_y1-_y2)-text.padding*2,false)
-	text.align(fa_center,fa_middle)
+	//blend change
+	doBlendChange=false
+	blendChangeColor=c_white
+	blendChangeAlpha=1
 	#endregion
 	
 	#region STEP FUNCTIONS
 	update=function()
 	{
-		var hover=__ui_check_hover()
+		//get width and height
+		width=sprite_get_width(sprite_index)*image_xscale
+		height=sprite_get_height(sprite_index)*image_yscale
 		
-		shape.Border(shape.OriginalBorderThickness,shape.OriginalBorderColor,1)
-		shape.Blend(shape.OriginalBlendColor,1)
+		//get hover
+		isSelected=__ui_check_hover(x,y,x+width,y+height)
+		if __ui_check_clicked(isSelected) onClick()
 		
-		if hover
+		image_index=subimg
+		image_blend=blend
+		image_alpha=alpha
+		
+		if isSelected
 		{
-			//border
-			if shape.ChangeBorder shape.Border(shape.ChangeBorderThickness,shape.ChangeBorderColor,1)
+			hoverFunction()
 			
-			//blend
-			if shape.ChangeBlend shape.Blend(shape.ChangeBlendColor,1)
+			//change based on hover
+			if doSubimgChange
+			{
+				image_index=subimgChangeSubimg
+			}
+			if doBlendChange
+			{
+				image_blend=blendChangeColor
+				image_alpha=blendChangeAlpha
+			}
 		}
 		
-		//click
-		if __ui_check_clicked(hover) onClick()
-		
-		//if don't do blend or border
-		if !doBlend shape.Blend(c_white,0)
-		if !doBorder shape.Border(1,c_white,0)
 	}
+	
 	onClick=function()
 	{
-		
+		//set this method to something useful post-create
 	}
+	
+	hoverFunction=function()
+	{
+		//feel free to put your own code here or set this method to something when the struct is created for animations, sprite swaps, etc
+	}
+	
 	draw=function()
 	{
-		shape.Draw()
-		text.Draw()
+		draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha)
+		if doOverlayChange && isSelected
+		{
+			draw_set_alpha(overlayChangeAlpha)
+			draw_set_color(overlayChangeColor)
+			
+			draw_rectangle(x,y,x+width,y+height,false)
+			
+			draw_set_alpha(1)
+			draw_set_color(1)
+		}
 	}
+	
 	#endregion
 }
