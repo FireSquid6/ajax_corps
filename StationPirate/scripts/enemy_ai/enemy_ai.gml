@@ -76,13 +76,6 @@ function enemy_step()
 		
 		//check if can execute
 		if hp<=(maxHealth*global.execute_factor) canExecute=true else canExecute=false
-	
-		//check if weapon empty
-		if weapon.inReserve==0 && weapon.inMag==0
-		{
-			weapon=new weapon_none(weaponTeams.enemy,id)
-			weapon.equip()
-		}
 		
 		//kill
 		if hp<1 

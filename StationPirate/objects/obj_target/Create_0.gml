@@ -1,2 +1,2 @@
+flashTime=0
 armSprite=spr_none
-event_inherited()
