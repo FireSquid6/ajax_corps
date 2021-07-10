@@ -251,7 +251,7 @@
   ],
   "Folders": [
     {"folderPath":"folders/Ajax Corps/Data.yy","order":0,"resourceVersion":"1.0","name":"Data","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Ajax Corps/Assets.yy","order":2,"resourceVersion":"1.0","name":"Assets","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Ajax Corps/Assets.yy","order":1,"resourceVersion":"1.0","name":"Assets","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Assets/Player.yy","order":0,"resourceVersion":"1.0","name":"Player","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Data/Levels.yy","order":1,"resourceVersion":"1.0","name":"Levels","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Assets/Level Building/Tilesets.yy","order":1,"resourceVersion":"1.0","name":"Tilesets","tags":[],"resourceType":"GMFolder",},
@@ -321,7 +321,7 @@
     {"folderPath":"folders/Ajax Corps/Data/Level Building/Enemy/Engager.yy","order":0,"resourceVersion":"1.0","name":"Engager","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Data/Level Building/Enemy/Turret.yy","order":1,"resourceVersion":"1.0","name":"Turret","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Ajax Corps/Data/Scripts/Pickups.yy","order":6,"resourceVersion":"1.0","name":"Pickups","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Libraries/Clean Shapes.yy","order":3,"resourceVersion":"1.0","name":"Clean Shapes","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Libraries/Clean Shapes.yy","order":2,"resourceVersion":"1.0","name":"Clean Shapes","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Libraries/Clean Shapes/(System).yy","order":1,"resourceVersion":"1.0","name":"(System)","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Libraries/Clean Shapes/Batches.yy","order":2,"resourceVersion":"1.0","name":"Batches","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Libraries/Clean Shapes/Shapes.yy","order":3,"resourceVersion":"1.0","name":"Shapes","tags":[],"resourceType":"GMFolder",},
