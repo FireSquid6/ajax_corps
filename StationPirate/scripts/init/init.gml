@@ -1,6 +1,10 @@
 //room mapping
 room_structure_init()
 
+//nine slice
+var nineslice=sprite_get_nineslice(spr_ui_selector)
+sprite_set_nineslice(spr_ui_selector,nineslice)
+
 //scribble
 scribble_font_add("arial")
 scribble_font_add("eightbit")

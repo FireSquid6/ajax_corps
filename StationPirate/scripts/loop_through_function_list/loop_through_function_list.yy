@@ -6,7 +6,7 @@
     "path": "folders/Libraries/FSLIB/Shortcuts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "between",
+  "name": "loop_through_function_list",
   "tags": [],
   "resourceType": "GMScript",
 }

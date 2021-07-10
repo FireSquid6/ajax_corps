@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Shortcuts",
-    "path": "folders/Libraries/FSLIB/Shortcuts.yy",
+    "name": "UI",
+    "path": "folders/Ajax Corps/Data/Scripts/UI.yy",
   },
   "resourceVersion": "1.0",
-  "name": "between",
+  "name": "extra_functions",
   "tags": [],
   "resourceType": "GMScript",
 }

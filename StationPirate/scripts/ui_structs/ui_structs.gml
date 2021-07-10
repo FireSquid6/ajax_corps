@@ -1,16 +1,26 @@
-//SYSTEM FUNCTIONS
+//NOTE: THIS SCRIPT REQUIRES BOTH SCRIBBLE AND CLEAN SHAPES
+//https://github.com/JujuAdams/scribble
+//https://github.com/JujuAdams/Clean-Shapes
+
+//SYSTEM FUNCTIONS - EDIT THESE TO CHANGE HOW THE SYSTEM PERCIEVES HOVERING AND CLICKING
+
+//Checks if this UI element is "selected"
 function __ui_check_hover(_x1,_y1,_x2,_y2)
 {
 	if point_in_rectangle(mouse_x,mouse_y,_x1,_y1,_x2,_y2) return true
 	return false
 }
 
+//Checks if this UI element has been "clicked" on
 function __ui_check_clicked(_hover)
 {
 	if _hover && mouse_check_button_pressed(mb_left) return true
 	return false
 }
 
+//CLICKABLE RECTANGLE
+
+//CLICKABLE SPRITE
 function clickable_sprite(_x,_y,_sprite,_subimg) constructor
 {
 	#region MODIFYING FUNCTIONS
@@ -18,8 +28,15 @@ function clickable_sprite(_x,_y,_sprite,_subimg) constructor
 	changeFormat=function(_defaultsubimg,_defaultblend,_defaultalpha)
 	{
 		blend=_defaultblend
-		subimage=_defaultsubimg
+		subimg=_defaultsubimg
 		alpha=_defaultalpha
+	}
+	
+	//transform
+	scale=function(_scale)
+	{
+		image_xscale=_scale
+		image_yscale=_scale
 	}
 	
 	//overlay
@@ -95,6 +112,12 @@ function clickable_sprite(_x,_y,_sprite,_subimg) constructor
 	#endregion
 	
 	#region STEP FUNCTIONS
+	//lists
+	updateFunctions=ds_list_create()
+	postDrawFunctions=ds_list_create()
+	preDrawFunctions=ds_list_create()
+	
+	//functions
 	update=function()
 	{
 		//get width and height
@@ -109,10 +132,12 @@ function clickable_sprite(_x,_y,_sprite,_subimg) constructor
 		image_blend=blend
 		image_alpha=alpha
 		
+		//added functions
+		loop_through_function_list(updateFunctions)
+		
+		//apply changes
 		if isSelected
 		{
-			hoverFunction()
-			
 			//change based on hover
 			if doSubimgChange
 			{
@@ -132,14 +157,17 @@ function clickable_sprite(_x,_y,_sprite,_subimg) constructor
 		//set this method to something useful post-create
 	}
 	
-	hoverFunction=function()
-	{
-		//feel free to put your own code here or set this method to something when the struct is created for animations, sprite switches, etc
-	}
-	
 	draw=function()
 	{
+		//pre draw
+		loop_through_function_list(preDrawFunctions)
+		
 		draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha)
+		
+		//post draw
+		loop_through_function_list(postDrawFunctions)
+		
+		//overlay
 		if doOverlayChange && isSelected
 		{
 			draw_set_alpha(overlayChangeAlpha)
@@ -154,3 +182,9 @@ function clickable_sprite(_x,_y,_sprite,_subimg) constructor
 	
 	#endregion
 }
+
+//OPTIONS BOX
+
+//UI BAR
+
+//CHECKBOX
