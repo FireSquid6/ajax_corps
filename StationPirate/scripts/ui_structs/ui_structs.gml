@@ -34,10 +34,10 @@ function clickable_sprite(_x,_y,_sprite,_subimg) constructor
 	}
 	
 	//transform
-	scale=function(_scale)
+	scale=function(_xscale,_yscale)
 	{
-		image_xscale=_scale
-		image_yscale=_scale
+		image_xscale=_xscale
+		image_yscale=_yscale
 	}
 	
 	//overlay
