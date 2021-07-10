@@ -9,7 +9,7 @@ if global.debugMode
 {
 	if keyboard_check_pressed(vk_tab) game_restart()
 	if keyboard_check(ord("G")) global.godMode=true
-	layer_set_visible("collision",true)
+	if instance_exists(obj_player) layer_set_visible("collision",true)
 	
 	if room==rm_testRoom
 	{
@@ -38,7 +38,7 @@ if global.debugMode
 else
 {
 	if keyboard_check_pressed(vk_tab) game_end()
-	layer_set_visible("collision",false)
+	if instance_exists(obj_player) layer_set_visible("collision",false)
 }
 
 //pause

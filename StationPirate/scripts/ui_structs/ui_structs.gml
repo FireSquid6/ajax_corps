@@ -7,8 +7,9 @@
 //Checks if this UI element is "selected"
 function __ui_check_hover(_x1,_y1,_x2,_y2)
 {
-	if point_in_rectangle(mouse_x,mouse_y,_x1,_y1,_x2,_y2) return true
-	return false
+	var ret=false
+	if point_in_rectangle(mouse_x,mouse_y,_x1,_y1,_x2,_y2) ret=true
+	return ret
 }
 
 //Checks if this UI element has been "clicked" on
@@ -158,7 +159,7 @@ function clickable_sprite(_x,_y,_sprite,_subimg) constructor
 	}
 	
 	draw=function()
-	{
+	{	
 		//pre draw
 		loop_through_function_list(preDrawFunctions)
 		
@@ -178,6 +179,8 @@ function clickable_sprite(_x,_y,_sprite,_subimg) constructor
 			draw_set_alpha(1)
 			draw_set_color(1)
 		}
+		
+		draw_text(x,y,string(isSelected))
 	}
 	
 	#endregion
