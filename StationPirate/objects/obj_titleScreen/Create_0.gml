@@ -11,3 +11,5 @@ genericBox.changeFormat(1,c_red,1)
 genericBox.scale(2,4)
 genericBox.addSubimgChange(2)
 ds_list_add(genericBox.postDrawFunctions,draw_ui_outline)
+
+room=rm_level_1_1

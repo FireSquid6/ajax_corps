@@ -206,6 +206,7 @@
     {"id":{"name":"spr_lmb","path":"sprites/spr_lmb/spr_lmb.yy",},"order":3,},
     {"id":{"name":"obj_transition","path":"objects/obj_transition/obj_transition.yy",},"order":5,},
     {"id":{"name":"pixeled","path":"fonts/pixeled/pixeled.yy",},"order":2,},
+    {"id":{"name":"rm_level_1_4","path":"rooms/rm_level_1_4/rm_level_1_4.yy",},"order":4,},
     {"id":{"name":"spr_mediumBullet","path":"sprites/spr_mediumBullet/spr_mediumBullet.yy",},"order":5,},
     {"id":{"name":"obj_pickup","path":"objects/obj_pickup/obj_pickup.yy",},"order":0,},
     {"id":{"name":"__scribble_class_null_model","path":"scripts/__scribble_class_null_model/__scribble_class_null_model.yy",},"order":5,},
@@ -248,6 +249,7 @@
     {"roomId":{"name":"rm_template","path":"rooms/rm_template/rm_template.yy",},},
     {"roomId":{"name":"rm_level_1_2","path":"rooms/rm_level_1_2/rm_level_1_2.yy",},},
     {"roomId":{"name":"rm_testRoom","path":"rooms/rm_testRoom/rm_testRoom.yy",},},
+    {"roomId":{"name":"rm_level_1_4","path":"rooms/rm_level_1_4/rm_level_1_4.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Ajax Corps/Data.yy","order":0,"resourceVersion":"1.0","name":"Data","tags":[],"resourceType":"GMFolder",},
