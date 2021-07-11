@@ -55,6 +55,18 @@ part_type_color_mix(p,$00007c,$1a1aff)
 
 global.ptDead=p
 
+//poison particle
+#macro POISON_PARTICLES_AMOUNT 2
+p=part_type_create()
+part_type_shape(p,pt_shape_pixel)
+part_type_life(p,60,80)
+part_type_size(p,4,6,-0.1,0)
+part_type_direction(p,0,360,0,5)
+part_type_speed(p,0.1,0.4,-0.01,0)
+part_type_color_mix(p,$1bff3f,$008f17)
+
+global.ptPoison=p
+
 //ARM POSITIONS
 global.arm_pos_walking=
 {

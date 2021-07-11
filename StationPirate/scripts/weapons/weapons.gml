@@ -210,6 +210,7 @@ function weapon_pistol(_team,_obj) : weapon_parent(_team,_obj) constructor
 	{
 		if reloading
 		{
+			draw_set_alpha(1)
 			draw_healthbar(mouse_x-15,mouse_y-18,mouse_x+15,mouse_y-26,(cooldown/reloadTime)*100,c_white,c_white,c_white,0,false,true)
 		}
 	}
@@ -277,7 +278,6 @@ function weapon_assault_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructo
 		set_arms()
 		ext_equip()
 	}
-	
 }
 
 function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
@@ -301,7 +301,7 @@ function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 	
 	maxCooldown=60
 	reloadTime=50
-	magSize=4
+	magSize=8
 	switchTime=maxCooldown
 	
 	inMag=magSize
@@ -328,10 +328,30 @@ function weapon_pump_shotgun(_team,_obj) : weapon_pistol(_team,_obj) constructor
 	}
 }
 
-//function weapon_sniper(_team,_obj) : weapon_parent(_team,_obj) constructor
-//{
+function weapon_sniper(_team,_obj) : weapon_pistol(_team,_obj) constructor
+{
+	shootSound=snd_shootPistol
 	
-//}
+	weapon_sprite=spr_sniper
+	bullet_sprite=spr_sniperBullet
+	pickup_sprite=spr_sniperPickup
+	
+	display_name="POISON DART FROG"
+	dmg=100
+	bulletSpd=20
+	lifespan=120
+	
+	arms=global.arm_pos_rifle
+	
+	maxCooldown=60
+	reloadTime=120
+	magSize=4
+	
+	inMag=magSize
+	reserveSize=magSize*10
+	inReserve=inMag*5
+	cooldown=0
+}
 
 //function weapon_charge_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructor
 //{

@@ -324,6 +324,10 @@
             {"properties":[],"isDnd":false,"objectId":{"name":"obj_levelBuildAmmo","path":"objects/obj_levelBuildAmmo/obj_levelBuildAmmo.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2288.0,"y":288.0,"resourceVersion":"1.0","name":"inst_13BFCA98","tags":[],"resourceType":"GMRInstance",},
             {"properties":[],"isDnd":false,"objectId":{"name":"obj_levelBuildAmmo","path":"objects/obj_levelBuildAmmo/obj_levelBuildAmmo.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2320.0,"y":288.0,"resourceVersion":"1.0","name":"inst_42FEFE5C","tags":[],"resourceType":"GMRInstance",},
             {"properties":[],"isDnd":false,"objectId":{"name":"obj_levelBuildAmmo","path":"objects/obj_levelBuildAmmo/obj_levelBuildAmmo.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2352.0,"y":288.0,"resourceVersion":"1.0","name":"inst_2BADD6B5","tags":[],"resourceType":"GMRInstance",},
+            {"properties":[
+                {"propertyId":{"name":"weapon_string","path":"objects/obj_levelBuildWeapon/obj_levelBuildWeapon.yy",},"objectId":{"name":"obj_levelBuildWeapon","path":"objects/obj_levelBuildWeapon/obj_levelBuildWeapon.yy",},"value":"sniper","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+                {"propertyId":{"name":"inReserve","path":"objects/obj_levelBuildWeapon/obj_levelBuildWeapon.yy",},"objectId":{"name":"obj_levelBuildWeapon","path":"objects/obj_levelBuildWeapon/obj_levelBuildWeapon.yy",},"value":"999","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+              ],"isDnd":false,"objectId":{"name":"obj_levelBuildWeapon","path":"objects/obj_levelBuildWeapon/obj_levelBuildWeapon.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2464.0,"y":432.0,"resourceVersion":"1.0","name":"inst_3B8EC539","tags":[],"resourceType":"GMRInstance",},
           ],"visible":true,"depth":1000,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"pickups","tags":[],"resourceType":"GMRInstanceLayer",},
       ],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRLayer",},
     {"assets":[],"visible":true,"depth":1100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"decorations","tags":[],"resourceType":"GMRAssetLayer",},
@@ -521,6 +525,7 @@
     {"name":"inst_2BADD6B5","path":"rooms/rm_testRoom/rm_testRoom.yy",},
     {"name":"inst_6EB071FF","path":"rooms/rm_testRoom/rm_testRoom.yy",},
     {"name":"inst_361FEDDF","path":"rooms/rm_testRoom/rm_testRoom.yy",},
+    {"name":"inst_3B8EC539","path":"rooms/rm_testRoom/rm_testRoom.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
