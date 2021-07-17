@@ -353,6 +353,31 @@ function weapon_sniper(_team,_obj) : weapon_pistol(_team,_obj) constructor
 	cooldown=0
 }
 
+function weapon_spray_pistol(_team,_obj) : weapon_pistol(_team,_obj) constructor
+{
+	shootSound=snd_shootPistol
+	
+	weapon_sprite=spr_spray
+	bullet_sprite=spr_lightBullet
+	pickup_sprite=spr_sprayPickup
+	
+	display_name="HYS HANDGUN"
+	dmg=25
+	bulletSpd=40
+	lifespan=120
+	
+	arms=global.arm_pos_handgun
+	
+	maxCooldown=3
+	reloadTime=15
+	magSize=120
+	
+	inMag=magSize
+	reserveSize=magSize*10
+	inReserve=inMag*5
+	cooldown=0
+}
+
 //function weapon_charge_rifle(_team,_obj) : weapon_pistol(_team,_obj) constructor
 //{
 	

@@ -30,7 +30,8 @@ enum weaponIds
 	pumpShotgun,
 	autoShotgun,
 	assaultRifle,
-	sniper
+	sniper,
+	sprayPistol
 }
 
 function get_weapon_struct(str,team,obj)
@@ -77,6 +78,9 @@ function get_weapon_struct(str,team,obj)
 		case "sniper":
 			w=new weapon_sniper(team,obj)
 			break
+		case "spray_pistol":
+			w=new weapon_spray_pistol(team,obj)
+			break
 	}
 	if w!=0 return w else return -1
 }
@@ -107,6 +111,9 @@ function get_weapon_string(_struct)
 		    break
 		case weaponIds.sniper:
 			s="sniper"
+			break
+		case weaponIds.sprayPistol:
+			s="spray_pistol"
 			break
 	}
 	if s!="null" return s else return -1
