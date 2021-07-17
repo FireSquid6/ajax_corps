@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_smallDamage.wav",
-  "duration": 0.149898,
+  "duration": 0.144898,
   "parent": {
     "name": "Hit",
     "path": "folders/Ajax Corps/Assets/Sounds/Hit.yy",

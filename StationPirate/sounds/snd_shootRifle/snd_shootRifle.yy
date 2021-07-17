@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_shootRifle.mp3",
-  "duration": 0.396837,
+  "duration": 0.391837,
   "parent": {
     "name": "Shoot",
     "path": "folders/Ajax Corps/Assets/Sounds/Shoot.yy",

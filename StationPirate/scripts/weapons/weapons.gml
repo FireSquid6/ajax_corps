@@ -338,7 +338,7 @@ function weapon_sniper(_team,_obj) : weapon_pistol(_team,_obj) constructor
 	
 	display_name="POISON DART FROG"
 	dmg=100
-	bulletSpd=20
+	bulletSpd=40
 	lifespan=120
 	
 	arms=global.arm_pos_rifle

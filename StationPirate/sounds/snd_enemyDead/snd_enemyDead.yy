@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_enemyDead",
-  "duration": 0.622347,
+  "duration": 0.617347,
   "parent": {
     "name": "Hit",
     "path": "folders/Ajax Corps/Assets/Sounds/Hit.yy",

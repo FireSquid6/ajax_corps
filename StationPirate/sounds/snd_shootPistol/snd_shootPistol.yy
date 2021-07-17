@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_shootPistol.mp3",
-  "duration": 0.266224,
+  "duration": 0.261224,
   "parent": {
     "name": "Shoot",
     "path": "folders/Ajax Corps/Assets/Sounds/Shoot.yy",
